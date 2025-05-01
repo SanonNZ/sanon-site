@@ -54,15 +54,29 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        <section className="w-full py-24 md:py-32 lg:py-40 pt-16">
+        <AnimatedSection className="w-full py-24 md:py-32 lg:py-40 pt-32 md:pt-40">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8 text-center">
-              <TypewriterHeading
-                prefix="From data to"
-                words={["decision", "insight", "conviction", "content", "clarity", "growth", "action", "credibility"]}
-                className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
-                suffix=""
-              />
+            <div className="flex flex-col items-center space-y-12 text-center">
+              <div className="space-y-6 max-w-[900px]">
+                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl">From data to</h1>
+                <div className="min-h-[70px] sm:min-h-[80px] md:min-h-[90px] flex items-center justify-center">
+                  <TypewriterHeading
+                    prefix=""
+                    words={[
+                      "decision",
+                      "insight",
+                      "conviction",
+                      "content",
+                      "clarity",
+                      "growth",
+                      "action",
+                      "credibility",
+                    ]}
+                    className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-5xl text-arcova-teal"
+                    suffix=""
+                  />
+                </div>
+              </div>
               <p className="mx-auto max-w-[700px] text-xl text-gray-600 leading-relaxed">
                 We turn complex biomedical research into clear, actionable insight.
               </p>
@@ -91,7 +105,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
         <AnimatedSection className="w-full py-16 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">

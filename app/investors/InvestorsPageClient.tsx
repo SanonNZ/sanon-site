@@ -119,24 +119,36 @@ export default function InvestorsPageClient() {
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-arcova-darkblue">
                 Scientific due diligence
               </h2>
-              <p className="text-lg text-gray-600 max-w-[700px]">
-                for informed investment decisions
-              </p>
+              <p className="text-lg text-gray-600 max-w-[700px]">for informed investment decisions</p>
             </div>
 
             <div className="grid md:grid-cols-12 gap-8">
-              {/* Left column: Modern pill tabs */}
+              {/* Left column: Modern pill tabs - square buttons on mobile */}
               <div className="md:col-span-4 flex flex-col justify-center md:py-12">
-                <div className="space-y-3">
+                <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-start">
                   {services.map((service, index) => (
                     <motion.button
                       key={service.id}
-                      onClick={() => setSelectedService(index)}
+                      onClick={() => {
+                        setSelectedService(index)
+                        // On mobile, scroll to the content card
+                        if (window.innerWidth < 768) {
+                          setTimeout(() => {
+                            const contentCard = document.getElementById("service-content-card")
+                            if (contentCard) {
+                              contentCard.scrollIntoView({ behavior: "smooth", block: "start" })
+                            }
+                          }, 100)
+                        }
+                      }}
                       onMouseEnter={() => setHoveredService(index)}
                       onMouseLeave={() => setHoveredService(null)}
                       className={cn(
-                        "relative flex items-center gap-4 p-5 rounded-2xl transition-all duration-300",
-                        "text-left overflow-hidden group w-full",
+                        "relative flex items-center justify-center transition-all duration-300",
+                        "overflow-hidden group",
+                        // Mobile: Square buttons in a row
+                        "flex-1 aspect-square md:aspect-auto md:w-full p-3 md:p-5 md:rounded-2xl",
+                        // Desktop: Pill style
                         selectedService === index
                           ? "bg-blue-50 border border-blue-200 text-arcova-blue" // Pale button style
                           : "bg-white hover:bg-gray-50 border border-transparent",
@@ -146,49 +158,54 @@ export default function InvestorsPageClient() {
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                     >
                       {/* Icon container */}
-                      <motion.div
-                        className={cn(
-                          "flex items-center justify-center w-10 h-10 rounded-full",
-                          selectedService === index ? "bg-arcova-blue text-white" : "bg-gray-100 text-gray-500",
-                        )}
-                        animate={{
-                          scale: hoveredService === index || selectedService === index ? 1.05 : 1,
-                        }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {service.icon}
-                      </motion.div>
-
-                      <div className="flex-1">
-                        <div
+                      <div className="flex flex-col items-center md:flex-row md:gap-4">
+                        <motion.div
                           className={cn(
-                            "font-medium text-lg transition-colors duration-300",
-                            selectedService === index ? "text-arcova-blue" : "text-gray-700",
+                            "flex items-center justify-center w-10 h-10 rounded-full mb-1 md:mb-0",
+                            selectedService === index ? "bg-arcova-blue text-white" : "bg-gray-100 text-gray-500",
                           )}
+                          animate={{
+                            scale: hoveredService === index || selectedService === index ? 1.05 : 1,
+                          }}
+                          transition={{ duration: 0.2 }}
                         >
-                          {service.name}
-                        </div>
-                      </div>
+                          {service.icon}
+                        </motion.div>
 
-                      {/* Subtle arrow that appears on hover or when selected */}
-                      <motion.div
-                        className="text-arcova-blue"
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{
-                          opacity: hoveredService === index || selectedService === index ? 1 : 0,
-                          x: hoveredService === index || selectedService === index ? 0 : -10,
-                        }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <ArrowRight className="h-4 w-4" />
-                      </motion.div>
+                        <div className="flex-1 hidden md:block">
+                          <div
+                            className={cn(
+                              "font-medium text-lg transition-colors duration-300",
+                              selectedService === index ? "text-arcova-blue" : "text-gray-700",
+                            )}
+                          >
+                            {service.name}
+                          </div>
+                        </div>
+
+                        {/* Show name below icon on mobile */}
+                        <div className="text-xs font-medium mt-1 md:hidden">{service.name.split(" ")[0]}</div>
+
+                        {/* Subtle arrow that appears on hover or when selected - desktop only */}
+                        <motion.div
+                          className="text-arcova-blue hidden md:block"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{
+                            opacity: hoveredService === index || selectedService === index ? 1 : 0,
+                            x: hoveredService === index || selectedService === index ? 0 : -10,
+                          }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ArrowRight className="h-4 w-4" />
+                        </motion.div>
+                      </div>
                     </motion.button>
                   ))}
                 </div>
               </div>
 
               {/* Right column: Beautiful content box */}
-              <div className="md:col-span-8">
+              <div className="md:col-span-8" id="service-content-card">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={selectedService}
