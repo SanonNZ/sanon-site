@@ -5,7 +5,7 @@ export const metadata = {
   title: "Arcova | Scientific Evidence for Business Decisions",
   description: "Oxford-trained PhD team turning raw biomedical literature into decision-ready insight.",
   icons: {
-    icon: "/arcova-icon.png",
+    icon: "/arcova-favicon.png",
   },
     generator: 'v0.dev'
 }
