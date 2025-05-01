@@ -433,10 +433,10 @@ export default function InvestorsPageClient() {
             >
               {/* Background image with gradient overlay */}
               <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-80 z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-85 z-10"></div>
                 <Image
-                  src="/emma-bardsley-portrait.png"
-                  alt="Case study background"
+                  src="/abstract-finance.png"
+                  alt="Abstract financial visualization"
                   width={1000}
                   height={400}
                   className="w-full h-full object-cover"
@@ -448,14 +448,14 @@ export default function InvestorsPageClient() {
                 <div className="md:w-2/3 text-white">
                   {/* Star rating */}
                   <div className="flex mb-4">
-                    <Star className="h-4 w-4 fill-current text-arcova-mint mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-mint mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-mint mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-mint mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-mint" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige" />
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-arcova-mint">Case Snapshot</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">Case Snapshot</h3>
                   <p className="text-white/90 text-lg mb-6 leading-relaxed">
                     We helped unpack a billion-dollar publishing model, assess AI and technology-related risks, and
                     surface red flags ahead of a key investment decision.

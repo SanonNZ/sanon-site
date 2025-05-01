@@ -17,7 +17,7 @@ export function Logo({ variant = "full", className = "" }: LogoProps) {
 
   return (
     <div className={`relative ${className}`}>
-      <Image src="/arcova-logo-large.png" alt="Arcova" width={240} height={60} className="h-10 w-auto" priority />
+      <Image src="/arcova-logo-transparent.png" alt="Arcova" width={240} height={60} className="h-10 w-auto" priority />
     </div>
   )
 }
