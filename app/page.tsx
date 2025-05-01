@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
@@ -7,6 +9,7 @@ import { ProcessStep } from "@/components/process-step"
 import { TypewriterHeading } from "@/components/typewriter-heading"
 import { GlowingNetworkMolecule } from "@/components/network-molecule"
 import { LogoLink } from "@/components/logo"
+import { motion } from "framer-motion"
 
 export default function Home() {
   return (
@@ -105,70 +108,178 @@ export default function Home() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mt-8">
                 {/* Investors & Venture Capital Panel */}
-                <div className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-arcova-blue"></div>
+                <motion.div
+                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  whileHover={{
+                    y: -5,
+                    boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1), 0 8px 10px -6px rgba(0, 102, 128, 0.1)",
+                  }}
+                >
+                  <motion.div
+                    className="absolute top-0 left-0 w-full h-1 bg-arcova-blue"
+                    whileHover={{ height: "4px" }}
+                    transition={{ duration: 0.2 }}
+                  ></motion.div>
                   <div className="p-8">
-                    <h3 className="text-2xl font-bold mb-3">Investors & Venture Capital</h3>
-                    <p className="text-gray-600 mb-4">Make confident calls on biotech, med-tech and health ventures.</p>
+                    <motion.h3
+                      className="text-2xl font-bold mb-3"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.3, delay: 0.2 }}
+                    >
+                      Investors & Venture Capital
+                    </motion.h3>
+                    <motion.p
+                      className="text-gray-600 mb-4"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.3, delay: 0.3 }}
+                    >
+                      Make confident calls on biotech, med-tech and health ventures.
+                    </motion.p>
                     <div className="flex flex-col gap-2 mb-6">
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <motion.div
+                        className="flex items-center gap-2 text-sm text-gray-600"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: 0.4 }}
+                      >
                         <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
                         <span>Due-diligence reports</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                      </motion.div>
+                      <motion.div
+                        className="flex items-center gap-2 text-sm text-gray-600"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: 0.5 }}
+                      >
                         <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
                         <span>Scientific risk assessment</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                      </motion.div>
+                      <motion.div
+                        className="flex items-center gap-2 text-sm text-gray-600"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: 0.6 }}
+                      >
                         <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
                         <span>Technical validation</span>
-                      </div>
+                      </motion.div>
                     </div>
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="group rounded-full border-arcova-blue/30 hover:bg-arcova-blue/10 transition-all duration-300"
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.7 }}
                     >
-                      <Link href="/investors" className="flex items-center gap-2 text-arcova-blue">
-                        Learn more
-                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                      </Link>
-                    </Button>
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="group rounded-full border-arcova-blue/30 hover:bg-arcova-blue/10 transition-all duration-300"
+                      >
+                        <Link href="/investors" className="flex items-center gap-2 text-arcova-blue">
+                          Learn more
+                          <motion.div
+                            whileHover={{ x: 3 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                          >
+                            <ArrowRight className="h-4 w-4" />
+                          </motion.div>
+                        </Link>
+                      </Button>
+                    </motion.div>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Science-Backed Brands Panel */}
-                <div className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-arcova-teal"></div>
+                <motion.div
+                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  whileHover={{
+                    y: -5,
+                    boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1), 0 8px 10px -6px rgba(0, 164, 180, 0.1)",
+                  }}
+                >
+                  <motion.div
+                    className="absolute top-0 left-0 w-full h-1 bg-arcova-teal"
+                    whileHover={{ height: "4px" }}
+                    transition={{ duration: 0.2 }}
+                  ></motion.div>
                   <div className="p-8">
-                    <h3 className="text-2xl font-bold mb-3">Science-Backed Brands</h3>
-                    <p className="text-gray-600 mb-4">Communicate your science with clarity and credibility.</p>
+                    <motion.h3
+                      className="text-2xl font-bold mb-3"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.3, delay: 0.4 }}
+                    >
+                      Science-Backed Brands
+                    </motion.h3>
+                    <motion.p
+                      className="text-gray-600 mb-4"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.3, delay: 0.5 }}
+                    >
+                      Communicate your science with clarity and credibility.
+                    </motion.p>
                     <div className="flex flex-col gap-2 mb-6">
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <motion.div
+                        className="flex items-center gap-2 text-sm text-gray-600"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: 0.6 }}
+                      >
                         <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
                         <span>Evidence-backed writing</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                      </motion.div>
+                      <motion.div
+                        className="flex items-center gap-2 text-sm text-gray-600"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: 0.7 }}
+                      >
                         <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
                         <span>Research summaries</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                      </motion.div>
+                      <motion.div
+                        className="flex items-center gap-2 text-sm text-gray-600"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: 0.8 }}
+                      >
                         <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
                         <span>Strategy support</span>
-                      </div>
+                      </motion.div>
                     </div>
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="group rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 transition-all duration-300"
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.9 }}
                     >
-                      <Link href="/teams" className="flex items-center gap-2 text-arcova-teal">
-                        Learn more
-                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                      </Link>
-                    </Button>
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="group rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 transition-all duration-300"
+                      >
+                        <Link href="/teams" className="flex items-center gap-2 text-arcova-teal">
+                          Learn more
+                          <motion.div
+                            whileHover={{ x: 3 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                          >
+                            <ArrowRight className="h-4 w-4" />
+                          </motion.div>
+                        </Link>
+                      </Button>
+                    </motion.div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
