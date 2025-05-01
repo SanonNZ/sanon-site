@@ -59,7 +59,7 @@ export function TypewriterHeading({ prefix, words, className = "", suffix = "" }
   if (!isMounted) {
     return (
       <h1 className={className}>
-        {prefix} <span className="text-blue-600">{words[0]}</span>
+        {prefix} <span className="text-arcova-teal">{words[0]}</span>
         {suffix}
       </h1>
     )
@@ -67,7 +67,7 @@ export function TypewriterHeading({ prefix, words, className = "", suffix = "" }
 
   return (
     <h1 className={className}>
-      {prefix} <span className="text-blue-600">{currentText}</span>
+      {prefix} <span className="text-arcova-teal">{currentText}</span>
       <span className="animate-pulse">|</span>
       {suffix}
     </h1>

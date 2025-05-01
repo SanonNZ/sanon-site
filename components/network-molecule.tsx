@@ -134,7 +134,7 @@ export function NetworkMolecule() {
     // Create nodes
     const nodeCount = 15 // Increased from 12
     const nodes: Node[] = []
-    const colors = ["#0ea5e9", "#14b8a6", "#3b82f6", "#0d9488"]
+    const colors = ["#00A4B4", "#006680", "#8CD9C9", "#E8D6A0"]
 
     for (let i = 0; i < nodeCount; i++) {
       const radius = Math.random() * 4 + 3 // Slightly smaller range
@@ -223,7 +223,7 @@ export function GlowingNetworkMolecule() {
   return (
     <div className="relative w-full h-full min-h-[300px]">
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-teal-600/10 rounded-2xl"
+        className="absolute inset-0 bg-gradient-to-r from-arcova-teal/10 to-arcova-mint/10 rounded-2xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}

@@ -6,37 +6,36 @@ import { AnimatedSection } from "@/components/animated-section"
 import { ProcessStep } from "@/components/process-step"
 import { TypewriterHeading } from "@/components/typewriter-heading"
 import { GlowingNetworkMolecule } from "@/components/network-molecule"
+import { LogoLink } from "@/components/logo"
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-100">
-        <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-          <Link href="/" className="flex items-center gap-2 font-medium text-xl">
-            <span>Arcova</span>
-          </Link>
+        <div className="container flex h-20 items-center justify-between px-4 md:px-6">
+          <LogoLink />
           <nav className="hidden md:flex gap-8">
             <Link
               href="/investors"
-              className="text-sm font-medium text-gray-600 hover:text-black transition-colors duration-200"
+              className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
               For Investors
             </Link>
             <Link
               href="/teams"
-              className="text-sm font-medium text-gray-600 hover:text-black transition-colors duration-200"
+              className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
-              For Life Science Teams
+              For Science-Backed Brands
             </Link>
             <Link
               href="#about"
-              className="text-sm font-medium text-gray-600 hover:text-black transition-colors duration-200"
+              className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
               About
             </Link>
             <Link
               href="#process"
-              className="text-sm font-medium text-gray-600 hover:text-black transition-colors duration-200"
+              className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
               Our Process
             </Link>
@@ -57,7 +56,7 @@ export default function Home() {
             <div className="flex flex-col items-center space-y-8 text-center">
               <TypewriterHeading
                 prefix="From data to"
-                words={["decision", "insight", "conviction", "content", "clarity", "growth", "action"]}
+                words={["decision", "insight", "conviction", "content", "clarity", "growth", "action", "credibility"]}
                 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
                 suffix=""
               />
@@ -68,7 +67,7 @@ export default function Home() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-black hover:bg-gray-800 text-white rounded-full px-8 py-6 h-auto transition-all duration-300 hover:shadow-lg"
+                  className="bg-arcova-darkblue hover:bg-arcova-blue text-white rounded-full px-8 py-6 h-auto transition-all duration-300 hover:shadow-lg"
                 >
                   <Link href="/investors" className="flex items-center gap-2">
                     I need due diligence
@@ -79,7 +78,7 @@ export default function Home() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-gray-300 text-gray-800 rounded-full px-8 py-6 h-auto hover:bg-gray-100 transition-all duration-300 hover:shadow-md"
+                  className="border-arcova-mint text-arcova-darkblue rounded-full px-8 py-6 h-auto hover:bg-arcova-mint/10 transition-all duration-300 hover:shadow-md"
                 >
                   <Link href="/teams" className="flex items-center gap-2">
                     I need evidence-based content
@@ -103,30 +102,30 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
                 {/* Investors & Venture Capital Panel */}
                 <div className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
+                  <div className="absolute top-0 left-0 w-full h-1 bg-arcova-blue"></div>
                   <div className="p-8">
                     <h3 className="text-2xl font-bold mb-3">Investors & Venture Capital</h3>
                     <p className="text-gray-600 mb-4">Make confident calls on biotech, med-tech and health ventures.</p>
                     <div className="flex flex-col gap-2 mb-6">
                       <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-600"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
                         <span>Due-diligence reports</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-600"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
                         <span>Scientific risk assessment</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-600"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
                         <span>Technical validation</span>
                       </div>
                     </div>
                     <Button
                       asChild
                       variant="outline"
-                      className="group rounded-full border-blue-200 hover:bg-blue-50 transition-all duration-300"
+                      className="group rounded-full border-arcova-blue/30 hover:bg-arcova-blue/10 transition-all duration-300"
                     >
-                      <Link href="/investors" className="flex items-center gap-2 text-blue-600">
+                      <Link href="/investors" className="flex items-center gap-2 text-arcova-blue">
                         Learn more
                         <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </Link>
@@ -134,32 +133,32 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Life Science Teams Panel */}
+                {/* Science-Backed Brands Panel */}
                 <div className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-teal-600"></div>
+                  <div className="absolute top-0 left-0 w-full h-1 bg-arcova-teal"></div>
                   <div className="p-8">
-                    <h3 className="text-2xl font-bold mb-3">Life Science Teams</h3>
+                    <h3 className="text-2xl font-bold mb-3">Science-Backed Brands</h3>
                     <p className="text-gray-600 mb-4">Communicate your science with clarity and credibility.</p>
                     <div className="flex flex-col gap-2 mb-6">
                       <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <div className="w-1.5 h-1.5 rounded-full bg-teal-600"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
                         <span>Evidence-backed writing</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <div className="w-1.5 h-1.5 rounded-full bg-teal-600"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
                         <span>Research summaries</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <div className="w-1.5 h-1.5 rounded-full bg-teal-600"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
                         <span>Strategy support</span>
                       </div>
                     </div>
                     <Button
                       asChild
                       variant="outline"
-                      className="group rounded-full border-teal-200 hover:bg-teal-50 transition-all duration-300"
+                      className="group rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 transition-all duration-300"
                     >
-                      <Link href="/teams" className="flex items-center gap-2 text-teal-600">
+                      <Link href="/teams" className="flex items-center gap-2 text-arcova-teal">
                         Learn more
                         <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </Link>
@@ -175,7 +174,7 @@ export default function Home() {
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
               <div className="space-y-6">
-                <div className="inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
+                <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                   About Us
                 </div>
                 <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
@@ -197,7 +196,7 @@ export default function Home() {
                 <div className="col-span-1 md:col-span-1">
                   <div className="aspect-square relative overflow-hidden rounded-2xl">
                     <Image
-                      src="/placeholder.svg?height=400&width=400"
+                      src="/professional-woman-portrait.png"
                       alt="Emma Bardsley"
                       width={400}
                       height={400}
@@ -208,7 +207,7 @@ export default function Home() {
 
                 <div className="col-span-2 md:col-span-2 space-y-4 flex flex-col justify-center">
                   <h3 className="text-2xl font-bold">Emma Bardsley, PhD</h3>
-                  <p className="text-blue-600 font-medium">Founder & Principal Consultant</p>
+                  <p className="text-arcova-teal font-medium">Founder & Principal Consultant</p>
                   <p className="text-gray-600">
                     Emma is a neuroscientist (Oxford PhD, postdoc) with experience in academic research, pharmaceutical
                     R&D, and consulting. She leads scientific direction at Arcova and works closely with clients to
@@ -223,7 +222,7 @@ export default function Home() {
         <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-4 text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                 Our Process
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
@@ -239,30 +238,34 @@ export default function Home() {
                 title="Discovery"
                 description="Comprehensive literature search and data collection"
                 delay={0.1}
+                color="arcova-teal"
               />
               <ProcessStep
                 number="02"
                 title="Analysis"
                 description="Critical evaluation of evidence quality and relevance"
                 delay={0.2}
+                color="arcova-teal"
               />
               <ProcessStep
                 number="03"
                 title="Synthesis"
                 description="Distillation into business-relevant insights"
                 delay={0.3}
+                color="arcova-teal"
               />
               <ProcessStep
                 number="04"
                 title="Delivery"
                 description="Clear, actionable reports with expert consultation"
                 delay={0.4}
+                color="arcova-teal"
               />
             </div>
           </div>
         </AnimatedSection>
 
-        <AnimatedSection id="footer-cta" className="w-full py-24 md:py-32 bg-black text-white">
+        <AnimatedSection id="footer-cta" className="w-full py-24 md:py-32 bg-arcova-darkblue text-white">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Not sure which lane you're in?</h2>
@@ -272,7 +275,7 @@ export default function Home() {
               <Button
                 asChild
                 size="lg"
-                className="mt-4 bg-white text-black hover:bg-gray-200 rounded-full px-8 py-6 h-auto transition-all duration-300 hover:shadow-lg"
+                className="mt-4 bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-8 py-6 h-auto transition-all duration-300 hover:shadow-lg"
               >
                 <a
                   href="https://calendly.com"
@@ -292,19 +295,17 @@ export default function Home() {
       <footer className="border-t border-gray-100 bg-white">
         <div className="container flex flex-col md:flex-row justify-between py-8 w-full items-center px-4 md:px-6">
           <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
-            <Link href="/" className="font-medium text-lg mb-2">
-              Arcova
-            </Link>
+            <LogoLink className="mb-2" />
             <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
           </div>
           <nav className="flex gap-8">
-            <Link href="#" className="text-sm text-gray-600 hover:text-black transition-colors duration-200">
+            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
               Privacy Policy
             </Link>
-            <Link href="#" className="text-sm text-gray-600 hover:text-black transition-colors duration-200">
+            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
               Terms of Service
             </Link>
-            <Link href="#" className="text-sm text-gray-600 hover:text-black transition-colors duration-200">
+            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
               Contact
             </Link>
           </nav>

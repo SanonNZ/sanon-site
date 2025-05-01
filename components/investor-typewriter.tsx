@@ -59,16 +59,15 @@ export function InvestorTypewriter({ prefix, phrases, className = "" }: Investor
     return (
       <div className={className}>
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mb-2">{prefix}</h1>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-blue-600">{phrases[0]}</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-arcova-blue">{phrases[0]}</h2>
       </div>
     )
   }
 
-  // Change the return statement to use medium font weight for the animated text
   return (
     <div className={className}>
       <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mb-1">{prefix}</h1>
-      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-blue-600 h-14 md:h-16 flex items-center justify-center">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-arcova-blue h-14 md:h-16 flex items-center justify-center">
         {currentText}
         <span className="animate-pulse ml-1">|</span>
       </h2>

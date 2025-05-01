@@ -6,9 +6,10 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { AnimatedSection } from "@/components/animated-section"
 import { ProductCard } from "@/components/product-card"
 import { ProcessStep } from "@/components/process-step"
+import { LogoLink } from "@/components/logo"
 
 export const metadata = {
-  title: "Evidence-Based Medical Writing for Biotech & Health Brands | ABC Consulting",
+  title: "Evidence-Based Medical Writing for Biotech & Health Brands | Arcova",
   description:
     "Peer-reviewed research translated into SEO articles, TL;DR briefs and launch-ready evidence packs by an Oxford-led PhD team.",
 }
@@ -17,20 +18,18 @@ export default function TeamsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-100">
-        <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-          <Link href="/" className="flex items-center gap-2 font-medium text-xl">
-            <span>Arcova</span>
-          </Link>
+        <div className="container flex h-20 items-center justify-between px-4 md:px-6">
+          <LogoLink />
           <nav className="hidden md:flex gap-8">
             <Link
               href="/"
-              className="text-sm font-medium text-gray-600 hover:text-black transition-colors duration-200"
+              className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
               Home
             </Link>
             <Link
               href="/investors"
-              className="text-sm font-medium text-gray-600 hover:text-black transition-colors duration-200"
+              className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
               For Investors
             </Link>
@@ -52,7 +51,7 @@ export default function TeamsPage() {
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-                Evidence-based writing that <span className="text-teal-600">wins trust</span>.
+                Evidence-based writing that <span className="text-arcova-teal">wins trust</span>.
               </h1>
               <p className="mx-auto max-w-[700px] text-xl text-gray-600 leading-relaxed">
                 We translate peer-reviewed data into language your customers — and Google — understand.
@@ -61,10 +60,10 @@ export default function TeamsPage() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection className="w-full py-24 md:py-32 bg-teal-50">
+        <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-mint/20">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-teal-800">
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-arcova-darkblue">
                 Google rewards authority; clinicians demand rigour. We provide both.
               </h2>
             </div>
@@ -75,7 +74,7 @@ export default function TeamsPage() {
                 price="US $595"
                 popular={false}
                 delay={0.1}
-                color="teal"
+                color="arcova-teal"
               />
 
               <ProductCard
@@ -84,7 +83,7 @@ export default function TeamsPage() {
                 price="US $1,950"
                 popular={true}
                 delay={0.2}
-                color="teal"
+                color="arcova-teal"
               />
 
               <ProductCard
@@ -93,7 +92,7 @@ export default function TeamsPage() {
                 price="US $6,800"
                 popular={false}
                 delay={0.3}
-                color="teal"
+                color="arcova-teal"
               />
             </div>
           </div>
@@ -102,7 +101,7 @@ export default function TeamsPage() {
         <AnimatedSection className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-teal-100 text-teal-600 rounded-full text-sm font-medium">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                 Portfolio
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Examples of our evidence-based content</h2>
@@ -110,7 +109,7 @@ export default function TeamsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-xl">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 z-10"></div>
-                <div className="absolute inset-0 bg-teal-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                <div className="absolute inset-0 bg-arcova-teal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
                 <Image
                   src="/placeholder.svg?height=400&width=300"
                   alt="TL;DR Sample"
@@ -128,7 +127,7 @@ export default function TeamsPage() {
 
               <div className="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-xl">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 z-10"></div>
-                <div className="absolute inset-0 bg-teal-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                <div className="absolute inset-0 bg-arcova-teal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
                 <Image
                   src="/placeholder.svg?height=400&width=300"
                   alt="Infographic Snippet"
@@ -144,7 +143,7 @@ export default function TeamsPage() {
 
               <div className="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-xl">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 z-10"></div>
-                <div className="absolute inset-0 bg-teal-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                <div className="absolute inset-0 bg-arcova-teal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
                 <Image
                   src="/placeholder.svg?height=400&width=300"
                   alt="Article Introduction"
@@ -165,9 +164,9 @@ export default function TeamsPage() {
               <Button
                 asChild
                 variant="outline"
-                className="group rounded-full border-teal-300 hover:bg-teal-100 transition-all duration-300"
+                className="group rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 transition-all duration-300"
               >
-                <a href="#" className="flex items-center gap-2 text-teal-600">
+                <a href="#" className="flex items-center gap-2 text-arcova-teal">
                   View full portfolio
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
@@ -179,7 +178,7 @@ export default function TeamsPage() {
         <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-4 text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-teal-100 text-teal-600 rounded-full text-sm font-medium">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                 Our Process
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
@@ -195,28 +194,28 @@ export default function TeamsPage() {
                 title="Discovery"
                 description="We identify your content goals and target audience"
                 delay={0.1}
-                color="teal"
+                color="arcova-teal"
               />
               <ProcessStep
                 number="02"
                 title="Analysis"
                 description="Our PhD team reviews primary literature and extracts key insights"
                 delay={0.2}
-                color="teal"
+                color="arcova-teal"
               />
               <ProcessStep
                 number="03"
                 title="Synthesis"
                 description="We craft compelling narratives backed by solid evidence"
                 delay={0.3}
-                color="teal"
+                color="arcova-teal"
               />
               <ProcessStep
                 number="04"
                 title="Delivery"
                 description="SEO-optimized content that educates and converts"
                 delay={0.4}
-                color="teal"
+                color="arcova-teal"
               />
             </div>
           </div>
@@ -225,15 +224,15 @@ export default function TeamsPage() {
         <AnimatedSection className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
-              <div className="inline-block px-3 py-1 bg-teal-100 text-teal-600 rounded-full text-sm font-medium">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                 Client Success
               </div>
               <div className="max-w-[800px] mx-auto relative">
-                <div className="absolute -top-8 -left-8 text-teal-200 text-8xl font-serif">"</div>
+                <div className="absolute -top-8 -left-8 text-arcova-mint text-8xl font-serif">"</div>
                 <blockquote className="text-2xl md:text-3xl font-medium leading-relaxed relative z-10">
                   The article series doubled organic traffic and slashed rebuttals in sales calls.
                 </blockquote>
-                <div className="absolute -bottom-8 -right-8 text-teal-200 text-8xl font-serif">"</div>
+                <div className="absolute -bottom-8 -right-8 text-arcova-mint text-8xl font-serif">"</div>
                 <p className="mt-8 text-gray-600">– CMO, BioSense Diagnostics</p>
               </div>
             </div>
@@ -243,7 +242,7 @@ export default function TeamsPage() {
         <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-teal-100 text-teal-600 rounded-full text-sm font-medium">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                 FAQ
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Frequently Asked Questions</h2>
@@ -251,7 +250,7 @@ export default function TeamsPage() {
             <div className="max-w-[800px] mx-auto">
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1" className="border-b border-gray-200 py-4">
-                  <AccordionTrigger className="text-lg font-medium hover:text-teal-600 transition-colors duration-200">
+                  <AccordionTrigger className="text-lg font-medium hover:text-arcova-teal transition-colors duration-200">
                     Do you handle referencing styles?
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-600 leading-relaxed pt-2">
@@ -261,7 +260,7 @@ export default function TeamsPage() {
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2" className="border-b border-gray-200 py-4">
-                  <AccordionTrigger className="text-lg font-medium hover:text-teal-600 transition-colors duration-200">
+                  <AccordionTrigger className="text-lg font-medium hover:text-arcova-teal transition-colors duration-200">
                     Regulatory compliance?
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-600 leading-relaxed pt-2">
@@ -271,7 +270,7 @@ export default function TeamsPage() {
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3" className="border-b border-gray-200 py-4">
-                  <AccordionTrigger className="text-lg font-medium hover:text-teal-600 transition-colors duration-200">
+                  <AccordionTrigger className="text-lg font-medium hover:text-arcova-teal transition-colors duration-200">
                     Can we white-label content?
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-600 leading-relaxed pt-2">
@@ -281,7 +280,7 @@ export default function TeamsPage() {
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-4" className="border-b border-gray-200 py-4">
-                  <AccordionTrigger className="text-lg font-medium hover:text-teal-600 transition-colors duration-200">
+                  <AccordionTrigger className="text-lg font-medium hover:text-arcova-teal transition-colors duration-200">
                     Revision policy?
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-600 leading-relaxed pt-2">
@@ -296,7 +295,7 @@ export default function TeamsPage() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection id="cta" className="w-full py-24 md:py-32 bg-black text-white">
+        <AnimatedSection id="cta" className="w-full py-24 md:py-32 bg-arcova-darkblue text-white">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Ready to elevate your content strategy?</h2>
@@ -307,7 +306,7 @@ export default function TeamsPage() {
               <Button
                 asChild
                 size="lg"
-                className="mt-4 bg-teal-500 hover:bg-teal-600 text-white rounded-full px-8 py-6 h-auto transition-all duration-300 hover:shadow-lg"
+                className="mt-4 bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-8 py-6 h-auto transition-all duration-300 hover:shadow-lg"
               >
                 <a
                   href="https://calendly.com"
@@ -327,19 +326,17 @@ export default function TeamsPage() {
       <footer className="border-t border-gray-100 bg-white">
         <div className="container flex flex-col md:flex-row justify-between py-8 w-full items-center px-4 md:px-6">
           <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
-            <Link href="/" className="font-medium text-lg mb-2">
-              Arcova
-            </Link>
+            <LogoLink className="mb-2" />
             <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
           </div>
           <nav className="flex gap-8">
-            <Link href="#" className="text-sm text-gray-600 hover:text-black transition-colors duration-200">
+            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
               Privacy Policy
             </Link>
-            <Link href="#" className="text-sm text-gray-600 hover:text-black transition-colors duration-200">
+            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
               Terms of Service
             </Link>
-            <Link href="#" className="text-sm text-gray-600 hover:text-black transition-colors duration-200">
+            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
               Contact
             </Link>
           </nav>
