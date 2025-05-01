@@ -60,6 +60,7 @@ const config = {
           mint: "#8CD9C9",
           beige: "#E8D6A0",
           white: "#F8F8F8",
+          navy: "#0d3547" /* Added navy color */,
         },
         blue: {
           50: "#f0f9ff",

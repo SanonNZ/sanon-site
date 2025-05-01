@@ -61,7 +61,7 @@ export default function Home() {
                 suffix=""
               />
               <p className="mx-auto max-w-[700px] text-xl text-gray-600 leading-relaxed">
-                We turn complex biomedical literature into clear, actionable decisions.
+                We turn complex biomedical research into clear, usable insight.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <Button
@@ -92,14 +92,19 @@ export default function Home() {
 
         <AnimatedSection className="w-full py-16 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-12">
-              <div className="flex items-center w-full justify-center">
-                <div className="h-px bg-gray-200 flex-grow max-w-xs"></div>
-                <h2 className="text-lg font-medium text-gray-500 uppercase tracking-widest px-4">Who We Work With</h2>
-                <div className="h-px bg-gray-200 flex-grow max-w-xs"></div>
+            <div className="flex flex-col items-center space-y-8">
+              <div className="text-center">
+                <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-4">
+                  Who We Work With
+                </div>
+                <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-4">Our Expertise in Action</h2>
+                <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
+                  Whether you're investing, building, or explaining, we distill complex science into clarity you can
+                  use.
+                </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mt-8">
                 {/* Investors & Venture Capital Panel */}
                 <div className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
                   <div className="absolute top-0 left-0 w-full h-1 bg-arcova-blue"></div>
@@ -177,13 +182,14 @@ export default function Home() {
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                   About Us
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                  Expert Insight. Evidence-backed Decisions
-                </h2>
+                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Complex science. Decoded by experts.</h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   Arcova draws on a distributed network of PhD researchers from world-leading institutions including
-                  Oxford, Cambridge, and other top universities. This allows us to match your project with the perfect
-                  scientific expertise, ensuring the highest quality insights for your specific needs.
+                  Oxford, Cambridge, and other top universities.
+                </p>
+                <p className="text-lg text-gray-600 leading-relaxed mt-4">
+                  This allows us to match your project with the perfect scientific expertise, ensuring the highest
+                  quality insights for your specific needs.
                 </p>
               </div>
               <div className="relative h-[300px] md:h-[400px] shadow-xl rounded-2xl overflow-hidden">
