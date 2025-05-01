@@ -61,7 +61,7 @@ export default function Home() {
                 suffix=""
               />
               <p className="mx-auto max-w-[700px] text-xl text-gray-600 leading-relaxed">
-                We turn complex biomedical research into clear, usable insight.
+                We turn complex biomedical research into clear, actionable insight.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <Button
@@ -97,10 +97,10 @@ export default function Home() {
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-4">
                   Who We Work With
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-4">Our Expertise in Action</h2>
+                <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-4">Making Science Work for You
+</h2>
                 <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
-                  Whether you're investing, building, or explaining, we distill complex science into clarity you can
-                  use.
+                  Whether you're investing, building, or storytelling — we translate the science so you don't have to.
                 </p>
               </div>
 
