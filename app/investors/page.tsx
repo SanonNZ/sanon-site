@@ -48,32 +48,35 @@ export default function InvestorsPage() {
       <main className="flex-1 pt-16">
         <AnimatedSection className="w-full py-24 md:py-32 lg:py-40">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8 text-center">
-              <div className="space-y-2">
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-                  Clarity beyond the pitch...
+            <div className="flex flex-col items-center space-y-12 text-center">
+              <div className="space-y-6 max-w-[900px]">
+                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl">
+                  Go deeper than the pitch...
                 </h1>
-                <TypewriterHeading
-                  prefix=""
-                  words={[
-                    "Invest with conviction.",
-                    "Challenge assumptions.",
-                    "Assess technical claims.",
-                    "Validate the science.",
-                    "Inform partner memos.",
-                    "Spot red flags.",
-                    "Brief the IC.",
-                    "Understand the detail.",
-                    "Commit with confidence.",
-                    "Cut through the science",
-                    "Know when to walk away.",
-                  ]}
-                  className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-arcova-blue"
-                  suffix=""
-                />
+                <div className="min-h-[70px] sm:min-h-[80px] md:min-h-[90px] flex items-center justify-center">
+                  <TypewriterHeading
+                    prefix=""
+                    words={[
+                      "Invest with conviction.",
+                      "Surface scientific risk.",
+                      "Challenge assumptions.",
+                      "Assess technical claims.",
+                      "Validate the science.",
+                      "Inform partner memos.",
+                      "Spot red flags.",
+                      "Brief the IC.",
+                      "Understand the detail.",
+                      "Commit with confidence.",
+                      "Cut through the science.",
+                      "Know when to walk away.",
+                    ]}
+                    className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-5xl text-arcova-blue"
+                    suffix=""
+                  />
+                </div>
               </div>
               <p className="mx-auto max-w-[700px] text-xl text-gray-600 leading-relaxed">
-                  We interrogate the science so you don’t have to guess.
+                We interrogate the science, so you don't have to.
               </p>
             </div>
           </div>
