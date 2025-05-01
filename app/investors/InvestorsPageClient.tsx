@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { ArrowRight, Check, FileText, Users, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -9,7 +9,7 @@ import { AnimatedSection } from "@/components/animated-section"
 import { ProcessStep } from "@/components/process-step"
 import { TypewriterHeading } from "@/components/typewriter-heading"
 import { LogoLink } from "@/components/logo"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 // Service selector data
@@ -43,6 +43,28 @@ const services = [
 export default function InvestorsPageClient() {
   const [selectedService, setSelectedService] = useState(0)
   const [hoveredService, setHoveredService] = useState<number | null>(null)
+  const contentCardRef = useRef<HTMLDivElement>(null)
+
+  // Function to handle tab selection and scrolling
+  const handleTabSelect = (index: number) => {
+    setSelectedService(index)
+
+    // On mobile, scroll to the content card with proper offset
+    if (window.innerWidth < 768 && contentCardRef.current) {
+      setTimeout(() => {
+        const navbarHeight = 80 // Height of the navbar
+        const extraPadding = 20 // Additional padding for better visibility
+        const yOffset = -(navbarHeight + extraPadding)
+
+        const y = contentCardRef.current!.getBoundingClientRect().top + window.pageYOffset + yOffset
+
+        window.scrollTo({
+          top: y,
+          behavior: "smooth",
+        })
+      }, 50)
+    }
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -129,25 +151,14 @@ export default function InvestorsPageClient() {
                   {services.map((service, index) => (
                     <motion.button
                       key={service.id}
-                      onClick={() => {
-                        setSelectedService(index)
-                        // On mobile, scroll to the content card
-                        if (window.innerWidth < 768) {
-                          setTimeout(() => {
-                            const contentCard = document.getElementById("service-content-card")
-                            if (contentCard) {
-                              contentCard.scrollIntoView({ behavior: "smooth", block: "start" })
-                            }
-                          }, 100)
-                        }
-                      }}
+                      onClick={() => handleTabSelect(index)}
                       onMouseEnter={() => setHoveredService(index)}
                       onMouseLeave={() => setHoveredService(null)}
                       className={cn(
                         "relative flex items-center justify-center transition-all duration-300",
                         "overflow-hidden group",
-                        // Mobile: Square buttons in a row
-                        "flex-1 aspect-square md:aspect-auto md:w-full p-3 md:p-5 md:rounded-2xl",
+                        // Mobile: Square buttons in a row with rounded corners
+                        "flex-1 aspect-square md:aspect-auto md:w-full p-3 md:p-5 rounded-xl md:rounded-2xl",
                         // Desktop: Pill style
                         selectedService === index
                           ? "bg-blue-50 border border-blue-200 text-arcova-blue" // Pale button style
@@ -205,114 +216,120 @@ export default function InvestorsPageClient() {
               </div>
 
               {/* Right column: Beautiful content box */}
-              <div className="md:col-span-8" id="service-content-card">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={selectedService}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.4, type: "spring", stiffness: 100, damping: 15 }}
-                    className="bg-white rounded-3xl shadow-xl overflow-hidden border-0"
-                  >
-                    <div className="p-8 md:p-10">
-                      {/* Top accent bar */}
-                      <div className="w-16 h-1.5 bg-arcova-blue rounded-full mb-8"></div>
+              <div className="md:col-span-8" ref={contentCardRef}>
+                {/* Removed AnimatePresence and exit animations for instant tab switching */}
+                <motion.div
+                  key={selectedService}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, type: "spring", stiffness: 100, damping: 15 }}
+                  className="bg-white rounded-3xl shadow-xl overflow-hidden border-0"
+                >
+                  <div className="p-6 md:p-10">
+                    {/* Top accent bar */}
+                    <div className="w-16 h-1.5 bg-arcova-blue rounded-full mb-6 md:mb-8"></div>
 
-                      <h3 className="text-3xl font-bold text-arcova-darkblue mb-3">{services[selectedService].name}</h3>
-                      <p className="text-xl text-gray-600 mb-8">{services[selectedService].description}</p>
+                    <h3 className="text-2xl md:text-3xl font-bold text-arcova-darkblue mb-2 md:mb-3">
+                      {services[selectedService].name}
+                    </h3>
+                    <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8">
+                      {services[selectedService].description}
+                    </p>
 
-                      <div className="grid md:grid-cols-2 gap-8 mb-10">
-                        <div>
-                          <h4 className="text-lg font-medium text-arcova-darkblue mb-4">Key Benefits</h4>
-                          <ul className="space-y-4">
-                            {services[selectedService].features.map((feature, index) => (
-                              <motion.li
-                                key={index}
-                                className="flex items-start"
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.3, delay: index * 0.1 }}
-                              >
-                                <div className="rounded-full bg-arcova-green p-1 mr-3 mt-0.5 flex-shrink-0">
-                                  <Check className="h-3.5 w-3.5 text-white" />
-                                </div>
-                                <span className="text-gray-700">{feature}</span>
-                              </motion.li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <h4 className="text-lg font-medium text-arcova-darkblue mb-4">What You Get</h4>
-                          <ul className="space-y-4">
+                    <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-10">
+                      <div>
+                        <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
+                          Key Benefits
+                        </h4>
+                        <ul className="space-y-3 md:space-y-4">
+                          {services[selectedService].features.map((feature, index) => (
                             <motion.li
+                              key={index}
                               className="flex items-start"
                               initial={{ opacity: 0, x: -20 }}
                               animate={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.3, delay: 0.1 }}
+                              transition={{ duration: 0.3, delay: index * 0.1 }}
                             >
                               <div className="rounded-full bg-arcova-green p-1 mr-3 mt-0.5 flex-shrink-0">
                                 <Check className="h-3.5 w-3.5 text-white" />
                               </div>
-                              <span className="text-gray-700">Expert scientific analysis</span>
+                              <span className="text-gray-700 text-sm md:text-base">{feature}</span>
                             </motion.li>
-                            <motion.li
-                              className="flex items-start"
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.3, delay: 0.2 }}
-                            >
-                              <div className="rounded-full bg-arcova-green p-1 mr-3 mt-0.5 flex-shrink-0">
-                                <Check className="h-3.5 w-3.5 text-white" />
-                              </div>
-                              <span className="text-gray-700">Clear, actionable insights</span>
-                            </motion.li>
-                            <motion.li
-                              className="flex items-start"
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.3, delay: 0.3 }}
-                            >
-                              <div className="rounded-full bg-arcova-green p-1 mr-3 mt-0.5 flex-shrink-0">
-                                <Check className="h-3.5 w-3.5 text-white" />
-                              </div>
-                              <span className="text-gray-700">Confidential reporting</span>
-                            </motion.li>
-                          </ul>
-                        </div>
+                          ))}
+                        </ul>
                       </div>
-
-                      <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-gray-100">
-                        <div className="mb-6 md:mb-0">
-                          <div className="text-sm text-gray-500 mb-1">Starting from</div>
-                          <div className="text-3xl font-bold text-arcova-darkblue">
-                            {services[selectedService].price}
-                          </div>
-                        </div>
-                        <motion.button
-                          className="bg-blue-50 hover:bg-blue-100 text-arcova-blue border border-blue-200 px-8 py-3 rounded-full flex items-center gap-2 transition-all duration-300 group"
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          Request consultation
-                          <motion.div
-                            initial={{ x: 0 }}
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{
-                              duration: 1,
-                              repeat: Number.POSITIVE_INFINITY,
-                              repeatType: "loop",
-                              ease: "easeInOut",
-                              repeatDelay: 1,
-                            }}
+                      <div>
+                        <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
+                          What You Get
+                        </h4>
+                        <ul className="space-y-3 md:space-y-4">
+                          <motion.li
+                            className="flex items-start"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: 0.1 }}
                           >
-                            <ArrowRight className="h-4 w-4" />
-                          </motion.div>
-                        </motion.button>
+                            <div className="rounded-full bg-arcova-green p-1 mr-3 mt-0.5 flex-shrink-0">
+                              <Check className="h-3.5 w-3.5 text-white" />
+                            </div>
+                            <span className="text-gray-700 text-sm md:text-base">Expert scientific analysis</span>
+                          </motion.li>
+                          <motion.li
+                            className="flex items-start"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: 0.2 }}
+                          >
+                            <div className="rounded-full bg-arcova-green p-1 mr-3 mt-0.5 flex-shrink-0">
+                              <Check className="h-3.5 w-3.5 text-white" />
+                            </div>
+                            <span className="text-gray-700 text-sm md:text-base">Clear, actionable insights</span>
+                          </motion.li>
+                          <motion.li
+                            className="flex items-start"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: 0.3 }}
+                          >
+                            <div className="rounded-full bg-arcova-green p-1 mr-3 mt-0.5 flex-shrink-0">
+                              <Check className="h-3.5 w-3.5 text-white" />
+                            </div>
+                            <span className="text-gray-700 text-sm md:text-base">Confidential reporting</span>
+                          </motion.li>
+                        </ul>
                       </div>
                     </div>
-                  </motion.div>
-                </AnimatePresence>
+
+                    <div className="flex flex-col md:flex-row items-center justify-between pt-6 md:pt-8 border-t border-gray-100">
+                      <div className="mb-4 md:mb-0">
+                        <div className="text-xs md:text-sm text-gray-500 mb-1">Starting from</div>
+                        <div className="text-2xl md:text-3xl font-bold text-arcova-darkblue">
+                          {services[selectedService].price}
+                        </div>
+                      </div>
+                      <motion.button
+                        className="bg-blue-50 hover:bg-blue-100 text-arcova-blue border border-blue-200 px-6 md:px-8 py-2 md:py-3 rounded-full flex items-center gap-2 transition-all duration-300 group text-sm md:text-base"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        Request consultation
+                        <motion.div
+                          initial={{ x: 0 }}
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{
+                            duration: 1,
+                            repeat: Number.POSITIVE_INFINITY,
+                            repeatType: "loop",
+                            ease: "easeInOut",
+                            repeatDelay: 1,
+                          }}
+                        >
+                          <ArrowRight className="h-4 w-4" />
+                        </motion.div>
+                      </motion.button>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </div>
