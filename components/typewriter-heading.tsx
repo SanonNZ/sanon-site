@@ -13,7 +13,7 @@ export function TypewriterHeading({ prefix, words, className = "", suffix = "" }
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [currentText, setCurrentText] = useState("")
   const [isDeleting, setIsDeleting] = useState(false)
-  const [typingSpeed, setTypingSpeed] = useState(150)
+  const [typingSpeed, setTypingSpeed] = useState(113)
 
   // Prevent animation from running during SSR/hydration
   const [isMounted, setIsMounted] = useState(false)
@@ -30,24 +30,24 @@ export function TypewriterHeading({ prefix, words, className = "", suffix = "" }
       // If deleting
       if (isDeleting) {
         setCurrentText(word.substring(0, currentText.length - 1))
-        setTypingSpeed(50) // Faster when deleting
+        setTypingSpeed(38) // Faster when deleting
       }
       // If typing
       else {
         setCurrentText(word.substring(0, currentText.length + 1))
-        setTypingSpeed(150) // Normal speed when typing
+        setTypingSpeed(113) // Normal speed when typing
       }
 
       // If finished typing the word
       if (!isDeleting && currentText === word) {
         // Pause at the end of the word
-        setTypingSpeed(2000) // Pause for 2 seconds
+        setTypingSpeed(1500) // Pause for 1.5 seconds
         setIsDeleting(true)
       }
       // If finished deleting the word
       else if (isDeleting && currentText === "") {
         setIsDeleting(false)
-        setTypingSpeed(150)
+        setTypingSpeed(113)
         setCurrentWordIndex((currentWordIndex + 1) % words.length)
       }
     }, typingSpeed)

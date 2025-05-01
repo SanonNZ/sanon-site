@@ -5,7 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { AnimatedSection } from "@/components/animated-section"
 import { ProductCard } from "@/components/product-card"
 import { ProcessStep } from "@/components/process-step"
-import { InvestorTypewriter } from "@/components/investor-typewriter"
+import { TypewriterHeading } from "@/components/typewriter-heading"
 import { LogoLink } from "@/components/logo"
 
 export const metadata = {
@@ -48,23 +48,33 @@ export default function InvestorsPage() {
       <main className="flex-1 pt-16">
         <AnimatedSection className="w-full py-24 md:py-32 lg:py-40">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-6 text-center">
-              <InvestorTypewriter
-                prefix="Know what the pitch doesn't tell you."
-                phrases={[
-                  "Invest with conviction.",
-                  "Challenge assumptions.",
-                  "Answer technical questions.",
-                  "Validate the science.",
-                  "Inform partner discussions.",
-                  "Spot red flags.",
-                  "Brief the IC.",
-                  "Understand the detail.",
-                  "Commit with confidence.",
-                  "Know when to walk away.",
-                ]}
-                className="mb-4"
-              />
+            <div className="flex flex-col items-center space-y-8 text-center">
+              <div className="space-y-2">
+                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+                  Clarity beyond the pitch...
+                </h1>
+                <TypewriterHeading
+                  prefix=""
+                  words={[
+                    "Invest with conviction.",
+                    "Challenge assumptions.",
+                    "Assess technical claims.",
+                    "Validate the science.",
+                    "Inform partner memos.",
+                    "Spot red flags.",
+                    "Brief the IC.",
+                    "Understand the detail.",
+                    "Commit with confidence.",
+                    "Cut through the science",
+                    "Know when to walk away.",
+                  ]}
+                  className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-arcova-blue"
+                  suffix=""
+                />
+              </div>
+              <p className="mx-auto max-w-[700px] text-xl text-gray-600 leading-relaxed">
+                  We interrogate the science so you don’t have to guess.
+              </p>
             </div>
           </div>
         </AnimatedSection>
