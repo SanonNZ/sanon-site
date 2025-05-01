@@ -1,8 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { useState, useRef } from "react"
-import { ArrowRight, Check, FileText, Users, Zap, ChevronDown } from "lucide-react"
+import { useState, useRef, useEffect } from "react"
+import { ArrowRight, Check, FileText, Users, Zap, ChevronDown, Star } from "lucide-react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { AnimatedSection } from "@/components/animated-section"
@@ -44,7 +45,6 @@ export default function InvestorsPageClient() {
   const [selectedService, setSelectedService] = useState(0)
   const [hoveredService, setHoveredService] = useState<number | null>(null)
   const contentCardRef = useRef<HTMLDivElement>(null)
-  const serviceSectionRef = useRef<HTMLDivElement>(null)
 
   // Function to handle tab selection and scrolling
   const handleTabSelect = (index: number) => {
@@ -67,21 +67,31 @@ export default function InvestorsPageClient() {
     }
   }
 
-  // Function to scroll to the service section
-  const scrollToServices = () => {
-    if (serviceSectionRef.current) {
-      const navbarHeight = 80 // Height of the navbar
-      const extraPadding = 20 // Additional padding for better visibility
-      const yOffset = -(navbarHeight + extraPadding)
+  // Set up smooth scrolling for all anchor links
+  useEffect(() => {
+    // Add smooth scrolling behavior to all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault()
 
-      const y = serviceSectionRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset
+        const targetId = this.getAttribute("href")?.substring(1)
+        if (!targetId) return
 
-      window.scrollTo({
-        top: y,
-        behavior: "smooth",
+        const targetElement = document.getElementById(targetId)
+        if (!targetElement) return
+
+        const navbarHeight = 80 // Height of the navbar
+        const yOffset = -navbarHeight
+
+        const y = targetElement.getBoundingClientRect().top + window.scrollY + yOffset
+
+        window.scrollTo({
+          top: y,
+          behavior: "smooth",
+        })
       })
-    }
-  }
+    })
+  }, [])
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -148,26 +158,25 @@ export default function InvestorsPageClient() {
                 We interrogate the science, so you don't have to.
               </p>
 
-              {/* New scroll-down button */}
-              <motion.button
-                onClick={scrollToServices}
-                className="mt-8 group flex flex-col items-center gap-2 cursor-pointer"
+              {/* New scroll-down button using anchor link */}
+              <motion.div
+                className="mt-8 group"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
-                whileHover={{ y: 5 }}
               >
-                <span className="text-arcova-blue font-medium">Discover our approach</span>
-                <div className="bg-blue-50 border border-blue-200 rounded-full p-3 text-arcova-blue group-hover:bg-blue-100 transition-colors duration-300">
-                  <ChevronDown className="h-5 w-5" />
-                </div>
-              </motion.button>
+                <a href="#service-section" className="flex flex-col items-center gap-2 cursor-pointer">
+                  <div className="bg-blue-50 border border-blue-200 rounded-full p-3 text-arcova-blue group-hover:bg-blue-100 transition-colors duration-300 group-hover:translate-y-1 transform transition-transform">
+                    <ChevronDown className="h-5 w-5" />
+                  </div>
+                </a>
+              </motion.div>
             </div>
           </div>
         </AnimatedSection>
 
         {/* Service Selector Section - Replacing the "What We Offer" section */}
-        <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50" ref={serviceSectionRef}>
+        <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50" id="service-section">
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-arcova-darkblue">
@@ -415,24 +424,46 @@ export default function InvestorsPageClient() {
 
         <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8 text-center">
-              <div className="inline-block px-3 py-1 bg-arcova-blue/20 text-arcova-blue rounded-full text-sm font-medium">
-                What We've Done
+            <motion.div
+              className="relative overflow-hidden rounded-2xl shadow-lg max-w-[900px] mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7 }}
+            >
+              {/* Background image with gradient overlay */}
+              <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-80 z-10"></div>
+                <Image
+                  src="/images/professional-executive.jpg"
+                  alt="Case study background"
+                  width={1000}
+                  height={400}
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="max-w-[800px] mx-auto">
-                <h3 className="text-2xl md:text-3xl font-bold mb-6">Scientific due diligence for a private investor</h3>
-                <div className="space-y-4 text-left">
-                  <p className="text-lg text-gray-700">
-                    Evaluated a stake in major publishing firm specializing in scientific content.
+
+              {/* Content */}
+              <div className="relative z-20 p-8 md:p-12 flex flex-col md:flex-row items-center">
+                <div className="md:w-2/3 text-white">
+                  {/* Star rating */}
+                  <div className="flex mb-4">
+                    <Star className="h-4 w-4 fill-current text-arcova-mint mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-mint mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-mint mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-mint mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-mint" />
+                  </div>
+
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-arcova-mint">Case Snapshot</h3>
+                  <p className="text-white/90 text-lg mb-6 leading-relaxed">
+                    We helped unpack a billion-dollar publishing model, assess AI and technology-related risks, and
+                    surface red flags ahead of a key investment decision.
                   </p>
-                  <p className="text-lg text-gray-700">
-                    Reviewed the company's publishing portfolio, key scientific impact areas, and competitive
-                    positioning.
-                  </p>
-                  <p className="text-lg text-gray-700">Delivered an annotated report within 5 days.</p>
+                  <p className="text-white/70 text-sm font-medium">Investment Firm | Confidential engagement</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </AnimatedSection>
 
