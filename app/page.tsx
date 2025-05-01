@@ -318,7 +318,7 @@ export default function Home() {
                 <div className="col-span-1 md:col-span-1">
                   <div className="aspect-square relative overflow-hidden rounded-2xl">
                     <Image
-                      src="/professional-woman-portrait.png"
+                      src="/emma-bardsley-portrait.png"
                       alt="Emma Bardsley"
                       width={400}
                       height={400}

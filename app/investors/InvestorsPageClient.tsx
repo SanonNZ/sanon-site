@@ -435,7 +435,7 @@ export default function InvestorsPageClient() {
               <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-80 z-10"></div>
                 <Image
-                  src="/images/professional-executive.jpg"
+                  src="/emma-bardsley-portrait.png"
                   alt="Case study background"
                   width={1000}
                   height={400}
