@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState, useRef } from "react"
-import { ArrowRight, Check, FileText, Users, Zap } from "lucide-react"
+import { ArrowRight, Check, FileText, Users, Zap, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { AnimatedSection } from "@/components/animated-section"
@@ -44,6 +44,7 @@ export default function InvestorsPageClient() {
   const [selectedService, setSelectedService] = useState(0)
   const [hoveredService, setHoveredService] = useState<number | null>(null)
   const contentCardRef = useRef<HTMLDivElement>(null)
+  const serviceSectionRef = useRef<HTMLDivElement>(null)
 
   // Function to handle tab selection and scrolling
   const handleTabSelect = (index: number) => {
@@ -63,6 +64,22 @@ export default function InvestorsPageClient() {
           behavior: "smooth",
         })
       }, 50)
+    }
+  }
+
+  // Function to scroll to the service section
+  const scrollToServices = () => {
+    if (serviceSectionRef.current) {
+      const navbarHeight = 80 // Height of the navbar
+      const extraPadding = 20 // Additional padding for better visibility
+      const yOffset = -(navbarHeight + extraPadding)
+
+      const y = serviceSectionRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      })
     }
   }
 
@@ -130,12 +147,27 @@ export default function InvestorsPageClient() {
               <p className="mx-auto max-w-[700px] text-xl text-gray-600 leading-relaxed">
                 We interrogate the science, so you don't have to.
               </p>
+
+              {/* New scroll-down button */}
+              <motion.button
+                onClick={scrollToServices}
+                className="mt-8 group flex flex-col items-center gap-2 cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                whileHover={{ y: 5 }}
+              >
+                <span className="text-arcova-blue font-medium">Discover our approach</span>
+                <div className="bg-blue-50 border border-blue-200 rounded-full p-3 text-arcova-blue group-hover:bg-blue-100 transition-colors duration-300">
+                  <ChevronDown className="h-5 w-5" />
+                </div>
+              </motion.button>
             </div>
           </div>
         </AnimatedSection>
 
         {/* Service Selector Section - Replacing the "What We Offer" section */}
-        <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
+        <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50" ref={serviceSectionRef}>
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-arcova-darkblue">
