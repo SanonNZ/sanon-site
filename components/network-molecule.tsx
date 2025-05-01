@@ -130,14 +130,14 @@ export function NetworkMolecule() {
       }
     }
 
-    // Update the node creation to add more variety
-    // Create nodes
-    const nodeCount = 15 // Increased from 12
+    // Create nodes with updated Arcova brand colors
+    const nodeCount = 15
     const nodes: Node[] = []
-    const colors = ["#00A4B4", "#006680", "#8CD9C9", "#E8D6A0"]
+    // Updated colors from Arcova brand palette
+    const colors = ["#00A4B4", "#006680", "#8CD9C9", "#E8D6A0", "#003344"]
 
     for (let i = 0; i < nodeCount; i++) {
-      const radius = Math.random() * 4 + 3 // Slightly smaller range
+      const radius = Math.random() * 4 + 3
 
       // Create clusters by adding some nodes closer together
       let x, y
