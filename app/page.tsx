@@ -97,8 +97,7 @@ export default function Home() {
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-4">
                   Who We Work With
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-4">Making Science Work for You
-</h2>
+                <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-4">Making Science Work for You</h2>
                 <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
                   Whether you're investing, building, or storytelling — we translate the science so you don't have to.
                 </p>
