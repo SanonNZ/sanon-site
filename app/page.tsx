@@ -109,15 +109,11 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mt-8">
                 {/* Investors & Venture Capital Panel */}
                 <motion.div
-                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  whileHover={{
-                    y: -5,
-                    boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1), 0 8px 10px -6px rgba(0, 102, 128, 0.1)",
-                  }}
                 >
                   <motion.div
                     className="absolute top-0 left-0 w-full h-1 bg-arcova-blue"
@@ -139,7 +135,7 @@ export default function Home() {
                       whileInView={{ opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.3 }}
                     >
-                      Make confident calls on biotech, med-tech and health ventures.
+                      Make confident calls on your biotech ventures.
                     </motion.p>
                     <div className="flex flex-col gap-2 mb-6">
                       <motion.div
@@ -171,8 +167,8 @@ export default function Home() {
                       </motion.div>
                     </div>
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.7 }}
                     >
                       <Button
@@ -196,15 +192,11 @@ export default function Home() {
 
                 {/* Science-Backed Brands Panel */}
                 <motion.div
-                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  whileHover={{
-                    y: -5,
-                    boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1), 0 8px 10px -6px rgba(0, 164, 180, 0.1)",
-                  }}
                 >
                   <motion.div
                     className="absolute top-0 left-0 w-full h-1 bg-arcova-teal"
@@ -258,8 +250,8 @@ export default function Home() {
                       </motion.div>
                     </div>
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.9 }}
                     >
                       <Button
