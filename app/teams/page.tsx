@@ -7,6 +7,8 @@ import { AnimatedSection } from "@/components/animated-section"
 import { ProductCard } from "@/components/product-card"
 import { ProcessStep } from "@/components/process-step"
 import { LogoLink } from "@/components/logo"
+// Import the ScrollToTop component at the top of the file
+import { ScrollToTop } from "@/components/scroll-to-top"
 
 export const metadata = {
   title: "Evidence-Based Medical Writing for Biotech & Health Brands | Arcova",
@@ -342,6 +344,9 @@ export default function TeamsPage() {
           </nav>
         </div>
       </footer>
+
+      {/* Scroll to top button */}
+      <ScrollToTop />
     </div>
   )
 }

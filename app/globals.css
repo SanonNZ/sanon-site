@@ -64,6 +64,11 @@
   --ring: 180 100% 35%; /* Arcova teal */
 }
 
+html {
+  scroll-padding-top: 80px; /* Add scroll padding to account for fixed header */
+  scroll-behavior: smooth;
+}
+
 @layer base {
   * {
     @apply border-border;

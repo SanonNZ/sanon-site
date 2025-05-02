@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef } from "react"
 import { ArrowRight, Check, FileText, Users, Zap, ChevronDown, Star } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -12,6 +12,7 @@ import { TypewriterHeading } from "@/components/typewriter-heading"
 import { LogoLink } from "@/components/logo"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { ScrollToTop } from "@/components/scroll-to-top"
 
 // Service selector data
 const services = [
@@ -66,32 +67,6 @@ export default function InvestorsPageClient() {
       }, 50)
     }
   }
-
-  // Set up smooth scrolling for all anchor links
-  useEffect(() => {
-    // Add smooth scrolling behavior to all anchor links
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault()
-
-        const targetId = this.getAttribute("href")?.substring(1)
-        if (!targetId) return
-
-        const targetElement = document.getElementById(targetId)
-        if (!targetElement) return
-
-        const navbarHeight = 80 // Height of the navbar
-        const yOffset = -navbarHeight
-
-        const y = targetElement.getBoundingClientRect().top + window.scrollY + yOffset
-
-        window.scrollTo({
-          top: y,
-          behavior: "smooth",
-        })
-      })
-    })
-  }, [])
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -568,6 +543,9 @@ export default function InvestorsPageClient() {
           </nav>
         </div>
       </footer>
+
+      {/* Scroll to top button */}
+      <ScrollToTop />
     </div>
   )
 }

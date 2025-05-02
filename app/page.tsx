@@ -10,6 +10,8 @@ import { TypewriterHeading } from "@/components/typewriter-heading"
 import { GlowingNetworkMolecule } from "@/components/network-molecule"
 import { LogoLink } from "@/components/logo"
 import { motion } from "framer-motion"
+// Import the ScrollToTop component at the top of the file
+import { ScrollToTop } from "@/components/scroll-to-top"
 
 export default function Home() {
   return (
@@ -313,7 +315,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-16 pt-8 border-t border-gray-200">
+            <div className="mt-24 pt-16 border-t border-gray-200">
               <div className="grid gap-8 md:grid-cols-3 items-center">
                 <div className="col-span-1 md:col-span-1">
                   <div className="aspect-square relative overflow-hidden rounded-2xl">
@@ -433,6 +435,9 @@ export default function Home() {
           </nav>
         </div>
       </footer>
+
+      {/* Scroll to top button */}
+      <ScrollToTop />
     </div>
   )
 }

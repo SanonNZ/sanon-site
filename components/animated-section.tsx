@@ -8,14 +8,16 @@ interface AnimatedSectionProps {
   children: React.ReactNode
   className?: string
   delay?: number
+  id?: string
 }
 
-export function AnimatedSection({ children, className, delay = 0 }: AnimatedSectionProps) {
+export function AnimatedSection({ children, className, delay = 0, id }: AnimatedSectionProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-100px 0px" })
 
   return (
     <motion.section
+      id={id}
       ref={ref}
       className={className}
       initial={{ opacity: 0, y: 30 }}
