@@ -35,6 +35,12 @@ export default function TeamsPage() {
             >
               For Investors
             </Link>
+            <Link
+              href="/contributors"
+              className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
+            >
+              Join Our Network
+            </Link>
           </nav>
           <Button
             asChild

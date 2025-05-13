@@ -86,6 +86,12 @@ export default function InvestorsPageClient() {
             >
               For Life Science Teams
             </Link>
+            <Link
+              href="/contributors"
+              className="text-sm font-medium text-gray-600 hover:text-arcova-blue transition-colors duration-200"
+            >
+              Join Our Network
+            </Link>
           </nav>
           <Button
             asChild

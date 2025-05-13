@@ -33,6 +33,12 @@ export default function Home() {
               For Science-Backed Brands
             </Link>
             <Link
+              href="/contributors"
+              className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
+            >
+              Join Our Network
+            </Link>
+            <Link
               href="#about"
               className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
