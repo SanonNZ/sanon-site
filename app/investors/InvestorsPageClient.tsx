@@ -246,7 +246,7 @@ export default function InvestorsPageClient() {
         </AnimatedSection>
 
         {/* Service Selector Section - Replacing the "What We Offer" section */}
-        <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50" id="service-section">
+        <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-blue/10" id="service-section">
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-arcova-darkblue">
@@ -272,8 +272,8 @@ export default function InvestorsPageClient() {
                         "flex-1 aspect-square md:aspect-auto md:w-full p-3 md:p-5 rounded-xl md:rounded-2xl",
                         // Desktop: Pill style
                         selectedService === index
-                          ? "bg-blue-50 border border-blue-200 text-arcova-blue" // Pale button style
-                          : "bg-white hover:bg-gray-50 border border-transparent",
+                          ? "bg-arcova-blue/20 border border-arcova-blue/30 text-arcova-blue" // More distinct blue button style
+                          : "bg-white hover:bg-arcova-blue/5 border border-transparent",
                       )}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -419,7 +419,7 @@ export default function InvestorsPageClient() {
                         </div>
                       </div>
                       <motion.button
-                        className="bg-blue-50 hover:bg-blue-100 text-arcova-blue border border-blue-200 px-6 md:px-8 py-2 md:py-3 rounded-full flex items-center gap-2 transition-all duration-300 group text-sm md:text-base"
+                        className="bg-arcova-blue/20 hover:bg-arcova-blue/30 text-arcova-blue border border-arcova-blue/30 px-6 md:px-8 py-2 md:py-3 rounded-full flex items-center gap-2 transition-all duration-300 group text-sm md:text-base"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
