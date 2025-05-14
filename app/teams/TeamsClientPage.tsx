@@ -2,20 +2,68 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Menu, X } from "lucide-react"
+import { ArrowRight, Menu, X, ChevronDown, Star, Check, FileText, Users, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { AnimatedSection } from "@/components/animated-section"
-import { ProductCard } from "@/components/product-card"
 import { ProcessStep } from "@/components/process-step"
 import { LogoLink } from "@/components/logo"
-// Import the ScrollToTop component at the top of the file
 import { ScrollToTop } from "@/components/scroll-to-top"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import { TypewriterHeading } from "@/components/typewriter-heading"
+
+// Service selector data
+const services = [
+  {
+    id: "tldr",
+    name: "Research Summaries",
+    description: "Concise summaries of complex research papers with key findings highlighted.",
+    features: ["1-page summary", "Key findings extraction", "Plain language translation"],
+    icon: <Zap className="h-5 w-5" />,
+  },
+  {
+    id: "articles",
+    name: "Authority Articles",
+    description: "In-depth, evidence-based articles that establish your brand as a trusted authority.",
+    features: ["SEO optimization", "Peer-reviewed sources", "Engaging narratives"],
+    icon: <FileText className="h-5 w-5" />,
+  },
+  {
+    id: "series",
+    name: "Content Series",
+    description: "Comprehensive content packages that build audience trust and engagement over time.",
+    features: ["Strategic planning", "Multimedia formats", "Audience targeting"],
+    icon: <Users className="h-5 w-5" />,
+  },
+]
 
 export default function TeamsClientPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [selectedService, setSelectedService] = useState(0)
+  const [hoveredService, setHoveredService] = useState<number | null>(null)
+  const contentCardRef = useRef<HTMLDivElement>(null)
+
+  // Function to handle tab selection and scrolling
+  const handleTabSelect = (index: number) => {
+    setSelectedService(index)
+
+    // On mobile, scroll to the content card with proper offset
+    if (window.innerWidth < 768 && contentCardRef.current) {
+      setTimeout(() => {
+        const navbarHeight = 80 // Height of the navbar
+        const extraPadding = 20 // Additional padding for better visibility
+        const yOffset = -(navbarHeight + extraPadding)
+
+        const y = contentCardRef.current!.getBoundingClientRect().top + window.pageYOffset + yOffset
+
+        window.scrollTo({
+          top: y,
+          behavior: "smooth",
+        })
+      }, 50)
+    }
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -143,53 +191,251 @@ export default function TeamsClientPage() {
       </AnimatePresence>
 
       <main className="flex-1 pt-16">
+        {/* Hero section - Replicated from investors page */}
         <AnimatedSection className="w-full py-24 md:py-32 lg:py-40">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8 text-center">
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-                Evidence-based writing that <span className="text-arcova-teal">wins trust</span>.
-              </h1>
+            <div className="flex flex-col items-center space-y-12 text-center">
+              <div className="space-y-6 max-w-[900px]">
+                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl">
+                  Evidence that builds trust.
+                </h1>
+                <div className="min-h-[70px] sm:min-h-[80px] md:min-h-[90px] flex items-center justify-center">
+                  <TypewriterHeading
+                    prefix=""
+                    words={[
+                      "Engage your audience.",
+                      "Establish authority.",
+                      "Educate customers.",
+                      "Boost conversions.",
+                      "Improve SEO.",
+                      "Build credibility.",
+                      "Simplify complexity.",
+                      "Showcase expertise.",
+                      "Drive organic traffic.",
+                      "Support your claims.",
+                      "Differentiate your brand.",
+                    ]}
+                    className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-5xl text-arcova-teal"
+                    suffix=""
+                  />
+                </div>
+              </div>
               <p className="mx-auto max-w-[700px] text-xl text-gray-600 leading-relaxed">
                 We translate peer-reviewed data into language your customers — and Google — understand.
               </p>
+
+              {/* New scroll-down button using anchor link */}
+              <motion.div
+                className="mt-8 group"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+              >
+                <a href="#service-section" className="flex flex-col items-center gap-2 cursor-pointer">
+                  <div className="bg-teal-50 border border-teal-200 rounded-full p-3 text-arcova-teal group-hover:bg-teal-100 transition-colors duration-300 group-hover:translate-y-1 transform transition-transform">
+                    <ChevronDown className="h-5 w-5" />
+                  </div>
+                </a>
+              </motion.div>
             </div>
           </div>
         </AnimatedSection>
 
-        <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-mint/20">
-          <div className="container px-4 md:px-6 max-w-5xl">
+        {/* Service Selector Section - Adapted from investors page but with teal background */}
+        <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-mint/20" id="service-section">
+          <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-arcova-darkblue">
-                Google rewards authority; clinicians demand rigour. We provide both.
+                Evidence-based content
               </h2>
+              <p className="text-lg text-gray-600 max-w-[700px]">for brands that value scientific integrity</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <ProductCard
-                title="Paper TL;DR"
-                features={["1-page summary + 1 slide", "24-hr turnaround"]}
-                price="US $595"
-                popular={false}
-                delay={0.1}
-                color="arcova-teal"
-              />
 
-              <ProductCard
-                title="Authority Article"
-                features={["1,200-word, peer-reviewed source list", "Edited for SEO & plain-English clarity"]}
-                price="US $1,950"
-                popular={true}
-                delay={0.2}
-                color="arcova-teal"
-              />
+            <div className="grid md:grid-cols-12 gap-8">
+              {/* Left column: Modern pill tabs - square buttons on mobile */}
+              <div className="md:col-span-4 flex flex-col justify-center md:py-12">
+                <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-start">
+                  {services.map((service, index) => (
+                    <motion.button
+                      key={service.id}
+                      onClick={() => handleTabSelect(index)}
+                      onMouseEnter={() => setHoveredService(index)}
+                      onMouseLeave={() => setHoveredService(null)}
+                      className={`
+                        relative flex items-center justify-center transition-all duration-300
+                        overflow-hidden group
+                        flex-1 aspect-square md:aspect-auto md:w-full p-3 md:p-5 rounded-xl md:rounded-2xl
+                        ${
+                          selectedService === index
+                            ? "bg-teal-50 border border-teal-200 text-arcova-teal"
+                            : "bg-white hover:bg-gray-50 border border-transparent"
+                        }
+                      `}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                    >
+                      {/* Icon container */}
+                      <div className="flex flex-col items-center md:flex-row md:gap-4">
+                        <motion.div
+                          className={`
+                            flex items-center justify-center w-10 h-10 rounded-full mb-1 md:mb-0
+                            ${selectedService === index ? "bg-arcova-teal text-white" : "bg-gray-100 text-gray-500"}
+                          `}
+                          animate={{
+                            scale: hoveredService === index || selectedService === index ? 1.05 : 1,
+                          }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {service.icon}
+                        </motion.div>
 
-              <ProductCard
-                title="Evidence Series"
-                features={["4 articles + 1 infographic", "Strategy call + outline + revisions"]}
-                price="US $6,800"
-                popular={false}
-                delay={0.3}
-                color="arcova-teal"
-              />
+                        <div className="flex-1 hidden md:block">
+                          <div
+                            className={`
+                              font-medium text-lg transition-colors duration-300
+                              ${selectedService === index ? "text-arcova-teal" : "text-gray-700"}
+                            `}
+                          >
+                            {service.name}
+                          </div>
+                        </div>
+
+                        {/* Show name below icon on mobile */}
+                        <div className="text-xs font-medium mt-1 md:hidden">{service.name.split(" ")[0]}</div>
+
+                        {/* Subtle arrow that appears on hover or when selected - desktop only */}
+                        <motion.div
+                          className="text-arcova-teal hidden md:block"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{
+                            opacity: hoveredService === index || selectedService === index ? 1 : 0,
+                            x: hoveredService === index || selectedService === index ? 0 : -10,
+                          }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ArrowRight className="h-4 w-4" />
+                        </motion.div>
+                      </div>
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right column: Beautiful content box */}
+              <div className="md:col-span-8" ref={contentCardRef}>
+                {/* Removed AnimatePresence and exit animations for instant tab switching */}
+                <motion.div
+                  key={selectedService}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, type: "spring", stiffness: 100, damping: 15 }}
+                  className="bg-white rounded-3xl shadow-xl overflow-hidden border-0"
+                >
+                  <div className="p-6 md:p-10">
+                    {/* Top accent bar */}
+                    <div className="w-16 h-1.5 bg-arcova-teal rounded-full mb-6 md:mb-8"></div>
+
+                    <h3 className="text-2xl md:text-3xl font-bold text-arcova-darkblue mb-2 md:mb-3">
+                      {services[selectedService].name}
+                    </h3>
+                    <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8">
+                      {services[selectedService].description}
+                    </p>
+
+                    <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-10">
+                      <div>
+                        <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
+                          Key Benefits
+                        </h4>
+                        <ul className="space-y-3 md:space-y-4">
+                          {services[selectedService].features.map((feature, index) => (
+                            <motion.li
+                              key={index}
+                              className="flex items-start"
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.3, delay: index * 0.1 }}
+                            >
+                              <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
+                                <Check className="h-3.5 w-3.5 text-white" />
+                              </div>
+                              <span className="text-gray-700 text-sm md:text-base">{feature}</span>
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
+                          What You Get
+                        </h4>
+                        <ul className="space-y-3 md:space-y-4">
+                          <motion.li
+                            className="flex items-start"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: 0.1 }}
+                          >
+                            <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
+                              <Check className="h-3.5 w-3.5 text-white" />
+                            </div>
+                            <span className="text-gray-700 text-sm md:text-base">Expert scientific analysis</span>
+                          </motion.li>
+                          <motion.li
+                            className="flex items-start"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: 0.2 }}
+                          >
+                            <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
+                              <Check className="h-3.5 w-3.5 text-white" />
+                            </div>
+                            <span className="text-gray-700 text-sm md:text-base">Clear, actionable insights</span>
+                          </motion.li>
+                          <motion.li
+                            className="flex items-start"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: 0.3 }}
+                          >
+                            <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
+                              <Check className="h-3.5 w-3.5 text-white" />
+                            </div>
+                            <span className="text-gray-700 text-sm md:text-base">SEO-optimized content</span>
+                          </motion.li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col md:flex-row items-center justify-between pt-6 md:pt-8 border-t border-gray-100">
+                      <div className="mb-4 md:mb-0">
+                        <div className="text-xs md:text-sm text-gray-500 mb-1">Tailored to your needs</div>
+                        <div className="text-2xl md:text-3xl font-bold text-arcova-darkblue">Custom Solutions</div>
+                      </div>
+                      <motion.button
+                        className="bg-teal-50 hover:bg-teal-100 text-arcova-teal border border-teal-200 px-6 md:px-8 py-2 md:py-3 rounded-full flex items-center gap-2 transition-all duration-300 group text-sm md:text-base"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        Request consultation
+                        <motion.div
+                          initial={{ x: 0 }}
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{
+                            duration: 1,
+                            repeat: Number.POSITIVE_INFINITY,
+                            repeatType: "loop",
+                            ease: "easeInOut",
+                            repeatDelay: 1,
+                          }}
+                        >
+                          <ArrowRight className="h-4 w-4" />
+                        </motion.div>
+                      </motion.button>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </AnimatedSection>
@@ -278,7 +524,7 @@ export default function TeamsClientPage() {
                 Our Process
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                How we transform complex research into compelling content
+                How we deliver scientific content with precision
               </h2>
               <p className="text-lg text-gray-600 max-w-[700px]">
                 Our systematic approach ensures high-quality, reliable results every time
@@ -317,20 +563,130 @@ export default function TeamsClientPage() {
           </div>
         </AnimatedSection>
 
+        {/* Reviews section - Transformed from case snapshot */}
         <AnimatedSection className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8 text-center">
+            <div className="flex flex-col items-center space-y-8 text-center mb-16">
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                 Client Success
               </div>
-              <div className="max-w-[800px] mx-auto relative">
-                <div className="absolute -top-8 -left-8 text-arcova-mint text-8xl font-serif">"</div>
-                <blockquote className="text-2xl md:text-3xl font-medium leading-relaxed relative z-10">
-                  The article series doubled organic traffic and slashed rebuttals in sales calls.
-                </blockquote>
-                <div className="absolute -bottom-8 -right-8 text-arcova-mint text-8xl font-serif">"</div>
-                <p className="mt-8 text-gray-600">– CMO, BioSense Diagnostics</p>
-              </div>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">What our clients say</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Review 1 */}
+              <motion.div
+                className="relative overflow-hidden rounded-2xl shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7 }}
+              >
+                {/* Background with gradient overlay */}
+                <div className="absolute inset-0 z-0">
+                  <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-85 z-10"></div>
+                  <Image
+                    src="/abstract-finance.png"
+                    alt="Abstract visualization"
+                    width={1000}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-20 p-6 md:p-8 flex flex-col h-full">
+                  <div className="flex mb-4">
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige" />
+                  </div>
+
+                  <p className="text-white/90 text-base mb-6 leading-relaxed flex-grow">
+                    "The article series doubled organic traffic and slashed rebuttals in sales calls. Their scientific
+                    expertise is unmatched."
+                  </p>
+                  <p className="text-white/70 text-sm font-medium">CMO, BioSense Diagnostics</p>
+                </div>
+              </motion.div>
+
+              {/* Review 2 */}
+              <motion.div
+                className="relative overflow-hidden rounded-2xl shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+              >
+                {/* Background with gradient overlay */}
+                <div className="absolute inset-0 z-0">
+                  <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-85 z-10"></div>
+                  <Image
+                    src="/abstract-finance.png"
+                    alt="Abstract visualization"
+                    width={1000}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-20 p-6 md:p-8 flex flex-col h-full">
+                  <div className="flex mb-4">
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige" />
+                  </div>
+
+                  <p className="text-white/90 text-base mb-6 leading-relaxed flex-grow">
+                    "Arcova transformed our complex research into engaging content that resonates with both clinicians
+                    and patients. A game-changer for our brand."
+                  </p>
+                  <p className="text-white/70 text-sm font-medium">Director of Marketing, NeuraTech Solutions</p>
+                </div>
+              </motion.div>
+
+              {/* Review 3 */}
+              <motion.div
+                className="relative overflow-hidden rounded-2xl shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+              >
+                {/* Background with gradient overlay */}
+                <div className="absolute inset-0 z-0">
+                  <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-85 z-10"></div>
+                  <Image
+                    src="/abstract-finance.png"
+                    alt="Abstract visualization"
+                    width={1000}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-20 p-6 md:p-8 flex flex-col h-full">
+                  <div className="flex mb-4">
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
+                    <Star className="h-4 w-4 fill-current text-arcova-beige" />
+                  </div>
+
+                  <p className="text-white/90 text-base mb-6 leading-relaxed flex-grow">
+                    "Their evidence-based approach helped us establish credibility in a crowded market. Our content now
+                    ranks on page one for key terms in our industry."
+                  </p>
+                  <p className="text-white/70 text-sm font-medium">CEO, GenomicWellness</p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </AnimatedSection>
