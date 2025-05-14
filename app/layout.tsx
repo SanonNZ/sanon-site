@@ -6,6 +6,8 @@ export const metadata = {
   description: "Oxford-trained PhD team turning raw biomedical literature into decision-ready insight.",
   icons: {
     icon: "/arcova-favicon.png",
+    apple: "/favicon-512x512.png",
+    shortcut: "/favicon-512x512.png",
   },
   openGraph: {
     type: "website",
@@ -14,18 +16,18 @@ export const metadata = {
     siteName: "Arcova",
     images: [
       {
-        url: "/og-image.png", // Use relative URL for testing
-        width: 1200,
-        height: 630,
-        alt: "From Data to Clarity - Actionable insight from complex research",
+        url: "/favicon-512x512.png",
+        width: 512,
+        height: 512,
+        alt: "Arcova",
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Arcova | Scientific Evidence for Business Decisions",
     description: "Oxford-trained PhD team turning raw biomedical literature into decision-ready insight.",
-    images: ["/og-image.png"], // Use relative URL for testing
+    images: ["/favicon-512x512.png"],
     creator: "@arcova",
   },
     generator: 'v0.dev'

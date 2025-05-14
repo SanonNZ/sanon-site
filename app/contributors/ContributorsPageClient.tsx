@@ -29,7 +29,6 @@ import { AnimatedSection } from "@/components/animated-section"
 import { LogoLink } from "@/components/logo"
 import { motion, AnimatePresence } from "framer-motion"
 import { TypewriterHeading } from "@/components/typewriter-heading"
-import { ScrollToTop } from "@/components/scroll-to-top"
 
 // Confetti component
 const Confetti = ({ isActive }: { isActive: boolean }) => {
@@ -410,10 +409,7 @@ export default function ContributorsPageClient() {
               </div>
               <div className="space-y-2">
                 <p className="mx-auto max-w-[700px] text-xl text-gray-600 leading-relaxed">
-                  Lend your expertise to high-stakes research and due diligence projects.
-                </p>
-                <p className="mx-auto max-w-[700px] text-xl text-gray-600 leading-relaxed font-medium">
-                  On your terms.
+                  Lend your expertise to high-stakes research and due diligence projects. On your terms.
                 </p>
               </div>
               <Button
@@ -953,9 +949,6 @@ export default function ContributorsPageClient() {
           </nav>
         </div>
       </footer>
-
-      {/* Scroll to top button */}
-      <ScrollToTop />
     </div>
   )
 }

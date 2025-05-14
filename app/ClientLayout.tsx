@@ -20,6 +20,18 @@ export default function ClientLayout({
     <html lang="en">
       <head>
         <MetaTags />
+        <meta property="og:image" content="/favicon-512x512.png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:title" content="Arcova | Scientific Evidence for Business Decisions" />
+        <meta
+          property="og:description"
+          content="Oxford-trained PhD team turning raw biomedical literature into decision-ready insight."
+        />
+        <meta property="og:type" content="website" />
+        <link rel="icon" href="/favicon-512x512.png" />
+        <link rel="apple-touch-icon" href="/favicon-512x512.png" />
+        <link rel="shortcut icon" href="/favicon-512x512.png" />
         <style jsx global>{`
           h1, h2, h3 {
             font-family: ${poppins.style.fontFamily};
