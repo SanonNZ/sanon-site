@@ -10,7 +10,7 @@ interface MetaTagsProps {
 export function MetaTags({
   title = "Arcova | Scientific Evidence for Business Decisions",
   description = "Oxford-trained PhD team turning raw biomedical literature into decision-ready insight.",
-  imageUrl = "https://arcova.bio/og-image.png",
+  imageUrl = "https://arcova.bio/og-image.png", // Absolute URL for OG tags
   url = "https://arcova.bio",
 }: MetaTagsProps) {
   return (
