@@ -380,6 +380,56 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
+        <AnimatedSection className="w-full py-24 md:py-32 bg-white">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="flex flex-col items-center space-y-8 text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+                Why Arcova?
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Find clarity in complexity</h2>
+            </div>
+
+            <div className="prose prose-lg max-w-none text-gray-600">
+              <p className="text-xl font-medium text-arcova-darkblue text-center mb-10">
+                The pace of innovation has never been faster, but neither has the complexity.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                <div>
+                  <p>
+                    Biotech, health, AI, and sustainability are moving at lightspeed, with investment riding on data few
+                    truly understand. Founders, investors, and marketing teams are navigating domains that demand
+                    scientific literacy — but not everyone can be a domain expert.
+                  </p>
+
+                  <p className="mt-6">
+                    At the same time, AI is generating more information than ever… but much of it is surface-level,
+                    inaccurate, or misleading. The signal is getting buried in the noise.
+                  </p>
+                </div>
+
+                <div>
+                  <p>
+                    Meanwhile, some of the clearest thinkers in the world — researchers, academics, domain specialists —
+                    are sitting outside the room.
+                  </p>
+
+                  <p className="mt-6">
+                    Arcova brings them in. We help you find clarity in complexity, and make decisions that hold up to
+                    scrutiny.
+                  </p>
+
+                  <p className="mt-6">Arcova makes that connection simple.</p>
+                </div>
+              </div>
+
+              <div className="mt-16 text-center">
+                <p className="text-2xl font-bold text-arcova-darkblue">Move fast. Think rigorously.</p>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
         <AnimatedSection id="about" className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">

@@ -245,6 +245,50 @@ export default function InvestorsPageClient() {
           </div>
         </AnimatedSection>
 
+        <AnimatedSection className="w-full py-24 md:py-32 bg-white">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="flex flex-col items-center space-y-8 text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-blue/20 text-arcova-blue rounded-full text-sm font-medium">
+                Why Arcova?
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl"> Hype is loud. Rigor is quiet.</h2>
+            </div>
+
+            <div className="prose prose-lg max-w-none text-gray-600">
+              <p className="text-xl font-medium text-arcova-darkblue text-center mb-10">
+                Investing in biotech means betting on complexity — biology, chemistry, AI models, regulatory nuance. But
+                most due diligence processes barely scratch the scientific surface.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                <div>
+                  <p>
+                    Founders pitch confidently. Decks look sharp. But who's pressure-testing the assumptions behind the
+                    science? Who's asking the second-order questions?
+                  </p>
+
+                  <p className="mt-6">
+                    The expertise is out there — sitting in universities, research institutes, and labs — but there's no
+                    structured way to access it. Until now.
+                  </p>
+                </div>
+
+                <div>
+                  <p>
+                    Arcova brings scientific minds into your due diligence flow — fast, discreetly, and with zero
+                    friction. Whether you need a 48-hour gut check or a deep dive on a mechanism of action, we match you
+                    with people who've actually done the work.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-16 text-center">
+                <p className="text-2xl font-bold text-arcova-darkblue">Move fast. Think rigorously.</p>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
         {/* Service Selector Section - Replacing the "What We Offer" section */}
         <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-blue/10" id="service-section">
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
@@ -361,7 +405,7 @@ export default function InvestorsPageClient() {
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ duration: 0.3, delay: index * 0.1 }}
                             >
-                              <div className="rounded-full bg-arcova-green p-1 mr-3 mt-0.5 flex-shrink-0">
+                              <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
                                 <Check className="h-3.5 w-3.5 text-white" />
                               </div>
                               <span className="text-gray-700 text-sm md:text-base">{feature}</span>
@@ -380,7 +424,7 @@ export default function InvestorsPageClient() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3, delay: 0.1 }}
                           >
-                            <div className="rounded-full bg-arcova-green p-1 mr-3 mt-0.5 flex-shrink-0">
+                            <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
                               <Check className="h-3.5 w-3.5 text-white" />
                             </div>
                             <span className="text-gray-700 text-sm md:text-base">Expert scientific analysis</span>
@@ -391,7 +435,7 @@ export default function InvestorsPageClient() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3, delay: 0.2 }}
                           >
-                            <div className="rounded-full bg-arcova-green p-1 mr-3 mt-0.5 flex-shrink-0">
+                            <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
                               <Check className="h-3.5 w-3.5 text-white" />
                             </div>
                             <span className="text-gray-700 text-sm md:text-base">Clear, actionable insights</span>
@@ -402,7 +446,7 @@ export default function InvestorsPageClient() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3, delay: 0.3 }}
                           >
-                            <div className="rounded-full bg-arcova-green p-1 mr-3 mt-0.5 flex-shrink-0">
+                            <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
                               <Check className="h-3.5 w-3.5 text-white" />
                             </div>
                             <span className="text-gray-700 text-sm md:text-base">Confidential reporting</span>

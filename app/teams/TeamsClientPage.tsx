@@ -241,6 +241,51 @@ export default function TeamsClientPage() {
           </div>
         </AnimatedSection>
 
+        {/* Why Arcova? Section */}
+        <AnimatedSection className="w-full py-24 md:py-32 bg-white">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="flex flex-col items-center space-y-8 text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+                Why Arcova?
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Evidence-based credibility</h2>
+            </div>
+
+            <div className="prose prose-lg max-w-none text-gray-600">
+              <p className="text-xl font-medium text-arcova-darkblue text-center mb-10">
+                You're building something that makes a scientific claim — but your audience doesn't just want promises.
+                They want proof. And regulators are paying attention too.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                <div>
+                  <p>
+                    In a world where AI can generate content in seconds, true credibility is harder to earn — and easier
+                    to lose. The difference lies in the details: Does your messaging hold up to scrutiny? Have you
+                    interpreted the evidence correctly? Are your claims aligned with current research?
+                  </p>
+                </div>
+
+                <div>
+                  <p>
+                    Arcova connects you with scientific experts who can help you navigate the nuance — not to slow you
+                    down, but to sharpen what you say and how you say it.
+                  </p>
+
+                  <p className="mt-6">
+                    Whether it's evidence-based content, product claims, or white papers that build trust, we help you
+                    speak science fluently.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-16 text-center">
+                <p className="text-2xl font-bold text-arcova-darkblue">Move fast. Think rigorously.</p>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
         {/* Service Selector Section - Adapted from investors page but with teal background */}
         <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-mint/20" id="service-section">
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
