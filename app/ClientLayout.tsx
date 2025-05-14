@@ -4,6 +4,7 @@ import type React from "react"
 import "@/app/globals.css"
 import { Poppins } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
+import { MetaTags } from "@/components/meta-tags"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,6 +19,7 @@ export default function ClientLayout({
   return (
     <html lang="en">
       <head>
+        <MetaTags />
         <style jsx global>{`
           h1, h2, h3 {
             font-family: ${poppins.style.fontFamily};

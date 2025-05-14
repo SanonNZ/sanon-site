@@ -15,7 +15,7 @@ export const metadata = {
     siteName: "Arcova",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://arcova.bio/og-image.png", // Use absolute URL
         width: 1200,
         height: 630,
         alt: "From Data to Clarity - Actionable insight from complex research",
@@ -26,7 +26,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Arcova | Scientific Evidence for Business Decisions",
     description: "Oxford-trained PhD team turning raw biomedical literature into decision-ready insight.",
-    images: ["/og-image.png"],
+    images: ["https://arcova.bio/og-image.png"], // Use absolute URL
     creator: "@arcova",
   },
     generator: 'v0.dev'
