@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState, useRef } from "react"
-import { ArrowRight, Check, FileText, Users, Zap, ChevronDown, Star } from "lucide-react"
+import { ArrowRight, Check, FileText, Users, Zap, ChevronDown, Star, Menu, X } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -10,7 +10,7 @@ import { AnimatedSection } from "@/components/animated-section"
 import { ProcessStep } from "@/components/process-step"
 import { TypewriterHeading } from "@/components/typewriter-heading"
 import { LogoLink } from "@/components/logo"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { ScrollToTop } from "@/components/scroll-to-top"
 
@@ -43,6 +43,7 @@ const services = [
 ]
 
 export default function InvestorsPageClient() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [selectedService, setSelectedService] = useState(0)
   const [hoveredService, setHoveredService] = useState<number | null>(null)
   const contentCardRef = useRef<HTMLDivElement>(null)
@@ -109,8 +110,89 @@ export default function InvestorsPageClient() {
           >
             <a href="#cta">Book a Call</a>
           </Button>
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden p-2.5 rounded-md bg-arcova-blue/10 text-arcova-blue hover:bg-arcova-blue/20 transition-colors"
+            onClick={() => setMobileMenuOpen(true)}
+            aria-label="Open menu"
+          >
+            <Menu className="h-7 w-7" />
+          </button>
         </div>
       </header>
+
+      {/* Mobile Navigation Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black/50 z-50 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <motion.div
+              className="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white shadow-xl p-6 z-50"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex justify-between items-center mb-8">
+                <LogoLink variant="icon" />
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                >
+                  <X className="h-6 w-6 text-gray-600" />
+                </button>
+              </div>
+              <nav className="flex flex-col space-y-6">
+                <Link
+                  href="/"
+                  className="text-base font-medium text-gray-600 hover:text-arcova-blue transition-colors duration-200"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                    setMobileMenuOpen(false)
+                  }}
+                  className="text-base font-medium text-gray-600 hover:text-arcova-blue transition-colors duration-200"
+                >
+                  For Investors
+                </Link>
+                <Link
+                  href="/teams"
+                  className="text-base font-medium text-gray-600 hover:text-arcova-blue transition-colors duration-200"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  For Science-Backed Brands
+                </Link>
+                <Link
+                  href="/contributors"
+                  className="text-base font-medium text-gray-600 hover:text-arcova-blue transition-colors duration-200"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Join Our Network
+                </Link>
+                <Button
+                  asChild
+                  className="bg-arcova-blue hover:bg-arcova-teal text-white rounded-full transition-colors duration-200 mt-4"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <a href="#cta">Book a Call</a>
+                </Button>
+              </nav>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <main className="flex-1 pt-16">
         <AnimatedSection className="w-full py-24 md:py-32 lg:py-40">

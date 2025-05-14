@@ -22,12 +22,14 @@ import {
   Microscope,
   Globe,
   DollarSign,
+  Menu,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimatedSection } from "@/components/animated-section"
 import { LogoLink } from "@/components/logo"
 import { motion, AnimatePresence } from "framer-motion"
 import { TypewriterHeading } from "@/components/typewriter-heading"
+import { ScrollToTop } from "@/components/scroll-to-top"
 
 // Confetti component
 const Confetti = ({ isActive }: { isActive: boolean }) => {
@@ -68,7 +70,7 @@ interface SkillTab {
   title: string
   content: string
   backgroundImage: string
-  backgroundPosition: string // Add this property
+  backgroundPosition: string
   icon: React.ReactNode
 }
 
@@ -85,6 +87,7 @@ export default function ContributorsPageClient() {
 
   const [showNotification, setShowNotification] = useState(false)
   const [showConfetti, setShowConfetti] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   // State for the expanded tabs
   const [expandedTabs, setExpandedTabs] = useState<string[]>(["scientific-rigor"])
@@ -96,6 +99,11 @@ export default function ContributorsPageClient() {
     } else {
       setExpandedTabs([...expandedTabs, tabId])
     }
+  }
+
+  // Close mobile menu when clicking a link
+  const handleMobileNavClick = () => {
+    setMobileMenuOpen(false)
   }
 
   // Core skills tabs data
@@ -201,6 +209,79 @@ export default function ContributorsPageClient() {
         )}
       </AnimatePresence>
 
+      {/* Mobile Navigation Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black/50 z-50 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <motion.div
+              className="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white shadow-xl p-6 z-50"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex justify-between items-center mb-8">
+                <LogoLink variant="icon" />
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                >
+                  <X className="h-6 w-6 text-gray-600" />
+                </button>
+              </div>
+              <nav className="flex flex-col space-y-6">
+                <Link
+                  href="/"
+                  className="text-base font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
+                  onClick={handleMobileNavClick}
+                >
+                  Home
+                </Link>
+                <Link
+                  href="/investors"
+                  className="text-base font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
+                  onClick={handleMobileNavClick}
+                >
+                  For Investors
+                </Link>
+                <Link
+                  href="/teams"
+                  className="text-base font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
+                  onClick={handleMobileNavClick}
+                >
+                  For Science-Backed Brands
+                </Link>
+                <Link
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                    handleMobileNavClick()
+                  }}
+                  className="text-base font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
+                >
+                  Join Our Network
+                </Link>
+                <Button
+                  asChild
+                  className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full transition-colors duration-200 mt-4"
+                  onClick={handleMobileNavClick}
+                >
+                  <a href="#contact-form">Join Our Network</a>
+                </Button>
+              </nav>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <style jsx global>{`
         .confetti {
           position: fixed;
@@ -240,9 +321,13 @@ export default function ContributorsPageClient() {
           background-position: center;
           position: relative;
         }
+        
+        body.menu-open {
+          overflow: hidden;
+        }
       `}</style>
 
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-100">
+      <header className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-white/80 border-b border-gray-100">
         <div className="container flex h-20 items-center justify-between px-4 md:px-6">
           <LogoLink />
           <nav className="hidden md:flex gap-8">
@@ -275,12 +360,22 @@ export default function ContributorsPageClient() {
               Join Our Network
             </Link>
           </nav>
-          <Button
-            asChild
-            className="hidden md:inline-flex bg-arcova-teal hover:bg-arcova-blue text-white rounded-full transition-colors duration-200"
-          >
-            <a href="#contact-form">Join Our Network</a>
-          </Button>
+          <div className="flex items-center gap-4">
+            <Button
+              asChild
+              className="hidden md:inline-flex bg-arcova-teal hover:bg-arcova-blue text-white rounded-full transition-colors duration-200"
+            >
+              <a href="#contact-form">Join Our Network</a>
+            </Button>
+            {/* Mobile menu button - enhanced visibility */}
+            <button
+              className="md:hidden p-2.5 rounded-md bg-arcova-teal/10 text-arcova-teal hover:bg-arcova-teal/20 transition-colors"
+              onClick={() => setMobileMenuOpen(true)}
+              aria-label="Open menu"
+            >
+              <Menu className="h-7 w-7" />
+            </button>
+          </div>
         </div>
       </header>
 
@@ -858,6 +953,9 @@ export default function ContributorsPageClient() {
           </nav>
         </div>
       </footer>
+
+      {/* Scroll to top button */}
+      <ScrollToTop />
     </div>
   )
 }
