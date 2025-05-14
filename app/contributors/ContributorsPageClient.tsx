@@ -7,7 +7,6 @@ import { useState, useEffect } from "react"
 import {
   ArrowRight,
   Check,
-  Send,
   BookOpen,
   BarChart3,
   ClipboardCheck,
@@ -20,15 +19,16 @@ import {
   Brain,
   Lightbulb,
   Microscope,
-  Globe,
-  DollarSign,
   Menu,
+  Heart,
+  PlusCircle,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimatedSection } from "@/components/animated-section"
 import { LogoLink } from "@/components/logo"
 import { motion, AnimatePresence } from "framer-motion"
 import { TypewriterHeading } from "@/components/typewriter-heading"
+import { ScrollToTop } from "@/components/scroll-to-top"
 
 // Confetti component
 const Confetti = ({ isActive }: { isActive: boolean }) => {
@@ -698,10 +698,10 @@ export default function ContributorsPageClient() {
                 Get paid to think.
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                Work that values you — and what you know.
+                Work that values you, and what you know.
               </h2>
               <p className="text-lg text-gray-600 max-w-[700px]">
-                Bring your research skills, analytical mind, and scientific training to real-world projects — without
+                Bring your research skills, analytical mind, and scientific training to real-world projects, without
                 stepping away from the work you already care about.
               </p>
             </div>
@@ -717,14 +717,32 @@ export default function ContributorsPageClient() {
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-arcova-teal"></div>
                 <div className="p-8">
-                  <div className="bg-arcova-teal/20 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                    <Brain className="h-7 w-7 text-arcova-teal" />
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="bg-arcova-teal/20 p-4 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
+                      <Brain className="h-7 w-7 text-arcova-teal" />
+                    </div>
+                    <h3 className="text-xl font-bold text-arcova-darkblue">Intelligent work, on your terms</h3>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-arcova-darkblue">Intelligent work, on your terms</h3>
-                  <p className="text-gray-600">
-                    Consult on projects that need your expertise. No admin or bureaucracy. Just flexible, high-impact
-                    work that fits around your existing commitments.
-                  </p>
+                  <ul className="space-y-3 text-gray-600">
+                    <li className="flex items-start">
+                      <div className="rounded-full bg-arcova-teal/10 p-1 mr-3 mt-0.5 flex-shrink-0">
+                        <Check className="h-3.5 w-3.5 text-arcova-teal" />
+                      </div>
+                      <span>Consult on high-impact projects</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="rounded-full bg-arcova-teal/10 p-1 mr-3 mt-0.5 flex-shrink-0">
+                        <Check className="h-3.5 w-3.5 text-arcova-teal" />
+                      </div>
+                      <span>Flexibly fits around existing commitments</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="rounded-full bg-arcova-teal/10 p-1 mr-3 mt-0.5 flex-shrink-0">
+                        <Check className="h-3.5 w-3.5 text-arcova-teal" />
+                      </div>
+                      <span>Work from home</span>
+                    </li>
+                  </ul>
                 </div>
               </motion.div>
 
@@ -738,14 +756,26 @@ export default function ContributorsPageClient() {
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-arcova-blue"></div>
                 <div className="p-8">
-                  <div className="bg-arcova-blue/20 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                    <DollarSign className="h-7 w-7 text-arcova-blue" />
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="bg-arcova-blue/20 p-4 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
+                      <Heart className="h-7 w-7 text-arcova-blue" />
+                    </div>
+                    <h3 className="text-xl font-bold text-arcova-darkblue">Compensation that reflects your value</h3>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-arcova-darkblue">Compensation that reflects your value</h3>
-                  <p className="text-gray-600">
-                    Your training and experience are incredibly valuable, not just in the lab or lecture hall. We offer
-                    project-based fees that reflect the real-world impact of your thinking.
-                  </p>
+                  <ul className="space-y-3 text-gray-600">
+                    <li className="flex items-start">
+                      <div className="rounded-full bg-arcova-blue/10 p-1 mr-3 mt-0.5 flex-shrink-0">
+                        <Check className="h-3.5 w-3.5 text-arcova-blue" />
+                      </div>
+                      <span>Project-based fees</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="rounded-full bg-arcova-blue/10 p-1 mr-3 mt-0.5 flex-shrink-0">
+                        <Check className="h-3.5 w-3.5 text-arcova-blue" />
+                      </div>
+                      <span>Short-term or ongoing contracts</span>
+                    </li>
+                  </ul>
                 </div>
               </motion.div>
 
@@ -759,14 +789,26 @@ export default function ContributorsPageClient() {
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-arcova-teal"></div>
                 <div className="p-8">
-                  <div className="bg-arcova-teal/20 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                    <Globe className="h-7 w-7 text-arcova-teal" />
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="bg-arcova-teal/20 p-4 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
+                      <PlusCircle className="h-7 w-7 text-arcova-teal" />
+                    </div>
+                    <h3 className="text-xl font-bold text-arcova-darkblue">Extend your impact</h3>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-arcova-darkblue">Extend your impact</h3>
-                  <p className="text-gray-600">
-                    Your work already matters. Arcova is a way to apply your skills in new arenas, helping shape
-                    business decisions, health policy, product development, and more.
-                  </p>
+                  <ul className="space-y-3 text-gray-600">
+                    <li className="flex items-start">
+                      <div className="rounded-full bg-arcova-teal/10 p-1 mr-3 mt-0.5 flex-shrink-0">
+                        <Check className="h-3.5 w-3.5 text-arcova-teal" />
+                      </div>
+                      <span>Apply your skills to new fields</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="rounded-full bg-arcova-teal/10 p-1 mr-3 mt-0.5 flex-shrink-0">
+                        <Check className="h-3.5 w-3.5 text-arcova-teal" />
+                      </div>
+                      <span>Shape business decisions, health policy, or product development</span>
+                    </li>
+                  </ul>
                 </div>
               </motion.div>
             </div>
@@ -849,12 +891,12 @@ export default function ContributorsPageClient() {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal focus:border-transparent"
-                        placeholder="e.g., Neuroscience, Oncology, Genomics"
+                        placeholder="e.g., Neuroscience, Bioinformatics, Clinical Trials"
                       />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="institution" className="text-sm font-medium text-gray-700">
-                        Institution/University
+                        Institution/Company
                       </label>
                       <input
                         type="text"
@@ -862,69 +904,36 @@ export default function ContributorsPageClient() {
                         name="institution"
                         value={formState.institution}
                         onChange={handleChange}
-                        required
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal focus:border-transparent"
-                        placeholder="Your current or most recent institution"
+                        placeholder="University, Research Institute, or Company"
                       />
                     </div>
                   </div>
                   <div className="space-y-2 mb-8">
                     <label htmlFor="message" className="text-sm font-medium text-gray-700">
-                      Tell us about yourself and your experience
+                      Additional Information (Optional)
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       value={formState.message}
                       onChange={handleChange}
-                      required
-                      rows={5}
+                      rows={4}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal focus:border-transparent"
-                      placeholder="Please share your relevant experience, including your research background, any industry experience, and why you're interested in joining our network."
+                      placeholder="Tell us a bit more about your background, interests, or availability"
                     ></textarea>
                   </div>
                   <div className="flex justify-center">
                     <Button
                       type="submit"
                       disabled={formState.loading}
-                      className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-8 py-3 transition-all duration-300 flex items-center gap-2"
+                      className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-8 py-3 transition-all duration-300 hover:shadow-lg disabled:opacity-70"
                     >
-                      {formState.loading ? (
-                        <>
-                          <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full mr-2"></div>
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          Send Your Details
-                          <Send className="h-4 w-4 ml-1" />
-                        </>
-                      )}
+                      {formState.loading ? "Submitting..." : "Join Our Network"}
                     </Button>
                   </div>
                 </form>
               )}
-            </div>
-          </div>
-        </AnimatedSection>
-
-        <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-darkblue text-white">
-          <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Have questions?</h2>
-              <p className="text-xl text-gray-400 max-w-[600px]">
-                If you have any questions about joining our network, please don't hesitate to reach out.
-              </p>
-              <Button
-                asChild
-                size="lg"
-                className="mt-4 bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-8 py-6 h-auto transition-all duration-300 hover:shadow-lg"
-              >
-                <a href="mailto:network@arcova.com" className="flex items-center gap-2">
-                  Email Us
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              </Button>
             </div>
           </div>
         </AnimatedSection>
@@ -949,6 +958,9 @@ export default function ContributorsPageClient() {
           </nav>
         </div>
       </footer>
+
+      {/* Scroll to top button */}
+      <ScrollToTop />
     </div>
   )
 }

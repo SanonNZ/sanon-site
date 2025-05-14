@@ -387,45 +387,62 @@ export default function Home() {
                 Why Arcova?
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Find clarity in complexity</h2>
+              <p className="text-lg text-gray-600 max-w-[800px]">
+                Scientific claims are everywhere, but not all of them hold up. We help you ask the right questions, so you don't get lost in the noise.
+              </p>
             </div>
 
-            <div className="prose prose-lg max-w-none text-gray-600">
-              <p className="text-xl font-medium text-arcova-darkblue text-center mb-10">
-                The pace of innovation has never been faster, but neither has the complexity.
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+              <div className="space-y-6">
                 <div>
-                  <p>
-                    Biotech, health, AI, and sustainability are moving at lightspeed, with investment riding on data few
-                    truly understand. Founders, investors, and marketing teams are navigating domains that demand
-                    scientific literacy — but not everyone can be a domain expert.
-                  </p>
-
-                  <p className="mt-6">
-                    At the same time, AI is generating more information than ever… but much of it is surface-level,
-                    inaccurate, or misleading. The signal is getting buried in the noise.
+                  <p className="text-lg">
+                    <span className="font-bold text-arcova-darkblue">
+                      Innovation is accelerating. So is complexity.
+                    </span>
+                    <br />
+                    Biotech, AI, and health are moving fast, and the details are getting harder to understand.
                   </p>
                 </div>
 
                 <div>
-                  <p>
-                    Meanwhile, some of the clearest thinkers in the world — researchers, academics, domain specialists —
-                    are sitting outside the room.
+                  <p className="text-lg">
+                    <span className="font-bold text-arcova-darkblue">
+                      Decisions depend on understanding.
+                    </span>
+                    <br />
+                    Founders, marketers, and investors face technical claims they can’t always validate.
                   </p>
+                </div>
 
-                  <p className="mt-6">
-                    Arcova brings them in. We help you find clarity in complexity, and make decisions that hold up to
-                    scrutiny.
+                <div>
+                  <p className="text-lg">
+                    <span className="font-bold text-arcova-darkblue">
+                     AI adds noise, not clarity.
+                    </span>
+                    <br />
+                    Insight gets drowned out, and it’s harder than ever to tell what’s credible.
                   </p>
+                </div>
 
-                  <p className="mt-6">Arcova makes that connection simple.</p>
+                <div>
+                  <p className="text-lg">
+                    <span className="font-bold text-arcova-darkblue">Arcova brings deep thinkers into the room.</span>
+                    <br />
+                    We help you find clarity in complexity.
+                  </p>
                 </div>
               </div>
 
-              <div className="mt-16 text-center">
-                <p className="text-2xl font-bold text-arcova-darkblue">Move fast. Think rigorously.</p>
+              <div className="flex items-center justify-center bg-gray-100 rounded-2xl p-8">
+                {/* Placeholder for future image or animation */}
+                <div className="text-center text-gray-400">
+                  <p className="text-sm">Space reserved for future image or animation</p>
+                </div>
               </div>
+            </div>
+
+            <div className="mt-16 text-center">
+              <p className="text-2xl font-bold text-arcova-darkblue">Move fast. Think rigorously.</p>
             </div>
           </div>
         </AnimatedSection>
