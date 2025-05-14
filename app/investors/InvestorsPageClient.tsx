@@ -81,10 +81,20 @@ export default function InvestorsPageClient() {
               Home
             </Link>
             <Link
+              href="#"
+              onClick={(e) => {
+                e.preventDefault()
+                window.scrollTo({ top: 0, behavior: "smooth" })
+              }}
+              className="text-sm font-medium text-gray-600 hover:text-arcova-blue transition-colors duration-200"
+            >
+              For Investors
+            </Link>
+            <Link
               href="/teams"
               className="text-sm font-medium text-gray-600 hover:text-arcova-blue transition-colors duration-200"
             >
-              For Life Science Teams
+              For Science-Backed Brands
             </Link>
             <Link
               href="/contributors"
@@ -95,12 +105,9 @@ export default function InvestorsPageClient() {
           </nav>
           <Button
             asChild
-            variant="ghost"
-            className="hidden md:inline-flex hover:bg-gray-100 transition-colors duration-200"
+            className="hidden md:inline-flex bg-arcova-blue hover:bg-arcova-teal text-white rounded-full transition-colors duration-200"
           >
-            <a href="#cta" className="scroll-smooth">
-              Book a Call
-            </a>
+            <a href="#cta">Book a Call</a>
           </Button>
         </div>
       </header>

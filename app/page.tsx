@@ -21,6 +21,16 @@ export default function Home() {
           <LogoLink />
           <nav className="hidden md:flex gap-8">
             <Link
+              href="#"
+              onClick={(e) => {
+                e.preventDefault()
+                window.scrollTo({ top: 0, behavior: "smooth" })
+              }}
+              className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
+            >
+              Home
+            </Link>
+            <Link
               href="/investors"
               className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
@@ -38,25 +48,12 @@ export default function Home() {
             >
               Join Our Network
             </Link>
-            <Link
-              href="#about"
-              className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
-            >
-              About
-            </Link>
-            <Link
-              href="#process"
-              className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
-            >
-              Our Process
-            </Link>
           </nav>
           <Button
             asChild
-            variant="ghost"
-            className="hidden md:inline-flex hover:bg-gray-100 transition-colors duration-200"
+            className="hidden md:inline-flex bg-arcova-teal hover:bg-arcova-blue text-white rounded-full transition-colors duration-200"
           >
-            <Link href="#footer-cta">Book a Call</Link>
+            <a href="#footer-cta">Book a Call</a>
           </Button>
         </div>
       </header>

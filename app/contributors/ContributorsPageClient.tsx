@@ -3,15 +3,74 @@
 import type React from "react"
 
 import Link from "next/link"
-import { useState } from "react"
-import { ArrowRight, Check, Send, BookOpen, Users, Award, Globe } from "lucide-react"
+import { useState, useEffect } from "react"
+import {
+  ArrowRight,
+  Check,
+  Send,
+  BookOpen,
+  BarChart3,
+  ClipboardCheck,
+  Search,
+  FileText,
+  GraduationCap,
+  X,
+  ChevronDown,
+  ChevronUp,
+  Brain,
+  Lightbulb,
+  Microscope,
+  Globe,
+  DollarSign,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimatedSection } from "@/components/animated-section"
 import { LogoLink } from "@/components/logo"
-import { ScrollToTop } from "@/components/scroll-to-top"
-import { motion } from "framer-motion"
-import { GlowingNetworkMolecule } from "@/components/network-molecule"
+import { motion, AnimatePresence } from "framer-motion"
 import { TypewriterHeading } from "@/components/typewriter-heading"
+
+// Confetti component
+const Confetti = ({ isActive }: { isActive: boolean }) => {
+  useEffect(() => {
+    if (!isActive) return
+
+    const createConfetti = () => {
+      const confettiCount = 150
+      const colors = ["#00A4B4", "#006680", "#8CD9C9", "#E8D6A0", "#003344"]
+
+      for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement("div")
+        confetti.className = "confetti"
+        confetti.style.setProperty("--confetti-x", Math.random() * 100 + "vw")
+        confetti.style.setProperty("--confetti-y", Math.random() * 100 + "vh")
+        confetti.style.setProperty("--confetti-size", Math.random() * 10 + 5 + "px")
+        confetti.style.setProperty("--confetti-rotation", Math.random() * 360 + "deg")
+        confetti.style.setProperty("--confetti-color", colors[Math.floor(Math.random() * colors.length)])
+        confetti.style.setProperty("--confetti-speed", Math.random() * 3 + 2 + "s")
+
+        document.body.appendChild(confetti)
+
+        setTimeout(() => {
+          confetti.remove()
+        }, 5000)
+      }
+    }
+
+    createConfetti()
+  }, [isActive])
+
+  return null
+}
+
+// Tab interface for the Core Skills section
+interface SkillTab {
+  id: string
+  title: string
+  content: string
+  backgroundImage: string
+  backgroundPosition: string // Add this property
+  icon: React.ReactNode
+}
 
 export default function ContributorsPageClient() {
   const [formState, setFormState] = useState({
@@ -23,6 +82,52 @@ export default function ContributorsPageClient() {
     submitted: false,
     loading: false,
   })
+
+  const [showNotification, setShowNotification] = useState(false)
+  const [showConfetti, setShowConfetti] = useState(false)
+
+  // State for the expanded tabs
+  const [expandedTabs, setExpandedTabs] = useState<string[]>(["scientific-rigor"])
+
+  // Toggle tab expansion
+  const toggleTab = (tabId: string) => {
+    if (expandedTabs.includes(tabId)) {
+      setExpandedTabs(expandedTabs.filter((id) => id !== tabId))
+    } else {
+      setExpandedTabs([...expandedTabs, tabId])
+    }
+  }
+
+  // Core skills tabs data
+  const skillTabs: SkillTab[] = [
+    {
+      id: "scientific-rigor",
+      title: "Scientific Rigor",
+      content:
+        "Our network members excel in applying methodical approaches to research and analysis. They understand the importance of evidence quality, statistical significance, and reproducibility. This foundation ensures that all insights and recommendations are based on sound scientific principles and can withstand scrutiny from peers and stakeholders alike.",
+      backgroundImage: "/abstract-science-background.png",
+      backgroundPosition: "center 80%", // Custom position to show more of the top portion
+      icon: <Microscope className="h-6 w-6" />,
+    },
+    {
+      id: "clarity-of-thought",
+      title: "Clarity of Thought",
+      content:
+        "The ability to distill complex scientific concepts into clear, actionable insights is a hallmark of our network. Members excel at identifying the most relevant information, organizing it logically, and communicating it effectively to diverse audiences. This skill is crucial for translating technical findings into business-relevant recommendations.",
+      backgroundImage: "/neural-network-bg.png",
+      backgroundPosition: "center 45%", // Custom position to show more of the upper portion
+      icon: <Brain className="h-6 w-6" />,
+    },
+    {
+      id: "deep-knowledge",
+      title: "Deep Knowledge",
+      content:
+        "Our contributors bring specialized expertise in their respective fields, backed by advanced degrees and practical experience. This depth of knowledge allows them to quickly identify critical issues, evaluate claims against the current state of research, and provide nuanced perspectives that generalists might miss.",
+      backgroundImage: "/molecular-structure-bg.png", // Updated to use the new image
+      backgroundPosition: "center 80%", // Custom position for unique view
+      icon: <Lightbulb className="h-6 w-6" />,
+    },
+  ]
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -48,6 +153,15 @@ export default function ContributorsPageClient() {
       institution: "",
       message: "",
     })
+
+    // Trigger confetti and notification
+    setShowConfetti(true)
+    setShowNotification(true)
+
+    // Hide notification after 5 seconds
+    setTimeout(() => {
+      setShowNotification(false)
+    }, 5000)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -59,6 +173,75 @@ export default function ContributorsPageClient() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
+      {/* Confetti effect when form is submitted */}
+      <Confetti isActive={showConfetti} />
+
+      {/* Notification banner */}
+      <AnimatePresence>
+        {showNotification && (
+          <motion.div
+            className="fixed top-24 right-4 z-50 bg-arcova-teal text-white p-4 rounded-lg shadow-lg max-w-md"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 100 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="flex items-start">
+              <div className="flex-1">
+                <h4 className="font-bold mb-1">Thanks for joining our network!</h4>
+                <p className="text-sm">
+                  We've received your details and can't wait to connect with you about upcoming opportunities.
+                </p>
+              </div>
+              <button onClick={() => setShowNotification(false)} className="ml-4 text-white hover:text-gray-200">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <style jsx global>{`
+        .confetti {
+          position: fixed;
+          width: var(--confetti-size);
+          height: var(--confetti-size);
+          background-color: var(--confetti-color);
+          top: -100px;
+          left: var(--confetti-x);
+          opacity: 0;
+          transform: rotate(var(--confetti-rotation));
+          animation: fall var(--confetti-speed) ease-in forwards;
+          z-index: 1000;
+        }
+
+        @keyframes fall {
+          0% {
+            top: -100px;
+            opacity: 1;
+            transform: rotate(var(--confetti-rotation));
+          }
+          100% {
+            top: var(--confetti-y);
+            opacity: 0;
+            transform: rotate(calc(var(--confetti-rotation) + 360deg));
+          }
+        }
+        
+        .skill-tab-header {
+          height: 100px;
+          background-size: cover;
+          background-position: center;
+          position: relative;
+        }
+        
+        .skill-tab-content {
+          background-size: cover;
+          background-position: center;
+          position: relative;
+        }
+      `}</style>
+
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-100">
         <div className="container flex h-20 items-center justify-between px-4 md:px-6">
           <LogoLink />
@@ -81,15 +264,22 @@ export default function ContributorsPageClient() {
             >
               For Science-Backed Brands
             </Link>
+            <Link
+              href="#"
+              onClick={(e) => {
+                e.preventDefault()
+                window.scrollTo({ top: 0, behavior: "smooth" })
+              }}
+              className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
+            >
+              Join Our Network
+            </Link>
           </nav>
           <Button
             asChild
-            variant="ghost"
-            className="hidden md:inline-flex hover:bg-gray-100 transition-colors duration-200"
+            className="hidden md:inline-flex bg-arcova-teal hover:bg-arcova-blue text-white rounded-full transition-colors duration-200"
           >
-            <a href="#contact-form" className="scroll-smooth">
-              Join Our Network
-            </a>
+            <a href="#contact-form">Join Our Network</a>
           </Button>
         </div>
       </header>
@@ -154,80 +344,258 @@ export default function ContributorsPageClient() {
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl mt-4">Who we're looking for</h2>
               <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mt-6">
                 We draw on a distributed network of scientists, technical specialists, and domain experts from
-                world-leading institutions. Whether your background is in research, data science, regulatory affairs, or
-                IP — if you bring deep domain expertise, we'd love to hear from you.
+                world-leading institutions. Whether your background is in biomedical research, experimental biology,
+                computational modeling, or IP — if you bring deep domain expertise, we'd love to talk.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              <div className="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Biomedical Scientists</h3>
-                <p className="text-gray-600">Deep knowledge in human biology, preclinical or clinical domains</p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              <motion.div
+                className="bg-gradient-to-br from-white to-arcova-mint/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="bg-arcova-teal/20 p-3 rounded-full flex-shrink-0">
+                    <BookOpen className="h-5 w-5 text-arcova-teal" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Biomedical Scientists</h3>
+                    <p className="text-gray-600">Deep knowledge in human biology, preclinical or clinical domains</p>
+                  </div>
+                </div>
+              </motion.div>
 
-              <div className="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Data Scientists</h3>
-                <p className="text-gray-600">Expertise in model validation, ML workflows, or statistical analysis</p>
-              </div>
+              <motion.div
+                className="bg-gradient-to-br from-white to-arcova-blue/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="bg-arcova-blue/20 p-3 rounded-full flex-shrink-0">
+                    <GraduationCap className="h-5 w-5 text-arcova-blue" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Research Specialists</h3>
+                    <p className="text-gray-600">PhDs or postdocs with strong methodology and synthesis skills</p>
+                  </div>
+                </div>
+              </motion.div>
 
-              <div className="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Regulatory Experts</h3>
-                <p className="text-gray-600">Familiar with FDA, EMA, or global approval frameworks</p>
-              </div>
+              <motion.div
+                className="bg-gradient-to-br from-white to-arcova-mint/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="bg-arcova-teal/20 p-3 rounded-full flex-shrink-0">
+                    <BarChart3 className="h-5 w-5 text-arcova-teal" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Data Scientists</h3>
+                    <p className="text-gray-600">Expertise in bioinformatics, ML workflows, or statistical analysis</p>
+                  </div>
+                </div>
+              </motion.div>
 
-              <div className="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Due Diligence Analysts</h3>
-                <p className="text-gray-600">Experience surfacing red flags or technical risks</p>
-              </div>
+              <motion.div
+                className="bg-gradient-to-br from-white to-arcova-blue/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="bg-arcova-blue/20 p-3 rounded-full flex-shrink-0">
+                    <ClipboardCheck className="h-5 w-5 text-arcova-blue" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Regulatory Experts</h3>
+                    <p className="text-gray-600">Familiar with FDA, EMA, or global approval frameworks</p>
+                  </div>
+                </div>
+              </motion.div>
 
-              <div className="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Patent & IP Analysts</h3>
-                <p className="text-gray-600">Skilled in IP landscaping, prior art, or patent strategy</p>
-              </div>
+              <motion.div
+                className="bg-gradient-to-br from-white to-arcova-mint/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="bg-arcova-teal/20 p-3 rounded-full flex-shrink-0">
+                    <Search className="h-5 w-5 text-arcova-teal" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Due Diligence Analysts</h3>
+                    <p className="text-gray-600">Experience surfacing red flags or technical risks</p>
+                  </div>
+                </div>
+              </motion.div>
 
-              <div className="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Research Specialists</h3>
-                <p className="text-gray-600">PhDs or postdocs with strong methodology and synthesis skills</p>
+              <motion.div
+                className="bg-gradient-to-br from-white to-arcova-blue/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="bg-arcova-blue/20 p-3 rounded-full flex-shrink-0">
+                    <FileText className="h-5 w-5 text-arcova-blue" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Patent & IP Analysts</h3>
+                    <p className="text-gray-600">Skilled in IP landscaping, prior art, or patent strategy</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Core Skills We Value section with stacked tabs */}
+        <AnimatedSection className="w-full py-24 md:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+                Core Skills
               </div>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl mt-4">Core Skills We Value</h2>
+              <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mt-6">
+                Regardless of discipline, contributors in our network share these key traits that make them exceptional
+                collaborators.
+              </p>
             </div>
 
-            <div className="mt-16 max-w-5xl mx-auto">
-              <div className="relative h-[300px] md:h-[400px] shadow-xl rounded-2xl overflow-hidden">
-                <GlowingNetworkMolecule />
-                <div className="absolute inset-0 flex flex-col justify-center p-8 bg-gradient-to-r from-arcova-darkblue/70 to-transparent">
-                  <div className="space-y-6 text-white max-w-md">
-                    <div className="flex items-start gap-3">
-                      <div className="bg-arcova-mint/30 p-2 rounded-full mt-1">
-                        <BookOpen className="h-5 w-5 text-white" />
+            <div className="max-w-5xl mx-auto space-y-6">
+              {skillTabs.map((tab) => (
+                <div key={tab.id} className="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+                  {/* Tab header with background image */}
+                  <div
+                    className="skill-tab-header cursor-pointer"
+                    style={{
+                      backgroundImage: `url('${tab.backgroundImage}')`,
+                      backgroundPosition: tab.backgroundPosition,
+                    }}
+                    onClick={() => toggleTab(tab.id)}
+                  >
+                    {/* Semi-transparent overlay */}
+                    <div className="absolute inset-0 bg-arcova-darkblue/40"></div>
+
+                    {/* Tab header content */}
+                    <div className="relative z-10 p-4 md:p-6 flex items-center justify-between h-full">
+                      <div className="flex items-center gap-4">
+                        <div className="bg-white/20 p-3 rounded-full">{tab.icon}</div>
+                        <h3 className="text-xl md:text-2xl font-bold text-white">{tab.title}</h3>
                       </div>
-                      <div>
-                        <h3 className="font-bold text-lg">Advanced Degree</h3>
-                        <p className="text-white/80">PhD or equivalent in a relevant scientific field</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="bg-arcova-mint/30 p-2 rounded-full mt-1">
-                        <Users className="h-5 w-5 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-lg">Communication Skills</h3>
-                        <p className="text-white/80">
-                          Ability to translate complex concepts for non-specialist audiences
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="bg-arcova-mint/30 p-2 rounded-full mt-1">
-                        <Award className="h-5 w-5 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-lg">Research Experience</h3>
-                        <p className="text-white/80">Strong background in research methodology and critical analysis</p>
+                      <div className="text-white">
+                        {expandedTabs.includes(tab.id) ? (
+                          <ChevronUp className="h-6 w-6" />
+                        ) : (
+                          <ChevronDown className="h-6 w-6" />
+                        )}
                       </div>
                     </div>
                   </div>
+
+                  {/* Tab content */}
+                  <AnimatePresence>
+                    {expandedTabs.includes(tab.id) && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="skill-tab-content"
+                        style={{
+                          backgroundImage: `url('${tab.backgroundImage}')`,
+                          backgroundPosition: tab.backgroundPosition,
+                        }}
+                      >
+                        {/* Semi-transparent white overlay for readability */}
+                        <div className="absolute inset-0 bg-white/85"></div>
+
+                        {/* Content with relative positioning to appear above the overlay */}
+                        <div className="relative z-10 p-6 md:p-8">
+                          <p className="text-gray-700 text-lg leading-relaxed">{tab.content}</p>
+
+                          {/* Additional content specific to each tab */}
+                          {tab.id === "scientific-rigor" && (
+                            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                              <div className="bg-white/70 p-4 rounded-lg shadow-sm">
+                                <h4 className="font-medium text-arcova-darkblue mb-2">Evidence Evaluation</h4>
+                                <p className="text-gray-600">
+                                  Ability to assess the quality and reliability of scientific evidence, understanding
+                                  methodological strengths and limitations.
+                                </p>
+                              </div>
+                              <div className="bg-white/70 p-4 rounded-lg shadow-sm">
+                                <h4 className="font-medium text-arcova-darkblue mb-2">Critical Analysis</h4>
+                                <p className="text-gray-600">
+                                  Skill in identifying potential biases, confounding factors, and alternative
+                                  explanations for research findings.
+                                </p>
+                              </div>
+                            </div>
+                          )}
+
+                          {tab.id === "clarity-of-thought" && (
+                            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                              <div className="bg-white/70 p-4 rounded-lg shadow-sm">
+                                <h4 className="font-medium text-arcova-darkblue mb-2">Synthesis Skills</h4>
+                                <p className="text-gray-600">
+                                  Ability to integrate information from multiple sources into coherent, meaningful
+                                  insights that address specific business questions.
+                                </p>
+                              </div>
+                              <div className="bg-white/70 p-4 rounded-lg shadow-sm">
+                                <h4 className="font-medium text-arcova-darkblue mb-2">Communication</h4>
+                                <p className="text-gray-600">
+                                  Talent for explaining complex concepts in accessible language without sacrificing
+                                  accuracy or nuance.
+                                </p>
+                              </div>
+                            </div>
+                          )}
+
+                          {tab.id === "deep-knowledge" && (
+                            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                              <div className="bg-white/70 p-4 rounded-lg shadow-sm">
+                                <h4 className="font-medium text-arcova-darkblue mb-2">Specialized Expertise</h4>
+                                <p className="text-gray-600">
+                                  In-depth understanding of specific scientific domains, methodologies, or technologies
+                                  relevant to client projects.
+                                </p>
+                              </div>
+                              <div className="bg-white/70 p-4 rounded-lg shadow-sm">
+                                <h4 className="font-medium text-arcova-darkblue mb-2">Contextual Awareness</h4>
+                                <p className="text-gray-600">
+                                  Understanding of how scientific findings relate to broader industry trends, regulatory
+                                  environments, and market dynamics.
+                                </p>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </AnimatedSection>
@@ -236,63 +604,79 @@ export default function ContributorsPageClient() {
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
-                Benefits
+                Get paid to think.
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Why join our network?</h2>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+                Work that values you — and what you know.
+              </h2>
               <p className="text-lg text-gray-600 max-w-[700px]">
-                Collaborate with us to make an impact while maintaining flexibility
+                Bring your research skills, analytical mind, and scientific training to real-world projects — without
+                stepping away from the work you already care about.
               </p>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <motion.div
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300"
+                className="relative overflow-hidden bg-gradient-to-br from-white to-arcova-mint/10 border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: 0.1 }}
+                whileHover={{ y: -5 }}
               >
-                <div className="bg-arcova-mint/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-6">
-                  <Globe className="h-7 w-7 text-arcova-teal" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-arcova-teal"></div>
+                <div className="p-8">
+                  <div className="bg-arcova-teal/20 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                    <Brain className="h-7 w-7 text-arcova-teal" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-arcova-darkblue">Intelligent work, on your terms</h3>
+                  <p className="text-gray-600">
+                    Consult on projects that need your expertise. No admin or bureaucracy. Just flexible, high-impact
+                    work that fits around your existing commitments.
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Flexible Remote Work</h3>
-                <p className="text-gray-600">
-                  Work on projects remotely, on your own schedule. Perfect for academics and researchers looking for
-                  flexible consulting opportunities.
-                </p>
               </motion.div>
 
               <motion.div
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300"
+                className="relative overflow-hidden bg-gradient-to-br from-white to-arcova-blue/10 border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: 0.2 }}
+                whileHover={{ y: -5 }}
               >
-                <div className="bg-arcova-mint/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-6">
-                  <Award className="h-7 w-7 text-arcova-teal" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-arcova-blue"></div>
+                <div className="p-8">
+                  <div className="bg-arcova-blue/20 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                    <DollarSign className="h-7 w-7 text-arcova-blue" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-arcova-darkblue">Compensation that reflects your value</h3>
+                  <p className="text-gray-600">
+                    Your training and experience are incredibly valuable, not just in the lab or lecture hall. We offer
+                    project-based fees that reflect the real-world impact of your thinking.
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Competitive Compensation</h3>
-                <p className="text-gray-600">
-                  Receive fair compensation for your expertise and time. Project-based fees that recognize the value of
-                  your specialized knowledge.
-                </p>
               </motion.div>
 
               <motion.div
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300"
+                className="relative overflow-hidden bg-gradient-to-br from-white to-arcova-mint/10 border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: 0.3 }}
+                whileHover={{ y: -5 }}
               >
-                <div className="bg-arcova-mint/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-6">
-                  <Users className="h-7 w-7 text-arcova-teal" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-arcova-teal"></div>
+                <div className="p-8">
+                  <div className="bg-arcova-teal/20 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                    <Globe className="h-7 w-7 text-arcova-teal" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-arcova-darkblue">Extend your impact</h3>
+                  <p className="text-gray-600">
+                    Your work already matters. Arcova is a way to apply your skills in new arenas, helping shape
+                    business decisions, health policy, product development, and more.
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Impactful Work</h3>
-                <p className="text-gray-600">
-                  Help shape investment decisions and business strategies with your scientific expertise. See your
-                  knowledge make a real-world difference.
-                </p>
               </motion.div>
             </div>
           </div>
@@ -304,10 +688,10 @@ export default function ContributorsPageClient() {
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                 Get in Touch
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Apply to join our network</h2>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Join our network</h2>
               <p className="text-lg text-gray-600 max-w-[700px]">
-                If you think you'd be a good fit for our team, we'd love to hear from you. Fill out the form below and
-                we'll be in touch.
+                If you think you'd be a good fit for our network, we'd love to hear from you. Share your details below
+                and we'll be in touch about relevant opportunities.
               </p>
             </div>
 
@@ -317,16 +701,16 @@ export default function ContributorsPageClient() {
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-6">
                     <Check className="h-8 w-8 text-green-600" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Thank you for your interest!</h3>
+                  <h3 className="text-2xl font-bold mb-4">Thank you for joining our network!</h3>
                   <p className="text-gray-600 mb-6">
-                    We've received your application and will review it shortly. We'll be in touch if there's a good
-                    match for your expertise.
+                    We've received your details and will be in touch about relevant opportunities that match your
+                    expertise.
                   </p>
                   <Button
                     onClick={() => setFormState({ ...formState, submitted: false })}
                     className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full transition-all duration-300"
                   >
-                    Submit Another Application
+                    Send Another Submission
                   </Button>
                 </div>
               ) : (
@@ -417,11 +801,11 @@ export default function ContributorsPageClient() {
                       {formState.loading ? (
                         <>
                           <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full mr-2"></div>
-                          Submitting...
+                          Sending...
                         </>
                       ) : (
                         <>
-                          Submit Application
+                          Send Your Details
                           <Send className="h-4 w-4 ml-1" />
                         </>
                       )}
@@ -474,9 +858,6 @@ export default function ContributorsPageClient() {
           </nav>
         </div>
       </footer>
-
-      {/* Scroll to top button */}
-      <ScrollToTop />
     </div>
   )
 }
