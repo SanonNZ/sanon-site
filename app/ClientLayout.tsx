@@ -33,11 +33,15 @@ export default function ClientLayout({
         <link rel="apple-touch-icon" href="/favicon-512x512.png" />
         <link rel="shortcut icon" href="/favicon-512x512.png" />
         <style jsx global>{`
-          h1, h2, h3 {
-            font-family: ${poppins.style.fontFamily};
-            font-weight: 400;
-          }
-        `}</style>
+  :root {
+    --font-poppins: ${poppins.style.fontFamily};
+  }
+  
+  h1, h2, h3 {
+    font-family: ${poppins.style.fontFamily};
+    font-weight: 400;
+  }
+`}</style>
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
