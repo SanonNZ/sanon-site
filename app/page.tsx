@@ -148,49 +148,56 @@ export default function Home() {
         <AnimatedSection className="w-full py-24 md:py-32 lg:py-40 pt-32 md:pt-40">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-12 text-center">
-              <div className="space-y-6 max-w-[900px]">
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl">From data to</h1>
-                <div className="min-h-[70px] sm:min-h-[80px] md:min-h-[90px] flex items-center justify-center">
-                  <TypewriterHeading
-                    prefix=""
-                    words={[
-                      "decision",
-                      "insight",
-                      "conviction",
-                      "content",
-                      "clarity",
-                      "growth",
-                      "action",
-                      "credibility",
-                    ]}
-                    className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-5xl text-arcova-teal"
-                    suffix=""
-                  />
+              <div className="space-y-8 max-w-[900px]">
+                <div className="flex flex-wrap items-center justify-center">
+                  <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl mr-3">
+                    From data to
+                  </h1>
+                  <div className="inline-block">
+                    <TypewriterHeading
+                      prefix=""
+                      words={[
+                        "decision",
+                        "insight",
+                        "conviction",
+                        "content",
+                        "clarity",
+                        "growth",
+                        "action",
+                        "credibility",
+                      ]}
+                      className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl text-arcova-teal"
+                      suffix=""
+                    />
+                  </div>
                 </div>
+                <h2 className="text-2xl font-medium tracking-tight sm:text-3xl md:text-3xl text-arcova-darkblue mt-6">
+                  Move fast. Think rigorously.
+                </h2>
               </div>
-              <p className="mx-auto max-w-[700px] text-xl text-gray-600 leading-relaxed">
-                We turn complex biomedical research into clear, actionable insight.
+              <p className="mx-auto max-w-[700px] text-lg text-gray-500 leading-relaxed mt-2">
+                We turn complex science into decision-ready insight.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-arcova-darkblue hover:bg-arcova-blue text-white rounded-full px-8 py-6 h-auto transition-all duration-300 hover:shadow-lg"
+                  className="bg-arcova-darkblue hover:bg-arcova-blue text-white rounded-full px-8 py-6 h-auto transition-all duration-300 hover:shadow-lg w-64 sm:w-72"
                 >
-                  <Link href="/investors" className="flex items-center gap-2">
-                    I need due diligence
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <Link href="/investors" className="flex items-center justify-center gap-2">
+                    <span className="text-center">I need due diligence</span>
+                    <ArrowRight className="h-4 w-4 flex-shrink-0" />
                   </Link>
                 </Button>
                 <Button
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-arcova-mint text-arcova-darkblue rounded-full px-8 py-6 h-auto hover:bg-arcova-mint/10 transition-all duration-300 hover:shadow-md"
+                  className="border-arcova-mint text-arcova-darkblue rounded-full px-8 py-6 h-auto hover:bg-arcova-mint/10 transition-all duration-300 hover:shadow-md w-64 sm:w-72"
                 >
-                  <Link href="/teams" className="flex items-center gap-2">
-                    I need evidence-based content
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <Link href="/teams" className="flex items-center justify-center gap-2">
+                    <span className="text-center">I need evidence-based content</span>
+                    <ArrowRight className="h-4 w-4 flex-shrink-0" />
                   </Link>
                 </Button>
               </div>
@@ -433,10 +440,12 @@ export default function Home() {
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                   Our Network
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">A network of scientists. Matched to your needs.</h2>
+                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+                  A network of scientists. Matched to your needs.
+                </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Arcova draws on a rapidly expanding network of PhD researchers from world-leading institutions. We assemble a curated team, matching PhD
-                  expertise to your brief.
+                  Arcova draws on a rapidly expanding network of PhD researchers from world-leading institutions. We
+                  assemble a curated team, matching PhD expertise to your brief.
                 </p>
               </div>
             </div>
@@ -545,31 +554,32 @@ export default function Home() {
             </div>
           </div>
         </AnimatedSection>
-      </main>
-
-      <footer className="border-t border-gray-100 bg-white">
-        <div className="container flex flex-col md:flex-row justify-between py-8 w-full items-center px-4 md:px-6">
-          <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
-            <LogoLink className="mb-2" />
-            <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
-            <p className="text-sm font-medium text-arcova-teal mt-2">Move fast. Think rigorously.</p>
+        <footer className="border-t border-gray-100 bg-white">
+          <div className="container grid grid-cols-1 md:grid-cols-3 py-8 w-full px-4 md:px-6">
+            <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
+              <LogoLink className="mb-2" />
+              <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
+            </div>
+            <div className="flex items-center justify-center mb-4 md:mb-0">
+              <p className="text-sm font-medium text-arcova-teal">Move fast. Think rigorously.</p>
+            </div>
+            <nav className="flex justify-center md:justify-end gap-8">
+              <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
+                Privacy Policy
+              </Link>
+              <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
+                Terms of Service
+              </Link>
+              <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
+                Contact
+              </Link>
+            </nav>
           </div>
-          <nav className="flex gap-8">
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-              Terms of Service
-            </Link>
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-              Contact
-            </Link>
-          </nav>
-        </div>
-      </footer>
+        </footer>
 
-      {/* Scroll to top button */}
-      <ScrollToTop />
+        {/* Scroll to top button */}
+        <ScrollToTop />
+      </main>
     </div>
   )
 }

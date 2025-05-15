@@ -320,7 +320,7 @@ export default function AutoRotatingCards() {
                 >
                   {/* Front of card (with speech bubble) */}
                   <div
-                    className="absolute w-full h-full rounded-xl shadow-lg p-6 flex flex-col"
+                    className="absolute w-full h-full rounded-xl shadow-lg p-6 flex flex-col font-poppins"
                     style={{
                       background: cardColors[currentCard.color].color,
                       backfaceVisibility: "hidden",
@@ -356,7 +356,7 @@ export default function AutoRotatingCards() {
                             zIndex: 1,
                           }}
                         >
-                          <h3 className="text-xl font-bold italic text-white text-center">
+                          <h3 className="text-xl font-bold italic text-white text-center font-poppins">
                             {formatClaim(currentCard.claim)}
                           </h3>
                         </div>
@@ -380,7 +380,7 @@ export default function AutoRotatingCards() {
 
                   {/* Back of card (with supporting text) */}
                   <div
-                    className="absolute w-full h-full rounded-xl shadow-lg p-6 flex flex-col"
+                    className="absolute w-full h-full rounded-xl shadow-lg p-6 flex flex-col font-poppins"
                     style={{
                       background: cardColors[currentCard.color].backColor,
                       backfaceVisibility: "hidden",
@@ -407,7 +407,7 @@ export default function AutoRotatingCards() {
                     {/* Main content - vertically centered with main question and supporting text */}
                     <div className="flex-1 flex flex-col items-center justify-center space-y-6">
                       <div className="w-full">
-                        <p className="text-xl font-medium text-[#003344] text-center leading-relaxed">
+                        <p className="text-xl font-bold text-[#003344] text-center leading-relaxed font-poppins">
                           {currentCard.mainQuestion}
                         </p>
                       </div>
@@ -419,7 +419,7 @@ export default function AutoRotatingCards() {
                           // Mobile layout - stacked
                           <div className="flex flex-col items-center text-center space-y-2">
                             <span className="text-2xl">{currentCard.emoji}</span>
-                            <span className="text-[#003344] text-sm font-normal italic">
+                            <span className="text-[#003344] text-sm font-bold italic font-poppins">
                               {currentCard.supportingText}
                             </span>
                           </div>
@@ -428,7 +428,7 @@ export default function AutoRotatingCards() {
                           <div className="flex justify-center">
                             <div className="inline-flex items-center">
                               <span className="text-xl flex-shrink-0 mr-3">{currentCard.emoji}</span>
-                              <span className="text-[#003344] text-sm font-normal italic">
+                              <span className="text-[#003344] text-sm font-bold italic font-poppins">
                                 {currentCard.supportingText}
                               </span>
                             </div>

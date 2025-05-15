@@ -12,6 +12,7 @@ import { LogoLink } from "@/components/logo"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { ScrollToTop } from "@/components/scroll-to-top"
+import Image from "next/image"
 
 // Service selector data
 const services = [
@@ -545,11 +546,17 @@ export default function InvestorsPageClient() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7 }}
             >
-              {/* Background with gradient overlay - no image dependency */}
+              {/* Background with gradient overlay */}
               <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-90 z-10"></div>
-                {/* Solid color background as fallback */}
-                <div className="absolute inset-0 bg-arcova-darkblue"></div>
+                <Image
+                  src="/abstract-finance.png"
+                  alt="Abstract visualization"
+                  width={1000}
+                  height={400}
+                  className="w-full h-full object-cover"
+                  onError={() => setImageError(true)}
+                />
               </div>
 
               {/* Content */}
