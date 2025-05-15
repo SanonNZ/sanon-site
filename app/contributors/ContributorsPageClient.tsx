@@ -944,6 +944,7 @@ export default function ContributorsPageClient() {
           <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
             <LogoLink className="mb-2" />
             <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
+            <p className="text-sm font-medium text-arcova-teal mt-2">Move fast. Think rigorously.</p>
           </div>
           <nav className="flex gap-8">
             <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">

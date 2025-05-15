@@ -818,30 +818,31 @@ export default function TeamsClientPage() {
             </div>
           </div>
         </AnimatedSection>
-      </main>
 
-      <footer className="border-t border-gray-100 bg-white">
-        <div className="container flex flex-col md:flex-row justify-between py-8 w-full items-center px-4 md:px-6">
-          <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
-            <LogoLink className="mb-2" />
-            <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
+        <footer className="border-t border-gray-100 bg-white">
+          <div className="container flex flex-col md:flex-row justify-between py-8 w-full items-center px-4 md:px-6">
+            <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
+              <LogoLink className="mb-2" />
+              <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
+              <p className="text-sm font-medium text-arcova-teal mt-2">Move fast. Think rigorously.</p>
+            </div>
+            <nav className="flex gap-8">
+              <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
+                Privacy Policy
+              </Link>
+              <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
+                Terms of Service
+              </Link>
+              <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
+                Contact
+              </Link>
+            </nav>
           </div>
-          <nav className="flex gap-8">
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-              Terms of Service
-            </Link>
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-              Contact
-            </Link>
-          </nav>
-        </div>
-      </footer>
+        </footer>
 
-      {/* Scroll to top button */}
-      <ScrollToTop />
+        {/* Scroll to top button */}
+        <ScrollToTop />
+      </main>
     </div>
   )
 }

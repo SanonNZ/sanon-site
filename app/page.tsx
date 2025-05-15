@@ -14,6 +14,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { useState } from "react"
 import AutoRotatingCards from "@/components/auto-rotating-cards"
+import { ExpandableContent } from "@/components/expandable-content"
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -197,6 +198,34 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
+        <AnimatedSection className="w-full py-24 md:py-32 bg-white">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="flex flex-col items-center space-y-8 text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+                Why Arcova?
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Find clarity in complexity</h2>
+              <div className="text-lg text-gray-600 max-w-[800px] flex flex-col gap-4">
+                <p>Scientific claims are everywhere, but not all of them hold up.</p>
+                <p>We help you ask the right questions, so you don't get lost in the noise.</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 items-center justify-items-center">
+              <div className="space-y-6 w-full max-w-md">
+                {/* Replace the existing content with the ExpandableContent component */}
+                <ExpandableContent />
+              </div>
+
+              <div className="flex items-center justify-center rounded-2xl p-8 w-full max-w-md">
+                <AutoRotatingCards />
+              </div>
+            </div>
+
+            {/* Removed the "Move fast. Think rigorously." text */}
+          </div>
+        </AnimatedSection>
+
         <AnimatedSection className="w-full py-16 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8">
@@ -204,9 +233,9 @@ export default function Home() {
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-4">
                   Who We Work With
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-4">Making Science Work for You</h2>
+                <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-4">Make Science Work for You</h2>
                 <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
-                  Whether you're investing, building, or storytelling — we translate the science so you don't have to.
+                  Whether you're investing, building, or storytelling, we translate the science so you don't have to.
                 </p>
               </div>
 
@@ -381,67 +410,6 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection className="w-full py-24 md:py-32 bg-white">
-          <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8 text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
-                Why Arcova?
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Find clarity in complexity</h2>
-              <p className="text-lg text-gray-600 max-w-[800px]">
-                Scientific claims are everywhere, but not all of them hold up. We help you ask the right questions, so
-                you don't get lost in the noise.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-              <div className="space-y-6">
-                <div>
-                  <p className="text-lg">
-                    <span className="font-bold text-arcova-darkblue">
-                      Innovation is accelerating. So is complexity.
-                    </span>
-                    <br />
-                    Biotech, AI, and health are moving fast, and the details are getting harder to understand.
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-lg">
-                    <span className="font-bold text-arcova-darkblue">Decisions depend on understanding.</span>
-                    <br />
-                    Founders, marketers, and investors face technical claims they can’t always validate.
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-lg">
-                    <span className="font-bold text-arcova-darkblue">AI adds noise, not clarity.</span>
-                    <br />
-                    Insight gets drowned out, and it’s harder than ever to tell what’s credible.
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-lg">
-                    <span className="font-bold text-arcova-darkblue">Arcova brings deep thinkers into the room.</span>
-                    <br />
-                    We help you find clarity in complexity.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-center rounded-2xl p-8">
-                <AutoRotatingCards />
-              </div>
-            </div>
-
-            <div className="mt-16 text-center">
-              <p className="text-2xl font-bold text-arcova-darkblue">Move fast. Think rigorously.</p>
-            </div>
-          </div>
-        </AnimatedSection>
-
         <AnimatedSection id="about" className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
@@ -450,16 +418,15 @@ export default function Home() {
               </div>
               <div className="space-y-6 order-2 lg:order-2">
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
-                  About Us
+                  Our Network
                 </div>
                 <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Complex science. Decoded by experts.</h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Arcova draws on a distributed network of PhD researchers from world-leading institutions including
-                  Oxford, Cambridge, and other top universities.
+                  Arcova draws on a rapidly expanding network of PhD researchers from world-leading institutions
+                  including Oxford, Cambridge, and other top universities.
                 </p>
                 <p className="text-lg text-gray-600 leading-relaxed mt-4">
-                  This allows us to match your project with the perfect scientific expertise, ensuring the highest
-                  quality insights for your specific needs.
+                  We assemble a curated team, matching PhD expertise to your brief.
                 </p>
               </div>
             </div>
@@ -467,6 +434,9 @@ export default function Home() {
             <div className="mt-24 pt-16 border-t border-gray-200">
               <div className="grid gap-8 md:grid-cols-3 items-center">
                 <div className="col-span-2 md:col-span-2 space-y-4 flex flex-col justify-center order-2 md:order-1">
+                  <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+                    Led by
+                  </div>
                   <h3 className="text-2xl font-bold">Emma Bardsley, PhD</h3>
                   <p className="text-arcova-teal font-medium">Founder & Principal Consultant</p>
                   <p className="text-gray-600">
@@ -570,6 +540,7 @@ export default function Home() {
           <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
             <LogoLink className="mb-2" />
             <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
+            <p className="text-sm font-medium text-arcova-teal mt-2">Move fast. Think rigorously.</p>
           </div>
           <nav className="flex gap-8">
             <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">

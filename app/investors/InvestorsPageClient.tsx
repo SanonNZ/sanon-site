@@ -548,12 +548,21 @@ export default function InvestorsPageClient() {
               {/* Background image with gradient overlay */}
               <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-85 z-10"></div>
+                {/* Use a div with background color as fallback in case image fails to load */}
+                <div className="absolute inset-0 bg-arcova-darkblue z-0"></div>
+                {/* Add error handling to the Image component */}
                 <Image
                   src="/abstract-finance.png"
                   alt="Abstract financial visualization"
                   width={1000}
                   height={400}
                   className="w-full h-full object-cover"
+                  priority
+                  onError={(e) => {
+                    // If image fails to load, hide it to show the fallback background
+                    const target = e.target as HTMLImageElement
+                    target.style.display = "none"
+                  }}
                 />
               </div>
 
@@ -668,6 +677,7 @@ export default function InvestorsPageClient() {
           <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
             <LogoLink className="mb-2" />
             <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
+            <p className="text-sm font-medium text-arcova-blue mt-2">Move fast. Think rigorously.</p>
           </div>
           <nav className="flex gap-8">
             <Link href="#" className="text-sm text-gray-600 hover:text-arcova-blue transition-colors duration-200">
