@@ -1,32 +1,45 @@
 import type React from "react"
-import "@/app/globals.css"
-import { Poppins } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
-
-const poppins = Poppins({
-  weight: ["300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-})
+import ClientLayout from "./ClientLayout"
 
 export const metadata = {
-  title: "Interact - Design Interactive Components",
-  description:
-    "Create, customize, and export beautiful interactive UI components without writing a single line of code.",
+  title: "Arcova | Scientific Evidence for Business Decisions",
+  description: "Oxford-trained PhD team turning raw biomedical literature into decision-ready insight.",
+  icons: {
+    icon: "/arcova-favicon.png",
+    apple: "/favicon-512x512.png",
+    shortcut: "/favicon-512x512.png",
+  },
+  openGraph: {
+    type: "website",
+    title: "Arcova | Scientific Evidence for Business Decisions",
+    description: "Oxford-trained PhD team turning raw biomedical literature into decision-ready insight.",
+    siteName: "Arcova",
+    images: [
+      {
+        url: "/favicon-512x512.png",
+        width: 512,
+        height: 512,
+        alt: "Arcova",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Arcova | Scientific Evidence for Business Decisions",
+    description: "Oxford-trained PhD team turning raw biomedical literature into decision-ready insight.",
+    images: ["/favicon-512x512.png"],
+    creator: "@arcova",
+  },
     generator: 'v0.dev'
 }
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={poppins.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
-  )
+}>) {
+  return <ClientLayout>{children}</ClientLayout>
 }
+
+
+import './globals.css'

@@ -57,7 +57,7 @@ const brandCards: CardData[] = [
   {
     id: 5,
     claim: "Breakthrough discovery in aging biology.",
-    mainQuestion: "We decode the claim, and connect it to outcomes.",
+    mainQuestion: "We investigate the claim, and connect it to outcomes.",
     supportingText: "Scientific credibility doesn't have to be boring.",
     emoji: "💥",
     color: 4, // Orange
@@ -88,7 +88,7 @@ const investorCards: CardData[] = [
   {
     id: 8,
     claim: "The first scalable platform for personalized therapeutics.",
-    mainQuestion: "We assess whether the data shows promise, or if it's just a polished pitch.",
+    mainQuestion: "We probe the data to separate promise from pitch.",
     supportingText: "Make it simple. Keep it true.",
     emoji: "🧩",
     color: 1, // Teal
@@ -115,7 +115,7 @@ const investorCards: CardData[] = [
   {
     id: 11,
     claim: "Revolutionising how we age at the cellular level.",
-    mainQuestion: "We probe the science, from cell to market impact.",
+    mainQuestion: "We trace the science, from cell to market impact.",
     supportingText: "Build trust from the data up.",
     emoji: "🧱",
     color: 4, // Orange
@@ -292,16 +292,11 @@ export default function AutoRotatingCards() {
 
   return (
     <div
-      className="w-full max-w-sm mx-auto"
+      className="w-full h-full flex items-center justify-center"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Header text above the card */}
-      <div className="text-center text-base text-muted-foreground font-medium mb-4">
-        Real claims. Rigorously unpacked.
-      </div>
-
-      {/* Card container - now taller with shadow for elevation */}
+      {/* Card container - centered in its column */}
       <div className="w-full h-[350px] flex items-center justify-center">
         <AnimatePresence mode="wait">
           {isVisible && (
