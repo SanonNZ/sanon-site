@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Menu, X } from "lucide-react"
+import { ArrowRight, Menu, X, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimatedSection } from "@/components/animated-section"
 import { ProcessStep } from "@/components/process-step"
@@ -194,13 +194,27 @@ export default function Home() {
                   </Link>
                 </Button>
               </div>
+
+              {/* Added scroll-down button */}
+              <motion.div
+                className="mt-8 group"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+              >
+                <a href="#why-arcova" className="flex flex-col items-center gap-2 cursor-pointer">
+                  <div className="bg-teal-50 border border-teal-200 rounded-full p-3 text-arcova-teal group-hover:bg-teal-100 transition-colors duration-300 group-hover:translate-y-1 transform transition-transform">
+                    <ChevronDown className="h-5 w-5" />
+                  </div>
+                </a>
+              </motion.div>
             </div>
           </div>
         </AnimatedSection>
 
-        <AnimatedSection className="w-full py-24 md:py-32 bg-white">
+        <AnimatedSection id="why-arcova" className="w-full py-16 md:py-20 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8 text-center mb-16">
+            <div className="flex flex-col items-center space-y-8 text-center mb-12">
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                 Why Arcova?
               </div>
@@ -221,12 +235,10 @@ export default function Home() {
                 <AutoRotatingCards />
               </div>
             </div>
-
-            {/* Removed the "Move fast. Think rigorously." text */}
           </div>
         </AnimatedSection>
 
-        <AnimatedSection className="w-full py-16 bg-gray-50">
+        <AnimatedSection className="w-full py-16 bg-arcova-mint/20">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8">
               <div className="text-center">
@@ -410,6 +422,7 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
+        {/* Our Network Section - Now a standalone section */}
         <AnimatedSection id="about" className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
@@ -420,42 +433,41 @@ export default function Home() {
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                   Our Network
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Complex science. Decoded by experts.</h2>
+                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">A network of scientists. Matched to your needs.</h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Arcova draws on a rapidly expanding network of PhD researchers from world-leading institutions
-                  including Oxford, Cambridge, and other top universities.
-                </p>
-                <p className="text-lg text-gray-600 leading-relaxed mt-4">
-                  We assemble a curated team, matching PhD expertise to your brief.
+                  Arcova draws on a rapidly expanding network of PhD researchers from world-leading institutions. We assemble a curated team, matching PhD
+                  expertise to your brief.
                 </p>
               </div>
             </div>
+          </div>
+        </AnimatedSection>
 
-            <div className="mt-24 pt-16 border-t border-gray-200">
-              <div className="grid gap-8 md:grid-cols-3 items-center">
-                <div className="col-span-2 md:col-span-2 space-y-4 flex flex-col justify-center order-2 md:order-1">
-                  <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
-                    Led by
-                  </div>
-                  <h3 className="text-2xl font-bold">Emma Bardsley, PhD</h3>
-                  <p className="text-arcova-teal font-medium">Founder & Principal Consultant</p>
-                  <p className="text-gray-600">
-                    Emma is a neuroscientist (Oxford PhD, postdoc) with experience in academic research, pharmaceutical
-                    R&D, and consulting. She leads scientific direction at Arcova and works closely with clients to
-                    deliver clear, decision-ready insights.
-                  </p>
+        {/* Emma Bardsley Section - Now a standalone section with background tint */}
+        <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-mint/10">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+              <div className="space-y-6 order-2 lg:order-1">
+                <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+                  Led by
                 </div>
-
-                <div className="col-span-1 md:col-span-1 order-1 md:order-2">
-                  <div className="aspect-square relative overflow-hidden rounded-2xl">
-                    <Image
-                      src="/emma-bardsley-portrait.png"
-                      alt="Emma Bardsley"
-                      width={400}
-                      height={400}
-                      className="object-cover w-full h-full rounded-2xl"
-                    />
-                  </div>
+                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Emma Bardsley, PhD</h2>
+                <p className="text-arcova-teal font-medium">Founder and Scientific Director</p>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Scientific direction is led by Emma Bardsley, PhD — a neuroscientist with experience in research,
+                  pharma, and consulting. Emma oversees project quality and insight synthesis, ensuring that all
+                  deliverables meet Arcova's standards of scientific clarity.
+                </p>
+              </div>
+              <div className="flex justify-center lg:justify-end items-center order-1 lg:order-2">
+                <div className="w-full lg:w-2/3 aspect-square relative overflow-hidden rounded-2xl shadow-xl">
+                  <Image
+                    src="/emma-bardsley-portrait.png"
+                    alt="Emma Bardsley"
+                    width={400}
+                    height={400}
+                    className="object-cover w-full h-full rounded-2xl"
+                  />
                 </div>
               </div>
             </div>

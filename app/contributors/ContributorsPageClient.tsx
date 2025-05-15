@@ -5,7 +5,6 @@ import type React from "react"
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import {
-  ArrowRight,
   Check,
   BookOpen,
   BarChart3,
@@ -412,21 +411,24 @@ export default function ContributorsPageClient() {
                   Lend your expertise to high-stakes research and due diligence projects. On your terms.
                 </p>
               </div>
-              <Button
-                asChild
-                size="lg"
-                className="mt-4 bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-8 py-6 h-auto transition-all duration-300 hover:shadow-lg"
+              {/* Scroll-down button */}
+              <motion.div
+                className="mt-8 group"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
               >
-                <a href="#contact-form" className="flex items-center gap-2">
-                  Learn more
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <a href="#our-network" className="flex flex-col items-center gap-2 cursor-pointer">
+                  <div className="bg-teal-50 border border-teal-200 rounded-full p-3 text-arcova-teal group-hover:bg-teal-100 transition-colors duration-300 group-hover:translate-y-1 transform transition-transform">
+                    <ChevronDown className="h-5 w-5" />
+                  </div>
                 </a>
-              </Button>
+              </motion.div>
             </div>
           </div>
         </AnimatedSection>
 
-        <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
+        <AnimatedSection id="our-network" className="w-full py-24 md:py-32 bg-gray-50">
           <div className="container px-4 md:px-6">
             <div className="text-center mb-16">
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">

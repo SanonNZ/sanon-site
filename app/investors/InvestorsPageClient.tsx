@@ -3,7 +3,6 @@
 import Link from "next/link"
 import { useState, useRef } from "react"
 import { ArrowRight, Check, FileText, Users, Zap, ChevronDown, Star, Menu, X } from "lucide-react"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { AnimatedSection } from "@/components/animated-section"
@@ -47,6 +46,7 @@ export default function InvestorsPageClient() {
   const [selectedService, setSelectedService] = useState(0)
   const [hoveredService, setHoveredService] = useState<number | null>(null)
   const contentCardRef = useRef<HTMLDivElement>(null)
+  const [imageError, setImageError] = useState(false)
 
   // Function to handle tab selection and scrolling
   const handleTabSelect = (index: number) => {
@@ -228,14 +228,14 @@ export default function InvestorsPageClient() {
                 We interrogate the science, so you don't have to.
               </p>
 
-              {/* New scroll-down button using anchor link */}
+              {/* Updated scroll-down button to point to why-arcova */}
               <motion.div
                 className="mt-8 group"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
               >
-                <a href="#service-section" className="flex flex-col items-center gap-2 cursor-pointer">
+                <a href="#why-arcova" className="flex flex-col items-center gap-2 cursor-pointer">
                   <div className="bg-blue-50 border border-blue-200 rounded-full p-3 text-arcova-blue group-hover:bg-blue-100 transition-colors duration-300 group-hover:translate-y-1 transform transition-transform">
                     <ChevronDown className="h-5 w-5" />
                   </div>
@@ -245,9 +245,9 @@ export default function InvestorsPageClient() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection className="w-full py-24 md:py-32 bg-white">
+        <AnimatedSection id="why-arcova" className="w-full py-16 md:py-20 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8 text-center mb-16">
+            <div className="flex flex-col items-center space-y-8 text-center mb-12">
               <div className="inline-block px-3 py-1 bg-arcova-blue/20 text-arcova-blue rounded-full text-sm font-medium">
                 Why Arcova?
               </div>
@@ -290,7 +290,7 @@ export default function InvestorsPageClient() {
         </AnimatedSection>
 
         {/* Service Selector Section - Replacing the "What We Offer" section */}
-        <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-blue/10" id="service-section">
+        <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-mint/20" id="service-section">
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-arcova-darkblue">
@@ -545,25 +545,11 @@ export default function InvestorsPageClient() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7 }}
             >
-              {/* Background image with gradient overlay */}
+              {/* Background with gradient overlay - no image dependency */}
               <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-85 z-10"></div>
-                {/* Use a div with background color as fallback in case image fails to load */}
-                <div className="absolute inset-0 bg-arcova-darkblue z-0"></div>
-                {/* Add error handling to the Image component */}
-                <Image
-                  src="/abstract-finance.png"
-                  alt="Abstract financial visualization"
-                  width={1000}
-                  height={400}
-                  className="w-full h-full object-cover"
-                  priority
-                  onError={(e) => {
-                    // If image fails to load, hide it to show the fallback background
-                    const target = e.target as HTMLImageElement
-                    target.style.display = "none"
-                  }}
-                />
+                <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-90 z-10"></div>
+                {/* Solid color background as fallback */}
+                <div className="absolute inset-0 bg-arcova-darkblue"></div>
               </div>
 
               {/* Content */}
@@ -677,16 +663,16 @@ export default function InvestorsPageClient() {
           <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
             <LogoLink className="mb-2" />
             <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
-            <p className="text-sm font-medium text-arcova-blue mt-2">Move fast. Think rigorously.</p>
+            <p className="text-sm font-medium text-arcova-teal mt-2">Move fast. Think rigorously.</p>
           </div>
           <nav className="flex gap-8">
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-blue transition-colors duration-200">
+            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
               Privacy Policy
             </Link>
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-blue transition-colors duration-200">
+            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
               Terms of Service
             </Link>
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-blue transition-colors duration-200">
+            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
               Contact
             </Link>
           </nav>
