@@ -149,24 +149,45 @@ export default function Home() {
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-12 text-center">
               <div className="space-y-8 max-w-[900px]">
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl text-center">
-                  From data to{" "}
-                  <TypewriterHeading
-                    prefix=""
-                    words={[
-                      "decision",
-                      "insight",
-                      "conviction",
-                      "content",
-                      "clarity",
-                      "growth",
-                      "action",
-                      "credibility",
-                    ]}
-                    className="inline"
-                    suffix=""
-                  />
-                </h1>
+                <div className="flex flex-col items-center">
+                  <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl text-center">
+                    <span className="block sm:inline">From data to</span>{" "}
+                    <span className="hidden sm:inline">
+                      <TypewriterHeading
+                        prefix=""
+                        words={[
+                          "decision",
+                          "insight",
+                          "conviction",
+                          "content",
+                          "clarity",
+                          "growth",
+                          "action",
+                          "credibility",
+                        ]}
+                        className="inline"
+                        suffix=""
+                      />
+                    </span>
+                  </h1>
+                  <div className="block sm:hidden mt-2 mb-4 min-h-[60px]">
+                    <TypewriterHeading
+                      prefix=""
+                      words={[
+                        "decision",
+                        "insight",
+                        "conviction",
+                        "content",
+                        "clarity",
+                        "growth",
+                        "action",
+                        "credibility",
+                      ]}
+                      className="text-3xl font-bold tracking-tight text-arcova-teal"
+                      suffix=""
+                    />
+                  </div>
+                </div>
                 <h2 className="text-2xl font-medium tracking-tight sm:text-3xl md:text-3xl text-arcova-darkblue mt-6">
                   Move fast. Think rigorously.
                 </h2>
@@ -174,7 +195,7 @@ export default function Home() {
               <p className="mx-auto max-w-[700px] text-lg text-gray-500 leading-relaxed mt-2">
                 We turn complex science into decision-ready insight.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+              <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:mt-8">
                 <Button
                   asChild
                   size="lg"

@@ -309,7 +309,7 @@ export default function AutoRotatingCards() {
               className="h-full aspect-[3/4] shadow-lg rounded-xl"
             >
               {/* Card container with 3D effect */}
-              <div className="w-full h-full relative" style={{ perspective: "1000px" }}>
+              <div className="w-full h-full relative" style={{ perspective: "1000px", transformStyle: "preserve-3d" }}>
                 {/* Card with both front and back sides */}
                 <div
                   className="w-full h-full relative transition-transform duration-1000"
@@ -324,6 +324,7 @@ export default function AutoRotatingCards() {
                     style={{
                       background: cardColors[currentCard.color].color,
                       backfaceVisibility: "hidden",
+                      WebkitBackfaceVisibility: "hidden", // Add for better mobile support
                     }}
                   >
                     {/* Audience tag pill at top - smaller and not bold */}
@@ -384,6 +385,7 @@ export default function AutoRotatingCards() {
                     style={{
                       background: cardColors[currentCard.color].backColor,
                       backfaceVisibility: "hidden",
+                      WebkitBackfaceVisibility: "hidden", // Add for better mobile support
                       transform: "rotateY(180deg)",
                     }}
                   >
@@ -407,7 +409,7 @@ export default function AutoRotatingCards() {
                     {/* Main content - vertically centered with main question and supporting text */}
                     <div className="flex-1 flex flex-col items-center justify-center space-y-6">
                       <div className="w-full">
-                        <p className="text-xl font-bold text-[#003344] text-center leading-relaxed font-poppins">
+                        <p className="text-xl font-medium text-[#003344] text-center leading-relaxed font-poppins">
                           {currentCard.mainQuestion}
                         </p>
                       </div>
@@ -444,12 +446,7 @@ export default function AutoRotatingCards() {
         </AnimatePresence>
       </div>
 
-      {/* Pause indicator - only visible when paused */}
-      {isPaused && (
-        <div className="mt-2 text-center text-xs text-muted-foreground">
-          Animation paused. Move mouse away to resume.
-        </div>
-      )}
+      {/* Pause indicator removed to prevent layout shift */}
     </div>
   )
 }

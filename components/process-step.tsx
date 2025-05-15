@@ -14,13 +14,14 @@ interface ProcessStepProps {
 export function ProcessStep({ number, title, description, delay, color = "blue" }: ProcessStepProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-50px 0px" })
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768
 
   return (
     <motion.div
       ref={ref}
       className="flex flex-col items-center text-center space-y-4 p-6 rounded-2xl bg-white hover:shadow-lg transition-all duration-300"
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: isMobile ? 0 : 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: isMobile ? 0 : 20 }}
       transition={{ duration: 0.5, delay: delay }}
     >
       <div className={`bg-${color}-100 p-4 rounded-full w-16 h-16 flex items-center justify-center`}>

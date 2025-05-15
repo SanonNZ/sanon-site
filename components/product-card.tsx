@@ -18,6 +18,7 @@ interface ProductCardProps {
 export function ProductCard({ title, features, price, popular, delay, color = "blue" }: ProductCardProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-50px 0px" })
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768
 
   return (
     <motion.div
@@ -25,10 +26,10 @@ export function ProductCard({ title, features, price, popular, delay, color = "b
       className={`bg-white p-8 rounded-2xl shadow-md ${
         popular ? `border-2 border-${color}-500` : ""
       } flex flex-col h-full relative hover:shadow-xl transition-all duration-300`}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: isMobile ? 0 : 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: isMobile ? 0 : 20 }}
       transition={{ duration: 0.5, delay: delay }}
-      whileHover={{ y: -5 }}
+      whileHover={{ y: isMobile ? 0 : -5 }}
     >
       {popular && (
         <div
