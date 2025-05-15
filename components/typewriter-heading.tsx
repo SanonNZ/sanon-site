@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { useState, useEffect } from "react"
 
 interface TypewriterHeadingProps {
@@ -7,9 +9,16 @@ interface TypewriterHeadingProps {
   words: string[]
   className?: string
   suffix?: string
+  as?: React.ElementType
 }
 
-export function TypewriterHeading({ prefix, words, className = "", suffix = "" }: TypewriterHeadingProps) {
+export function TypewriterHeading({
+  prefix,
+  words,
+  className = "",
+  suffix = "",
+  as: Component = "span",
+}: TypewriterHeadingProps) {
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [currentText, setCurrentText] = useState("")
   const [isDeleting, setIsDeleting] = useState(false)
@@ -58,18 +67,21 @@ export function TypewriterHeading({ prefix, words, className = "", suffix = "" }
   // Don't render anything during SSR/hydration to prevent mismatch
   if (!isMounted) {
     return (
-      <h1 className={className}>
+      <Component className={className}>
         {prefix} <span className="text-arcova-teal">{words[0]}</span>
         {suffix}
-      </h1>
+      </Component>
     )
   }
 
   return (
-    <h1 className={className}>
-      {prefix} <span className="text-arcova-teal">{currentText}</span>
-      <span className="animate-pulse">|</span>
+    <Component className={className}>
+      {prefix}{" "}
+      <span className="text-arcova-teal inline-block">
+        {currentText}
+        <span className="animate-pulse">|</span>
+      </span>
       {suffix}
-    </h1>
+    </Component>
   )
 }

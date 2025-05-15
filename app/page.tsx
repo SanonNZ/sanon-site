@@ -149,28 +149,24 @@ export default function Home() {
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-12 text-center">
               <div className="space-y-8 max-w-[900px]">
-                <div className="flex flex-wrap items-center justify-center">
-                  <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl mr-3">
-                    From data to
-                  </h1>
-                  <div className="inline-block">
-                    <TypewriterHeading
-                      prefix=""
-                      words={[
-                        "decision",
-                        "insight",
-                        "conviction",
-                        "content",
-                        "clarity",
-                        "growth",
-                        "action",
-                        "credibility",
-                      ]}
-                      className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl text-arcova-teal"
-                      suffix=""
-                    />
-                  </div>
-                </div>
+                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl text-center">
+                  From data to{" "}
+                  <TypewriterHeading
+                    prefix=""
+                    words={[
+                      "decision",
+                      "insight",
+                      "conviction",
+                      "content",
+                      "clarity",
+                      "growth",
+                      "action",
+                      "credibility",
+                    ]}
+                    className="inline"
+                    suffix=""
+                  />
+                </h1>
                 <h2 className="text-2xl font-medium tracking-tight sm:text-3xl md:text-3xl text-arcova-darkblue mt-6">
                   Move fast. Think rigorously.
                 </h2>
