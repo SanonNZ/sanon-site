@@ -188,18 +188,19 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <h2 className="text-2xl font-medium tracking-tight sm:text-3xl md:text-3xl text-arcova-darkblue mt-6">
+                <h2 className="text-2xl md:text-[2rem] font-medium tracking-tight sm:text-3xl md:text-3xl text-arcova-darkblue mt-6">
                   Move fast. Think rigorously.
                 </h2>
               </div>
-              <p className="mx-auto max-w-[700px] text-lg text-gray-500 leading-relaxed mt-2">
+              <p className="mx-auto max-w-[700px] text-lg font-medium text-gray-600 leading-relaxed mt-2">
                 We turn complex science into decision-ready insight.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:mt-8">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-arcova-darkblue hover:bg-arcova-blue text-white rounded-full px-8 py-6 h-auto transition-all duration-300 hover:shadow-lg w-64 sm:w-72"
+                  variant="outline"
+                  className="border-arcova-darkblue text-arcova-darkblue rounded-full px-8 py-6 h-auto hover:bg-arcova-darkblue hover:text-white transition-all duration-300 hover:shadow-lg w-64 sm:w-72"
                 >
                   <Link href="/investors" className="flex items-center justify-center gap-2">
                     <span className="text-center">I need due diligence</span>
@@ -221,7 +222,7 @@ export default function Home() {
 
               {/* Added scroll-down button */}
               <motion.div
-                className="mt-8 group"
+                className="mt-16 group"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
@@ -572,15 +573,15 @@ export default function Home() {
           </div>
         </AnimatedSection>
         <footer className="border-t border-gray-100 bg-white">
-          <div className="container grid grid-cols-1 md:grid-cols-3 py-8 w-full px-4 md:px-6">
-            <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
+          <div className="container max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 py-6 w-full px-4 md:px-6">
+            <div className="flex flex-col items-center md:items-start mb-4 md:mb-0 justify-center">
               <LogoLink className="mb-2" />
               <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
             </div>
             <div className="flex items-center justify-center mb-4 md:mb-0">
               <p className="text-sm font-medium text-arcova-teal">Move fast. Think rigorously.</p>
             </div>
-            <nav className="flex justify-center md:justify-end gap-8">
+            <nav className="flex justify-center md:justify-end gap-8 items-center">
               <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
                 Privacy Policy
               </Link>
