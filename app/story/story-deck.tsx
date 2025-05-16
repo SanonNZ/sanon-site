@@ -73,7 +73,7 @@ export default function ScrollDeck() {
             viewport={{ once: false, amount: 0.8 }}
           >
             <div
-              className=`rounded-xl shadow-lg p-8 md:p-12 overflow-hidden w-full`
+              className="rounded-xl shadow-lg p-8 md:p-12 overflow-hidden w-full"
               style={{
                 backgroundColor: slide.bg,
                 aspectRatio: isMobile ? "auto" : "16/9",
