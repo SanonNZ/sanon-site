@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect } from "react"
 
@@ -26,31 +25,20 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="container py-8 md:py-12">
-        <Button
-          variant="ghost"
-          asChild
-          className="mb-1 hover:bg-transparent hover:text-teal-600"
-        >
-          <Link href="/" className="flex items-center gap-2">
-            <ArrowLeft className="h-4 w-4" />
-            Back to Home
-          </Link>
-        </Button>
-
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-8">Contact Us</h1>
           
           <div className="space-y-8 mb-8">
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-gray-600">
               Have questions or want to talk due diligence?<br />
               We'd love to hear from you.
             </p>
 
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-gray-600">
               Schedule a call with our team using the calendar below.
             </p>
 
-            <p className="text-lg">
+            <p className="text-lg text-gray-600">
               <strong>Email:</strong>{" "}
               <a 
                 href="mailto:emma@arcova.bio"

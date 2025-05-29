@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { LogoLink } from "@/components/logo"
 
 interface NavItem {
   name: string
@@ -7,18 +8,24 @@ interface NavItem {
 
 const navigation: NavItem[] = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Teams", href: "/teams" },
-  { name: "Contact", href: "/contact" },
+  { name: "For Investors", href: "/investors" },
+  { name: "For Science-Backed Brands", href: "/sciencebrands" },
+  { name: "Join Our Network", href: "/network" },
 ]
 
 export const Navigation = () => {
   return (
-    <nav>
-      <ul className="flex space-x-4">
+    <nav className="container flex h-20 items-center px-4 md:px-6">
+      <div className="flex-none">
+        <LogoLink />
+      </div>
+      <ul className="flex-1 flex justify-center space-x-8">
         {navigation.map((item) => (
           <li key={item.name}>
-            <Link href={item.href} className="hover:text-blue-500">
+            <Link 
+              href={item.href} 
+              className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
+            >
               {item.name}
             </Link>
           </li>

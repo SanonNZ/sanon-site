@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 // Arcova color palette
@@ -12,22 +11,11 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="container py-8 md:py-12">
-        <Button
-          variant="ghost"
-          asChild
-          className="mb-8 hover:bg-transparent hover:text-teal-600"
-        >
-          <Link href="/" className="flex items-center gap-2">
-            <ArrowLeft className="h-4 w-4" />
-            Back to Home
-          </Link>
-        </Button>
-
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
           
           <div className="prose prose-slate max-w-none">
-            <p className="text-sm text-muted-foreground mb-8">Last updated: May 2025</p>
+            <p className="text-sm text-gray-500 mb-8">Last updated: May 2025</p>
 
             <section className="mb-8">
               <h2 className="text-xl font-semibold mb-4">1. Introduction</h2>
