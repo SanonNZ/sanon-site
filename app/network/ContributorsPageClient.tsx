@@ -111,7 +111,7 @@ export default function ContributorsPageClient() {
       title: "Scientific Rigor",
       content:
         "Our network members excel in applying methodical approaches to research and analysis. They understand the importance of evidence quality, statistical significance, and reproducibility. This foundation ensures that all insights and recommendations are based on sound scientific principles and can withstand scrutiny from peers and stakeholders alike.",
-      backgroundImage: "/abstract-science-background.png",
+      backgroundImage: "/images/neural-network-bg.png",
       backgroundPosition: "center 80%", // Custom position to show more of the top portion
       icon: <Microscope className="h-6 w-6" />,
     },
@@ -120,7 +120,7 @@ export default function ContributorsPageClient() {
       title: "Clarity of Thought",
       content:
         "The ability to distill complex scientific concepts into clear, actionable insights is a hallmark of our network. Members excel at identifying the most relevant information, organizing it logically, and communicating it effectively to diverse audiences. This skill is crucial for translating technical findings into business-relevant recommendations.",
-      backgroundImage: "/neural-network-bg.png",
+      backgroundImage: "/images/neural-network-bg.png",
       backgroundPosition: "center 45%", // Custom position to show more of the upper portion
       icon: <Brain className="h-6 w-6" />,
     },
@@ -129,7 +129,7 @@ export default function ContributorsPageClient() {
       title: "Deep Knowledge",
       content:
         "Our contributors bring specialized expertise in their respective fields, backed by advanced degrees and practical experience. This depth of knowledge allows them to quickly identify critical issues, evaluate claims against the current state of research, and provide nuanced perspectives that generalists might miss.",
-      backgroundImage: "/molecular-structure-bg.png", // Updated to use the new image
+      backgroundImage: "/images/molecular-structure-bg.png", // Updated to use the new image
       backgroundPosition: "center 80%", // Custom position for unique view
       icon: <Lightbulb className="h-6 w-6" />,
     },
@@ -250,7 +250,7 @@ export default function ContributorsPageClient() {
                   For Investors
                 </Link>
                 <Link
-                  href="/teams"
+                  href="/sciencebrands"
                   className="text-base font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
                   onClick={handleMobileNavClick}
                 >
@@ -325,7 +325,7 @@ export default function ContributorsPageClient() {
         }
       `}</style>
 
-      <header className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-white/80 border-b border-gray-100">
+      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-100">
         <div className="container flex h-20 items-center justify-between px-4 md:px-6">
           <LogoLink />
           <nav className="hidden md:flex gap-8">
@@ -342,38 +342,32 @@ export default function ContributorsPageClient() {
               For Investors
             </Link>
             <Link
-              href="/teams"
+              href="/sciencebrands"
               className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
               For Science-Backed Brands
             </Link>
             <Link
-              href="#"
-              onClick={(e) => {
-                e.preventDefault()
-                window.scrollTo({ top: 0, behavior: "smooth" })
-              }}
+              href="/network"
               className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
               Join Our Network
             </Link>
           </nav>
-          <div className="flex items-center gap-4">
-            <Button
-              asChild
-              className="hidden md:inline-flex bg-arcova-teal hover:bg-arcova-blue text-white rounded-full transition-colors duration-200"
-            >
-              <a href="#contact-form">Join Our Network</a>
-            </Button>
-            {/* Mobile menu button - enhanced visibility */}
-            <button
-              className="md:hidden p-2.5 rounded-md bg-arcova-teal/10 text-arcova-teal hover:bg-arcova-teal/20 transition-colors"
-              onClick={() => setMobileMenuOpen(true)}
-              aria-label="Open menu"
-            >
-              <Menu className="h-7 w-7" />
-            </button>
-          </div>
+          <Button
+            asChild
+            className="hidden md:inline-flex bg-arcova-teal hover:bg-arcova-blue text-white rounded-full transition-colors duration-200"
+          >
+            <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer">Book a Call</a>
+          </Button>
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden p-2.5 rounded-md bg-arcova-teal/10 text-arcova-teal hover:bg-arcova-teal/20 transition-colors"
+            onClick={() => setMobileMenuOpen(true)}
+            aria-label="Open menu"
+          >
+            <Menu className="h-7 w-7" />
+          </button>
         </div>
       </header>
 
@@ -407,7 +401,7 @@ export default function ContributorsPageClient() {
                 </div>
               </div>
               <div className="space-y-2">
-                <p className="mx-auto max-w-[700px] text-xl text-gray-600 leading-relaxed">
+                <p className="mx-auto max-w-[700px] text-lg font-medium text-gray-600 leading-relaxed mt-2">
                   Lend your expertise to high-stakes research and due diligence projects. On your terms.
                 </p>
               </div>
@@ -941,28 +935,6 @@ export default function ContributorsPageClient() {
         </AnimatedSection>
       </main>
 
-      <footer className="border-t border-gray-100 bg-white">
-        <div className="container flex flex-col md:flex-row justify-between py-8 w-full items-center px-4 md:px-6">
-          <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
-            <LogoLink className="mb-2" />
-            <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
-            <p className="text-sm font-medium text-arcova-teal mt-2">Move fast. Think rigorously.</p>
-          </div>
-          <nav className="flex gap-8">
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-              Terms of Service
-            </Link>
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-              Contact
-            </Link>
-          </nav>
-        </div>
-      </footer>
-
-      {/* Scroll to top button */}
       <ScrollToTop />
     </div>
   )

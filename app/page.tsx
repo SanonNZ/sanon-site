@@ -10,7 +10,6 @@ import { TypewriterHeading } from "@/components/typewriter-heading"
 import { GlowingNetworkMolecule } from "@/components/network-molecule"
 import { LogoLink } from "@/components/logo"
 import { motion, AnimatePresence } from "framer-motion"
-// Import the ScrollToTop component at the top of the file
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { useState } from "react"
 import AutoRotatingCards from "@/components/auto-rotating-cards"
@@ -42,13 +41,13 @@ export default function Home() {
               For Investors
             </Link>
             <Link
-              href="/teams"
+              href="/sciencebrands"
               className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
               For Science-Backed Brands
             </Link>
             <Link
-              href="/contributors"
+              href="/network"
               className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
               Join Our Network
@@ -118,14 +117,14 @@ export default function Home() {
                   For Investors
                 </Link>
                 <Link
-                  href="/teams"
+                  href="/sciencebrands"
                   className="text-base font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   For Science-Backed Brands
                 </Link>
                 <Link
-                  href="/contributors"
+                  href="/network"
                   className="text-base font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -145,7 +144,7 @@ export default function Home() {
       </AnimatePresence>
 
       <main className="flex-1">
-        <AnimatedSection className="w-full py-24 md:py-32 lg:py-40 pt-32 md:pt-40">
+        <AnimatedSection className="w-full min-h-[90vh] flex items-center">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-12 text-center">
               <div className="space-y-8 max-w-[900px]">
@@ -192,7 +191,7 @@ export default function Home() {
                   Move fast. Think rigorously.
                 </h2>
               </div>
-              <p className="mx-auto max-w-[700px] text-lg font-medium text-gray-600 leading-relaxed mt-2">
+              <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed mt-2">
                 We turn complex science into decision-ready insight.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:mt-8">
@@ -200,7 +199,7 @@ export default function Home() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-arcova-darkblue text-arcova-darkblue rounded-full px-8 py-6 h-auto hover:bg-arcova-darkblue hover:text-white transition-all duration-300 hover:shadow-lg w-64 sm:w-72"
+                  className="border-arcova-blue text-arcova-darkblue rounded-full px-8 py-6 h-auto hover:bg-blue-50 hover:border-darkblue-200 hover:text-arcova-darkblue transition-all duration-300 hover:shadow-lg w-64 sm:w-72"
                 >
                   <Link href="/investors" className="flex items-center justify-center gap-2">
                     <span className="text-center">I need due diligence</span>
@@ -213,7 +212,7 @@ export default function Home() {
                   variant="outline"
                   className="border-arcova-mint text-arcova-darkblue rounded-full px-8 py-6 h-auto hover:bg-arcova-mint/10 transition-all duration-300 hover:shadow-md w-64 sm:w-72"
                 >
-                  <Link href="/teams" className="flex items-center justify-center gap-2">
+                  <Link href="/sciencebrands" className="flex items-center justify-center gap-2">
                     <span className="text-center">I need evidence-based content</span>
                     <ArrowRight className="h-4 w-4 flex-shrink-0" />
                   </Link>
@@ -270,7 +269,7 @@ export default function Home() {
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-4">
                   Who We Work With
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-4">Make Science Work for You</h2>
+                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-4">Make Science Work for You</h2>
                 <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
                   Whether you're investing, building, or storytelling, we translate the science so you don't have to.
                 </p>
@@ -429,7 +428,7 @@ export default function Home() {
                         variant="outline"
                         className="group rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 transition-all duration-300"
                       >
-                        <Link href="/teams" className="flex items-center gap-2 text-arcova-teal">
+                        <Link href="/sciencebrands" className="flex items-center gap-2 text-arcova-teal">
                           Learn more
                           <motion.div
                             whileHover={{ x: 3 }}
@@ -458,7 +457,7 @@ export default function Home() {
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                   Our Network
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+                <h2 className="text-3xl font-bold tracking-tight leading-loose md:text-3xl">
                   A network of scientists. Matched to your needs.
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
@@ -478,7 +477,7 @@ export default function Home() {
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                   Led by
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Emma Bardsley, PhD</h2>
+                <h2 className="text-3xl font-bold tracking-tight md:text-2xl">Emma Bardsley, PhD</h2>
                 <p className="text-arcova-teal font-medium">Founder and Scientific Director</p>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   Scientific direction is led by Emma Bardsley, PhD — a neuroscientist with experience in research,
@@ -489,7 +488,7 @@ export default function Home() {
               <div className="flex justify-center lg:justify-end items-center order-1 lg:order-2">
                 <div className="w-full lg:w-2/3 aspect-square relative overflow-hidden rounded-2xl shadow-xl">
                   <Image
-                    src="/emma-bardsley-portrait.png"
+                    src="/images/emma-bardsley-portrait.png"
                     alt="Emma Bardsley"
                     width={400}
                     height={400}
@@ -507,7 +506,7 @@ export default function Home() {
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                 Our Process
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight md:text-3xl">
                 How we transform complex data into actionable insights
               </h2>
               <p className="text-lg text-gray-600 max-w-[700px]">
@@ -560,7 +559,7 @@ export default function Home() {
                 className="mt-4 bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-8 py-6 h-auto transition-all duration-300 hover:shadow-lg"
               >
                 <a
-                  href="https://calendly.com"
+                  href="https://calendly.com/emma-arcova/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
@@ -572,32 +571,9 @@ export default function Home() {
             </div>
           </div>
         </AnimatedSection>
-        <footer className="border-t border-gray-100 bg-white">
-          <div className="container max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 py-6 w-full px-4 md:px-6">
-            <div className="flex flex-col items-center md:items-start mb-4 md:mb-0 justify-center">
-              <LogoLink className="mb-2" />
-              <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
-            </div>
-            <div className="flex items-center justify-center mb-4 md:mb-0">
-              <p className="text-sm font-medium text-arcova-teal">Move fast. Think rigorously.</p>
-            </div>
-            <nav className="flex justify-center md:justify-end gap-8 items-center">
-              <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-                Terms of Service
-              </Link>
-              <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-                Contact
-              </Link>
-            </nav>
-          </div>
-        </footer>
-
-        {/* Scroll to top button */}
-        <ScrollToTop />
       </main>
+
+      <ScrollToTop />
     </div>
   )
 }

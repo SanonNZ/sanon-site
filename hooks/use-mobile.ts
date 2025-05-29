@@ -2,36 +2,44 @@
 
 import { useState, useEffect } from "react"
 
-export function useMediaQuery(query: string): boolean {
-  const [matches, setMatches] = useState(false)
-  const [isClient, setIsClient] = useState(false)
+export function useMobile(): boolean {
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    setIsClient(true)
-
-    if (typeof window === "undefined") {
-      return
+    // Function to check if the screen is mobile-sized
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640)
     }
 
-    const media = window.matchMedia(query)
+    // Check on initial load
+    checkMobile()
 
-    // Set initial value
-    setMatches(media.matches)
+    // Add event listener for window resize
+    window.addEventListener("resize", checkMobile)
 
-    // Create listener function
-    const listener = (e: MediaQueryListEvent) => {
-      setMatches(e.matches)
+    // Clean up event listener
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  return isMobile
+}
+
+export function useMediaQuery(query: string): boolean {
+  const [matches, setMatches] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(query)
+    setMatches(mediaQuery.matches)
+
+    const handler = (event: MediaQueryListEvent) => {
+      setMatches(event.matches)
     }
 
-    // Add listener
-    media.addEventListener("change", listener)
-
-    // Clean up
+    mediaQuery.addEventListener("change", handler)
     return () => {
-      media.removeEventListener("change", listener)
+      mediaQuery.removeEventListener("change", handler)
     }
   }, [query])
 
-  // Return false during SSR, actual value after hydration
-  return isClient ? matches : false
-}
+  return matches
+} 

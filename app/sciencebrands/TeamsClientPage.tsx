@@ -12,6 +12,7 @@ import { ScrollToTop } from "@/components/scroll-to-top"
 import { useState, useRef } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { TypewriterHeading } from "@/components/typewriter-heading"
+import StoryDeck from "@/components/story-deck"
 
 // Service selector data
 const services = [
@@ -35,6 +36,39 @@ const services = [
     description: "Comprehensive content packages that build audience trust and engagement over time.",
     features: ["Strategic planning", "Multimedia formats", "Audience targeting"],
     icon: <Users className="h-5 w-5" />,
+  },
+]
+
+// Story deck slides for science brands
+const storySlides = [
+  {
+    emoji: "🧪",
+    title: "Science-backed claims need evidence.",
+    subtitle: "Marketing teams want to move fast.\nCompliance needs proof.",
+    body: "Balance is possible.",
+    bg: "#e7e0f5", // Light purple
+  },
+  {
+    emoji: "📊",
+    title: "But evidence is hard to translate.",
+    subtitle: "And publishing without validation?",
+    body: "That's a risk to your credibility.",
+    bg: "#fff2cc", // Light amber for warning
+  },
+  {
+    emoji: "🔬",
+    title: "Arcova brings scientific expertise to your content.",
+    subtitle: "From technical papers to engaging articles.\n",
+    body: "We translate the science.",
+    bg: "#daeff1", // Light teal
+  },
+  {
+    emoji: "📝",
+    title: "Move fast. Think rigorously.",
+    subtitle: "Welcome to evidence-based content.",
+    body: "Clarity builds trust.",
+    bg: "#d4f2de", // Light green
+    isFinal: true,
   },
 ]
 
@@ -72,7 +106,11 @@ export default function TeamsClientPage() {
           <LogoLink />
           <nav className="hidden md:flex gap-8">
             <Link
-              href="/"
+              href="#"
+              onClick={(e) => {
+                e.preventDefault()
+                window.scrollTo({ top: 0, behavior: "smooth" })
+              }}
               className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
               Home
@@ -84,17 +122,13 @@ export default function TeamsClientPage() {
               For Investors
             </Link>
             <Link
-              href="#"
-              onClick={(e) => {
-                e.preventDefault()
-                window.scrollTo({ top: 0, behavior: "smooth" })
-              }}
+              href="/sciencebrands"
               className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
               For Science-Backed Brands
             </Link>
             <Link
-              href="/contributors"
+              href="/network"
               className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
             >
               Join Our Network
@@ -104,7 +138,7 @@ export default function TeamsClientPage() {
             asChild
             className="hidden md:inline-flex bg-arcova-teal hover:bg-arcova-blue text-white rounded-full transition-colors duration-200"
           >
-            <a href="#cta">Book a Call</a>
+            <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer">Book a Call</a>
           </Button>
           {/* Mobile menu button */}
           <button
@@ -171,7 +205,7 @@ export default function TeamsClientPage() {
                   For Science-Backed Brands
                 </Link>
                 <Link
-                  href="/contributors"
+                  href="/network"
                   className="text-base font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -182,7 +216,7 @@ export default function TeamsClientPage() {
                   className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full transition-colors duration-200 mt-4"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <a href="#cta">Book a Call</a>
+                  <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer">Book a Call</a>
                 </Button>
               </nav>
             </motion.div>
@@ -220,7 +254,7 @@ export default function TeamsClientPage() {
                   />
                 </div>
               </div>
-              <p className="mx-auto max-w-[700px] text-xl text-gray-600 leading-relaxed">
+              <p className="mx-auto max-w-[700px] text-lg font-medium text-gray-600 leading-relaxed mt-2">
                 We translate peer-reviewed data into language your customers — and Google — understand.
               </p>
 
@@ -237,6 +271,47 @@ export default function TeamsClientPage() {
                   </div>
                 </a>
               </motion.div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Why Arcova section - Similar to investors page */}
+        <AnimatedSection id="why-arcova" className="w-full py-16 md:py-20 bg-gray-50/50">
+          <div className="container px-4 md:px-6 max-w-6xl">
+            {/* Centered pill, header, and subheader */}
+            <div className="text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-teal/20 text-arcova-teal rounded-full text-sm font-medium mb-6">
+                Why Arcova?
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-arcova-darkblue mb-4">
+                Great content needs scientific integrity.
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+                Science-backed marketing needs better evidence and better storytelling. Arcova brings both.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Left Column with Copy */}
+              <div className="flex flex-col space-y-6">
+                <p className="text-xl text-arc-700 font-bold leading-relaxed">Science communication is challenging.</p>
+                <p className="text-xl text-gray-700 font-bold leading-relaxed">
+                  We bring expertise to your content strategy.
+                </p>
+                <p className="text-xl text-gray-700 font-bold leading-relaxed">
+                  So you can build trust, not just traffic.
+                </p>
+              </div>
+
+              {/* Right Column with StoryDeck */}
+              <div className="w-full">
+                <StoryDeck
+                  slides={storySlides}
+                  ctaText="Book a Call"
+                  ctaAction={() => document.getElementById("service-section")?.scrollIntoView({ behavior: "smooth" })}
+                  rotationInterval={3000} // 3 seconds per slide
+                />
+              </div>
             </div>
           </div>
         </AnimatedSection>
@@ -498,7 +573,7 @@ export default function TeamsClientPage() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 z-10"></div>
                 <div className="absolute inset-0 bg-arcova-teal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
                 <Image
-                  src="/placeholder.svg?height=400&width=300"
+                  src="/images/placeholder.svg?height=400&width=300"
                   alt="TL;DR Sample"
                   width={300}
                   height={400}
@@ -516,7 +591,7 @@ export default function TeamsClientPage() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 z-10"></div>
                 <div className="absolute inset-0 bg-arcova-teal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
                 <Image
-                  src="/placeholder.svg?height=400&width=300"
+                  src="/images/placeholder.svg?height=400&width=300"
                   alt="Infographic Snippet"
                   width={300}
                   height={400}
@@ -532,7 +607,7 @@ export default function TeamsClientPage() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 z-10"></div>
                 <div className="absolute inset-0 bg-arcova-teal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
                 <Image
-                  src="/placeholder.svg?height=400&width=300"
+                  src="/images/placeholder.svg?height=400&width=300"
                   alt="Article Introduction"
                   width={300}
                   height={400}
@@ -564,7 +639,7 @@ export default function TeamsClientPage() {
 
         <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-4 text-center mb-16">
+            <div className="flex flex-col items-center space-y-8 text-center mb-16">
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                 Our Process
               </div>
@@ -631,7 +706,7 @@ export default function TeamsClientPage() {
                 <div className="absolute inset-0 z-0">
                   <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-85 z-10"></div>
                   <Image
-                    src="/abstract-finance.png"
+                    src="/images/abstract-finance.png"
                     alt="Abstract visualization"
                     width={1000}
                     height={400}
@@ -669,7 +744,7 @@ export default function TeamsClientPage() {
                 <div className="absolute inset-0 z-0">
                   <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-85 z-10"></div>
                   <Image
-                    src="/abstract-finance.png"
+                    src="/images/abstract-finance.png"
                     alt="Abstract visualization"
                     width={1000}
                     height={400}
@@ -680,7 +755,6 @@ export default function TeamsClientPage() {
                 {/* Content */}
                 <div className="relative z-20 p-6 md:p-8 flex flex-col h-full">
                   <div className="flex mb-4">
-                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
                     <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
                     <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
                     <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
@@ -707,7 +781,7 @@ export default function TeamsClientPage() {
                 <div className="absolute inset-0 z-0">
                   <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-85 z-10"></div>
                   <Image
-                    src="/abstract-finance.png"
+                    src="/images/abstract-finance.png"
                     alt="Abstract visualization"
                     width={1000}
                     height={400}
@@ -818,27 +892,6 @@ export default function TeamsClientPage() {
             </div>
           </div>
         </AnimatedSection>
-
-        <footer className="border-t border-gray-100 bg-white">
-          <div className="container flex flex-col md:flex-row justify-between py-8 w-full items-center px-4 md:px-6">
-            <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
-              <LogoLink className="mb-2" />
-              <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
-              <p className="text-sm font-medium text-arcova-teal mt-2">Move fast. Think rigorously.</p>
-            </div>
-            <nav className="flex gap-8">
-              <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-                Terms of Service
-              </Link>
-              <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-                Contact
-              </Link>
-            </nav>
-          </div>
-        </footer>
 
         {/* Scroll to top button */}
         <ScrollToTop />

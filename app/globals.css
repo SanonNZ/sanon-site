@@ -32,6 +32,9 @@
   --ring: 180 100% 35%; /* Arcova teal */
 
   --radius: 0.5rem;
+
+  /* Ensure font-family variable is defined */
+  --font-poppins: "Poppins", sans-serif;
 }
 
 .dark {
@@ -104,5 +107,10 @@ html {
   .bg-blue-900 h2,
   .bg-blue-900 h3 {
     color: white;
+  }
+
+  /* Ensure .font-poppins class works correctly */
+  .font-poppins {
+    font-family: var(--font-poppins);
   }
 }

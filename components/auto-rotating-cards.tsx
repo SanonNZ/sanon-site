@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Circle } from "lucide-react"
-import { useMediaQuery } from "@/hooks/use-mobile"
+import { useMobile } from "@/hooks/use-mobile"
 
 // Define the card data structure
 export interface CardData {
@@ -226,7 +226,7 @@ export default function AutoRotatingCards() {
   const [deck, setDeck] = useState<CardData[]>([])
   const [isVisible, setIsVisible] = useState(true)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
-  const isMobile = useMediaQuery("(max-width: 640px)")
+  const isMobile = useMobile()
 
   // Initialize the deck
   useEffect(() => {
@@ -445,8 +445,6 @@ export default function AutoRotatingCards() {
           )}
         </AnimatePresence>
       </div>
-
-      {/* Pause indicator removed to prevent layout shift */}
     </div>
   )
 }

@@ -3,16 +3,17 @@
 import Link from "next/link"
 import { useState, useRef } from "react"
 import { ArrowRight, Check, FileText, Users, Zap, ChevronDown, Star, Menu, X } from "lucide-react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { AnimatedSection } from "@/components/animated-section"
 import { ProcessStep } from "@/components/process-step"
 import { TypewriterHeading } from "@/components/typewriter-heading"
 import { LogoLink } from "@/components/logo"
-import { motion, AnimatePresence } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { ScrollToTop } from "@/components/scroll-to-top"
-import Image from "next/image"
+import StoryDeck from "@/components/story-deck"
 
 // Service selector data
 const services = [
@@ -70,6 +71,39 @@ export default function InvestorsPageClient() {
     }
   }
 
+  // Story deck slides
+  const storySlides = [
+    {
+      emoji: "🧬",
+      title: "Biotech deals are a bet on complexity.",
+      subtitle: "Founders pitch with confidence.\nDecks look sharp.",
+      body: "Complexity is your edge.",
+      bg: "#e7e0f5", // Light purple
+    },
+    {
+      emoji: "⚠️",
+      title: "But complexity is hard to understand.",
+      subtitle: "And acting without understanding?",
+      body: "That's risk you can't price in.",
+      bg: "#fff2cc", // Light amber for warning
+    },
+    {
+      emoji: "🧠",
+      title: "Arcova brings scientific minds into the room.",
+      subtitle: "From high-level to deep dives. \n",
+      body: "We interrogate the science.",
+      bg: "#daeff1", // Light teal
+    },
+    {
+      emoji: "🚀",
+      title: "Move fast. Think rigorously.",
+      subtitle: "Invest smarter.",
+      body: "Clarity is possible",
+      bg: "#d4f2de", // Light green
+      isFinal: true,
+    },
+  ]
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-100">
@@ -93,13 +127,13 @@ export default function InvestorsPageClient() {
               For Investors
             </Link>
             <Link
-              href="/teams"
+              href="/sciencebrands"
               className="text-sm font-medium text-gray-600 hover:text-arcova-blue transition-colors duration-200"
             >
               For Science-Backed Brands
             </Link>
             <Link
-              href="/contributors"
+              href="/network"
               className="text-sm font-medium text-gray-600 hover:text-arcova-blue transition-colors duration-200"
             >
               Join Our Network
@@ -107,7 +141,7 @@ export default function InvestorsPageClient() {
           </nav>
           <Button
             asChild
-            className="hidden md:inline-flex bg-arcova-blue hover:bg-arcova-teal text-white rounded-full transition-colors duration-200"
+            className="hidden md:inline-flex bg-arcova-blue hover:bg-arcova-teal text-white rounded-full px-6 py-2 duration-200"
           >
             <a href="#cta">Book a Call</a>
           </Button>
@@ -169,14 +203,14 @@ export default function InvestorsPageClient() {
                   For Investors
                 </Link>
                 <Link
-                  href="/teams"
+                  href="/sciencebrands"
                   className="text-base font-medium text-gray-600 hover:text-arcova-blue transition-colors duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   For Science-Backed Brands
                 </Link>
                 <Link
-                  href="/contributors"
+                  href="/network"
                   className="text-base font-medium text-gray-600 hover:text-arcova-blue transition-colors duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -201,7 +235,7 @@ export default function InvestorsPageClient() {
             <div className="flex flex-col items-center space-y-12 text-center">
               <div className="space-y-6 max-w-[900px]">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl">
-                  Go deeper than the pitch.
+                  Go deeper than the pitch
                 </h1>
                 <div className="min-h-[70px] sm:min-h-[80px] md:min-h-[90px] flex items-center justify-center">
                   <TypewriterHeading
@@ -225,7 +259,7 @@ export default function InvestorsPageClient() {
                   />
                 </div>
               </div>
-              <p className="mx-auto max-w-[700px] text-xl text-gray-600 leading-relaxed">
+              <p className="mx-auto max-w-[700px] text-xl text-arcova-darkblue leading-relaxed">
                 We interrogate the science, so you don't have to.
               </p>
 
@@ -246,45 +280,38 @@ export default function InvestorsPageClient() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection id="why-arcova" className="w-full py-16 md:py-20 bg-gray-50">
-          <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8 text-center mb-12">
-              <div className="inline-block px-3 py-1 bg-arcova-blue/20 text-arcova-blue rounded-full text-sm font-medium">
+        {/* Updated Why Arcova section with centered header, subheader, and pill */}
+        <AnimatedSection id="why-arcova" className="w-full py-16 md:py-20 bg-gray-50/50">
+          <div className="container px-4 md:px-6 max-w-6xl">
+            {/* Centered pill, header, and subheader */}
+            <div className="text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-blue/20 text-arcova-blue rounded-full text-sm font-medium mb-6">
                 Why Arcova?
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl"> Hype is loud. Rigor is quiet.</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-arcova-darkblue mb-4">
+                Sharp decks need sharp diligence.
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+                Biotech investing needs better questions, and better answers. Arcova brings both.
+              </p>
             </div>
 
-            <div className="prose prose-lg max-w-none text-gray-600">
-              <p className="text-xl font-medium text-arcova-darkblue text-center mb-10">
-                Investing in biotech means betting on complexity — biology, chemistry, AI models, regulatory nuance. But
-                most due diligence processes barely scratch the scientific surface.
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-                <div>
-                  <p>
-                    Founders pitch confidently. Decks look sharp. But who's pressure-testing the assumptions behind the
-                    science? Who's asking the second-order questions?
-                  </p>
-
-                  <p className="mt-6">
-                    The expertise is out there — sitting in universities, research institutes, and labs — but there's no
-                    structured way to access it. Until now.
-                  </p>
-                </div>
-
-                <div>
-                  <p>
-                    Arcova brings scientific minds into your due diligence flow — fast, discreetly, and with zero
-                    friction. Whether you need a 48-hour gut check or a deep dive on a mechanism of action, we match you
-                    with people who've actually done the work.
-                  </p>
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Left Column with Copy */}
+              <div className="flex flex-col space-y-6">
+                <p className="text-xl text-arc-700 font-bold leading-relaxed">Biotech investing comes with complexity.</p>
+                <p className="text-xl text-gray-700 font-bold leading-relaxed">We bring human intelligence into the room. </p>
+                <p className="text-xl text-gray-700 font-bold leading-relaxed">So you can invest with insight, not assumption.</p>
               </div>
 
-              <div className="mt-16 text-center">
-                <p className="text-2xl font-bold text-arcova-darkblue">Move fast. Think rigorously.</p>
+              {/* Right Column with StoryDeck */}
+              <div className="w-full">
+                <StoryDeck
+                  slides={storySlides}
+                  ctaText="Book a Call"
+                  ctaAction={() => document.getElementById("service-section")?.scrollIntoView({ behavior: "smooth" })}
+                  rotationInterval={3000} // 5 seconds per slide
+                />
               </div>
             </div>
           </div>
@@ -550,7 +577,7 @@ export default function InvestorsPageClient() {
               <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-90 z-10"></div>
                 <Image
-                  src="/abstract-finance.png"
+                  src="/images/abstract-finance.png"
                   alt="Abstract visualization"
                   width={1000}
                   height={400}
@@ -651,7 +678,7 @@ export default function InvestorsPageClient() {
                 className="mt-4 bg-arcova-blue hover:bg-arcova-teal text-white rounded-full px-8 py-6 h-auto transition-all duration-300 hover:shadow-lg"
               >
                 <a
-                  href="https://calendly.com"
+                  href="https://calendly.com/emma-arcova/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
@@ -665,28 +692,6 @@ export default function InvestorsPageClient() {
         </AnimatedSection>
       </main>
 
-      <footer className="border-t border-gray-100 bg-white">
-        <div className="container flex flex-col md:flex-row justify-between py-8 w-full items-center px-4 md:px-6">
-          <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
-            <LogoLink className="mb-2" />
-            <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
-            <p className="text-sm font-medium text-arcova-teal mt-2">Move fast. Think rigorously.</p>
-          </div>
-          <nav className="flex gap-8">
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-              Terms of Service
-            </Link>
-            <Link href="#" className="text-sm text-gray-600 hover:text-arcova-teal transition-colors duration-200">
-              Contact
-            </Link>
-          </nav>
-        </div>
-      </footer>
-
-      {/* Scroll to top button */}
       <ScrollToTop />
     </div>
   )

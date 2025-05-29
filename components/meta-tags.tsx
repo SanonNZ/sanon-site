@@ -9,7 +9,7 @@ export function MetaTags() {
         property="og:description"
         content="Oxford-trained PhD team turning raw biomedical literature into decision-ready insight."
       />
-      <meta property="og:image" content="/og-image.png" />
+      <meta property="og:image" content="/images/og-image.png" />
       <meta property="og:type" content="website" />
 
       {/* Twitter Card Tags */}
@@ -19,10 +19,15 @@ export function MetaTags() {
         name="twitter:description"
         content="Oxford-trained PhD team turning raw biomedical literature into decision-ready insight."
       />
-      <meta name="twitter:image" content="/og-image.png" />
+      <meta name="twitter:image" content="/images/og-image.png" />
+
+      {/* Favicon */}
+      <link rel="icon" href="/images/arcova-favicon.png" />
+      <link rel="apple-touch-icon" href="/images/arcova-favicon.png" />
+      <link rel="shortcut icon" href="/images/arcova-favicon.png" />
 
       {/* Basic image tag that some platforms might use */}
-      <link rel="image_src" href="/og-image.png" />
+      <link rel="image_src" href="/images/og-image.png" />
     </Head>
   )
 }
