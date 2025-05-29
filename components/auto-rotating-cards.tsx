@@ -57,7 +57,7 @@ const brandCards: CardData[] = [
   {
     id: 5,
     claim: "Breakthrough discovery in aging biology.",
-    mainQuestion: "We decode the claim, and connect it to outcomes.",
+    mainQuestion: "We investigate the claim, and connect it to outcomes.",
     supportingText: "Scientific credibility doesn't have to be boring.",
     emoji: "💥",
     color: 4, // Orange
@@ -88,7 +88,7 @@ const investorCards: CardData[] = [
   {
     id: 8,
     claim: "The first scalable platform for personalized therapeutics.",
-    mainQuestion: "We assess whether the data shows promise, or if it's just a polished pitch.",
+    mainQuestion: "We probe the data to separate promise from pitch.",
     supportingText: "Make it simple. Keep it true.",
     emoji: "🧩",
     color: 1, // Teal
@@ -115,7 +115,7 @@ const investorCards: CardData[] = [
   {
     id: 11,
     claim: "Revolutionising how we age at the cellular level.",
-    mainQuestion: "We probe the science, from cell to market impact.",
+    mainQuestion: "We trace the science, from cell to market impact.",
     supportingText: "Build trust from the data up.",
     emoji: "🧱",
     color: 4, // Orange
@@ -292,16 +292,11 @@ export default function AutoRotatingCards() {
 
   return (
     <div
-      className="w-full max-w-sm mx-auto"
+      className="w-full h-full flex items-center justify-center"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Header text above the card */}
-      <div className="text-center text-base text-muted-foreground font-medium mb-4">
-        Real claims. Rigorously unpacked.
-      </div>
-
-      {/* Card container - now taller with shadow for elevation */}
+      {/* Card container - centered in its column */}
       <div className="w-full h-[350px] flex items-center justify-center">
         <AnimatePresence mode="wait">
           {isVisible && (
@@ -314,7 +309,7 @@ export default function AutoRotatingCards() {
               className="h-full aspect-[3/4] shadow-lg rounded-xl"
             >
               {/* Card container with 3D effect */}
-              <div className="w-full h-full relative" style={{ perspective: "1000px" }}>
+              <div className="w-full h-full relative" style={{ perspective: "1000px", transformStyle: "preserve-3d" }}>
                 {/* Card with both front and back sides */}
                 <div
                   className="w-full h-full relative transition-transform duration-1000"
@@ -325,10 +320,11 @@ export default function AutoRotatingCards() {
                 >
                   {/* Front of card (with speech bubble) */}
                   <div
-                    className="absolute w-full h-full rounded-xl shadow-lg p-6 flex flex-col"
+                    className="absolute w-full h-full rounded-xl shadow-lg p-6 flex flex-col font-poppins"
                     style={{
                       background: cardColors[currentCard.color].color,
                       backfaceVisibility: "hidden",
+                      WebkitBackfaceVisibility: "hidden", // Add for better mobile support
                     }}
                   >
                     {/* Audience tag pill at top - smaller and not bold */}
@@ -361,7 +357,7 @@ export default function AutoRotatingCards() {
                             zIndex: 1,
                           }}
                         >
-                          <h3 className="text-xl font-bold italic text-white text-center">
+                          <h3 className="text-xl font-bold italic text-white text-center font-poppins">
                             {formatClaim(currentCard.claim)}
                           </h3>
                         </div>
@@ -385,10 +381,11 @@ export default function AutoRotatingCards() {
 
                   {/* Back of card (with supporting text) */}
                   <div
-                    className="absolute w-full h-full rounded-xl shadow-lg p-6 flex flex-col"
+                    className="absolute w-full h-full rounded-xl shadow-lg p-6 flex flex-col font-poppins"
                     style={{
                       background: cardColors[currentCard.color].backColor,
                       backfaceVisibility: "hidden",
+                      WebkitBackfaceVisibility: "hidden", // Add for better mobile support
                       transform: "rotateY(180deg)",
                     }}
                   >
@@ -412,7 +409,7 @@ export default function AutoRotatingCards() {
                     {/* Main content - vertically centered with main question and supporting text */}
                     <div className="flex-1 flex flex-col items-center justify-center space-y-6">
                       <div className="w-full">
-                        <p className="text-xl font-medium text-[#003344] text-center leading-relaxed">
+                        <p className="text-xl font-medium text-[#003344] text-center leading-relaxed font-poppins">
                           {currentCard.mainQuestion}
                         </p>
                       </div>
@@ -424,7 +421,7 @@ export default function AutoRotatingCards() {
                           // Mobile layout - stacked
                           <div className="flex flex-col items-center text-center space-y-2">
                             <span className="text-2xl">{currentCard.emoji}</span>
-                            <span className="text-[#003344] text-sm font-normal italic">
+                            <span className="text-[#003344] text-sm font-bold italic font-poppins">
                               {currentCard.supportingText}
                             </span>
                           </div>
@@ -433,7 +430,7 @@ export default function AutoRotatingCards() {
                           <div className="flex justify-center">
                             <div className="inline-flex items-center">
                               <span className="text-xl flex-shrink-0 mr-3">{currentCard.emoji}</span>
-                              <span className="text-[#003344] text-sm font-normal italic">
+                              <span className="text-[#003344] text-sm font-bold italic font-poppins">
                                 {currentCard.supportingText}
                               </span>
                             </div>
@@ -449,12 +446,7 @@ export default function AutoRotatingCards() {
         </AnimatePresence>
       </div>
 
-      {/* Pause indicator - only visible when paused */}
-      {isPaused && (
-        <div className="mt-2 text-center text-xs text-muted-foreground">
-          Animation paused. Move mouse away to resume.
-        </div>
-      )}
+      {/* Pause indicator removed to prevent layout shift */}
     </div>
   )
 }

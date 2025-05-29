@@ -4,15 +4,8 @@ import { useState, useEffect } from "react"
 
 export function useMediaQuery(query: string): boolean {
   const [matches, setMatches] = useState(false)
-  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    setIsClient(true)
-
-    if (typeof window === "undefined") {
-      return
-    }
-
     const media = window.matchMedia(query)
 
     // Set initial value
@@ -32,6 +25,5 @@ export function useMediaQuery(query: string): boolean {
     }
   }, [query])
 
-  // Return false during SSR, actual value after hydration
-  return isClient ? matches : false
+  return matches
 }
