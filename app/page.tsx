@@ -144,9 +144,9 @@ export default function Home() {
       </AnimatePresence>
 
       <main className="flex-1">
-        <AnimatedSection className="w-full min-h-[90vh] flex items-center">
+        <AnimatedSection className="w-full min-h-[45vh] flex items-center pt-24 pb-12">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-12 text-center">
+            <div className="flex flex-col items-center space-y-8 text-center">
               <div className="space-y-8 max-w-[900px]">
                 <div className="flex flex-col items-center">
                   <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl text-center">
@@ -194,39 +194,15 @@ export default function Home() {
               <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed mt-2">
                 We turn complex science into decision-ready insight.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:mt-8">
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-arcova-blue text-arcova-darkblue rounded-full px-8 py-6 h-auto hover:bg-blue-50 hover:border-darkblue-200 hover:text-arcova-darkblue transition-all duration-300 hover:shadow-lg w-64 sm:w-72"
-                >
-                  <Link href="/investors" className="flex items-center justify-center gap-2">
-                    <span className="text-center">I need due diligence</span>
-                    <ArrowRight className="h-4 w-4 flex-shrink-0" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-arcova-mint text-arcova-darkblue rounded-full px-8 py-6 h-auto hover:bg-arcova-mint/10 transition-all duration-300 hover:shadow-md w-64 sm:w-72"
-                >
-                  <Link href="/sciencebrands" className="flex items-center justify-center gap-2">
-                    <span className="text-center">I need evidence-based content</span>
-                    <ArrowRight className="h-4 w-4 flex-shrink-0" />
-                  </Link>
-                </Button>
-              </div>
 
               {/* Added scroll-down button */}
               <motion.div
-                className="mt-16 group"
+                className="mt-6 group"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
               >
-                <a href="#why-arcova" className="flex flex-col items-center gap-2 cursor-pointer">
+                <a href="#who-we-work-with" className="flex flex-col items-center gap-2 cursor-pointer">
                   <div className="bg-teal-50 border border-teal-200 rounded-full p-3 text-arcova-teal group-hover:bg-teal-100 transition-colors duration-300 group-hover:translate-y-1 transform transition-transform">
                     <ChevronDown className="h-5 w-5" />
                   </div>
@@ -236,33 +212,7 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection id="why-arcova" className="w-full py-16 md:py-20 bg-gray-50">
-          <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8 text-center mb-12">
-              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
-                Why Arcova?
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Find clarity in complexity</h2>
-              <div className="text-lg text-gray-600 max-w-[800px] flex flex-col gap-4">
-                <p>Scientific claims are everywhere, but not all of them hold up.</p>
-                <p>We help you ask the right questions, so you don't get lost in the noise.</p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 items-center justify-items-center">
-              <div className="space-y-6 w-full max-w-md">
-                {/* Replace the existing content with the ExpandableContent component */}
-                <ExpandableContent />
-              </div>
-
-              <div className="flex items-center justify-center rounded-2xl p-8 w-full max-w-md">
-                <AutoRotatingCards />
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        <AnimatedSection className="w-full py-16 bg-arcova-mint/20">
+        <AnimatedSection id="who-we-work-with" className="w-full py-16 bg-arcova-mint/20">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8">
               <div className="text-center">
@@ -345,15 +295,20 @@ export default function Home() {
                         variant="outline"
                         className="group rounded-full border-arcova-blue/30 hover:bg-arcova-blue/10 transition-all duration-300"
                       >
-                        <Link href="/investors" className="flex items-center gap-2 text-arcova-blue">
-                          Learn more
+                        <a 
+                          href="https://calendly.com/emma-arcova/30min"
+                          target="_blank"
+                          rel="noopener noreferrer" 
+                          className="flex items-center gap-2 text-arcova-blue"
+                        >
+                          Book a Call
                           <motion.div
                             whileHover={{ x: 3 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                           >
                             <ArrowRight className="h-4 w-4" />
                           </motion.div>
-                        </Link>
+                        </a>
                       </Button>
                     </motion.div>
                   </div>
@@ -428,15 +383,20 @@ export default function Home() {
                         variant="outline"
                         className="group rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 transition-all duration-300"
                       >
-                        <Link href="/sciencebrands" className="flex items-center gap-2 text-arcova-teal">
-                          Learn more
+                        <a 
+                          href="https://calendly.com/emma-arcova/30min"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-arcova-teal"
+                        >
+                          Book a Call
                           <motion.div
                             whileHover={{ x: 3 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                           >
                             <ArrowRight className="h-4 w-4" />
                           </motion.div>
-                        </Link>
+                        </a>
                       </Button>
                     </motion.div>
                   </div>
@@ -464,8 +424,36 @@ export default function Home() {
                   Arcova draws on a rapidly expanding network of PhD researchers from world-leading institutions. We
                   assemble a curated team, matching PhD expertise to your brief.
                 </p>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="mt-4 self-start rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 transition-all duration-300"
+                >
+                  <Link href="/network" className="flex items-center gap-2 text-arcova-teal">
+                    Join Our Network
+                    <motion.div
+                      whileHover={{ x: 3 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    >
+                      <ArrowRight className="h-4 w-4" />
+                    </motion.div>
+                  </Link>
+                </Button>
               </div>
             </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Network recruitment banner */}
+        <AnimatedSection className="w-full py-12 bg-arcova-blue/10">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <Link 
+              href="/network"
+              className="flex items-center justify-center gap-3 text-arcova-blue hover:text-arcova-blue/80 transition-colors duration-200 text-lg md:text-xl font-medium"
+            >
+              We're always looking for great scientific minds. Join us
+              <ArrowRight className="h-5 w-5" />
+            </Link>
           </div>
         </AnimatedSection>
 
