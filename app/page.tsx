@@ -730,7 +730,7 @@ export default function Home() {
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-arcova-darkblue">
-                Explore Our Science Services
+                Explore Our Scientific Services
               </h2>
               <p className="text-lg text-gray-600 max-w-[700px]">
                 From rapid content to deep-dive validation, Arcova delivers the right science expertise for your business. Choose a service below, or let's build a custom solution together.
