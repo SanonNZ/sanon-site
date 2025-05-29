@@ -43,17 +43,17 @@ export default function Home() {
       description: "Make the science tell your story. Perfect for marketing teams, content leads, and founders looking to establish thought leadership and credibility.",
       features: [
         "Engaging, human-crafted articles",
-        "Tailored for your audience",
         "Narrative-driven storytelling",
-        "Fast, reliable turnaround",
+        "Up to 3 papers synthesized",
+        "SEO keywords included",
         "Evidence-based, fact-checked, and referenced",
       ],
       features2: [
+        "Tailored for your audience",
         "Written by scientific experts",
         "Aligned to your brand voice",
         "Accessible and jargon-free",
-        "Up to 3 papers synthesized",
-        "SEO keywords included",
+        "Fast, reliable turnaround",
       ],
       column1Header: "What You Get",
       column2Header: "How We Do It",
@@ -65,24 +65,26 @@ export default function Home() {
     {
       id: 2,
       name: "Whitepapers & Deep Dives",
-      description: "For whitepapers, deep-dive articles, scientific reviews or summaries.",
+      description: "Scientific insight when decisions matter. Perfect for leaders advancing product, strategy, or technical innovation.",
       features: [
-        "Comprehensive research and synthesis",
-        "Whitepapers, pillar content, or reports",
-        "Builds thought leadership and credibility",
-        "Detailed, referenced analysis"
+        "Business-ready whitepapers or executive summaries",
+        "Market or technology analysis",
+        "Competitive benchmarking",
+        "Data-driven feature insights",
+        "Literature reviews"
       ],
       features2: [
-        "Clear recommendations",
-        "Expert scientific review",
-        "Strategic content planning",
+        "Decision-focused actionable recommendations",
+        "Synthesized by scientific experts",
+        "Builds leadership credibility",
+        "Fast, reliable delivery",
         "Full source documentation"
       ],
       column1Header: "Deliverables",
-      column2Header: "Our Process",
-      insight: "Authoritative long-form content or series to build trust and authority.",
-      cta: "Let's chat",
+      column2Header: "Key Benefits",
+      insight: "Authoritative long-form content to drive confident decisions and credibility.",
       price: "Let's explore your project needs.",
+      cta: "Let's Talk",
       icon: <Zap className="h-5 w-5" />
     },
     {
@@ -675,37 +677,49 @@ export default function Home() {
                 How we transform complex data into actionable insights
               </h2>
               <p className="text-lg text-gray-600 max-w-[700px]">
-                Our systematic approach ensures high-quality, reliable results every time
+                A systematic approach that delivers reliable results, every time
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 font-bold">
               <ProcessStep
                 number="01"
-                title="Discovery"
+                title="Discover"
+                subtitle="Go deep on the evidence"
                 description="Comprehensive literature search and data collection"
                 delay={0.1}
                 color="arcova-teal"
+                gradient="bg-gradient-to-br from-[#d4f2de]/30 via-transparent to-[#d4f2de]/50"
+                insightIcon="search"
               />
               <ProcessStep
                 number="02"
-                title="Analysis"
+                title="Analyze"
+                subtitle="Separate signal from noise"
                 description="Critical evaluation of evidence quality and relevance"
                 delay={0.2}
                 color="arcova-teal"
+                gradient="bg-gradient-to-br from-[#ccecfe]/30 via-transparent to-[#ccecfe]/50"
+                insightIcon="filter"
               />
               <ProcessStep
                 number="03"
-                title="Synthesis"
-                description="Distillation into business-relevant insights"
+                title="Synthesize"
+                subtitle="Connect the dots for clarity"
+                description="Transforming complex science into clear, actionable insight"
                 delay={0.3}
                 color="arcova-teal"
+                gradient="bg-gradient-to-br from-[#d4f2de]/30 via-transparent to-[#d4f2de]/50"
+                insightIcon="connect"
               />
               <ProcessStep
                 number="04"
-                title="Delivery"
-                description="Clear, actionable reports with expert consultation"
+                title="Deliver"
+                subtitle="From research to impact"
+                description="Content, reports, or advice. Science delivered your way"
                 delay={0.4}
                 color="arcova-teal"
+                gradient="bg-gradient-to-br from-[#ccecfe]/30 via-transparent to-[#ccecfe]/50"
+                insightIcon="rocket"
               />
             </div>
           </div>
@@ -716,10 +730,10 @@ export default function Home() {
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-arcova-darkblue">
-                Science Services, Made Simple
+                Explore Our Science Services
               </h2>
               <p className="text-lg text-gray-600 max-w-[700px]">
-                We offer a range of science services, from quick content to in-depth validation. Pick the right service for you, or let's talk about a custom approach.
+                From rapid content to deep-dive validation, Arcova delivers the right science expertise for your business. Choose a service below, or let's build a custom solution together.
               </p>
             </div>
 
