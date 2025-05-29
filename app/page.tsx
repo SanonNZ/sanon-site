@@ -288,7 +288,7 @@ export default function Home() {
       </AnimatePresence>
 
       <main className="flex-1">
-        <AnimatedSection className="w-full min-h-[45vh] flex items-center pt-24 pb-12">
+        <AnimatedSection className="w-full min-h-[60vh] flex items-center pt-28 pb-16">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
               <div className="space-y-8 max-w-[900px]">
@@ -335,13 +335,13 @@ export default function Home() {
                   Move fast. Think rigorously.
                 </h2>
               </div>
-              <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed mt-2">
+              <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed mt-3">
                 We turn complex science into decision-ready insight.
               </p>
 
               {/* Added scroll-down button */}
               <motion.div
-                className="mt-6 group"
+                className="mt-8 group"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
