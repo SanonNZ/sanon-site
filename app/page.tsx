@@ -27,6 +27,8 @@ interface Service {
   price: string
   cta: string
   icon: React.ReactNode
+  column1Header: string
+  column2Header: string
 }
 
 export default function Home() {
@@ -37,28 +39,32 @@ export default function Home() {
   const services: Service[] = [
     {
       id: 1,
-      name: "Science Content Essentials",
-      description: "Science-backed content for articles, blogs, or websites.",
+      name: "Blogs & Articles",
+      description: "Make the science tell your story. Perfect for marketing teams, content leads, and founders looking to establish thought leadership and credibility.",
       features: [
-        "Clear, engaging articles, blogs or summaries",
-        "Audience-ready, evidence-backed content",
-        "Fast turnaround for campaigns or launches",
-        "Written by scientific experts"
+        "Engaging, human-crafted articles",
+        "Tailored for your audience",
+        "Narrative-driven storytelling",
+        "Fast, reliable turnaround",
+        "Evidence-based, fact-checked, and referenced",
       ],
       features2: [
-        "Fully referenced and fact-checked",
-        "Expert scientific analysis",
-        "Clear, actionable insights",
-        "Confidential reporting"
+        "Written by scientific experts",
+        "Aligned to your brand voice",
+        "Accessible and jargon-free",
+        "Up to 3 papers synthesized",
+        "SEO keywords included",
       ],
-      insight: "For when you need credible, engaging scientific content, fast.",
+      column1Header: "What You Get",
+      column2Header: "How We Do It",
+      insight: "Turn complex research into stories that build trust",
       price: "Ready to get started?",
       cta: "Talk to us",
       icon: <FileText className="h-5 w-5" />
     },
     {
       id: 2,
-      name: "In-Depth Content & Insights",
+      name: "Whitepapers & Deep Dives",
       description: "For whitepapers, deep-dive articles, scientific reviews or summaries.",
       features: [
         "Comprehensive research and synthesis",
@@ -72,6 +78,8 @@ export default function Home() {
         "Strategic content planning",
         "Full source documentation"
       ],
+      column1Header: "Deliverables",
+      column2Header: "Our Process",
       insight: "Authoritative long-form content or series to build trust and authority.",
       cta: "Let's chat",
       price: "Let's explore your project needs.",
@@ -93,6 +101,8 @@ export default function Home() {
         "Detailed validation report",
         "Actionable recommendations"
       ],
+      column1Header: "Services",
+      column2Header: "Our Expertise",
       insight: "Confidential, unbiased, and fully referenced.\nTrusted by VCs, boards, and brand leaders.",
       price: "Discuss your validation or advisory needs.",
       cta: "Request a Consultation",
@@ -114,6 +124,8 @@ export default function Home() {
         "Technology roadmapping",
         "Strategic recommendations"
       ],
+      column1Header: "Analysis",
+      column2Header: "Deliverables",
       insight: "Data-driven market insights to inform strategic decisions.",
       price: "Let's discuss your research needs.",
       cta: "Schedule Analysis",
@@ -135,6 +147,8 @@ export default function Home() {
         "Clinical case studies",
         "Regulatory compliance"
       ],
+      column1Header: "Materials",
+      column2Header: "Standards & Compliance",
       insight: "Expert clinical content that meets regulatory standards.",
       price: "Custom solutions available.",
       cta: "Discuss Training",
@@ -760,7 +774,7 @@ export default function Home() {
                         {/* Show name below icon on mobile */}
                         <div className="text-xs font-medium mt-1 md:hidden">
                           {index === 0 ? "Essentials" : 
-                           index === 1 ? "Insights" : 
+                           index === 1 ? "Deep Dives" : 
                            index === 2 ? "Validation" :
                            index === 3 ? "Research" :
                            "Training"}
@@ -808,7 +822,7 @@ export default function Home() {
                       <div className="grid md:grid-cols-2 gap-6 md:gap-8">
                         <div>
                           <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
-                            Key Benefits
+                            {services[selectedService].column1Header}
                           </h4>
                           <ul className="space-y-3 md:space-y-4">
                             {services[selectedService].features.map((feature, index) => (
@@ -828,7 +842,10 @@ export default function Home() {
                           </ul>
                         </div>
                         <div>
-                          <ul className="space-y-3 md:space-y-4 mt-[52px]">
+                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
+                            {services[selectedService].column2Header}
+                          </h4>
+                          <ul className="space-y-3 md:space-y-4">
                             {services[selectedService].features2.map((feature, index) => (
                               <motion.li
                                 key={index}
