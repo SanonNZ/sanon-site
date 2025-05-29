@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Menu, X, ChevronDown, FileText, Zap, Users, Star } from "lucide-react"
+import { ArrowRight, Menu, X, ChevronDown, FileText, Zap, Users, Star, Lightbulb } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimatedSection } from "@/components/animated-section"
 import { ProcessStep } from "@/components/process-step"
@@ -17,34 +17,85 @@ import { ExpandableContent } from "@/components/expandable-content"
 import { cn } from "@/lib/utils"
 import { Check } from "lucide-react"
 
+interface Service {
+  id: number
+  name: string
+  description: string
+  features: string[]
+  features2: string[]
+  insight: string
+  price: string
+  cta: string
+  icon: React.ReactNode
+}
+
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [selectedService, setSelectedService] = useState(0)
   const [hoveredService, setHoveredService] = useState<number | null>(null)
 
-  const services = [
+  const services: Service[] = [
     {
       id: 1,
       name: "Science Content Essentials",
-      description: "Quick, science-backed content for blogs, press releases, or social media.",
-      features: ["Detailed analysis of the company", "Market research", "Financial analysis"],
-      price: "Book a call",
+      description: "Science-backed content for articles, blogs, or websites.",
+      features: [
+        "Clear, engaging articles, blogs or summaries",
+        "Audience-ready, evidence-backed content",
+        "Fast turnaround for campaigns or launches",
+        "Written by scientific experts"
+      ],
+      features2: [
+        "Fully referenced and fact-checked",
+        "Expert scientific analysis",
+        "Clear, actionable insights",
+        "Confidential reporting"
+      ],
+      insight: "For when you need credible, engaging scientific content, fast.",
+      price: "Ready to get started?",
+      cta: "Talk to us",
       icon: <FileText className="h-5 w-5" />
     },
     {
       id: 2,
       name: "In-Depth Content & Insights",
-      description: "Long-form, authoritative content or multi-part series to build trust and authority.",
-      features: ["Risk identification", "Impact analysis", "Strategic recommendations"],
-      price: "Book a call",
+      description: "For whitepapers, deep-dive articles, scientific reviews or summaries.",
+      features: [
+        "Comprehensive research and synthesis",
+        "Whitepapers, pillar content, or reports",
+        "Builds thought leadership and credibility",
+        "Detailed, referenced analysis"
+      ],
+      features2: [
+        "Clear recommendations",
+        "Expert scientific review",
+        "Strategic content planning",
+        "Full source documentation"
+      ],
+      insight: "Authoritative long-form content or series to build trust and authority.",
+      cta: "Let's chat",
+      price: "Let's explore your project needs.",
       icon: <Zap className="h-5 w-5" />
     },
     {
       id: 3,
       name: "Scientific Validation & Advisory",
-      description: "For when you need more than content—robust review, fact-checking, or scientific due diligence.",
-      features: ["Evidence review", "Peer review", "Validation process"],
-      price: "Book a call",
+      description: "For technical review, regulatory compliance, or scientific due diligence.",
+      features: [
+        "Objective evaluation of scientific claims",
+        "Risk/opportunity assessment",
+        "Ongoing or one-off advisory",
+        "Competitor analysis"
+      ],
+      features2: [
+        "Patent analysis",
+        "Regulatory scope",
+        "Detailed validation report",
+        "Actionable recommendations"
+      ],
+      insight: "Confidential, unbiased, and fully referenced.\nTrusted by VCs, boards, and brand leaders.",
+      price: "Discuss your validation or advisory needs.",
+      cta: "Request a Consultation",
       icon: <Users className="h-5 w-5" />
     }
   ]
@@ -609,9 +660,11 @@ export default function Home() {
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-arcova-darkblue">
-                Scientific due diligence
+                Science Services, Made Simple
               </h2>
-              <p className="text-lg text-gray-600 max-w-[700px]">for informed investment decisions</p>
+              <p className="text-lg text-gray-600 max-w-[700px]">
+                We offer a range of science services, from quick content to in-depth validation. Pick the right service for you, or let's talk about a custom approach.
+              </p>
             </div>
 
             <div className="grid md:grid-cols-12 gap-8">
@@ -728,74 +781,58 @@ export default function Home() {
                         </ul>
                       </div>
                       <div>
-                        <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
-                          What You Get
-                        </h4>
-                        <ul className="space-y-3 md:space-y-4">
-                          <motion.li
-                            className="flex items-start"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3, delay: 0.1 }}
-                          >
-                            <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
-                              <Check className="h-3.5 w-3.5 text-white" />
-                            </div>
-                            <span className="text-gray-700 text-sm md:text-base">Expert scientific analysis</span>
-                          </motion.li>
-                          <motion.li
-                            className="flex items-start"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3, delay: 0.2 }}
-                          >
-                            <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
-                              <Check className="h-3.5 w-3.5 text-white" />
-                            </div>
-                            <span className="text-gray-700 text-sm md:text-base">Clear, actionable insights</span>
-                          </motion.li>
-                          <motion.li
-                            className="flex items-start"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3, delay: 0.3 }}
-                          >
-                            <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
-                              <Check className="h-3.5 w-3.5 text-white" />
-                            </div>
-                            <span className="text-gray-700 text-sm md:text-base">Confidential reporting</span>
-                          </motion.li>
+                        <ul className="space-y-3 md:space-y-4 mt-[52px]">
+                          {services[selectedService].features2.map((feature, index) => (
+                            <motion.li
+                              key={index}
+                              className="flex items-start"
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.3, delay: index * 0.1 }}
+                            >
+                              <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
+                                <Check className="h-3.5 w-3.5 text-white" />
+                              </div>
+                              <span className="text-gray-700 text-sm md:text-base">{feature}</span>
+                            </motion.li>
+                          ))}
                         </ul>
                       </div>
                     </div>
 
-                    <div className="flex flex-col md:flex-row items-center justify-between pt-6 md:pt-8 border-t border-gray-100">
+                    <div className="flex flex-col md:flex-row items-center justify-between pt-6 md:pt-8">
                       <div className="mb-4 md:mb-0">
-                        <div className="text-xs md:text-sm text-gray-500 mb-1">Starting from</div>
-                        <div className="text-2xl md:text-3xl font-bold text-arcova-darkblue">
-                          {services[selectedService].price}
-                        </div>
+                        <p className="text-sm text-black italic flex items-start gap-2">
+                          <Lightbulb className="h-[16px] w-[16px] flex-shrink-0 text-arcova-teal mt-1" />
+                          <span className="whitespace-pre-line">{services[selectedService].insight}</span>
+                        </p>
                       </div>
-                      <motion.button
-                        className="bg-arcova-blue/20 hover:bg-arcova-blue/30 text-arcova-blue border border-arcova-blue/30 px-6 md:px-8 py-2 md:py-3 rounded-full flex items-center gap-2 transition-all duration-300 group text-sm md:text-base"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
+                      <Button
+                        asChild
+                        className="bg-arcova-teal hover:bg-arcova-teal/90 text-white border-none px-6 md:px-8 py-2 md:py-3 rounded-full flex items-center gap-2 transition-all duration-300 group text-sm md:text-base"
                       >
-                        Request consultation
-                        <motion.div
-                          initial={{ x: 0 }}
-                          animate={{ x: [0, 5, 0] }}
-                          transition={{
-                            duration: 1,
-                            repeat: Number.POSITIVE_INFINITY,
-                            repeatType: "loop",
-                            ease: "easeInOut",
-                            repeatDelay: 1,
-                          }}
+                        <a
+                          href="https://calendly.com/emma-arcova/30min"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
                         >
-                          <ArrowRight className="h-4 w-4" />
-                        </motion.div>
-                      </motion.button>
+                          {services[selectedService].cta}
+                          <motion.div
+                            initial={{ x: 0 }}
+                            animate={{ x: [0, 5, 0] }}
+                            transition={{
+                              duration: 1,
+                              repeat: Number.POSITIVE_INFINITY,
+                              repeatType: "loop",
+                              ease: "easeInOut",
+                              repeatDelay: 1,
+                            }}
+                          >
+                            <ArrowRight className="h-4 w-4" />
+                          </motion.div>
+                        </a>
+                      </Button>
                     </div>
                   </div>
                 </motion.div>
