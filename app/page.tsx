@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Menu, X, ChevronDown, FileText, Zap, Users, Star, Lightbulb } from "lucide-react"
+import { ArrowRight, Menu, X, ChevronDown, FileText, Zap, Users, Star, Lightbulb, LineChart, GraduationCap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimatedSection } from "@/components/animated-section"
 import { ProcessStep } from "@/components/process-step"
@@ -97,6 +97,48 @@ export default function Home() {
       price: "Discuss your validation or advisory needs.",
       cta: "Request a Consultation",
       icon: <Users className="h-5 w-5" />
+    },
+    {
+      id: 4,
+      name: "Research & Market Analysis",
+      description: "Comprehensive market research and competitive landscape analysis.",
+      features: [
+        "Scientific market trends analysis",
+        "Competitor technology assessment",
+        "Growth opportunity mapping",
+        "Scientific landscape overview"
+      ],
+      features2: [
+        "Market size estimation",
+        "Competitive positioning",
+        "Technology roadmapping",
+        "Strategic recommendations"
+      ],
+      insight: "Data-driven market insights to inform strategic decisions.",
+      price: "Let's discuss your research needs.",
+      cta: "Schedule Analysis",
+      icon: <LineChart className="h-5 w-5" />
+    },
+    {
+      id: 5,
+      name: "Clinical Content & Training",
+      description: "Educational content and training materials for clinical audiences.",
+      features: [
+        "Clinical education materials",
+        "Healthcare provider training",
+        "Medical writing & editing",
+        "Protocol development"
+      ],
+      features2: [
+        "Evidence-based guidelines",
+        "CME program development",
+        "Clinical case studies",
+        "Regulatory compliance"
+      ],
+      insight: "Expert clinical content that meets regulatory standards.",
+      price: "Custom solutions available.",
+      cta: "Discuss Training",
+      icon: <GraduationCap className="h-5 w-5" />
     }
   ]
 
@@ -669,7 +711,7 @@ export default function Home() {
 
             <div className="grid md:grid-cols-12 gap-8">
               {/* Left column: Modern pill tabs - square buttons on mobile */}
-              <div className="md:col-span-4 flex flex-col md:justify-start md:py-12 md:sticky md:top-24 md:self-start">
+              <div className="md:col-span-4 flex flex-col md:justify-start md:py-12 md:sticky md:top-24 md:h-fit">
                 <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-start">
                   {services.map((service, index) => (
                     <motion.button
@@ -690,7 +732,7 @@ export default function Home() {
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                     >
                       {/* Icon container */}
-                      <div className="flex flex-col items-center md:items-start md:flex-row md:gap-4 w-full md:min-h-[48px]">
+                      <div className="flex flex-col items-center md:items-start md:flex-row md:gap-4 w-full">
                         <motion.div
                           className={cn(
                             "flex items-center justify-center w-10 h-10 rounded-full mb-1 md:mb-0 flex-shrink-0",
@@ -717,7 +759,11 @@ export default function Home() {
 
                         {/* Show name below icon on mobile */}
                         <div className="text-xs font-medium mt-1 md:hidden">
-                          {index === 0 ? "Essentials" : index === 1 ? "Insights" : "Validation"}
+                          {index === 0 ? "Essentials" : 
+                           index === 1 ? "Insights" : 
+                           index === 2 ? "Validation" :
+                           index === 3 ? "Research" :
+                           "Training"}
                         </div>
 
                         {/* Subtle arrow that appears on hover or when selected - desktop only */}
@@ -747,60 +793,62 @@ export default function Home() {
                   transition={{ duration: 0.2 }}
                   className="bg-white rounded-3xl shadow-xl overflow-hidden border-0"
                 >
-                  <div className="p-6 md:p-10">
+                  <div className="p-6 md:p-10 min-h-[600px] flex flex-col">
                     {/* Top accent bar */}
                     <div className="w-16 h-1.5 bg-arcova-blue rounded-full mb-6 md:mb-8"></div>
 
-                    <h3 className="text-2xl md:text-3xl font-bold text-arcova-darkblue mb-2 md:mb-3">
-                      {services[selectedService].name}
-                    </h3>
-                    <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8">
-                      {services[selectedService].description}
-                    </p>
+                    <div className="flex-1">
+                      <h3 className="text-2xl md:text-3xl font-bold text-arcova-darkblue mb-2 md:mb-3">
+                        {services[selectedService].name}
+                      </h3>
+                      <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8">
+                        {services[selectedService].description}
+                      </p>
 
-                    <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-10">
-                      <div>
-                        <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
-                          Key Benefits
-                        </h4>
-                        <ul className="space-y-3 md:space-y-4">
-                          {services[selectedService].features.map((feature, index) => (
-                            <motion.li
-                              key={index}
-                              className="flex items-start"
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.3, delay: index * 0.1 }}
-                            >
-                              <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
-                                <Check className="h-3.5 w-3.5 text-white" />
-                              </div>
-                              <span className="text-gray-700 text-sm md:text-base">{feature}</span>
-                            </motion.li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <ul className="space-y-3 md:space-y-4 mt-[52px]">
-                          {services[selectedService].features2.map((feature, index) => (
-                            <motion.li
-                              key={index}
-                              className="flex items-start"
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.3, delay: index * 0.1 }}
-                            >
-                              <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
-                                <Check className="h-3.5 w-3.5 text-white" />
-                              </div>
-                              <span className="text-gray-700 text-sm md:text-base">{feature}</span>
-                            </motion.li>
-                          ))}
-                        </ul>
+                      <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+                        <div>
+                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
+                            Key Benefits
+                          </h4>
+                          <ul className="space-y-3 md:space-y-4">
+                            {services[selectedService].features.map((feature, index) => (
+                              <motion.li
+                                key={index}
+                                className="flex items-start"
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.3, delay: index * 0.1 }}
+                              >
+                                <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
+                                  <Check className="h-3.5 w-3.5 text-white" />
+                                </div>
+                                <span className="text-gray-700 text-sm md:text-base">{feature}</span>
+                              </motion.li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <ul className="space-y-3 md:space-y-4 mt-[52px]">
+                            {services[selectedService].features2.map((feature, index) => (
+                              <motion.li
+                                key={index}
+                                className="flex items-start"
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.3, delay: index * 0.1 }}
+                              >
+                                <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
+                                  <Check className="h-3.5 w-3.5 text-white" />
+                                </div>
+                                <span className="text-gray-700 text-sm md:text-base">{feature}</span>
+                              </motion.li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
 
-                    <div className="flex flex-col md:flex-row items-center justify-between pt-6 md:pt-8">
+                    <div className="flex flex-col md:flex-row items-center justify-between mt-auto pt-8">
                       <div className="mb-4 md:mb-0">
                         <p className="text-sm text-black italic flex items-start gap-2">
                           <Lightbulb className="h-[16px] w-[16px] flex-shrink-0 text-arcova-teal mt-1" />
