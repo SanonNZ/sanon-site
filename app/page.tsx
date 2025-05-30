@@ -607,8 +607,8 @@ export default function Home() {
         {/* Emma Bardsley Section - Now a standalone section with background tint */}
         <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-mint/10">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-              <div className="space-y-6 order-2 lg:order-1">
+            <div className="grid gap-12 sm:grid-cols-2 lg:gap-16 items-center">
+              <div className="space-y-6 order-2 sm:order-1">
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                   Led by
                 </div>
@@ -652,8 +652,8 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <div className="flex justify-center lg:justify-end items-center order-1 lg:order-2">
-                <div className="w-full lg:w-2/3 aspect-square relative overflow-hidden rounded-2xl shadow-xl">
+              <div className="flex justify-center sm:justify-end items-center order-1 sm:order-2">
+                <div className="w-full sm:w-[280px] md:w-[320px] aspect-square relative overflow-hidden rounded-2xl shadow-xl">
                   <Image
                     src="/images/emma-bardsley-portrait.png"
                     alt="Emma Bardsley"
