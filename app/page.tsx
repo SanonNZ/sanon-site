@@ -1050,10 +1050,7 @@ export default function Home() {
         <AnimatedSection id="footer-cta" className="w-full py-24 md:py-32 bg-arcova-darkblue text-white">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Not sure which lane you're in?</h2>
-              <p className="text-xl text-gray-400 max-w-[600px]">
-                Book a 15-min fit call to discuss your specific needs and how we can help.
-              </p>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl max-w-[700px]">Tell us what you need and we'll make it happen.</h2>
               <Button
                 asChild
                 size="lg"
@@ -1065,7 +1062,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
-                  Book a Fit Call
+                  Let's Go
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               </Button>
