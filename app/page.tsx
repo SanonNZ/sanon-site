@@ -370,7 +370,7 @@ export default function Home() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mt-8">
-                {/* Investors & Venture Capital Panel */}
+                {/* Science-Backed Brands Panel */}
                 <motion.div
                   className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
                   initial={{ opacity: 0 }}
@@ -379,7 +379,7 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: 0.1 }}
                 >
                   <motion.div
-                    className="absolute top-0 left-0 w-full h-1 bg-arcova-blue"
+                    className="absolute top-0 left-0 w-full h-1 bg-arcova-teal"
                     whileHover={{ height: "4px" }}
                     transition={{ duration: 0.2 }}
                   ></motion.div>
@@ -390,7 +390,7 @@ export default function Home() {
                       whileInView={{ opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.2 }}
                     >
-                      Investors & Venture Capital
+                      Science-Backed Brands
                     </motion.h3>
                     <motion.p
                       className="text-gray-600 mb-4"
@@ -398,7 +398,7 @@ export default function Home() {
                       whileInView={{ opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.3 }}
                     >
-                      Make confident calls on your biotech ventures.
+                      Communicate your science with clarity and credibility.
                     </motion.p>
                     <div className="flex flex-col gap-2 mb-6">
                       <motion.div
@@ -407,8 +407,8 @@ export default function Home() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: 0.4 }}
                       >
-                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
-                        <span>Due-diligence reports</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
+                        <span>Evidence-backed writing</span>
                       </motion.div>
                       <motion.div
                         className="flex items-center gap-2 text-sm text-gray-600"
@@ -416,8 +416,8 @@ export default function Home() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: 0.5 }}
                       >
-                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
-                        <span>Scientific risk assessment</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
+                        <span>Research summaries</span>
                       </motion.div>
                       <motion.div
                         className="flex items-center gap-2 text-sm text-gray-600"
@@ -425,8 +425,8 @@ export default function Home() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: 0.6 }}
                       >
-                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
-                        <span>Technical validation</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
+                        <span>Strategy support</span>
                       </motion.div>
                     </div>
                     <motion.div
@@ -437,13 +437,13 @@ export default function Home() {
                       <Button
                         asChild
                         variant="outline"
-                        className="group rounded-full border-arcova-blue/30 hover:bg-arcova-blue/10 transition-all duration-300"
+                        className="group rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 transition-all duration-300"
                       >
                         <a 
                           href="https://calendly.com/emma-arcova/30min"
                           target="_blank"
-                          rel="noopener noreferrer" 
-                          className="flex items-center gap-2 text-arcova-blue"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-arcova-teal"
                         >
                           Book a Call
                           <motion.div
@@ -458,7 +458,7 @@ export default function Home() {
                   </div>
                 </motion.div>
 
-                {/* Science-Backed Brands Panel */}
+                {/* Investors & Venture Capital Panel */}
                 <motion.div
                   className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
                   initial={{ opacity: 0 }}
@@ -467,7 +467,7 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
                   <motion.div
-                    className="absolute top-0 left-0 w-full h-1 bg-arcova-teal"
+                    className="absolute top-0 left-0 w-full h-1 bg-arcova-blue"
                     whileHover={{ height: "4px" }}
                     transition={{ duration: 0.2 }}
                   ></motion.div>
@@ -478,7 +478,7 @@ export default function Home() {
                       whileInView={{ opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.4 }}
                     >
-                      Science-Backed Brands
+                      Investors & Venture Capital
                     </motion.h3>
                     <motion.p
                       className="text-gray-600 mb-4"
@@ -486,7 +486,7 @@ export default function Home() {
                       whileInView={{ opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.5 }}
                     >
-                      Communicate your science with clarity and credibility.
+                      Make confident calls on your biotech ventures.
                     </motion.p>
                     <div className="flex flex-col gap-2 mb-6">
                       <motion.div
@@ -495,8 +495,8 @@ export default function Home() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: 0.6 }}
                       >
-                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
-                        <span>Evidence-backed writing</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
+                        <span>Due-diligence reports</span>
                       </motion.div>
                       <motion.div
                         className="flex items-center gap-2 text-sm text-gray-600"
@@ -504,8 +504,8 @@ export default function Home() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: 0.7 }}
                       >
-                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
-                        <span>Research summaries</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
+                        <span>Scientific risk assessment</span>
                       </motion.div>
                       <motion.div
                         className="flex items-center gap-2 text-sm text-gray-600"
@@ -513,8 +513,8 @@ export default function Home() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: 0.8 }}
                       >
-                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
-                        <span>Strategy support</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
+                        <span>Technical validation</span>
                       </motion.div>
                     </div>
                     <motion.div
@@ -525,13 +525,13 @@ export default function Home() {
                       <Button
                         asChild
                         variant="outline"
-                        className="group rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 transition-all duration-300"
+                        className="group rounded-full border-arcova-blue/30 hover:bg-arcova-blue/10 transition-all duration-300"
                       >
                         <a 
                           href="https://calendly.com/emma-arcova/30min"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-arcova-teal"
+                          className="flex items-center gap-2 text-arcova-blue"
                         >
                           Book a Call
                           <motion.div
