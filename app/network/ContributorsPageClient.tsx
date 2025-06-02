@@ -70,6 +70,93 @@ interface SkillTab {
   backgroundImage: string
   backgroundPosition: string
   icon: React.ReactNode
+  microInsight: string
+  bulletPoints: string[]
+}
+
+// Add a new component for the horizontal cards
+const HorizontalFeatureCard = ({ title, content, icon, delay, microInsight, bulletPoints }: {
+  title: string
+  content: string
+  icon: React.ReactNode
+  delay: number
+  microInsight: string
+  bulletPoints: string[]
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  return (
+    <motion.div
+      className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#ccecfe]/30 via-transparent to-[#ccecfe]/50 p-6 md:p-8 hover:shadow-lg transition-all duration-300 group"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.7, delay }}
+    >
+      <div className="absolute top-0 left-0 w-full h-1 bg-arcova-blue/40" />
+      <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center md:items-start">
+        <div className="flex-shrink-0">
+          <div className="w-14 h-14 rounded-full bg-arcova-blue/10 flex items-center justify-center text-arcova-blue">
+            {icon}
+          </div>
+        </div>
+        <div className="flex-1 space-y-4 text-center md:text-left">
+          <div>
+            <h3 className="text-xl font-bold text-arcova-darkblue mb-2">{title}</h3>
+            <p className="text-sm italic text-arcova-blue">{microInsight}</p>
+          </div>
+          
+          {/* Desktop view - always visible */}
+          <div className="hidden md:grid md:grid-cols-2 gap-6 md:gap-4">
+            <ul className="space-y-2 mx-auto md:mx-0 inline-block text-left">
+              {bulletPoints.map((point, index) => (
+                <li key={index} className="flex items-start gap-2 text-sm text-gray-600">
+                  <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue mt-1.5"></div>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="text-sm text-gray-600 md:border-l md:border-arcova-blue/20 md:pl-4 text-center md:text-left">
+              {content}
+            </div>
+          </div>
+
+          {/* Mobile view - expandable */}
+          <div className="md:hidden">
+            <ul className="space-y-2 mx-auto inline-block text-left mb-3">
+              {bulletPoints.map((point, index) => (
+                <li key={index} className="flex items-start gap-2 text-sm text-gray-600">
+                  <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue mt-1.5"></div>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="relative overflow-hidden" style={{ height: isExpanded ? 'auto' : '0' }}>
+              <AnimatePresence>
+                {isExpanded && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-center mt-3 text-sm text-gray-600"
+                  >
+                    {content}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="w-7 h-7 rounded-full bg-arcova-blue/10 flex items-center justify-center text-arcova-blue transition-transform duration-300 hover:bg-arcova-blue/20 mx-auto mt-2"
+            >
+              {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+            </button>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  )
 }
 
 export default function ContributorsPageClient() {
@@ -110,10 +197,16 @@ export default function ContributorsPageClient() {
       id: "scientific-rigor",
       title: "Scientific Rigor",
       content:
-        "Our network members excel in applying methodical approaches to research and analysis. They understand the importance of evidence quality, statistical significance, and reproducibility. This foundation ensures that all insights and recommendations are based on sound scientific principles and can withstand scrutiny from peers and stakeholders alike.",
+        "Our network members excel in applying methodical approaches to research and analysis, and understand the importance of evidence quality, statistical significance, and reproducibility.",
       backgroundImage: "/images/neural-network-bg.png",
-      backgroundPosition: "center 80%", // Custom position to show more of the top portion
+      backgroundPosition: "center 80%",
       icon: <Microscope className="h-6 w-6" />,
+      microInsight: "Excellence through methodical precision",
+      bulletPoints: [
+        "Evidence-based methodology",
+        "Statistical significance focus",
+        "Reproducible research practices"
+      ]
     },
     {
       id: "clarity-of-thought",
@@ -121,17 +214,29 @@ export default function ContributorsPageClient() {
       content:
         "The ability to distill complex scientific concepts into clear, actionable insights is a hallmark of our network. Members excel at identifying the most relevant information, organizing it logically, and communicating it effectively to diverse audiences. This skill is crucial for translating technical findings into business-relevant recommendations.",
       backgroundImage: "/images/neural-network-bg.png",
-      backgroundPosition: "center 45%", // Custom position to show more of the upper portion
+      backgroundPosition: "center 45%",
       icon: <Brain className="h-6 w-6" />,
+      microInsight: "Complex science, crystal clear insights",
+      bulletPoints: [
+        "Clear communication skills",
+        "Logical organization",
+        "Business-focused translation"
+      ]
     },
     {
       id: "deep-knowledge",
       title: "Deep Knowledge",
       content:
         "Our contributors bring specialized expertise in their respective fields, backed by advanced degrees and practical experience. This depth of knowledge allows them to quickly identify critical issues, evaluate claims against the current state of research, and provide nuanced perspectives that generalists might miss.",
-      backgroundImage: "/images/molecular-structure-bg.png", // Updated to use the new image
-      backgroundPosition: "center 80%", // Custom position for unique view
+      backgroundImage: "/images/molecular-structure-bg.png",
+      backgroundPosition: "center 80%",
       icon: <Lightbulb className="h-6 w-6" />,
+      microInsight: "Specialized expertise, broader impact",
+      bulletPoints: [
+        "Advanced degree expertise",
+        "Rapid issue identification",
+        "Nuanced evaluation skills"
+      ]
     },
   ]
 
@@ -175,6 +280,83 @@ export default function ContributorsPageClient() {
       ...formState,
       [e.target.name]: e.target.value,
     })
+  }
+
+  const NetworkCard = ({ title, content, icon, delay, microInsight, bulletPoints, isExpandable = false }: {
+    title: string
+    content: string
+    icon: React.ReactNode
+    delay: number
+    microInsight: string
+    bulletPoints: string[]
+    isExpandable?: boolean
+  }) => {
+    const [isExpanded, setIsExpanded] = useState(false)
+
+    return (
+      <motion.div
+        className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#d4f2de]/30 via-transparent to-[#d4f2de]/50 p-4 md:p-6 hover:shadow-lg transition-all duration-300 group flex flex-col"
+        style={{ minHeight: isExpandable ? (isExpanded ? '400px' : '300px') : '250px' }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.7, delay }}
+      >
+        <div className="absolute top-0 left-0 w-full h-1 bg-arcova-teal/40" />
+        <div className="flex-1">
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-2">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-arcova-teal/10 flex items-center justify-center text-arcova-teal">
+                {icon}
+              </div>
+            </div>
+            <h3 className="text-lg md:text-xl font-bold text-arcova-darkblue mb-3">{title}</h3>
+            <p className="text-xs md:text-sm font-medium text-arcova-blue italic mb-4">{microInsight}</p>
+            <div>
+              <ul className="space-y-1.5 md:space-y-2 inline-block text-left">
+                {bulletPoints.map((point, index) => (
+                  <li key={index} className="flex items-start gap-2 text-sm text-gray-600">
+                    <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal mt-1.5"></div>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          {isExpandable && (
+            <div className="relative overflow-hidden" style={{ height: isExpanded ? 'auto' : '0' }}>
+              <AnimatePresence>
+                {isExpanded && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-center mt-4 text-sm text-gray-600"
+                  >
+                    {content}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          )}
+        </div>
+        <div className="flex justify-center mt-2">
+          {isExpandable ? (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-arcova-teal/10 flex items-center justify-center text-arcova-teal transition-transform duration-300 hover:bg-arcova-teal/20"
+            >
+              {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+            </button>
+          ) : (
+            <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-arcova-teal/10 flex items-center justify-center">
+              {icon}
+            </div>
+          )}
+        </div>
+      </motion.div>
+    )
   }
 
   return (
@@ -372,7 +554,7 @@ export default function ContributorsPageClient() {
       </header>
 
       <main className="flex-1 pt-16">
-        <AnimatedSection className="w-full py-24 md:py-32 lg:py-40">
+        <AnimatedSection className="w-full min-h-[60vh] flex items-center pt-28 pb-16">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
               <div className="space-y-6 max-w-[900px]">
@@ -554,143 +736,43 @@ export default function ContributorsPageClient() {
           </div>
         </AnimatedSection>
 
-        {/* Core Skills We Value section with stacked tabs */}
-        <AnimatedSection className="w-full py-24 md:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="text-center mb-16">
+        {/* Core Skills Section */}
+        <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="flex flex-col items-center space-y-4 text-center mb-16">
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
                 Core Skills
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl mt-4">Core Skills We Value</h2>
-              <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mt-6">
-                Regardless of discipline, contributors in our network share these key traits that make them exceptional
-                collaborators.
+              <h2 className="text-3xl font-bold tracking-tight md:text-3xl">
+                What makes our network unique
+              </h2>
+              <p className="text-lg text-gray-600 max-w-[700px]">
+                Our contributors bring a powerful combination of scientific expertise and practical skills
               </p>
             </div>
 
-            <div className="max-w-5xl mx-auto space-y-6">
-              {skillTabs.map((tab) => (
-                <div key={tab.id} className="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
-                  {/* Tab header with background image */}
-                  <div
-                    className="skill-tab-header cursor-pointer"
-                    style={{
-                      backgroundImage: `url('${tab.backgroundImage}')`,
-                      backgroundPosition: tab.backgroundPosition,
-                    }}
-                    onClick={() => toggleTab(tab.id)}
-                  >
-                    {/* Semi-transparent overlay */}
-                    <div className="absolute inset-0 bg-arcova-darkblue/40"></div>
-
-                    {/* Tab header content */}
-                    <div className="relative z-10 p-4 md:p-6 flex items-center justify-between h-full">
-                      <div className="flex items-center gap-4">
-                        <div className="bg-white/20 p-3 rounded-full">{tab.icon}</div>
-                        <h3 className="text-xl md:text-2xl font-bold text-white">{tab.title}</h3>
-                      </div>
-                      <div className="text-white">
-                        {expandedTabs.includes(tab.id) ? (
-                          <ChevronUp className="h-6 w-6" />
-                        ) : (
-                          <ChevronDown className="h-6 w-6" />
-                        )}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Tab content */}
-                  <AnimatePresence>
-                    {expandedTabs.includes(tab.id) && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="skill-tab-content"
-                        style={{
-                          backgroundImage: `url('${tab.backgroundImage}')`,
-                          backgroundPosition: tab.backgroundPosition,
-                        }}
-                      >
-                        {/* Semi-transparent white overlay for readability */}
-                        <div className="absolute inset-0 bg-white/85"></div>
-
-                        {/* Content with relative positioning to appear above the overlay */}
-                        <div className="relative z-10 p-6 md:p-8">
-                          <p className="text-gray-700 text-lg leading-relaxed">{tab.content}</p>
-
-                          {/* Additional content specific to each tab */}
-                          {tab.id === "scientific-rigor" && (
-                            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                              <div className="bg-white/70 p-4 rounded-lg shadow-sm">
-                                <h4 className="font-medium text-arcova-darkblue mb-2">Evidence Evaluation</h4>
-                                <p className="text-gray-600">
-                                  Ability to assess the quality and reliability of scientific evidence, understanding
-                                  methodological strengths and limitations.
-                                </p>
-                              </div>
-                              <div className="bg-white/70 p-4 rounded-lg shadow-sm">
-                                <h4 className="font-medium text-arcova-darkblue mb-2">Critical Analysis</h4>
-                                <p className="text-gray-600">
-                                  Skill in identifying potential biases, confounding factors, and alternative
-                                  explanations for research findings.
-                                </p>
-                              </div>
-                            </div>
-                          )}
-
-                          {tab.id === "clarity-of-thought" && (
-                            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                              <div className="bg-white/70 p-4 rounded-lg shadow-sm">
-                                <h4 className="font-medium text-arcova-darkblue mb-2">Synthesis Skills</h4>
-                                <p className="text-gray-600">
-                                  Ability to integrate information from multiple sources into coherent, meaningful
-                                  insights that address specific business questions.
-                                </p>
-                              </div>
-                              <div className="bg-white/70 p-4 rounded-lg shadow-sm">
-                                <h4 className="font-medium text-arcova-darkblue mb-2">Communication</h4>
-                                <p className="text-gray-600">
-                                  Talent for explaining complex concepts in accessible language without sacrificing
-                                  accuracy or nuance.
-                                </p>
-                              </div>
-                            </div>
-                          )}
-
-                          {tab.id === "deep-knowledge" && (
-                            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                              <div className="bg-white/70 p-4 rounded-lg shadow-sm">
-                                <h4 className="font-medium text-arcova-darkblue mb-2">Specialized Expertise</h4>
-                                <p className="text-gray-600">
-                                  In-depth understanding of specific scientific domains, methodologies, or technologies
-                                  relevant to client projects.
-                                </p>
-                              </div>
-                              <div className="bg-white/70 p-4 rounded-lg shadow-sm">
-                                <h4 className="font-medium text-arcova-darkblue mb-2">Contextual Awareness</h4>
-                                <p className="text-gray-600">
-                                  Understanding of how scientific findings relate to broader industry trends, regulatory
-                                  environments, and market dynamics.
-                                </p>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {skillTabs.map((tab, index) => (
+                <NetworkCard
+                  key={tab.id}
+                  title={tab.title}
+                  content={tab.content}
+                  icon={tab.icon}
+                  delay={index * 0.1}
+                  microInsight={tab.microInsight}
+                  bulletPoints={tab.bulletPoints}
+                  isExpandable={true}
+                />
               ))}
             </div>
           </div>
         </AnimatedSection>
 
-        <AnimatedSection className="w-full py-24 md:py-32">
+        {/* Get paid to think section */}
+        <AnimatedSection className="w-full py-24 md:py-32 bg-white">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+              <div className="inline-block px-3 py-1 bg-arcova-blue/20 text-arcova-blue rounded-full text-sm font-medium">
                 Get paid to think.
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
@@ -702,115 +784,50 @@ export default function ContributorsPageClient() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <motion.div
-                className="relative overflow-hidden bg-gradient-to-br from-white to-arcova-mint/10 border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                whileHover={{ y: -5 }}
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-arcova-teal"></div>
-                <div className="p-8">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="bg-arcova-teal/20 p-4 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
-                      <Brain className="h-7 w-7 text-arcova-teal" />
-                    </div>
-                    <h3 className="text-xl font-bold text-arcova-darkblue">Intelligent work, on your terms</h3>
-                  </div>
-                  <ul className="space-y-3 text-gray-600">
-                    <li className="flex items-start">
-                      <div className="rounded-full bg-arcova-teal/10 p-1 mr-3 mt-0.5 flex-shrink-0">
-                        <Check className="h-3.5 w-3.5 text-arcova-teal" />
-                      </div>
-                      <span>Consult on high-impact projects</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="rounded-full bg-arcova-teal/10 p-1 mr-3 mt-0.5 flex-shrink-0">
-                        <Check className="h-3.5 w-3.5 text-arcova-teal" />
-                      </div>
-                      <span>Flexibly fits around existing commitments</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="rounded-full bg-arcova-teal/10 p-1 mr-3 mt-0.5 flex-shrink-0">
-                        <Check className="h-3.5 w-3.5 text-arcova-teal" />
-                      </div>
-                      <span>Work from home</span>
-                    </li>
-                  </ul>
-                </div>
-              </motion.div>
+            <div className="space-y-6">
+              <HorizontalFeatureCard
+                title="Work, on your terms"
+                content="Join a network of experts working on high-impact projects that make a real difference. Our flexible model lets you choose when and how much you want to contribute."
+                icon={<Brain className="h-7 w-7" />}
+                delay={0.1}
+                microInsight="Freedom to think, flexibility to work"
+                bulletPoints={[
+                  "Consult on high-impact projects",
+                  "Flexibly fits around existing commitments",
+                  "Work from home"
+                ]}
+              />
 
-              <motion.div
-                className="relative overflow-hidden bg-gradient-to-br from-white to-arcova-blue/10 border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                whileHover={{ y: -5 }}
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-arcova-blue"></div>
-                <div className="p-8">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="bg-arcova-blue/20 p-4 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
-                      <Heart className="h-7 w-7 text-arcova-blue" />
-                    </div>
-                    <h3 className="text-xl font-bold text-arcova-darkblue">Compensation that reflects your value</h3>
-                  </div>
-                  <ul className="space-y-3 text-gray-600">
-                    <li className="flex items-start">
-                      <div className="rounded-full bg-arcova-blue/10 p-1 mr-3 mt-0.5 flex-shrink-0">
-                        <Check className="h-3.5 w-3.5 text-arcova-blue" />
-                      </div>
-                      <span>Project-based fees</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="rounded-full bg-arcova-blue/10 p-1 mr-3 mt-0.5 flex-shrink-0">
-                        <Check className="h-3.5 w-3.5 text-arcova-blue" />
-                      </div>
-                      <span>Short-term or ongoing contracts</span>
-                    </li>
-                  </ul>
-                </div>
-              </motion.div>
+              <HorizontalFeatureCard
+                title="Your expertise, valued"
+                content="We believe in fair compensation for intellectual work. Our project-based fee structure ensures you're rewarded appropriately for your expertise and time investment."
+                icon={<Heart className="h-7 w-7" />}
+                delay={0.2}
+                microInsight="Your expertise, properly valued"
+                bulletPoints={[
+                  "Project-based fees",
+                  "Short-term or ongoing contracts",
+                  "Transparent compensation"
+                ]}
+              />
 
-              <motion.div
-                className="relative overflow-hidden bg-gradient-to-br from-white to-arcova-mint/10 border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ y: -5 }}
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-arcova-teal"></div>
-                <div className="p-8">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="bg-arcova-teal/20 p-4 rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
-                      <PlusCircle className="h-7 w-7 text-arcova-teal" />
-                    </div>
-                    <h3 className="text-xl font-bold text-arcova-darkblue">Extend your impact</h3>
-                  </div>
-                  <ul className="space-y-3 text-gray-600">
-                    <li className="flex items-start">
-                      <div className="rounded-full bg-arcova-teal/10 p-1 mr-3 mt-0.5 flex-shrink-0">
-                        <Check className="h-3.5 w-3.5 text-arcova-teal" />
-                      </div>
-                      <span>Apply your skills to new fields</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="rounded-full bg-arcova-teal/10 p-1 mr-3 mt-0.5 flex-shrink-0">
-                        <Check className="h-3.5 w-3.5 text-arcova-teal" />
-                      </div>
-                      <span>Shape business decisions, health policy, or product development</span>
-                    </li>
-                  </ul>
-                </div>
-              </motion.div>
+              <HorizontalFeatureCard
+                title="Extend your impact"
+                content="Apply your scientific expertise to solve real-world challenges. Your insights can help shape business decisions, health policy, and product development across industries."
+                icon={<PlusCircle className="h-7 w-7" />}
+                delay={0.3}
+                microInsight="From lab to real-world impact"
+                bulletPoints={[
+                  "Apply your skills to new fields",
+                  "Shape business decisions",
+                  "Drive innovation"
+                ]}
+              />
             </div>
           </div>
         </AnimatedSection>
 
+        {/* Contact Form Section */}
         <AnimatedSection id="contact-form" className="w-full py-24 md:py-32 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
@@ -824,9 +841,9 @@ export default function ContributorsPageClient() {
               </p>
             </div>
 
-            <div className="max-w-[800px] mx-auto bg-white rounded-2xl shadow-md overflow-hidden">
+            <div className="max-w-[800px] mx-auto">
               {formState.submitted ? (
-                <div className="p-8 md:p-12 text-center">
+                <div className="bg-white rounded-2xl shadow-md p-8 md:p-12 text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-6">
                     <Check className="h-8 w-8 text-green-600" />
                   </div>
@@ -843,92 +860,112 @@ export default function ContributorsPageClient() {
                   </Button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="p-8 md:p-12">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium text-gray-700">
-                        Full Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formState.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal focus:border-transparent"
-                        placeholder="Your name"
-                      />
+                <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+                  <form onSubmit={handleSubmit} className="p-6 md:p-12">
+                    <div className="space-y-6">
+                      {/* Name and Email row */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                            Full Name
+                          </label>
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={formState.name}
+                            onChange={handleChange}
+                            required
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
+                            placeholder="Your name"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                            Email Address
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formState.email}
+                            onChange={handleChange}
+                            required
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
+                            placeholder="your.email@example.com"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Expertise and Institution row */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                          <label htmlFor="expertise" className="block text-sm font-medium text-gray-700">
+                            Area of Expertise
+                          </label>
+                          <input
+                            type="text"
+                            id="expertise"
+                            name="expertise"
+                            value={formState.expertise}
+                            onChange={handleChange}
+                            required
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
+                            placeholder="e.g., Neuroscience, Bioinformatics"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label htmlFor="institution" className="block text-sm font-medium text-gray-700">
+                            Institution/Company
+                          </label>
+                          <input
+                            type="text"
+                            id="institution"
+                            name="institution"
+                            value={formState.institution}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
+                            placeholder="University or Company"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Message field */}
+                      <div className="space-y-2">
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                          Additional Information (Optional)
+                        </label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          value={formState.message}
+                          onChange={handleChange}
+                          rows={4}
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
+                          placeholder="Tell us about your background, interests, or availability"
+                        ></textarea>
+                      </div>
+
+                      {/* Submit button */}
+                      <div className="flex justify-center pt-4">
+                        <Button
+                          type="submit"
+                          disabled={formState.loading}
+                          className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-8 py-3 transition-all duration-300 hover:shadow-lg disabled:opacity-70 disabled:hover:bg-arcova-teal disabled:cursor-not-allowed min-w-[200px]"
+                        >
+                          {formState.loading ? (
+                            <div className="flex items-center justify-center gap-2">
+                              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                              <span>Submitting...</span>
+                            </div>
+                          ) : (
+                            "Join Our Network"
+                          )}
+                        </Button>
+                      </div>
                     </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium text-gray-700">
-                        Email Address
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formState.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal focus:border-transparent"
-                        placeholder="your.email@example.com"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="expertise" className="text-sm font-medium text-gray-700">
-                        Area of Expertise
-                      </label>
-                      <input
-                        type="text"
-                        id="expertise"
-                        name="expertise"
-                        value={formState.expertise}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal focus:border-transparent"
-                        placeholder="e.g., Neuroscience, Bioinformatics, Clinical Trials"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="institution" className="text-sm font-medium text-gray-700">
-                        Institution/Company
-                      </label>
-                      <input
-                        type="text"
-                        id="institution"
-                        name="institution"
-                        value={formState.institution}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal focus:border-transparent"
-                        placeholder="University, Research Institute, or Company"
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2 mb-8">
-                    <label htmlFor="message" className="text-sm font-medium text-gray-700">
-                      Additional Information (Optional)
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formState.message}
-                      onChange={handleChange}
-                      rows={4}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal focus:border-transparent"
-                      placeholder="Tell us a bit more about your background, interests, or availability"
-                    ></textarea>
-                  </div>
-                  <div className="flex justify-center">
-                    <Button
-                      type="submit"
-                      disabled={formState.loading}
-                      className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-8 py-3 transition-all duration-300 hover:shadow-lg disabled:opacity-70"
-                    >
-                      {formState.loading ? "Submitting..." : "Join Our Network"}
-                    </Button>
-                  </div>
-                </form>
+                  </form>
+                </div>
               )}
             </div>
           </div>
