@@ -39,7 +39,7 @@ export default function Home() {
   const services: Service[] = [
     {
       id: 1,
-      name: "Blogs & Articles",
+      name: "Expert Articles & Content",
       description: "Make the science tell your story. Perfect for marketing teams, content leads, and founders looking to establish thought leadership and credibility.",
       features: [
         "Engaging, human-crafted articles",
@@ -64,7 +64,7 @@ export default function Home() {
     },
     {
       id: 2,
-      name: "Whitepapers & Deep Dives",
+      name: "Whitepapers & Reports",
       description: "Scientific insight when decisions matter. Perfect for leaders advancing product, strategy, or technical innovation.",
       features: [
         "Business-ready whitepapers or executive summaries",
@@ -89,8 +89,8 @@ export default function Home() {
     },
     {
       id: 3,
-      name: "Scientific Validation & Advisory",
-      description: "For technical review, regulatory compliance, or scientific due diligence.",
+      name: "Scientific Validation & Diligence",
+      description: "Evidence, not assumption. We analyze the science behind your product or technology, so you can build, pitch, develop and invest with confidence.",
       features: [
         "Objective evaluation of scientific claims",
         "Risk/opportunity assessment",
@@ -112,48 +112,48 @@ export default function Home() {
     },
     {
       id: 4,
-      name: "Research & Market Analysis",
-      description: "Comprehensive market research and competitive landscape analysis.",
+      name: "Business Strategy & Advisory",
+      description: "Strategic insights and market intelligence for science-driven businesses.",
       features: [
-        "Scientific market trends analysis",
-        "Competitor technology assessment",
-        "Growth opportunity mapping",
-        "Scientific landscape overview"
+        "Market opportunity assessment",
+        "Competitive landscape analysis",
+        "Scientific due diligence",
+        "Technology roadmapping"
       ],
       features2: [
-        "Market size estimation",
-        "Competitive positioning",
-        "Technology roadmapping",
+        "Go-to-market strategy",
+        "Scientific positioning",
+        "Growth opportunity mapping",
         "Strategic recommendations"
       ],
-      column1Header: "Analysis",
-      column2Header: "Deliverables",
-      insight: "Data-driven market insights to inform strategic decisions.",
-      price: "Let's discuss your research needs.",
-      cta: "Schedule Analysis",
+      column1Header: "Strategic Services",
+      column2Header: "Business Impact",
+      insight: "Data-driven market insights to inform strategic decisions and drive business growth.",
+      price: "Let's discuss your strategic needs.",
+      cta: "Plan Strategy",
       icon: <LineChart className="h-5 w-5" />
     },
     {
       id: 5,
-      name: "Clinical Content & Training",
-      description: "Educational content and training materials for clinical audiences.",
+      name: "Academic & Scientific Research",
+      description: "Standard operating procedures, pilot studies, and regulatory compliance support.",
       features: [
-        "Clinical education materials",
-        "Healthcare provider training",
-        "Medical writing & editing",
-        "Protocol development"
+        "Standard operating procedure development",
+        "Pilot study design & execution",
+        "Regulatory compliance documentation",
+        "Quality assurance protocols"
       ],
       features2: [
-        "Evidence-based guidelines",
-        "CME program development",
-        "Clinical case studies",
-        "Regulatory compliance"
+        "FDA/EMA submission support",
+        "Clinical trial protocols",
+        "Risk assessment frameworks",
+        "Compliance monitoring systems"
       ],
-      column1Header: "Materials",
-      column2Header: "Standards & Compliance",
-      insight: "Expert clinical content that meets regulatory standards.",
-      price: "Custom solutions available.",
-      cta: "Discuss Training",
+      column1Header: "Services",
+      column2Header: "Regulatory Support",
+      insight: "Streamlined processes that meet regulatory standards and accelerate time-to-market.",
+      price: "Custom compliance solutions available.",
+      cta: "Discuss Compliance",
       icon: <GraduationCap className="h-5 w-5" />
     }
   ]
