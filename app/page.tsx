@@ -113,24 +113,26 @@ export default function Home() {
     {
       id: 4,
       name: "Business Strategy & Advisory",
-      description: "Strategic insights and market intelligence for science-driven businesses.",
+      description: "Bring clarity to your next move. Perfect for science, health, and wellness businesses planning, launching, or growing with confidence.",
       features: [
-        "Market opportunity assessment",
+        "Business plan development",
+        "Market sizing (TAM / SAM / SOM)",
         "Competitive landscape analysis",
-        "Scientific due diligence",
-        "Technology roadmapping"
+        "Revenue model design",
+        "Risk & mitigation plan"
       ],
       features2: [
-        "Go-to-market strategy",
-        "Scientific positioning",
-        "Growth opportunity mapping",
-        "Strategic recommendations"
+        "Clear, investor-ready outputs",
+        "Insight into market opportunities",
+        "Strong strategic differentiation",
+        "Scientific & commercial positioning",
+        "Tailored, practical recommendations"
       ],
-      column1Header: "Strategic Services",
-      column2Header: "Business Impact",
-      insight: "Data-driven market insights to inform strategic decisions and drive business growth.",
+      column1Header: "Deliverables",
+      column2Header: "What You Get",
+      insight: "Shape your vision into a market-ready plan.",
       price: "Let's discuss your strategic needs.",
-      cta: "Plan Strategy",
+      cta: "Plan Your Strategy",
       icon: <LineChart className="h-5 w-5" />
     },
     {
