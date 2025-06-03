@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Menu, X, ChevronDown, FileText, Zap, Users, Star, Lightbulb, LineChart, GraduationCap } from "lucide-react"
+import { ArrowRight, Menu, X, ChevronDown, FileText, Zap, Users, Star, Lightbulb, LineChart, GraduationCap, Megaphone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimatedSection } from "@/components/animated-section"
 import { ProcessStep } from "@/components/process-step"
@@ -404,188 +404,90 @@ export default function Home() {
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-4">
                   Who We Work With
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-4">Science at the center. Solutions that move you forward.</h2>
+                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-4">Builders. Explainers. Investors. In science. </h2>
                 <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
                 We help turn complex science into clear strategy, content, and traction. Whether you're pitching, publishing, or growing, we help make your next step obvious.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mt-8">
-                {/* Science-Backed Brands Panel */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-8">
+                {/* Owners & Founders */}
                 <motion.div
-                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, margin: "-50px" }}
+                  className="bg-gradient-to-br from-white to-arcova-mint/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
+                  whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
                 >
-                  <motion.div
-                    className="absolute top-0 left-0 w-full h-1 bg-arcova-teal"
-                    whileHover={{ height: "4px" }}
-                    transition={{ duration: 0.2 }}
-                  ></motion.div>
-                  <div className="p-8">
-                    <motion.h3
-                      className="text-2xl font-bold mb-3"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.2 }}
-                    >
-                      Science-Backed Brands
-                    </motion.h3>
-                    <motion.p
-                      className="text-gray-600 mb-4"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.3 }}
-                    >
-                      Communicate your science with clarity and credibility.
-                    </motion.p>
-                    <div className="flex flex-col gap-2 mb-6">
-                      <motion.div
-                        className="flex items-center gap-2 text-sm text-gray-600"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: 0.4 }}
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
-                        <span>Evidence-backed writing</span>
-                      </motion.div>
-                      <motion.div
-                        className="flex items-center gap-2 text-sm text-gray-600"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: 0.5 }}
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
-                        <span>Research summaries</span>
-                      </motion.div>
-                      <motion.div
-                        className="flex items-center gap-2 text-sm text-gray-600"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: 0.6 }}
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal"></div>
-                        <span>Strategy support</span>
-                      </motion.div>
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Users className="h-5 w-5 text-arcova-teal" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
+                      </div>
+                      <p className="text-gray-600">Running a science-driven business and need clarity, content, or strategy to grow.</p>
                     </div>
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.7 }}
-                    >
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="group rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 hover:scale-105 transform transition-all duration-300"
-                      >
-                        <a 
-                          href="https://calendly.com/emma-arcova/30min"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-arcova-teal"
-                        >
-                          Book a Call
-                          <motion.div
-                            whileHover={{ x: 5 }}
-                            whileTap={{ x: 2 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                          >
-                            <ArrowRight className="h-4 w-4" />
-                          </motion.div>
-                        </a>
-                      </Button>
-                    </motion.div>
                   </div>
                 </motion.div>
 
-                {/* Investors & Venture Capital Panel */}
+                {/* Marketing & Comms Leads */}
                 <motion.div
-                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="bg-gradient-to-br from-white to-arcova-blue/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
                 >
-                  <motion.div
-                    className="absolute top-0 left-0 w-full h-1 bg-arcova-blue"
-                    whileHover={{ height: "4px" }}
-                    transition={{ duration: 0.2 }}
-                  ></motion.div>
-                  <div className="p-8">
-                    <motion.h3
-                      className="text-2xl font-bold mb-3"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.4 }}
-                    >
-                      Investors & Venture Capital
-                    </motion.h3>
-                    <motion.p
-                      className="text-gray-600 mb-4"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.5 }}
-                    >
-                      Make confident calls on your biotech ventures.
-                    </motion.p>
-                    <div className="flex flex-col gap-2 mb-6">
-                      <motion.div
-                        className="flex items-center gap-2 text-sm text-gray-600"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: 0.6 }}
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
-                        <span>Due-diligence reports</span>
-                      </motion.div>
-                      <motion.div
-                        className="flex items-center gap-2 text-sm text-gray-600"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: 0.7 }}
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
-                        <span>Scientific risk assessment</span>
-                      </motion.div>
-                      <motion.div
-                        className="flex items-center gap-2 text-sm text-gray-600"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: 0.8 }}
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue"></div>
-                        <span>Technical validation</span>
-                      </motion.div>
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Megaphone className="h-5 w-5 text-arcova-blue" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
+                      </div>
+                      <p className="text-gray-600">Explaining complex ideas to customers or internal teams — and making them stick.</p>
                     </div>
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.9 }}
-                    >
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="group rounded-full border-arcova-blue/30 hover:bg-arcova-blue/10 hover:scale-105 transform transition-all duration-300"
-                      >
-                        <a 
-                          href="https://calendly.com/emma-arcova/30min"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-arcova-blue"
-                        >
-                          Book a Call
-                          <motion.div
-                            whileHover={{ x: 5 }}
-                            whileTap={{ x: 2 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                          >
-                            <ArrowRight className="h-4 w-4" />
-                          </motion.div>
-                        </a>
-                      </Button>
-                    </motion.div>
+                  </div>
+                </motion.div>
+
+                {/* Investors & Advisors */}
+                <motion.div
+                  className="bg-gradient-to-br from-white to-arcova-mint/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <LineChart className="h-5 w-5 text-arcova-teal" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
+                      </div>
+                      <p className="text-gray-600">Supporting or evaluating science-backed companies with rigor and insight.</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Researchers & Academics */}
+                <motion.div
+                  className="bg-gradient-to-br from-white to-arcova-blue/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <GraduationCap className="h-5 w-5 text-arcova-blue" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
+                      </div>
+                      <p className="text-gray-600">Turning research into funding, publication, or practical application.</p>
+                    </div>
                   </div>
                 </motion.div>
               </div>
