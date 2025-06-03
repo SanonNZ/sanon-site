@@ -404,9 +404,9 @@ export default function Home() {
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-4">
                   Who We Work With
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-4">Builders. Explainers. Investors. In science. </h2>
+                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-4">Builders. Explainers. Investors. </h2>
                 <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
-                We help turn complex science into clear strategy, content, and traction. Whether you're pitching, publishing, or growing, we help make your next step obvious.
+                Complex science is hard to explain. We make it easier to fund, grow, and communicate.
                 </p>
               </div>
 
