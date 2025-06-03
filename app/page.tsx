@@ -426,7 +426,7 @@ export default function Home() {
                         <Users className="h-5 w-5 text-arcova-teal" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
                       </div>
-                      <p className="text-gray-600">Running a science-driven business and need clarity, content, or strategy to grow.</p>
+                      <p className="text-gray-600">Shape your vision into a market-ready plan with clarity, content, and direction.</p>
                     </div>
                   </div>
                 </motion.div>
@@ -446,7 +446,7 @@ export default function Home() {
                         <Megaphone className="h-5 w-5 text-arcova-blue" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
                       </div>
-                      <p className="text-gray-600">Explaining complex ideas to customers or internal teams — and making them stick.</p>
+                      <p className="text-gray-600">Turn deep research into stories that build authority and trust.</p>
                     </div>
                   </div>
                 </motion.div>
@@ -466,7 +466,7 @@ export default function Home() {
                         <LineChart className="h-5 w-5 text-arcova-teal" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
                       </div>
-                      <p className="text-gray-600">Supporting or evaluating science-backed companies with rigor and insight.</p>
+                      <p className="text-gray-600">Scientific diligence before you build, pitch, or invest.</p>
                     </div>
                   </div>
                 </motion.div>
@@ -486,7 +486,7 @@ export default function Home() {
                         <GraduationCap className="h-5 w-5 text-arcova-blue" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
                       </div>
-                      <p className="text-gray-600">Turning research into funding, publication, or practical application.</p>
+                      <p className="text-gray-600">Transform your data into publications and funding.</p>
                     </div>
                   </div>
                 </motion.div>
@@ -507,11 +507,10 @@ export default function Home() {
                   Our Network
                 </div>
                 <h2 className="text-3xl font-bold tracking-tight leading-loose md:text-3xl">
-                  A network of scientists. Matched to your needs.
+                Specialist minds. Curated for your brief.
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Arcova draws on a rapidly expanding network of PhD researchers from world-leading institutions. We
-                  assemble a curated team, matching PhD expertise to your brief.
+                  Arcova draws on a trusted network of scientists and subject matter experts from across academia and industry. We work with researchers and experts from world-leading institutions, assembling a curated team for each project, matching expertise to your brief.
                 </p>
                 <Button
                   asChild
@@ -682,8 +681,11 @@ export default function Home() {
         <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-blue/10" id="service-section">
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+                Our Services
+              </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-arcova-darkblue">
-                Explore Our Services
+                Scientific solutions for every stage
               </h2>
               <p className="text-lg text-gray-600 max-w-[700px]">
                 From rapid content to deep-dive validation, Arcova delivers the right science expertise for your business. Choose a service below, or let's build a custom solution together.
