@@ -899,6 +899,38 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
+        {/* Featured Testimonial */}
+        <AnimatedSection className="w-full py-24 md:py-32">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="flex flex-col items-center">
+              <div className="max-w-3xl text-center">
+                {/* Star Rating */}
+                <div className="flex justify-center mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="h-6 w-6 fill-current text-amber-400 mr-1"
+                    />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 mb-8 leading-relaxed">
+                  "Arcova's scientific diligence was instrumental in our Series A raise. Their ability to translate complex research into compelling narratives gave our investors the confidence they needed."
+                </blockquote>
+
+                {/* Author Info */}
+                <div className="flex flex-col items-center">
+                  <div className="text-center">
+                    <div className="font-semibold text-gray-900 mb-1">Dr. Sarah Chen</div>
+                    <div className="text-gray-600">Founder & CEO, NeuraTech Solutions</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
         {/* Footer CTA */}
         <AnimatedSection id="footer-cta" className="w-full py-24 md:py-32 bg-arcova-darkblue text-white">
           <div className="container px-4 md:px-6 max-w-5xl">
