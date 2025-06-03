@@ -16,6 +16,7 @@ import AutoRotatingCards from "@/components/auto-rotating-cards"
 import { ExpandableContent } from "@/components/expandable-content"
 import { cn } from "@/lib/utils"
 import { Check } from "lucide-react"
+import { TestimonialCarousel } from "@/components/testimonial-carousel"
 
 interface Service {
   id: number
@@ -498,7 +499,7 @@ export default function Home() {
         </AnimatedSection>
 
         {/* Service Selector Section - Moved Up */}
-        <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-blue/10" id="service-section">
+        <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50" id="service-section">
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
@@ -702,7 +703,7 @@ export default function Home() {
         </AnimatedSection>
 
         {/* Process Section */}
-        <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-gray-50">
+        <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-arcova-blue/10">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-4 text-center mb-16">
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
@@ -757,6 +758,20 @@ export default function Home() {
                 insightIcon="rocket"
               />
             </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Reviews section - Client Success */}
+        <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="flex flex-col items-center space-y-8 text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+                Client Success
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">What our clients say</h2>
+            </div>
+
+            <TestimonialCarousel />
           </div>
         </AnimatedSection>
 
@@ -880,133 +895,6 @@ export default function Home() {
                   />
                 </div>
               </div>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Reviews section - Client Success */}
-        <AnimatedSection className="w-full py-24 md:py-32">
-          <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8 text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
-                Client Success
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">What our clients say</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Review 1 */}
-              <motion.div
-                className="relative overflow-hidden rounded-2xl shadow-lg"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7 }}
-              >
-                {/* Background with gradient overlay */}
-                <div className="absolute inset-0 z-0">
-                  <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-85 z-10"></div>
-                  <Image
-                    src="/images/abstract-finance.png"
-                    alt="Abstract visualization"
-                    width={1000}
-                    height={400}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="relative z-20 p-6 md:p-8 flex flex-col h-full">
-                  <div className="flex mb-4">
-                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-beige" />
-                  </div>
-
-                  <p className="text-white/90 text-base mb-6 leading-relaxed flex-grow">
-                    "The article series doubled organic traffic and slashed rebuttals in sales calls. Their scientific
-                    expertise is unmatched."
-                  </p>
-                  <p className="text-white/70 text-sm font-medium">CMO, BioSense Diagnostics</p>
-                </div>
-              </motion.div>
-
-              {/* Review 2 */}
-              <motion.div
-                className="relative overflow-hidden rounded-2xl shadow-lg"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-              >
-                {/* Background with gradient overlay */}
-                <div className="absolute inset-0 z-0">
-                  <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-85 z-10"></div>
-                  <Image
-                    src="/images/abstract-finance.png"
-                    alt="Abstract visualization"
-                    width={1000}
-                    height={400}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="relative z-20 p-6 md:p-8 flex flex-col h-full">
-                  <div className="flex mb-4">
-                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-beige" />
-                  </div>
-
-                  <p className="text-white/90 text-base mb-6 leading-relaxed flex-grow">
-                    "Arcova transformed our complex research into engaging content that resonates with both clinicians
-                    and patients. A game-changer for our brand."
-                  </p>
-                  <p className="text-white/70 text-sm font-medium">Director of Marketing, NeuraTech Solutions</p>
-                </div>
-              </motion.div>
-
-              {/* Review 3 */}
-              <motion.div
-                className="relative overflow-hidden rounded-2xl shadow-lg"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, delay: 0.4 }}
-              >
-                {/* Background with gradient overlay */}
-                <div className="absolute inset-0 z-0">
-                  <div className="absolute inset-0 bg-gradient-to-r from-arcova-darkblue to-arcova-blue opacity-85 z-10"></div>
-                  <Image
-                    src="/images/abstract-finance.png"
-                    alt="Abstract visualization"
-                    width={1000}
-                    height={400}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="relative z-20 p-6 md:p-8 flex flex-col h-full">
-                  <div className="flex mb-4">
-                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-beige mr-1" />
-                    <Star className="h-4 w-4 fill-current text-arcova-beige" />
-                  </div>
-
-                  <p className="text-white/90 text-base mb-6 leading-relaxed flex-grow">
-                    "Their evidence-based approach helped us establish credibility in a crowded market. Our content now
-                    ranks on page one for key terms in our industry."
-                  </p>
-                  <p className="text-white/70 text-sm font-medium">CEO, GenomicWellness</p>
-                </div>
-              </motion.div>
             </div>
           </div>
         </AnimatedSection>

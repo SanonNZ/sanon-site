@@ -79,20 +79,29 @@ export function ProcessStep({
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, delay }}
     >
-      <div className="absolute top-0 left-0 w-full h-1 bg-arcova-teal/40" />
-      <div className="flex-1 text-center">
-        <div className="flex items-center justify-center mb-3">
-          <div className={`w-12 h-12 rounded-full bg-arcova-teal/10 flex items-center justify-center`}>
-            <span className="text-arcova-teal text-2xl font-bold">{number}</span>
+      {/* White background layer */}
+      <div className="absolute inset-0 bg-white rounded-2xl" />
+      
+      {/* Gradient overlay */}
+      <div className={`absolute inset-0 ${gradient} opacity-90`} />
+
+      {/* Content layer */}
+      <div className="relative z-10">
+        <div className="absolute top-0 left-0 w-full h-1 bg-arcova-teal/40" />
+        <div className="flex-1 text-center">
+          <div className="flex items-center justify-center mb-3">
+            <div className={`w-12 h-12 rounded-full bg-arcova-teal/10 flex items-center justify-center`}>
+              <span className="text-arcova-teal text-2xl font-bold">{number}</span>
+            </div>
           </div>
+          <h3 className="text-xl font-bold text-arcova-darkblue mb-2">{title}</h3>
+          <p className="text-arcova-darkblue/90 text-sm leading-relaxed mb-2">{description}</p>
         </div>
-        <h3 className="text-xl font-bold text-arcova-darkblue mb-2">{title}</h3>
-        <p className="text-arcova-darkblue/90 text-sm leading-relaxed mb-2">{description}</p>
-      </div>
-      <div className="mt-2 flex flex-col items-center gap-2">
-        <p className="text-sm font-medium text-arcova-blue italic text-center max-w-[80%]">{subtitle}</p>
-        <div className="w-8 h-8 rounded-full bg-arcova-teal/10 flex items-center justify-center">
-          {icons[insightIcon]}
+        <div className="mt-2 flex flex-col items-center gap-2">
+          <p className="text-sm font-medium text-arcova-blue italic text-center max-w-[80%]">{subtitle}</p>
+          <div className="w-8 h-8 rounded-full bg-arcova-teal/10 flex items-center justify-center">
+            {icons[insightIcon]}
+          </div>
         </div>
       </div>
     </motion.div>
