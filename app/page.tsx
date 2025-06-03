@@ -404,9 +404,9 @@ export default function Home() {
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-4">
                   Who We Work With
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-4">Make Science Work for You</h2>
+                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-4">Science at the center. Solutions that move you forward.</h2>
                 <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
-                  Whether you're investing, building, or storytelling, we translate the science so you don't have to.
+                We help turn complex science into clear strategy, content, and traction. Whether you're pitching, publishing, or growing, we help make your next step obvious.
                 </p>
               </div>
 
@@ -781,7 +781,7 @@ export default function Home() {
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-arcova-darkblue">
-                Explore Our Scientific Services
+                Explore Our Services
               </h2>
               <p className="text-lg text-gray-600 max-w-[700px]">
                 From rapid content to deep-dive validation, Arcova delivers the right science expertise for your business. Choose a service below, or let's build a custom solution together.
@@ -815,7 +815,7 @@ export default function Home() {
                         <motion.div
                           className={cn(
                             "flex items-center justify-center w-10 h-10 rounded-full mb-1 md:mb-0 flex-shrink-0",
-                            selectedService === index ? "bg-[#d4f2de] text-[#00a4b4]" : "bg-gray-100 text-gray-500",
+                            selectedService === index ? "bg-white text-[#00a4b4] shadow-sm" : "bg-gray-100 text-gray-500",
                           )}
                           animate={{
                             scale: hoveredService === index || selectedService === index ? 1.05 : 1,
