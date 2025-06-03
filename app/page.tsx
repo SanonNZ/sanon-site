@@ -57,7 +57,7 @@ export default function Home() {
       ],
       column1Header: "What You Get",
       column2Header: "How We Do It",
-      insight: "Turn complex research into stories that build trust",
+      insight: "Turn deep research into magnetic stories that build authority and trust.",
       price: "Ready to get started?",
       cta: "Talk to us",
       icon: <FileText className="h-5 w-5" />
@@ -82,7 +82,7 @@ export default function Home() {
       ],
       column1Header: "Deliverables",
       column2Header: "Key Benefits",
-      insight: "Authoritative long-form content to drive confident decisions and credibility.",
+      insight: "Authoritative insight that drives confident decisions and elevates thought-leadership.",
       price: "Let's explore your project needs.",
       cta: "Let's Talk",
       icon: <Zap className="h-5 w-5" />
@@ -90,24 +90,27 @@ export default function Home() {
     {
       id: 3,
       name: "Scientific Validation & Diligence",
-      description: "Evidence, not assumption. We analyze the science behind your product or technology, so you can build, pitch, develop and invest with confidence.",
+      description: "Evidence, not assumption. Perfect for biotech, med-tech, health, and wellness ventures proving their science before launching, partnering, or raising capital.",
       features: [
-        "Objective evaluation of scientific claims",
-        "Risk/opportunity assessment",
-        "Ongoing or one-off advisory",
-        "Competitor analysis"
+        "Independent, fully referenced report",
+        "Feasibility review of product / mechanism",
+        "Scientific diligence question list",
+        "Actionable recommendations",
+        "Confidence to build, partner, invest"
       ],
       features2: [
-        "Patent analysis",
-        "Regulatory scope",
-        "Detailed validation report",
-        "Actionable recommendations"
+        "Strengths-vs-risks evaluation",
+        "Expert literature & data synthesis",
+        "Evidence-gap & regulatory research",
+        "Team & advisor insights",
+        "Patent & IP landscape overview",
+        "Scientific competitor benchmarking"
       ],
-      column1Header: "Services",
-      column2Header: "Our Expertise",
-      insight: "Confidential, unbiased, and fully referenced.\nTrusted by VCs, boards, and brand leaders.",
-      price: "Discuss your validation or advisory needs.",
-      cta: "Request a Consultation",
+      column1Header: "What You Get",
+      column2Header: "How We Do It",
+      insight: "Prove the science before you build, pitch, or invest.",
+      price: "Discuss your validation needs.",
+      cta: "Validate Your Science",
       icon: <Users className="h-5 w-5" />
     },
     {
@@ -122,11 +125,11 @@ export default function Home() {
         "Risk & mitigation plan"
       ],
       features2: [
-        "Clear, investor-ready outputs",
-        "Insight into market opportunities",
-        "Strong strategic differentiation",
+        "Clear, decision-ready outputs",
+        "Key opportunities & risks",
+        "Strategic differentiation",
         "Scientific & commercial positioning",
-        "Tailored, practical recommendations"
+        "Actionable recommendations"
       ],
       column1Header: "Deliverables",
       column2Header: "What You Get",
