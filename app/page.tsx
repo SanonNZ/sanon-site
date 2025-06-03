@@ -33,6 +33,28 @@ interface Service {
   column2Header: string
 }
 
+const arcovaColors = {
+  deepNavy: "#16253B",
+  softGrey: "#F5F7FB",
+  steelGrey: "#5F6C7B",
+
+  // New color palette
+  tealDark: "#00a4b4",
+  tealLight: "#daeff1",
+  greenDark: "#8cd9c9",
+  greenLight: "#d4f2de",
+  pinkDark: "#f55f96",
+  pinkLight: "#fbcede",
+  purpleDark: "#8d7dc7",
+  purpleLight: "#e7e0f5",
+  orangeDark: "#ffb996",
+  orangeLight: "#ffede4",
+  plumDark: "#7d4c79",
+  plumLight: "#f3e4f0",
+  blueDark: "#216680",
+  blueLight: "#ccecfe",
+}
+
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [selectedService, setSelectedService] = useState(0)
@@ -55,13 +77,13 @@ export default function Home() {
       features2: [
         "Clear, decision-ready outputs",
         "Key opportunities & risks",
-        "Strategic differentiation",
+        "Defined market edge",
         "Scientific & commercial positioning",
         "Actionable recommendations"
       ],
       column1Header: "Deliverables",
       column2Header: "What You Get",
-      insight: "Bring clarity to your next move.",
+      insight: "Shape your vision into a market-ready plan.",
       price: "Let's discuss your strategic needs.",
       cta: "Plan Your Strategy",
       icon: <LineChart className="h-5 w-5" />
@@ -82,13 +104,13 @@ export default function Home() {
       features2: [
         "Decision-focused actionable recommendations",
         "Synthesized by scientific experts",
-        "Builds leadership credibility",
+        "Establishes thought leadership",
         "Fast, reliable delivery",
         "Full source documentation"
       ],
       column1Header: "Deliverables",
       column2Header: "Key Benefits",
-      insight: "Scientific insight when decisions matter.",
+      insight: "Lead the conversation with authoritative insight.",
       price: "Let's explore your project needs.",
       cta: "Let's Talk",
       icon: <Zap className="h-5 w-5" />
@@ -103,7 +125,7 @@ export default function Home() {
         "Engaging, human-crafted articles",
         "Narrative-driven storytelling",
         "Up to 3 papers synthesized",
-        "SEO keywords included",
+        "Optimised for discoverability",
         "Evidence-based, fact-checked, and referenced",
       ],
       features2: [
@@ -115,15 +137,15 @@ export default function Home() {
       ],
       column1Header: "What You Get",
       column2Header: "How We Do It",
-      insight: "Make the science tell your story.",
+      insight: "Turn deep research into stories that build authority and trust.",
       price: "Ready to get started?",
-      cta: "Talk to us",
+      cta: "Let's Go",
       icon: <FileText className="h-5 w-5" />
     },
     {
       id: 4,
       name: "Scientific Validation & Diligence",
-      description: "For biotech founders and investors seeking confidence before launch or investment.",
+      description: "For biotech founders and investors seeking validation to support key investment decisions.",
       subheader: "Prove the science before you build, pitch, or invest.",
       personas: ["Founders", "Biotech companies", "Health Investors"],
       features: [
@@ -143,7 +165,7 @@ export default function Home() {
       ],
       column1Header: "What You Get",
       column2Header: "How We Do It",
-      insight: "Trust evidence, not assumption.",
+      insight: "Prove the science before you build, pitch, or invest.",
       price: "Discuss your validation needs.",
       cta: "Validate Your Science",
       icon: <Users className="h-5 w-5" />
@@ -170,7 +192,7 @@ export default function Home() {
       ],
       column1Header: "Research Outputs",
       column2Header: "How We Do It",
-      insight: "From raw data to research that resonates.",
+      insight: "Transform your data into research that resonates.",
       price: "Let's discuss your research needs.",
       cta: "Advance Your Research",
       icon: <GraduationCap className="h-5 w-5" />
@@ -456,7 +478,7 @@ export default function Home() {
                       <Button
                         asChild
                         variant="outline"
-                        className="group rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 transition-all duration-300"
+                        className="group rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 hover:scale-105 transform transition-all duration-300"
                       >
                         <a 
                           href="https://calendly.com/emma-arcova/30min"
@@ -466,7 +488,8 @@ export default function Home() {
                         >
                           Book a Call
                           <motion.div
-                            whileHover={{ x: 3 }}
+                            whileHover={{ x: 5 }}
+                            whileTap={{ x: 2 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                           >
                             <ArrowRight className="h-4 w-4" />
@@ -544,7 +567,7 @@ export default function Home() {
                       <Button
                         asChild
                         variant="outline"
-                        className="group rounded-full border-arcova-blue/30 hover:bg-arcova-blue/10 transition-all duration-300"
+                        className="group rounded-full border-arcova-blue/30 hover:bg-arcova-blue/10 hover:scale-105 transform transition-all duration-300"
                       >
                         <a 
                           href="https://calendly.com/emma-arcova/30min"
@@ -554,7 +577,8 @@ export default function Home() {
                         >
                           Book a Call
                           <motion.div
-                            whileHover={{ x: 3 }}
+                            whileHover={{ x: 5 }}
+                            whileTap={{ x: 2 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                           >
                             <ArrowRight className="h-4 w-4" />
@@ -590,13 +614,21 @@ export default function Home() {
                 <Button
                   asChild
                   variant="outline"
-                  className="mt-4 self-start rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 transition-all duration-300"
+                  className="mt-4 self-start rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 hover:scale-105 transform transition-all duration-300"
                 >
                   <Link href="/network" className="flex items-center gap-2 text-arcova-teal">
                     Join Our Network
                     <motion.div
-                      whileHover={{ x: 3 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      whileHover={{ x: 5 }}
+                      whileTap={{ x: 2 }}
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{
+                        duration: 1,
+                        repeat: Number.POSITIVE_INFINITY,
+                        repeatType: "loop",
+                        ease: "easeInOut",
+                        repeatDelay: 1,
+                      }}
                     >
                       <ArrowRight className="h-4 w-4" />
                     </motion.div>
@@ -783,7 +815,7 @@ export default function Home() {
                         <motion.div
                           className={cn(
                             "flex items-center justify-center w-10 h-10 rounded-full mb-1 md:mb-0 flex-shrink-0",
-                            selectedService === index ? "bg-arcova-blue text-white" : "bg-gray-100 text-gray-500",
+                            selectedService === index ? "bg-[#d4f2de] text-[#00a4b4]" : "bg-gray-100 text-gray-500",
                           )}
                           animate={{
                             scale: hoveredService === index || selectedService === index ? 1.05 : 1,
@@ -851,13 +883,8 @@ export default function Home() {
                       </h3>
 
                       {/* For statement in teal */}
-                      <p className="text-lg font-semibold text-arcova-teal mb-4">
+                      <p className="text-lg font-semibold text-arcova-teal mb-8">
                         {services[selectedService].description}
-                      </p>
-
-                      {/* Insight subheader */}
-                      <p className="text-gray-600 text-base italic mb-8">
-                        {services[selectedService].subheader}
                       </p>
 
                       <div className="grid md:grid-cols-2 gap-6 md:gap-8">
@@ -874,7 +901,7 @@ export default function Home() {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.3, delay: index * 0.1 }}
                               >
-                                <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
+                                <div className="rounded-full bg-[#00a4b4] p-1 mr-3 mt-0.5 flex-shrink-0">
                                   <Check className="h-3.5 w-3.5 text-white" />
                                 </div>
                                 <span className="text-gray-700 text-sm md:text-base">{feature}</span>
@@ -895,7 +922,7 @@ export default function Home() {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.3, delay: index * 0.1 }}
                               >
-                                <div className="rounded-full bg-green-500 p-1 mr-3 mt-0.5 flex-shrink-0">
+                                <div className="rounded-full bg-[#00a4b4] p-1 mr-3 mt-0.5 flex-shrink-0">
                                   <Check className="h-3.5 w-3.5 text-white" />
                                 </div>
                                 <span className="text-gray-700 text-sm md:text-base">{feature}</span>
@@ -908,16 +935,16 @@ export default function Home() {
 
                     <div className="flex flex-col md:flex-row items-center justify-between mt-auto pt-8">
                       {/* Microinsight with lightbulb */}
-                      <div className="mb-4 md:mb-0">
-                        <p className="text-sm text-gray-600 italic flex items-center gap-2">
-                          <Lightbulb className="h-4 w-4 text-arcova-teal" />
-                          <span>{services[selectedService].insight}</span>
+                      <div className="mb-4 md:mb-0 md:max-w-[60%]">
+                        <p className="text-sm font-bold text-gray-600 italic flex items-start gap-2">
+                          <Lightbulb className="h-5 w-5 text-[#f55f96] flex-shrink-0 mt-0.5" />
+                          <span className="flex-1">{services[selectedService].insight}</span>
                         </p>
                       </div>
 
                       <Button
                         asChild
-                        className="bg-arcova-teal hover:bg-arcova-teal/90 text-white border-none px-6 md:px-8 py-2 md:py-3 rounded-full flex items-center gap-2 transition-all duration-300 group text-sm md:text-base w-full md:w-auto"
+                        className="bg-arcova-teal hover:bg-arcova-teal/90 text-white border-none px-6 md:px-8 py-2 md:py-3 rounded-full flex items-center gap-2 hover:scale-105 transform transition-all duration-300 group text-sm md:text-base w-full md:w-auto"
                       >
                         <a
                           href="https://calendly.com/emma-arcova/30min"
@@ -927,7 +954,8 @@ export default function Home() {
                         >
                           {services[selectedService].cta}
                           <motion.div
-                            initial={{ x: 0 }}
+                            whileHover={{ x: 5 }}
+                            whileTap={{ x: 2 }}
                             animate={{ x: [0, 5, 0] }}
                             transition={{
                               duration: 1,
@@ -1083,7 +1111,7 @@ export default function Home() {
               <Button
                 asChild
                 size="lg"
-                className="mt-4 bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-8 py-6 h-auto transition-all duration-300 hover:shadow-lg"
+                className="mt-4 bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-8 py-6 h-auto transition-all duration-500 hover:scale-105 hover:shadow-xl group"
               >
                 <a
                   href="https://calendly.com/emma-arcova/30min"
@@ -1092,7 +1120,20 @@ export default function Home() {
                   className="flex items-center gap-2"
                 >
                   Let's Go
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    whileTap={{ x: 2 }}
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{
+                      duration: 1,
+                      repeat: Number.POSITIVE_INFINITY,
+                      repeatType: "loop",
+                      ease: "easeInOut",
+                      repeatDelay: 1,
+                    }}
+                  >
+                    <ArrowRight className="h-4 w-4" />
+                  </motion.div>
                 </a>
               </Button>
             </div>
