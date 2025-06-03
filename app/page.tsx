@@ -16,7 +16,7 @@ import AutoRotatingCards from "@/components/auto-rotating-cards"
 import { ExpandableContent } from "@/components/expandable-content"
 import { cn } from "@/lib/utils"
 import { Check } from "lucide-react"
-import { TestimonialCarousel } from "@/components/testimonial-carousel"
+import { TestimonialCarousel } from "@/components/testimonials"
 
 interface Service {
   id: number
