@@ -21,6 +21,8 @@ interface Service {
   id: number
   name: string
   description: string
+  subheader: string
+  personas: string[]
   features: string[]
   features2: string[]
   insight: string
@@ -39,33 +41,37 @@ export default function Home() {
   const services: Service[] = [
     {
       id: 1,
-      name: "Expert Articles & Content",
-      description: "Make the science tell your story. Perfect for marketing teams, content leads, and founders looking to establish thought leadership and credibility.",
+      name: "Business Strategy & Advisory",
+      description: "For science, health, and wellness businesses planning, launching, or growing.",
+      subheader: "Shape your vision into a market-ready plan.",
+      personas: ["Founders", "Science ventures", "Health & Wellness businesses"],
       features: [
-        "Engaging, human-crafted articles",
-        "Narrative-driven storytelling",
-        "Up to 3 papers synthesized",
-        "SEO keywords included",
-        "Evidence-based, fact-checked, and referenced",
+        "Business plan development",
+        "Market sizing (TAM / SAM / SOM)",
+        "Competitive landscape analysis",
+        "Revenue model design",
+        "Risk & mitigation plan"
       ],
       features2: [
-        "Tailored for your audience",
-        "Written by scientific experts",
-        "Aligned to your brand voice",
-        "Accessible and jargon-free",
-        "Fast, reliable turnaround",
+        "Clear, decision-ready outputs",
+        "Key opportunities & risks",
+        "Strategic differentiation",
+        "Scientific & commercial positioning",
+        "Actionable recommendations"
       ],
-      column1Header: "What You Get",
-      column2Header: "How We Do It",
-      insight: "Turn deep research into magnetic stories that build authority and trust.",
-      price: "Ready to get started?",
-      cta: "Talk to us",
-      icon: <FileText className="h-5 w-5" />
+      column1Header: "Deliverables",
+      column2Header: "What You Get",
+      insight: "Bring clarity to your next move.",
+      price: "Let's discuss your strategic needs.",
+      cta: "Plan Your Strategy",
+      icon: <LineChart className="h-5 w-5" />
     },
     {
       id: 2,
       name: "Whitepapers & Reports",
-      description: "Scientific insight when decisions matter. Perfect for leaders advancing product, strategy, or technical innovation.",
+      description: "For strategy leaders, product owners, and founders presenting complex ideas to stakeholders.",
+      subheader: "Authoritative insight that drives confident decisions and elevates thought-leadership.",
+      personas: ["Strategy Leaders", "Product Owners", "Founders"],
       features: [
         "Business-ready whitepapers or executive summaries",
         "Market or technology analysis",
@@ -82,15 +88,44 @@ export default function Home() {
       ],
       column1Header: "Deliverables",
       column2Header: "Key Benefits",
-      insight: "Authoritative insight that drives confident decisions and elevates thought-leadership.",
+      insight: "Scientific insight when decisions matter.",
       price: "Let's explore your project needs.",
       cta: "Let's Talk",
       icon: <Zap className="h-5 w-5" />
     },
     {
       id: 3,
+      name: "Articles & Content",
+      description: "For marketing teams, content leads, and founders building authority and credibility.",
+      subheader: "Turn deep research into magnetic stories that build authority and trust.",
+      personas: ["Marketing Leads", "Content Managers", "Founders"],
+      features: [
+        "Engaging, human-crafted articles",
+        "Narrative-driven storytelling",
+        "Up to 3 papers synthesized",
+        "SEO keywords included",
+        "Evidence-based, fact-checked, and referenced",
+      ],
+      features2: [
+        "Tailored for your audience",
+        "Written by scientific experts",
+        "Aligned to your brand voice",
+        "Accessible and jargon-free",
+        "Fast, reliable turnaround",
+      ],
+      column1Header: "What You Get",
+      column2Header: "How We Do It",
+      insight: "Make the science tell your story.",
+      price: "Ready to get started?",
+      cta: "Talk to us",
+      icon: <FileText className="h-5 w-5" />
+    },
+    {
+      id: 4,
       name: "Scientific Validation & Diligence",
-      description: "Evidence, not assumption. Perfect for biotech, med-tech, health, and wellness ventures proving their science before launching, partnering, or raising capital.",
+      description: "For biotech founders and investors seeking confidence before launch or investment.",
+      subheader: "Prove the science before you build, pitch, or invest.",
+      personas: ["Founders", "Biotech companies", "Health Investors"],
       features: [
         "Independent, fully referenced report",
         "Feasibility review of product / mechanism",
@@ -108,57 +143,36 @@ export default function Home() {
       ],
       column1Header: "What You Get",
       column2Header: "How We Do It",
-      insight: "Prove the science before you build, pitch, or invest.",
+      insight: "Trust evidence, not assumption.",
       price: "Discuss your validation needs.",
       cta: "Validate Your Science",
       icon: <Users className="h-5 w-5" />
     },
     {
-      id: 4,
-      name: "Business Strategy & Advisory",
-      description: "Bring clarity to your next move. Perfect for science, health, and wellness businesses planning, launching, or growing with confidence.",
-      features: [
-        "Business plan development",
-        "Market sizing (TAM / SAM / SOM)",
-        "Competitive landscape analysis",
-        "Revenue model design",
-        "Risk & mitigation plan"
-      ],
-      features2: [
-        "Clear, decision-ready outputs",
-        "Key opportunities & risks",
-        "Strategic differentiation",
-        "Scientific & commercial positioning",
-        "Actionable recommendations"
-      ],
-      column1Header: "Deliverables",
-      column2Header: "What You Get",
-      insight: "Shape your vision into a market-ready plan.",
-      price: "Let's discuss your strategic needs.",
-      cta: "Plan Your Strategy",
-      icon: <LineChart className="h-5 w-5" />
-    },
-    {
       id: 5,
-      name: "Academic & Scientific Research",
-      description: "Standard operating procedures, pilot studies, and regulatory compliance support.",
+      name: "Academic & Research",
+      description: "For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.",
+      subheader: "Transform your research into impactful publications.",
+      personas: ["PIs", "Postdocs", "Research Teams"],
       features: [
-        "Standard operating procedure development",
-        "Pilot study design & execution",
-        "Regulatory compliance documentation",
-        "Quality assurance protocols"
+        "Publication-ready manuscripts",
+        "Literature reviews & research summaries",
+        "Grant and funding proposals",
+        "Peer-review response support",
+        "Data figures & publication-ready visuals"
       ],
       features2: [
-        "FDA/EMA submission support",
-        "Clinical trial protocols",
-        "Risk assessment frameworks",
-        "Compliance monitoring systems"
+        "Submission guidance",
+        "Statistical analysis & data visualisation",
+        "Experimental & pilot design",
+        "Citation checking & formatting",
+        "Collaborative revisions"
       ],
-      column1Header: "Services",
-      column2Header: "Regulatory Support",
-      insight: "Streamlined processes that meet regulatory standards and accelerate time-to-market.",
-      price: "Custom compliance solutions available.",
-      cta: "Discuss Compliance",
+      column1Header: "Research Outputs",
+      column2Header: "How We Do It",
+      insight: "From raw data to research that resonates.",
+      price: "Let's discuss your research needs.",
+      cta: "Advance Your Research",
       icon: <GraduationCap className="h-5 w-5" />
     }
   ]
@@ -831,11 +845,19 @@ export default function Home() {
                     <div className="w-16 h-1.5 bg-arcova-blue rounded-full mb-6 md:mb-8"></div>
 
                     <div className="flex-1">
-                      <h3 className="text-2xl md:text-3xl font-bold text-arcova-darkblue mb-2 md:mb-3">
+                      {/* Main header */}
+                      <h3 className="text-2xl md:text-3xl font-bold text-arcova-darkblue mb-3">
                         {services[selectedService].name}
                       </h3>
-                      <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8">
+
+                      {/* For statement in teal */}
+                      <p className="text-lg font-semibold text-arcova-teal mb-4">
                         {services[selectedService].description}
+                      </p>
+
+                      {/* Insight subheader */}
+                      <p className="text-gray-600 text-base italic mb-8">
+                        {services[selectedService].subheader}
                       </p>
 
                       <div className="grid md:grid-cols-2 gap-6 md:gap-8">
@@ -885,21 +907,23 @@ export default function Home() {
                     </div>
 
                     <div className="flex flex-col md:flex-row items-center justify-between mt-auto pt-8">
+                      {/* Microinsight with lightbulb */}
                       <div className="mb-4 md:mb-0">
-                        <p className="text-sm text-black italic flex items-start gap-2">
-                          <Lightbulb className="h-[16px] w-[16px] flex-shrink-0 text-arcova-teal mt-1" />
-                          <span className="whitespace-pre-line">{services[selectedService].insight}</span>
+                        <p className="text-sm text-gray-600 italic flex items-center gap-2">
+                          <Lightbulb className="h-4 w-4 text-arcova-teal" />
+                          <span>{services[selectedService].insight}</span>
                         </p>
                       </div>
+
                       <Button
                         asChild
-                        className="bg-arcova-teal hover:bg-arcova-teal/90 text-white border-none px-6 md:px-8 py-2 md:py-3 rounded-full flex items-center gap-2 transition-all duration-300 group text-sm md:text-base"
+                        className="bg-arcova-teal hover:bg-arcova-teal/90 text-white border-none px-6 md:px-8 py-2 md:py-3 rounded-full flex items-center gap-2 transition-all duration-300 group text-sm md:text-base w-full md:w-auto"
                       >
                         <a
                           href="https://calendly.com/emma-arcova/30min"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2"
+                          className="flex items-center gap-2 justify-center"
                         >
                           {services[selectedService].cta}
                           <motion.div
