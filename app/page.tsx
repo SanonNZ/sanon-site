@@ -329,6 +329,7 @@ export default function Home() {
       </AnimatePresence>
 
       <main className="flex-1">
+        {/* Hero Section */}
         <AnimatedSection className="w-full min-h-[60vh] flex items-center pt-28 pb-16">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
@@ -397,6 +398,7 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
+        {/* Who We Work With Section */}
         <AnimatedSection id="who-we-work-with" className="w-full py-16 bg-arcova-mint/20">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8">
@@ -495,189 +497,7 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        {/* Our Network Section - Now a standalone section */}
-        <AnimatedSection id="about" className="w-full py-24 md:py-32">
-          <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-              <div className="relative h-[300px] md:h-[400px] shadow-xl rounded-2xl overflow-hidden order-1 lg:order-1">
-                <GlowingNetworkMolecule />
-              </div>
-              <div className="space-y-6 order-2 lg:order-2">
-                <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
-                  Our Network
-                </div>
-                <h2 className="text-3xl font-bold tracking-tight leading-loose md:text-3xl">
-                Specialist minds. Curated for your brief.
-                </h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Arcova draws on a trusted network of scientists and subject matter experts from across academia and industry. We work with researchers and experts from world-leading institutions, assembling a curated team for each project, matching expertise to your brief.
-                </p>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="mt-4 self-start rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 hover:scale-105 transform transition-all duration-300"
-                >
-                  <Link href="/network" className="flex items-center gap-2 text-arcova-teal">
-                    Join Our Network
-                    <motion.div
-                      whileHover={{ x: 5 }}
-                      whileTap={{ x: 2 }}
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{
-                        duration: 1,
-                        repeat: Number.POSITIVE_INFINITY,
-                        repeatType: "loop",
-                        ease: "easeInOut",
-                        repeatDelay: 1,
-                      }}
-                    >
-                      <ArrowRight className="h-4 w-4" />
-                    </motion.div>
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Network recruitment banner */}
-        <AnimatedSection className="w-full py-12 bg-arcova-blue/10">
-          <div className="container px-4 md:px-6 max-w-5xl">
-            <Link 
-              href="/network"
-              className="flex flex-col items-center justify-center gap-2 text-arcova-blue hover:text-arcova-blue/80 transition-colors duration-200 text-lg md:text-xl"
-            >
-              <span>We're always looking for curious scientific minds.</span>
-              <span className="font-bold flex items-center gap-2">
-                Join our global network
-                <ArrowRight className="h-5 w-5" />
-              </span>
-            </Link>
-          </div>
-        </AnimatedSection>
-
-        {/* Emma Bardsley Section - Now a standalone section with background tint */}
-        <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-mint/10">
-          <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="grid gap-12 sm:grid-cols-2 lg:gap-16 items-center">
-              <div className="space-y-6 order-2 sm:order-1">
-                <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
-                  Led by
-                </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-2xl">Emma Bardsley, PhD</h2>
-                <p className="text-arcova-teal font-medium">Founder and Scientific Director</p>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Scientific direction is led by Emma Bardsley, PhD — a neuroscientist with experience in research,
-                  pharma, and consulting. Emma oversees project quality and insight synthesis, ensuring that all
-                  deliverables meet Arcova's standards of scientific clarity.
-                </p>
-                <div className="flex items-center gap-3">
-                  <a 
-                    href="https://www.linkedin.com/in/emmabardsley/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hover:opacity-80 transition-opacity duration-200"
-                    aria-label="LinkedIn Profile"
-                  >
-                    <svg 
-                      viewBox="0 0 24 24" 
-                      className="h-5 w-5"
-                      aria-hidden="true"
-                      fill="#475569"
-                    >
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                  <a 
-                    href="mailto:emma@arcova.bio"
-                    className="hover:opacity-80 transition-opacity duration-200"
-                    aria-label="Email"
-                  >
-                    <svg 
-                      viewBox="0 0 24 24" 
-                      className="h-[25px]"
-                      aria-hidden="true"
-                      fill="#475569"
-                    >
-                      <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 4.99L4 6h16zm0 12H4V8l8 5 8-5v10z"/>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div className="flex justify-center sm:justify-end items-center order-1 sm:order-2">
-                <div className="w-full sm:w-[280px] md:w-[320px] aspect-square relative overflow-hidden rounded-2xl shadow-xl">
-                  <Image
-                    src="/images/emma-bardsley-portrait.png"
-                    alt="Emma Bardsley"
-                    width={400}
-                    height={400}
-                    className="object-cover w-full h-full rounded-2xl"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-gray-50">
-          <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-4 text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
-                Our Process
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-3xl">
-                How we transform complex data into actionable insights
-              </h2>
-              <p className="text-lg text-gray-600 max-w-[700px]">
-                A systematic approach that delivers reliable results, every time
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 font-bold">
-              <ProcessStep
-                number="01"
-                title="Discover"
-                subtitle="Go deep on the evidence"
-                description="Comprehensive literature search and data collection"
-                delay={0.1}
-                color="arcova-teal"
-                gradient="bg-gradient-to-br from-[#d4f2de]/30 via-transparent to-[#d4f2de]/50"
-                insightIcon="search"
-              />
-              <ProcessStep
-                number="02"
-                title="Analyze"
-                subtitle="Separate signal from noise"
-                description="Critical evaluation of evidence quality and relevance"
-                delay={0.2}
-                color="arcova-teal"
-                gradient="bg-gradient-to-br from-[#ccecfe]/30 via-transparent to-[#ccecfe]/50"
-                insightIcon="filter"
-              />
-              <ProcessStep
-                number="03"
-                title="Synthesize"
-                subtitle="Connect the dots for clarity"
-                description="Transforming complex science into clear, actionable insight"
-                delay={0.3}
-                color="arcova-teal"
-                gradient="bg-gradient-to-br from-[#d4f2de]/30 via-transparent to-[#d4f2de]/50"
-                insightIcon="connect"
-              />
-              <ProcessStep
-                number="04"
-                title="Deliver"
-                subtitle="From research to impact"
-                description="Content, reports, or advice. Science delivered your way"
-                delay={0.4}
-                color="arcova-teal"
-                gradient="bg-gradient-to-br from-[#ccecfe]/30 via-transparent to-[#ccecfe]/50"
-                insightIcon="rocket"
-              />
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Service Selector Section */}
+        {/* Service Selector Section - Moved Up */}
         <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-blue/10" id="service-section">
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="flex flex-col items-center space-y-8 text-center mb-16">
@@ -881,6 +701,189 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
+        {/* Process Section */}
+        <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-gray-50">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="flex flex-col items-center space-y-4 text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+                Our Process
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight md:text-3xl">
+                How we transform complex data into actionable insights
+              </h2>
+              <p className="text-lg text-gray-600 max-w-[700px]">
+                A systematic approach that delivers reliable results, every time
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 font-bold">
+              <ProcessStep
+                number="01"
+                title="Discover"
+                subtitle="Go deep on the evidence"
+                description="Comprehensive literature search and data collection"
+                delay={0.1}
+                color="arcova-teal"
+                gradient="bg-gradient-to-br from-[#d4f2de]/30 via-transparent to-[#d4f2de]/50"
+                insightIcon="search"
+              />
+              <ProcessStep
+                number="02"
+                title="Analyze"
+                subtitle="Separate signal from noise"
+                description="Critical evaluation of evidence quality and relevance"
+                delay={0.2}
+                color="arcova-teal"
+                gradient="bg-gradient-to-br from-[#ccecfe]/30 via-transparent to-[#ccecfe]/50"
+                insightIcon="filter"
+              />
+              <ProcessStep
+                number="03"
+                title="Synthesize"
+                subtitle="Connect the dots for clarity"
+                description="Transforming complex science into clear, actionable insight"
+                delay={0.3}
+                color="arcova-teal"
+                gradient="bg-gradient-to-br from-[#d4f2de]/30 via-transparent to-[#d4f2de]/50"
+                insightIcon="connect"
+              />
+              <ProcessStep
+                number="04"
+                title="Deliver"
+                subtitle="From research to impact"
+                description="Content, reports, or advice. Science delivered your way"
+                delay={0.4}
+                color="arcova-teal"
+                gradient="bg-gradient-to-br from-[#ccecfe]/30 via-transparent to-[#ccecfe]/50"
+                insightIcon="rocket"
+              />
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Our Network Section */}
+        <AnimatedSection id="about" className="w-full py-24 md:py-32">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+              <div className="relative h-[300px] md:h-[400px] shadow-xl rounded-2xl overflow-hidden order-1 lg:order-1">
+                <GlowingNetworkMolecule />
+              </div>
+              <div className="space-y-6 order-2 lg:order-2">
+                <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+                  Our Network
+                </div>
+                <h2 className="text-3xl font-bold tracking-tight leading-loose md:text-3xl">
+                Specialist minds. Curated for your brief.
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Arcova draws on a trusted network of scientists and subject matter experts from across academia and industry. We work with researchers and experts from world-leading institutions, assembling a curated team for each project, matching expertise to your brief.
+                </p>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="mt-4 self-start rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 hover:scale-105 transform transition-all duration-300"
+                >
+                  <Link href="/network" className="flex items-center gap-2 text-arcova-teal">
+                    Join Our Network
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      whileTap={{ x: 2 }}
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{
+                        duration: 1,
+                        repeat: Number.POSITIVE_INFINITY,
+                        repeatType: "loop",
+                        ease: "easeInOut",
+                        repeatDelay: 1,
+                      }}
+                    >
+                      <ArrowRight className="h-4 w-4" />
+                    </motion.div>
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Network recruitment banner */}
+        <AnimatedSection className="w-full py-12 bg-arcova-blue/10">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <Link 
+              href="/network"
+              className="flex flex-col items-center justify-center gap-2 text-arcova-blue hover:text-arcova-blue/80 transition-colors duration-200 text-lg md:text-xl"
+            >
+              <span>We're always looking for curious scientific minds.</span>
+              <span className="font-bold flex items-center gap-2">
+                Join our global network
+                <ArrowRight className="h-5 w-5" />
+              </span>
+            </Link>
+          </div>
+        </AnimatedSection>
+
+        {/* Emma Bardsley Section */}
+        <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-mint/10">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="grid gap-12 sm:grid-cols-2 lg:gap-16 items-center">
+              <div className="space-y-6 order-2 sm:order-1">
+                <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+                  Led by
+                </div>
+                <h2 className="text-3xl font-bold tracking-tight md:text-2xl">Emma Bardsley, PhD</h2>
+                <p className="text-arcova-teal font-medium">Founder and Scientific Director</p>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Scientific direction is led by Emma Bardsley, PhD — a neuroscientist with experience in research,
+                  pharma, and consulting. Emma oversees project quality and insight synthesis, ensuring that all
+                  deliverables meet Arcova's standards of scientific clarity.
+                </p>
+                <div className="flex items-center gap-3">
+                  <a 
+                    href="https://www.linkedin.com/in/emmabardsley/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:opacity-80 transition-opacity duration-200"
+                    aria-label="LinkedIn Profile"
+                  >
+                    <svg 
+                      viewBox="0 0 24 24" 
+                      className="h-5 w-5"
+                      aria-hidden="true"
+                      fill="#475569"
+                    >
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                  </a>
+                  <a 
+                    href="mailto:emma@arcova.bio"
+                    className="hover:opacity-80 transition-opacity duration-200"
+                    aria-label="Email"
+                  >
+                    <svg 
+                      viewBox="0 0 24 24" 
+                      className="h-[25px]"
+                      aria-hidden="true"
+                      fill="#475569"
+                    >
+                      <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 4.99L4 6h16zm0 12H4V8l8 5 8-5v10z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div className="flex justify-center sm:justify-end items-center order-1 sm:order-2">
+                <div className="w-full sm:w-[280px] md:w-[320px] aspect-square relative overflow-hidden rounded-2xl shadow-xl">
+                  <Image
+                    src="/images/emma-bardsley-portrait.png"
+                    alt="Emma Bardsley"
+                    width={400}
+                    height={400}
+                    className="object-cover w-full h-full rounded-2xl"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
         {/* Reviews section - Client Success */}
         <AnimatedSection className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6 max-w-5xl">
@@ -1008,6 +1011,7 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
+        {/* Footer CTA */}
         <AnimatedSection id="footer-cta" className="w-full py-24 md:py-32 bg-arcova-darkblue text-white">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
