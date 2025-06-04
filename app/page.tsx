@@ -376,7 +376,7 @@ export default function Home() {
                   We make science make sense
                 </h1>
                 <h2 className="text-2xl md:text-2xl font-medium tracking-tight sm:text-2xl md:text-2xl text-arcova-darkblue mt-6">
-                For the founders, investors, marketers, and researchers building what’s next.
+                For the founders, investors, marketers, and researchers building what's next.
                 </h2>
               </div>
               <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed">
@@ -407,7 +407,7 @@ export default function Home() {
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
                 Who We Work With
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">Builders. Explainers. Investors. </h2>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-3">Builders. Explainers. Investors. </h2>
               <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
                 Complex science is hard to explain. We make it easier to fund, grow, and communicate.
               </p>
@@ -722,7 +722,7 @@ export default function Home() {
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
                 Our Process
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-3">
                 How we transform complex data into actionable insights
               </h2>
               <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
@@ -778,7 +778,7 @@ export default function Home() {
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
                 Testimonials
               </div>
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-3">
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-3">
               Client stories we love
               </h2>
               <p className="text-lg text-gray-600">
@@ -832,7 +832,7 @@ export default function Home() {
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
                   Our Network
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight leading-loose md:text-3xl mb-3">
+                <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-3">
                   Experts and specialists curated for your brief.
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
