@@ -691,7 +691,7 @@ export default function Home() {
         </AnimatedSection>
 
         {/* Process Section */}
-        <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-arcova-blue/10">
+        <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-gray-100">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="text-center mb-16">
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
@@ -704,42 +704,34 @@ export default function Home() {
               A clear, repeatable approach for turning evidence into impact.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 font-bold">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               <ProcessStep
-                number="01"
                 title="Discover"
                 subtitle="Go deep on the evidence"
-                description="Comprehensive literature search and data collection"
+                description="Comprehensive literature search and data collection to build a strong foundation"
                 delay={0.1}
                 color="arcova-teal"
-                gradient="bg-gradient-to-br from-white to-[#d4f2de]/30"
               />
               <ProcessStep
-                number="02"
                 title="Analyze"
                 subtitle="Separate signal from noise"
-                description="Critical evaluation of evidence quality and relevance"
+                description="Critical evaluation of evidence quality and relevance to your goals"
                 delay={0.2}
                 color="arcova-teal"
-                gradient="bg-gradient-to-br from-white to-[#ccecfe]/30"
               />
               <ProcessStep
-                number="03"
                 title="Synthesize"
                 subtitle="Connect the dots for clarity"
-                description="Transforming complex science into clear, actionable insight"
+                description="Transform complex science into clear, actionable insights you can use"
                 delay={0.3}
                 color="arcova-teal"
-                gradient="bg-gradient-to-br from-white to-[#d4f2de]/30"
               />
               <ProcessStep
-                number="04"
                 title="Deliver"
                 subtitle="From research to impact"
-                description="Content, reports, or advice. Science delivered your way"
+                description="Receive polished content, reports, or advice - science delivered your way"
                 delay={0.4}
                 color="arcova-teal"
-                gradient="bg-gradient-to-br from-white to-[#ccecfe]/30"
               />
             </div>
           </div>
@@ -765,7 +757,7 @@ export default function Home() {
         </AnimatedSection>
 
 
-         {/* Featured Testimonial */}
+         {/* Who we're looking */}
        <AnimatedSection className="w-full py-14 md:py-14 bg-arcova-mint/15">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center">
