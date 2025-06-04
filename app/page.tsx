@@ -64,7 +64,7 @@ export default function Home() {
     {
       id: 1,
       name: "Business Strategy & Advisory",
-      description: "For science, health, and wellness businesses planning, launching, or growing.",
+      description: "For science, health, and biotech businesses planning, launching, or growing.",
       subheader: "Shape your vision into a market-ready plan.",
       personas: ["Founders", "Science ventures", "Health & Wellness businesses"],
       features: [
