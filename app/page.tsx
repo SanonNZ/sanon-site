@@ -407,7 +407,7 @@ export default function Home() {
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
                 Who We Work With
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-3">Builders. Explainers. Investors. </h2>
+              <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">Builders. Explainers. Investors. </h2>
               <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
                 Complex science is hard to explain. We make it easier to fund, grow, and communicate.
               </p>
@@ -508,7 +508,7 @@ export default function Home() {
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
                 Our Services
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-3">
+              <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
                 Scientific solutions for every stage
               </h2>
               <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
@@ -722,11 +722,11 @@ export default function Home() {
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
                 Our Process
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-3">
-                How we transform complex data into actionable insights
+              <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
+              Our method for turning research into results
               </h2>
               <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
-                A systematic approach that delivers reliable results, every time
+              A clear, repeatable approach for turning evidence into impact.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 font-bold">
@@ -778,7 +778,7 @@ export default function Home() {
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
                 Testimonials
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-3">
+              <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
               Client stories we love
               </h2>
               <p className="text-lg text-gray-600">
@@ -832,7 +832,7 @@ export default function Home() {
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
                   Our Network
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-3">
+                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
                   Experts and specialists curated for your brief.
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
@@ -980,7 +980,7 @@ export default function Home() {
         <AnimatedSection id="footer-cta" className="w-full py-24 md:py-32 bg-arcova-darkblue text-white">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl max-w-[700px]">Tell us what you need and we'll make it happen.</h2>
+              <h2 className="text-3xl font-bold tracking-tight md:text-3xl max-w-[700px]">Tell us what you need and we'll make it happen.</h2>
               <Button
                 asChild
                 size="lg"
