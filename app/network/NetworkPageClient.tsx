@@ -663,7 +663,7 @@
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.5 }}
                 >
-                    <a href="#core-skills" className="flex flex-col items-center gap-2 cursor-pointer">
+                    <a href="#process" className="flex flex-col items-center gap-2 cursor-pointer">
                     <div className="bg-teal-50 border border-teal-200 rounded-full p-3 text-arcova-teal group-hover:bg-teal-100 transition-colors duration-300 group-hover:translate-y-1 transform transition-transform">
                         <ChevronDown className="h-5 w-5" />
                     </div>
