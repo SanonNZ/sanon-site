@@ -65,7 +65,12 @@ export default function Home() {
     {
       id: 1,
       name: "Business Strategy & Advisory",
-      description: (<div className="flex items-start gap-2"><Users className="h-5 w-5 flex-shrink-0 text-[#f55f96] mt-1" />For science, health, and wellness businesses planning, launching, or growing.</div>),
+      description: (
+        <span className="flex items-start gap-2">
+          <Users className="h-5 w-5 flex-shrink-0 text-[#f55f96] mt-1" />
+          <span>For science, health, and wellness businesses planning, launching, or growing.</span>
+        </span>
+      ),
       subheader: "Shape your vision into a market-ready plan.",
       personas: ["Founders", "Science ventures", "Health & Wellness businesses"],
       features: [
@@ -92,7 +97,12 @@ export default function Home() {
     {
       id: 2,
       name: "Whitepapers & Reports",
-      description: (<div className="flex items-start gap-2"><FileText className="h-5 w-5 flex-shrink-0 text-[#216680] mt-1" />For strategy leaders, product owners, and founders presenting complex ideas to stakeholders.</div>),
+      description: (
+        <span className="flex items-start gap-2">
+          <FileText className="h-5 w-5 flex-shrink-0 text-[#216680] mt-1" />
+          <span>For strategy leaders, product owners, and founders presenting complex ideas to stakeholders.</span>
+        </span>
+      ),
       subheader: "Authoritative insight that drives confident decisions and elevates thought-leadership.",
       personas: ["Strategy Leaders", "Product Owners", "Founders"],
       features: [
@@ -119,7 +129,12 @@ export default function Home() {
     {
       id: 3,
       name: "Articles & Content",
-      description: (<div className="flex items-start gap-2"><Zap className="h-5 w-5 flex-shrink-0 text-[#ffb996] mt-1" />For marketing teams, content leads, and founders building authority and credibility.</div>),
+      description: (
+        <span className="flex items-start gap-2">
+          <Zap className="h-5 w-5 flex-shrink-0 text-[#ffb996] mt-1" />
+          <span>For marketing teams, content leads, and founders building authority and credibility.</span>
+        </span>
+      ),
       subheader: "Turn deep research into magnetic stories that build authority and trust.",
       personas: ["Marketing Leads", "Content Managers", "Founders"],
       features: [
@@ -146,7 +161,12 @@ export default function Home() {
     {
       id: 4,
       name: "Scientific Validation & Diligence",
-      description: (<div className="flex items-start gap-2"><LineChart className="h-5 w-5 flex-shrink-0 text-[#8d7dc7] mt-1" />For biotech founders and investors seeking validation to support key investment decisions.</div>),
+      description: (
+        <span className="flex items-start gap-2">
+          <LineChart className="h-5 w-5 flex-shrink-0 text-[#8d7dc7] mt-1" />
+          <span>For biotech founders and investors seeking validation to support key investment decisions.</span>
+        </span>
+      ),
       subheader: "Prove the science before you build, pitch, or invest.",
       personas: ["Founders", "Biotech companies", "Health Investors"],
       features: [
@@ -174,7 +194,12 @@ export default function Home() {
     {
       id: 5,
       name: "Academic & Research",
-      description: (<div className="flex items-start gap-2"><GraduationCap className="h-5 w-5 flex-shrink-0 text-[#00a4b4] mt-1" />For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.</div>),
+      description: (
+        <span className="flex items-start gap-2">
+          <GraduationCap className="h-5 w-5 flex-shrink-0 text-[#00a4b4] mt-1" />
+          <span>For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.</span>
+        </span>
+      ),
       subheader: "Transform your research into impactful publications.",
       personas: ["PIs", "Postdocs", "Research Teams"],
       features: [
@@ -202,6 +227,19 @@ export default function Home() {
 
   const handleTabSelect = (index: number) => {
     setSelectedService(index)
+  }
+
+  const scrollToServiceAndSelect = (serviceIndex: number) => {
+    setSelectedService(serviceIndex)
+    // Get header height dynamically
+    const header = document.querySelector('header')
+    const headerHeight = header ? header.offsetHeight : 80 // fallback to 80px if header not found
+    
+    const servicesSection = document.getElementById('services-tabs')
+    if (servicesSection) {
+      const y = servicesSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20 // 20px extra padding
+      window.scrollTo({ top: y, behavior: 'smooth' })
+    }
   }
 
   return (
@@ -415,12 +453,13 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-8">
               {/* Owners & Founders */}
               <motion.div
-                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
+                onClick={() => scrollToServiceAndSelect(0)}
               >
                 <div className="flex items-start gap-4">
                   <div>
@@ -435,12 +474,13 @@ export default function Home() {
 
               {/* Marketing & Comms Leads */}
               <motion.div
-                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
+                onClick={() => scrollToServiceAndSelect(2)}
               >
                 <div className="flex items-start gap-4">
                   <div>
@@ -455,12 +495,13 @@ export default function Home() {
 
               {/* Investors & Advisors */}
               <motion.div
-                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
+                onClick={() => scrollToServiceAndSelect(3)}
               >
                 <div className="flex items-start gap-4">
                   <div>
@@ -475,12 +516,13 @@ export default function Home() {
 
               {/* Researchers & Academics */}
               <motion.div
-                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
                 whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
+                onClick={() => scrollToServiceAndSelect(4)}
               >
                 <div className="flex items-start gap-4">
                   <div>
@@ -497,7 +539,7 @@ export default function Home() {
         </AnimatedSection>
 
         {/* Service Selector Section */}
-        <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50" id="service-section">
+        <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50" id="services-section">
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
@@ -513,7 +555,7 @@ export default function Home() {
 
             <div className="grid md:grid-cols-12 gap-8">
               {/* Left column: Modern pill tabs - square buttons on mobile */}
-              <div className="md:col-span-4 flex flex-col md:justify-start md:py-12 md:sticky md:top-24 md:h-fit">
+              <div className="md:col-span-4 flex flex-col md:justify-start md:py-12 md:sticky md:top-24 md:h-fit" id="services-tabs">
                 <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-start">
                   {services.map((service, index) => (
                     <motion.button
