@@ -506,13 +506,13 @@ export default function Home() {
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
-                Our Services
+                What we offer
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
                 Scientific solutions for every stage
               </h2>
               <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
-                From rapid content to deep-dive validation, Arcova delivers the right science expertise for your business. Choose a service below, or let's build a custom solution together.
+                From content to deep-dive validation, we deliver scientific expertise for your business.
               </p>
             </div>
 
@@ -616,7 +616,7 @@ export default function Home() {
 
                     <div className="flex-1">
                       {/* Main header */}
-                      <h3 className="text-2xl md:text-3xl font-bold text-arcova-darkblue mb-3">
+                      <h3 className="text-xl md:text-2xl font-bold text-arcova-darkblue mb-3">
                         {services[selectedService].name}
                       </h3>
 
