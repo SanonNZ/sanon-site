@@ -83,7 +83,7 @@ export const testimonials: Testimonial[] = [
     serviceType: "strategy"
   },
   {
-    quote: "They have the prowess to unpack the complexities of the biopharma and medical device industries.",
+    quote: "They had the prowess to unpack the complexities of the biopharma and medical device industries.",
     author: {
       title: "Owner",
       company: "Biotech Training Firm"
