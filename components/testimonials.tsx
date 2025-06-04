@@ -25,16 +25,25 @@ function getVisibleTestimonials(start: number, count: number) {
 function ServiceTypePill({ type }: { type: keyof typeof serviceTypes }) {
   const serviceType = serviceTypes[type]
   const Icon = serviceType.icon
+  
+  // Darker variants of each color
+  const darkColorMap = {
+    strategy: "#d13d74", // darker pink
+    content: "#cc7845", // even darker orange
+    diligence: "#6c5e9e", // darker purple
+    academic: "#007a87", // darker teal
+    report: "#184c60" // darker blue
+  }
+
   return (
     <span 
       className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium" 
       style={{ 
-        backgroundColor: serviceType.lightColor,
-        color: serviceType.color
+        backgroundColor: `${serviceType.lightColor}cc`,
       }}
     >
-      <Icon className="w-3 h-3" />
-      {serviceType.name}
+      <Icon className="w-3 h-3" style={{ color: darkColorMap[type] }} />
+      <span style={{ color: darkColorMap[type] }}>{serviceType.name}</span>
     </span>
   )
 }
@@ -163,9 +172,8 @@ export function TestimonialCarousel() {
               <figcaption className="mt-6 flex flex-col gap-y-4">
                 <div className="flex items-center gap-x-4">
                   <div>
-                    <div className="font-semibold">{testimonial.author.name}</div>
                     {testimonial.author.title && (
-                      <div className="text-gray-600">{testimonial.author.title}</div>
+                      <div className="text-gray-600 font-bold">{testimonial.author.title}</div>
                     )}
                     {testimonial.author.company && (
                       <div className="text-gray-500 text-sm">{testimonial.author.company}</div>
