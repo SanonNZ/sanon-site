@@ -21,6 +21,12 @@ import {
   Menu,
   Heart,
   PlusCircle,
+  Star,
+  Atom,
+  Binary,
+  ScrollText,
+  Shield,
+  Scale
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimatedSection } from "@/components/animated-section"
@@ -156,6 +162,73 @@ const HorizontalFeatureCard = ({ title, content, icon, delay, microInsight, bull
         </div>
       </div>
     </motion.div>
+  )
+}
+
+// Network testimonials data
+const networkTestimonials = [
+  {
+    title: "Biomedical Scientists",
+    quote: "Deep knowledge in human biology, preclinical or clinical domains",
+    icon: <Microscope className="h-5 w-5" />
+  },
+  {
+    title: "Research Specialists",
+    quote: "PhDs or postdocs with strong methodology and synthesis skills",
+    icon: <Brain className="h-5 w-5" />
+  },
+  {
+    title: "Data Scientists",
+    quote: "Expertise in bioinformatics, ML workflows, or statistical analysis",
+    icon: <Binary className="h-5 w-5" />
+  },
+  {
+    title: "Regulatory Experts",
+    quote: "Familiar with FDA, EMA, or global approval frameworks",
+    icon: <ScrollText className="h-5 w-5" />
+  },
+  {
+    title: "Due Diligence Analysts",
+    quote: "Experience surfacing red flags or technical risks",
+    icon: <Shield className="h-5 w-5" />
+  },
+  {
+    title: "Patent & IP Analysts",
+    quote: "Skilled in IP landscaping, prior art, or patent strategy",
+    icon: <Scale className="h-5 w-5" />
+  }
+]
+
+const NetworkTestimonials = () => {
+  return (
+    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {networkTestimonials.map((testimonial, i) => (
+          <motion.figure
+            key={testimonial.quote + i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: i * 0.2 }}
+            className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5"
+          >
+            <div className="mb-4">
+              {testimonial.title && (
+                <div className="flex items-center gap-2 text-gray-600 font-bold">
+                  <div className="text-arcova-teal">
+                    {testimonial.icon}
+                  </div>
+                  {testimonial.title}
+                </div>
+              )}
+            </div>
+            <blockquote className="text-gray-900">
+              <p>{testimonial.quote}</p>
+            </blockquote>
+          </motion.figure>
+        ))}
+      </div>
+    </div>
   )
 }
 
@@ -587,134 +660,51 @@ export default function NetworkPageClient() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection id="our-network" className="w-full py-24 md:py-32 bg-gray-50">
-          <div className="container px-4 md:px-6">
-            <div className="text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
-                Our Network
+        {/* Network Testimonials */}
+        <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="mx-auto max-w-3xl text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
+                Expert Network
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl mt-4">Who we're looking for</h2>
-              <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mt-6">
-                We draw on a distributed network of scientists, technical specialists, and domain experts from
-                world-leading institutions. Whether your background is in biomedical research, experimental biology,
-                computational modeling, or IP — if you bring deep domain expertise, we'd love to talk.
+              <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
+              Who we're looking for
+              </h2>
+              <p className="text-lg text-gray-600">
+              We work with scientists, analysts, and specialists from world-leading institutions. If you bring deep expertise in your field we'd love to hear from you.
               </p>
             </div>
+            <NetworkTestimonials />
+          </div>
+        </AnimatedSection>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              <motion.div
-                className="bg-gradient-to-br from-white to-arcova-mint/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="bg-arcova-teal/20 p-3 rounded-full flex-shrink-0">
-                    <BookOpen className="h-5 w-5 text-arcova-teal" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Biomedical Scientists</h3>
-                    <p className="text-gray-600">Deep knowledge in human biology, preclinical or clinical domains</p>
+        {/* Featured Network Member */}
+        <AnimatedSection className="w-full py-14 md:py-14 bg-arcova-mint/15">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="flex flex-col items-center">
+              <div className="max-w-3xl text-center">
+                {/* Star Rating */}
+                <div className="flex justify-center mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="h-6 w-6 fill-current text-amber-400 mr-1"
+                    />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <blockquote className="text-2xl md:text-2xl font-medium italic text-gray-900 mb-8 leading-relaxed">
+                  "They performed exceptionally well under pressure, and were fast, diligent, and thoughtful. Their work was high-quality, grounded in strong data analysis, and enriched by their valuable ideas and insights."
+                </blockquote>
+
+                {/* Author Info */}
+                <div className="flex flex-col items-center">
+                  <div className="text-center">
+                    <div className="font-semibold text-gray-900 mb-1">Scientist | Immunology Lab</div>
                   </div>
                 </div>
-              </motion.div>
-
-              <motion.div
-                className="bg-gradient-to-br from-white to-arcova-blue/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="bg-arcova-blue/20 p-3 rounded-full flex-shrink-0">
-                    <GraduationCap className="h-5 w-5 text-arcova-blue" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Research Specialists</h3>
-                    <p className="text-gray-600">PhDs or postdocs with strong methodology and synthesis skills</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="bg-gradient-to-br from-white to-arcova-mint/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="bg-arcova-teal/20 p-3 rounded-full flex-shrink-0">
-                    <BarChart3 className="h-5 w-5 text-arcova-teal" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Data Scientists</h3>
-                    <p className="text-gray-600">Expertise in bioinformatics, ML workflows, or statistical analysis</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="bg-gradient-to-br from-white to-arcova-blue/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="bg-arcova-blue/20 p-3 rounded-full flex-shrink-0">
-                    <ClipboardCheck className="h-5 w-5 text-arcova-blue" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Regulatory Experts</h3>
-                    <p className="text-gray-600">Familiar with FDA, EMA, or global approval frameworks</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="bg-gradient-to-br from-white to-arcova-mint/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="bg-arcova-teal/20 p-3 rounded-full flex-shrink-0">
-                    <Search className="h-5 w-5 text-arcova-teal" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Due Diligence Analysts</h3>
-                    <p className="text-gray-600">Experience surfacing red flags or technical risks</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="bg-gradient-to-br from-white to-arcova-blue/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="bg-arcova-blue/20 p-3 rounded-full flex-shrink-0">
-                    <FileText className="h-5 w-5 text-arcova-blue" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg text-arcova-darkblue mb-1">Patent & IP Analysts</h3>
-                    <p className="text-gray-600">Skilled in IP landscaping, prior art, or patent strategy</p>
-                  </div>
-                </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </AnimatedSection>
