@@ -850,7 +850,7 @@ export default function NetworkPageClient() {
                 color="arcova-teal"
               />
               <ProcessStep
-                title="Try It Out (Paid)"
+                title="Get A Feel For It"
                 subtitle="Get matched and get paid"
                 description="We'll send through a small piece of trial work—paid, of course—to get a feel for your style and strengths."
                 delay={0.3}
