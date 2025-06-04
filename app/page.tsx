@@ -970,14 +970,14 @@ export default function Home() {
 
                 {/* Quote */}
                 <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 mb-8 leading-relaxed">
-                  "Arcova's scientific diligence was instrumental in our Series A raise. Their ability to translate complex research into compelling narratives gave our investors the confidence they needed."
+                  "She helped out both strategically and in a hands-on capacity. In addition to driving a great result, a variety of stakeholders LOVED Emma, and couldn't stop telling me how amazing she was. Get her on your team as soon as you have a chance!"
                 </blockquote>
 
                 {/* Author Info */}
                 <div className="flex flex-col items-center">
                   <div className="text-center">
-                    <div className="font-semibold text-gray-900 mb-1">Dr. Sarah Chen</div>
-                    <div className="text-gray-600">Founder & CEO, NeuraTech Solutions</div>
+                    <div className="font-semibold text-gray-900 mb-1">Startup Founder</div>
+                    <div className="text-gray-600">Health & Wellness Sector</div>
                   </div>
                 </div>
               </div>
