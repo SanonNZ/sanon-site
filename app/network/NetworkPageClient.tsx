@@ -741,23 +741,28 @@
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-8">
                 {/* Owners & Founders */}
                 <motion.div
-                    className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
-                >
-                    <div className="flex items-start gap-4">
-                    <div>
-                        <div className="flex items-center gap-2 mb-2">
-                        <Clock className="h-5 w-5 text-[#f55f96]" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Work, On Your Terms</h3>
-                        </div>
-                        <p className="text-gray-600">Consult on high-impact projects. Flexibly fits around existing commitments. Work from home</p>
-                    </div>
-                    </div>
-                </motion.div>
+  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5, delay: 0.1 }}
+  whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
+>
+  <div className="flex items-start gap-4">
+    <div>
+      <div className="flex items-center gap-2 mb-2">
+        <Clock className="h-5 w-5 text-[#f55f96]" />
+        <h3 className="font-bold text-lg text-arcova-darkblue">Work, On Your Terms</h3>
+      </div>
+      <ul className="list-disc pl-5 text-gray-600 space-y-1">
+        <li>Consult on high-impact projects</li>
+        <li>Fits flexibly around existing commitments</li>
+        <li>Work from home</li>
+      </ul>
+    </div>
+  </div>
+</motion.div>
+
 
                 {/* Marketing & Comms Leads */}
                 <motion.div
@@ -774,7 +779,11 @@
                         <Zap className="h-5 w-5 text-[#ffb996]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Your Expertise, Valued</h3>
                         </div>
-                        <p className="text-gray-600">Project-based fees. Short-term or ongoing contracts. Transparent compensation.</p>
+                        <ul className="list-disc pl-5 text-gray-600 space-y-1">
+                            <li>Project-based fees</li>
+                            <li>Short-term or ongoing contracts</li>
+                            <li>Transparent compensation</li>
+                        </ul>
                     </div>
                     </div>
                 </motion.div>
@@ -794,7 +803,11 @@
                         <LineChart className="h-5 w-5 text-[#8d7dc7]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Extend your Impact</h3>
                         </div>
-                        <p className="text-gray-600">Apply your skills to new fields. Shape business decisions. Drive innovation</p>
+                        <ul className="list-disc pl-5 text-gray-600 space-y-1">
+                            <li>Apply your skills to new fields</li>
+                            <li>Shape business decisions</li>
+                            <li>Drive innovation</li>
+                        </ul>
                     </div>
                     </div>
                 </motion.div>
@@ -814,7 +827,11 @@
                         <Sparkles className="h-5 w-5 text-[#00a4b4]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Grow with Us</h3>
                         </div>
-                        <p className="text-gray-600">Access new types of projects. Join a network of peers. Expand your commercial skill set.</p>
+                        <ul className="list-disc pl-5 text-gray-600 space-y-1">
+                            <li>Access new types of projects</li>
+                            <li>Join a network of peers</li>
+                            <li>Expand your commercial skill set</li>
+                        </ul>
                     </div>
                     </div>
                 </motion.div>
@@ -860,7 +877,7 @@
                     How it works
                 </div>
                 <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
-                    Our process for joining our Expert Network
+                    Steps for joining our Expert Network
                 </h2>
                 <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
                     A simple, collaborative onboarding designed to get you doing great work—fast.
@@ -943,7 +960,7 @@
                 <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Join our network</h2>
                 <p className="text-lg text-gray-600 max-w-[700px]">
                     If you think you'd be a good fit for our network, we'd love to hear from you. Share your details below
-                    and we'll be in touch about relevant opportunities.
+                    and we'll get in touch.
                 </p>
                 </div>
 
