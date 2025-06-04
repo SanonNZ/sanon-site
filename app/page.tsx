@@ -21,7 +21,7 @@ import { TestimonialCarousel } from "@/components/testimonials"
 interface Service {
   id: number
   name: string
-  description: string
+  description: React.ReactNode
   subheader: string
   personas: string[]
   features: string[]
@@ -65,7 +65,7 @@ export default function Home() {
     {
       id: 1,
       name: "Business Strategy & Advisory",
-      description: "For science, health, and wellness businesses planning, launching, or growing.",
+      description: (<div className="flex items-start gap-2"><Users className="h-5 w-5 flex-shrink-0 text-[#f55f96] mt-1" />For science, health, and wellness businesses planning, launching, or growing.</div>),
       subheader: "Shape your vision into a market-ready plan.",
       personas: ["Founders", "Science ventures", "Health & Wellness businesses"],
       features: [
@@ -87,12 +87,12 @@ export default function Home() {
       insight: "Shape your vision into a market-ready plan.",
       price: "Let's discuss your strategic needs.",
       cta: "Plan Your Strategy",
-      icon: <LineChart className="h-5 w-5" />
+      icon: <Users className="h-5 w-5" />
     },
     {
       id: 2,
       name: "Whitepapers & Reports",
-      description: "For strategy leaders, product owners, and founders presenting complex ideas to stakeholders.",
+      description: (<div className="flex items-start gap-2"><FileText className="h-5 w-5 flex-shrink-0 text-[#216680] mt-1" />For strategy leaders, product owners, and founders presenting complex ideas to stakeholders.</div>),
       subheader: "Authoritative insight that drives confident decisions and elevates thought-leadership.",
       personas: ["Strategy Leaders", "Product Owners", "Founders"],
       features: [
@@ -114,12 +114,12 @@ export default function Home() {
       insight: "Lead the conversation with authoritative insight.",
       price: "Let's explore your project needs.",
       cta: "Let's Talk",
-      icon: <Zap className="h-5 w-5" />
+      icon: <FileText className="h-5 w-5" />
     },
     {
       id: 3,
       name: "Articles & Content",
-      description: "For marketing teams, content leads, and founders building authority and credibility.",
+      description: (<div className="flex items-start gap-2"><Zap className="h-5 w-5 flex-shrink-0 text-[#ffb996] mt-1" />For marketing teams, content leads, and founders building authority and credibility.</div>),
       subheader: "Turn deep research into magnetic stories that build authority and trust.",
       personas: ["Marketing Leads", "Content Managers", "Founders"],
       features: [
@@ -141,12 +141,12 @@ export default function Home() {
       insight: "Turn deep research into stories that build authority and trust.",
       price: "Ready to get started?",
       cta: "Let's Go",
-      icon: <FileText className="h-5 w-5" />
+      icon: <Zap className="h-5 w-5" />
     },
     {
       id: 4,
       name: "Scientific Validation & Diligence",
-      description: "For biotech founders and investors seeking validation to support key investment decisions.",
+      description: (<div className="flex items-start gap-2"><LineChart className="h-5 w-5 flex-shrink-0 text-[#8d7dc7] mt-1" />For biotech founders and investors seeking validation to support key investment decisions.</div>),
       subheader: "Prove the science before you build, pitch, or invest.",
       personas: ["Founders", "Biotech companies", "Health Investors"],
       features: [
@@ -169,12 +169,12 @@ export default function Home() {
       insight: "Prove the science before you build, pitch, or invest.",
       price: "Discuss your validation needs.",
       cta: "Validate Your Science",
-      icon: <Users className="h-5 w-5" />
+      icon: <LineChart className="h-5 w-5" />
     },
     {
       id: 5,
       name: "Academic & Research",
-      description: "For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.",
+      description: (<div className="flex items-start gap-2"><GraduationCap className="h-5 w-5 flex-shrink-0 text-[#00a4b4] mt-1" />For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.</div>),
       subheader: "Transform your research into impactful publications.",
       personas: ["PIs", "Postdocs", "Research Teams"],
       features: [
@@ -400,115 +400,113 @@ export default function Home() {
         </AnimatedSection>
 
         {/* Who We Work With Section */}
-        <AnimatedSection id="who-we-work-with" className="w-full py-16 bg-arcova-mint/20">
+        <AnimatedSection id="who-we-work-with" className="w-full py-24 md:py-32 bg-arcova-mint/10">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8">
-              <div className="text-center">
-                <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-4">
-                  Who We Work With
-                </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-4">Builders. Explainers. Investors. </h2>
-                <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
+                Who We Work With
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">Builders. Explainers. Investors. </h2>
+              <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
                 Complex science is hard to explain. We make it easier to fund, grow, and communicate.
-                </p>
-              </div>
+              </p>
+            </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-8">
-                {/* Owners & Founders */}
-                <motion.div
-                  className="bg-gradient-to-br from-white to-arcova-mint/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
-                >
-                  <div className="flex items-start gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Users className="h-5 w-5 text-arcova-teal" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
-                      </div>
-                      <p className="text-gray-600">Shape your vision into a market-ready plan with clarity, content, and direction.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-8">
+              {/* Owners & Founders */}
+              <motion.div
+                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Users className="h-5 w-5 text-[#f55f96]" />
+                      <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
                     </div>
+                    <p className="text-gray-600">Shape your vision into a market-ready plan with clarity, content, and direction.</p>
                   </div>
-                </motion.div>
+                </div>
+              </motion.div>
 
-                {/* Marketing & Comms Leads */}
-                <motion.div
-                  className="bg-gradient-to-br from-white to-arcova-blue/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
-                >
-                  <div className="flex items-start gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Megaphone className="h-5 w-5 text-arcova-blue" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
-                      </div>
-                      <p className="text-gray-600">Turn deep research into stories that build authority and trust.</p>
+              {/* Marketing & Comms Leads */}
+              <motion.div
+                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Zap className="h-5 w-5 text-[#ffb996]" />
+                      <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
                     </div>
+                    <p className="text-gray-600">Turn deep research into stories that build authority and trust.</p>
                   </div>
-                </motion.div>
+                </div>
+              </motion.div>
 
-                {/* Investors & Advisors */}
-                <motion.div
-                  className="bg-gradient-to-br from-white to-arcova-mint/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
-                >
-                  <div className="flex items-start gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <LineChart className="h-5 w-5 text-arcova-teal" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
-                      </div>
-                      <p className="text-gray-600">Scientific diligence before you build, pitch, or invest.</p>
+              {/* Investors & Advisors */}
+              <motion.div
+                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <LineChart className="h-5 w-5 text-[#8d7dc7]" />
+                      <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
                     </div>
+                    <p className="text-gray-600">Scientific diligence before you build, pitch, or invest.</p>
                   </div>
-                </motion.div>
+                </div>
+              </motion.div>
 
-                {/* Researchers & Academics */}
-                <motion.div
-                  className="bg-gradient-to-br from-white to-arcova-blue/10 backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
-                >
-                  <div className="flex items-start gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <GraduationCap className="h-5 w-5 text-arcova-blue" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
-                      </div>
-                      <p className="text-gray-600">Transform your data into publications and funding.</p>
+              {/* Researchers & Academics */}
+              <motion.div
+                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
+                      <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
                     </div>
+                    <p className="text-gray-600">Transform your data into publications and funding.</p>
                   </div>
-                </motion.div>
-              </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </AnimatedSection>
 
-        {/* Service Selector Section - Moved Up */}
+        {/* Service Selector Section */}
         <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50" id="service-section">
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
-            <div className="flex flex-col items-center space-y-8 text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+            <div className="text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
                 Our Services
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-arcova-darkblue">
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-3">
                 Scientific solutions for every stage
               </h2>
-              <p className="text-lg text-gray-600 max-w-[700px]">
+              <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
                 From rapid content to deep-dive validation, Arcova delivers the right science expertise for your business. Choose a service below, or let's build a custom solution together.
               </p>
             </div>
@@ -528,7 +526,7 @@ export default function Home() {
                         "overflow-hidden group",
                         "flex-1 aspect-square md:aspect-auto md:w-full p-3 md:p-5 rounded-xl md:rounded-2xl",
                         selectedService === index
-                          ? "bg-arcova-blue/20 border border-arcova-blue/30 text-arcova-blue"
+                          ? "bg-arcova-blue/20 border border-arcova-blue/30"
                           : "bg-white hover:bg-arcova-blue/5 border border-transparent",
                       )}
                       initial={{ opacity: 0 }}
@@ -540,14 +538,24 @@ export default function Home() {
                         <motion.div
                           className={cn(
                             "flex items-center justify-center w-10 h-10 rounded-full mb-1 md:mb-0 flex-shrink-0",
-                            selectedService === index ? "bg-white text-[#00a4b4] shadow-sm" : "bg-gray-100 text-gray-500",
+                            selectedService === index ? "bg-white shadow-sm" : "bg-gray-100",
                           )}
                           animate={{
                             scale: hoveredService === index || selectedService === index ? 1.05 : 1,
                           }}
                           transition={{ type: "spring", stiffness: 300, damping: 25 }}
                         >
-                          {service.icon}
+                          <div className={cn(
+                            "transition-colors duration-300",
+                            selectedService === index && index === 0 ? "text-[#f55f96]" : // Business Strategy
+                            selectedService === index && index === 1 ? "text-[#216680]" : // Whitepapers - changed to blue
+                            selectedService === index && index === 2 ? "text-[#ffb996]" : // Articles
+                            selectedService === index && index === 3 ? "text-[#8d7dc7]" : // Scientific Validation
+                            selectedService === index && index === 4 ? "text-[#00a4b4]" : // Academic
+                            "text-gray-500"
+                          )}>
+                            {service.icon}
+                          </div>
                         </motion.div>
 
                         <div className="flex-1 hidden md:block">
@@ -705,14 +713,14 @@ export default function Home() {
         {/* Process Section */}
         <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-arcova-blue/10">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-4 text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+            <div className="text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
                 Our Process
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-3xl">
+              <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
                 How we transform complex data into actionable insights
               </h2>
-              <p className="text-lg text-gray-600 max-w-[700px]">
+              <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
                 A systematic approach that delivers reliable results, every time
               </p>
             </div>
@@ -724,7 +732,7 @@ export default function Home() {
                 description="Comprehensive literature search and data collection"
                 delay={0.1}
                 color="arcova-teal"
-                gradient="bg-gradient-to-br from-[#d4f2de]/30 via-transparent to-[#d4f2de]/50"
+                gradient="bg-gradient-to-br from-white to-[#d4f2de]/30"
                 insightIcon="search"
               />
               <ProcessStep
@@ -734,7 +742,7 @@ export default function Home() {
                 description="Critical evaluation of evidence quality and relevance"
                 delay={0.2}
                 color="arcova-teal"
-                gradient="bg-gradient-to-br from-[#ccecfe]/30 via-transparent to-[#ccecfe]/50"
+                gradient="bg-gradient-to-br from-white to-[#ccecfe]/30"
                 insightIcon="filter"
               />
               <ProcessStep
@@ -744,7 +752,7 @@ export default function Home() {
                 description="Transforming complex science into clear, actionable insight"
                 delay={0.3}
                 color="arcova-teal"
-                gradient="bg-gradient-to-br from-[#d4f2de]/30 via-transparent to-[#d4f2de]/50"
+                gradient="bg-gradient-to-br from-white to-[#d4f2de]/30"
                 insightIcon="connect"
               />
               <ProcessStep
@@ -754,23 +762,27 @@ export default function Home() {
                 description="Content, reports, or advice. Science delivered your way"
                 delay={0.4}
                 color="arcova-teal"
-                gradient="bg-gradient-to-br from-[#ccecfe]/30 via-transparent to-[#ccecfe]/50"
+                gradient="bg-gradient-to-br from-white to-[#ccecfe]/30"
                 insightIcon="rocket"
               />
             </div>
           </div>
         </AnimatedSection>
 
-        {/* Reviews section - Client Success */}
+        {/* Client Success Section */}
         <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8 text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+            <div className="mx-auto max-w-xl text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
                 Client Success
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">What our clients say</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-3">
+                What our clients say
+              </h2>
+              <p className="text-lg text-gray-600">
+                From startups to industry leaders, we help businesses communicate complex science with clarity and impact
+              </p>
             </div>
-
             <TestimonialCarousel />
           </div>
         </AnimatedSection>
@@ -782,12 +794,12 @@ export default function Home() {
               <div className="relative h-[300px] md:h-[400px] shadow-xl rounded-2xl overflow-hidden order-1 lg:order-1">
                 <GlowingNetworkMolecule />
               </div>
-              <div className="space-y-6 order-2 lg:order-2">
-                <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+              <div className="space-y-3">
+                <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
                   Our Network
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight leading-loose md:text-3xl">
-                Specialist minds. Curated for your brief.
+                <h2 className="text-3xl font-bold tracking-tight leading-loose md:text-3xl mb-3">
+                  Experts and specialists curated for your brief.
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   Arcova draws on a trusted network of scientists and subject matter experts from across academia and industry. We work with researchers and experts from world-leading institutions, assembling a curated team for each project, matching expertise to your brief.
