@@ -1,13 +1,13 @@
-import ContributorsPageClient from "./ContributorsPageClient"
+import NetworkPageClient from "./NetworkPageClient"
 
 export const metadata = {
   title: "Join Our Network of Scientific Experts | Arcova",
   description:
-    "Contribute your expertise to our distributed network of PhD researchers and scientists from world-leading institutions.",
+    "Contribute your expertise to our network of PhD researchers and scientists from world-leading institutions.",
   openGraph: {
     title: "Join Our Network of Scientific Experts | Arcova",
     description:
-      "Contribute your expertise to our distributed network of PhD researchers and scientists from world-leading institutions.",
+      "Join our network of PhD researchers and scientists from world-leading institutions.",
     images: [
       {
         url: "/images/og-image.png",
@@ -21,11 +21,11 @@ export const metadata = {
     card: "summary_large_image",
     title: "Join Our Network of Scientific Experts | Arcova",
     description:
-      "Contribute your expertise to our distributed network of PhD researchers and scientists from world-leading institutions.",
+      "Join our network of of PhD researchers and scientists from world-leading institutions.",
     images: ["/images/og-image.png"],
   },
 }
 
-export default function ContributorsPage() {
-  return <ContributorsPageClient />
+export default function NetworkPage() {
+  return <NetworkPageClient />
 }

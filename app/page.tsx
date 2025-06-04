@@ -348,7 +348,7 @@ export default function Home() {
             <div className="flex flex-col items-center space-y-8 text-center">
               <div className="space-y-8 max-w-[900px]">
                 <h1 className="text-3xl font-bold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-center">
-                  We make science make sense
+                  We make science make <span className="text-arcova-teal">sense</span>
                 </h1>
                 <h2 className="text-2xl md:text-2xl font-medium tracking-tight sm:text-2xl md:text-2xl text-arcova-darkblue mt-6">
                 For the founders, investors, marketers, and researchers building what's next.

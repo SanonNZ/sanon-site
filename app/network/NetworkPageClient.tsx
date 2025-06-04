@@ -159,7 +159,7 @@ const HorizontalFeatureCard = ({ title, content, icon, delay, microInsight, bull
   )
 }
 
-export default function ContributorsPageClient() {
+export default function NetworkPageClient() {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -553,48 +553,31 @@ export default function ContributorsPageClient() {
         </div>
       </header>
 
-      <main className="flex-1 pt-16">
+      <main className="flex-1">
+        {/* Hero Section */}
         <AnimatedSection className="w-full min-h-[60vh] flex items-center pt-28 pb-16">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
-              <div className="space-y-6 max-w-[900px]">
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-                  Join our network of
+              <div className="space-y-8 max-w-[900px]">
+                <h1 className="text-3xl font-bold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-center">
+                  Join our network of <span className="text-arcova-teal">experts</span>
                 </h1>
-                <div className="min-h-[70px] sm:min-h-[80px] md:min-h-[90px] flex items-center justify-center">
-                  <TypewriterHeading
-                    prefix=""
-                    words={[
-                      "scientific experts",
-                      "data scientists",
-                      "biomedical researchers",
-                      "clinical trial analysts",
-                      "pharma consultants",
-                      "medical writers",
-                      "regulatory specialists",
-                      "AI researchers",
-                      "academic reviewers",
-                      "ML engineers",
-                      "venture advisors",
-                    ]}
-                    className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-5xl text-arcova-teal"
-                    suffix=""
-                  />
-                </div>
+                <h2 className="text-2xl md:text-2xl font-medium tracking-tight sm:text-2xl md:text-2xl text-arcova-darkblue mt-6">
+                  Collaborate with us to shape the future of science and health
+                </h2>
               </div>
-              <div className="space-y-2">
-                <p className="mx-auto max-w-[700px] text-lg font-medium text-gray-600 leading-relaxed mt-2">
-                  Lend your expertise to high-stakes research and due diligence projects. On your terms.
-                </p>
-              </div>
-              {/* Scroll-down button */}
+              <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed">
+                Join our global network of PhD researchers and scientists from world-leading institutions
+              </p>
+
+              {/* Added scroll-down button */}
               <motion.div
                 className="mt-8 group"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
               >
-                <a href="#our-network" className="flex flex-col items-center gap-2 cursor-pointer">
+                <a href="#core-skills" className="flex flex-col items-center gap-2 cursor-pointer">
                   <div className="bg-teal-50 border border-teal-200 rounded-full p-3 text-arcova-teal group-hover:bg-teal-100 transition-colors duration-300 group-hover:translate-y-1 transform transition-transform">
                     <ChevronDown className="h-5 w-5" />
                   </div>
