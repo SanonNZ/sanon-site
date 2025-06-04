@@ -693,9 +693,8 @@ export default function NetworkPageClient() {
 
       
 
-
-{/* Who We Work With Section */}
-<AnimatedSection id="who-we-work-with" className="w-full py-24 md:py-32  bg-arcova-mint/10">
+        {/* Who We Work With Section */}
+        <AnimatedSection id="who-we-work-with" className="w-full py-24 md:py-32  bg-arcova-mint/10">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="text-center mb-16">
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
@@ -791,10 +790,36 @@ export default function NetworkPageClient() {
           </div>
         </AnimatedSection>
 
+  {/* Featured Network Member */}
+  <AnimatedSection className="w-full py-14 md:py-14 bg-white">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="flex flex-col items-center">
+              <div className="max-w-3xl text-center">
+                {/* Star Rating */}
+                <div className="flex justify-center mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="h-6 w-6 fill-current text-amber-400 mr-1"
+                    />
+                  ))}
+                </div>
 
+                {/* Quote */}
+                <blockquote className="text-2xl md:text-2xl font-medium italic text-gray-900 mb-8 leading-relaxed">
+                  "They performed exceptionally well under pressure, and were fast, diligent, and thoughtful. Their work was high-quality, grounded in strong data analysis, and enriched by their valuable ideas and insights."
+                </blockquote>
 
-       
-
+                {/* Author Info */}
+                <div className="flex flex-col items-center">
+                  <div className="text-center">
+                    <div className="font-semibold text-gray-900 mb-1">Scientist | Immunology Lab</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
         {/* How it works Section */}
         <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-gray-100">
           <div className="container px-4 md:px-6 max-w-5xl">
@@ -803,38 +828,38 @@ export default function NetworkPageClient() {
                 How it works
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
-              Our method for turning research into results
+                Our process for joining the Arcova network
               </h2>
               <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
-              A clear, repeatable approach for turning evidence into impact.
+                A simple, collaborative onboarding designed to get you doing great work—fast.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               <ProcessStep
-                title="Discover"
-                subtitle="Go deep on the evidence"
-                description="Comprehensive literature search and data collection to build a strong foundation"
+                title="Reach Out"
+                subtitle="Start the conversation"
+                description="Fill out a short form to tell us a bit about your background and expertise."
                 delay={0.1}
                 color="arcova-teal"
               />
               <ProcessStep
-                title="Analyze"
-                subtitle="Separate signal from noise"
-                description="Critical evaluation of evidence quality and relevance to your goals"
+                title="Tell Us More"
+                subtitle="Share what you're great at"
+                description="We'll follow up with a few questions to understand your skills, interests, and ideal projects."
                 delay={0.2}
                 color="arcova-teal"
               />
               <ProcessStep
-                title="Synthesize"
-                subtitle="Connect the dots for clarity"
-                description="Transform complex science into clear, actionable insights you can use"
+                title="Try It Out (Paid)"
+                subtitle="Get matched and get paid"
+                description="We'll send through a small piece of trial work—paid, of course—to get a feel for your style and strengths."
                 delay={0.3}
                 color="arcova-teal"
               />
               <ProcessStep
-                title="Deliver"
-                subtitle="From research to impact"
-                description="Receive polished content, reports, or advice - science delivered your way"
+                title="Join the Team"
+                subtitle="Jump in and start making impact"
+                description="Once approved, we'll start sending you projects that fit your expertise and interests."
                 delay={0.4}
                 color="arcova-teal"
               />
