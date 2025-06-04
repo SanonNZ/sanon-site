@@ -22,7 +22,7 @@ export function ProcessStep({
 }: ProcessStepProps) {
   return (
     <motion.div
-      className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.2)] transition-all duration-300 group flex flex-col min-h-[250px]"
+      className="relative overflow-hidden rounded-2xl bg-white px-4 py-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.2)] transition-all duration-300 group flex flex-col min-h-[250px]"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -31,8 +31,8 @@ export function ProcessStep({
       <div className="flex flex-col h-full text-center">
         {/* Main content */}
         <div className="flex-1">
-          <h3 className="text-xl font-bold text-arcova-darkblue mb-4">{title}</h3>
-          <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
+          <h3 className="text-xl font-bold text-arcova-darkblue mb-4 whitespace-pre-wrap px-0 md:px-0">{title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed px-4">{description}</p>
         </div>
         
         {/* Footer area with fixed height */}
