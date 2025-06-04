@@ -167,7 +167,13 @@ export function TestimonialCarousel() {
               className="break-inside-avoid rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 mb-8 last:mb-0"
             >
               <blockquote className="text-gray-900">
-                <p>"{testimonial.quote}"</p>
+                {Array.isArray(testimonial.quote) ? (
+                  testimonial.quote.map((line, i) => (
+                    <div key={i}>{line}</div>
+                  ))
+                ) : (
+                  <p>"{testimonial.quote}"</p>
+                )}
               </blockquote>
               <figcaption className="mt-6 flex flex-col gap-y-4">
                 <div className="flex items-center gap-x-4">
