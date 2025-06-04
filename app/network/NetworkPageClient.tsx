@@ -663,7 +663,7 @@
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.5 }}
                 >
-                    <a href="#process" className="flex flex-col items-center gap-2 cursor-pointer">
+                    <a href="#who-we-want" className="flex flex-col items-center gap-2 cursor-pointer">
                     <div className="bg-teal-50 border border-teal-200 rounded-full p-3 text-arcova-teal group-hover:bg-teal-100 transition-colors duration-300 group-hover:translate-y-1 transform transition-transform">
                         <ChevronDown className="h-5 w-5" />
                     </div>
@@ -674,7 +674,7 @@
             </AnimatedSection>
 
             {/* Network Testimonials */}
-            <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
+            <AnimatedSection id="who-we-want" className="w-full py-24 md:py-32 bg-gray-50">
             <div className="container px-4 md:px-6 max-w-5xl">
                 <div className="mx-auto max-w-3xl text-center mb-16">
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
@@ -688,6 +688,20 @@
                 </p>
                 </div>
                 <NetworkTestimonials />
+
+                {/* Scroll button update */}
+                <motion.div
+                    className="mt-8 group"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.5 }}
+                >
+                    <a href="#who-we-want" className="flex flex-col items-center gap-2 cursor-pointer">
+                    <div className="bg-teal-50 border border-teal-200 rounded-full p-3 text-arcova-teal group-hover:bg-teal-100 transition-colors duration-300 group-hover:translate-y-1 transform transition-transform">
+                        <ChevronDown className="h-5 w-5" />
+                    </div>
+                    </a>
+                </motion.div>
             </div>
             </AnimatedSection>
 
