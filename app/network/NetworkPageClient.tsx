@@ -529,20 +529,6 @@
                     Home
                     </Link>
                     <Link
-                    href="/investors"
-                    className="text-base font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
-                    onClick={handleMobileNavClick}
-                    >
-                    For Investors
-                    </Link>
-                    <Link
-                    href="/sciencebrands"
-                    className="text-base font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
-                    onClick={handleMobileNavClick}
-                    >
-                    For Science-Backed Brands
-                    </Link>
-                    <Link
                     href="#"
                     onClick={(e) => {
                         e.preventDefault()
@@ -622,18 +608,6 @@
                 Home
                 </Link>
                 <Link
-                href="/investors"
-                className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
-                >
-                For Investors
-                </Link>
-                <Link
-                href="/sciencebrands"
-                className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
-                >
-                For Science-Backed Brands
-                </Link>
-                <Link
                 href="/network"
                 className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
                 >
@@ -671,7 +645,7 @@
                     </h2>
                 </div>
                 <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed">
-                We match you with projects from biotechs, health brands, and research-led teams
+                We match you with real-world projects from biotechs, health brands, and research-led teams
                 </p>
 
                 {/* Added scroll-down button */}
