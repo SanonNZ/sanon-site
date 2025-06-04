@@ -5,7 +5,10 @@ import type React from "react"
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import {
+  Users,
   Check,
+  Zap,
+  LineChart,        
   BookOpen,
   BarChart3,
   ClipboardCheck,
@@ -26,7 +29,13 @@ import {
   Binary,
   ScrollText,
   Shield,
-  Scale
+  Scale,
+  Clock,
+  DollarSign,
+  Target,
+  Database,
+  FileSearch,
+  Sparkles
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimatedSection } from "@/components/animated-section"
@@ -34,6 +43,15 @@ import { LogoLink } from "@/components/logo"
 import { motion, AnimatePresence } from "framer-motion"
 import { TypewriterHeading } from "@/components/typewriter-heading"
 import { ScrollToTop } from "@/components/scroll-to-top"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { ProcessStep } from "@/components/process-step"
 
 // Confetti component
 const Confetti = ({ isActive }: { isActive: boolean }) => {
@@ -93,23 +111,20 @@ const HorizontalFeatureCard = ({ title, content, icon, delay, microInsight, bull
 
   return (
     <motion.div
-      className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#ccecfe]/30 via-transparent to-[#ccecfe]/50 p-6 md:p-8 hover:shadow-lg transition-all duration-300 group"
+      className="relative overflow-hidden rounded-2xl bg-white p-6 md:p-8 shadow-lg ring-1 ring-gray-900/5 transition-all duration-300 group h-full hover:shadow-xl"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, delay }}
     >
-      <div className="absolute top-0 left-0 w-full h-1 bg-arcova-blue/40" />
       <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center md:items-start">
-        <div className="flex-shrink-0">
-          <div className="w-14 h-14 rounded-full bg-arcova-blue/10 flex items-center justify-center text-arcova-blue">
-            {icon}
-          </div>
+        <div className="text-arcova-teal">
+          {icon}
         </div>
         <div className="flex-1 space-y-4 text-center md:text-left">
           <div>
-            <h3 className="text-xl font-bold text-arcova-darkblue mb-2">{title}</h3>
-            <p className="text-sm italic text-arcova-blue">{microInsight}</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
+            <p className="text-sm text-arcova-teal">{microInsight}</p>
           </div>
           
           {/* Desktop view - always visible */}
@@ -117,12 +132,12 @@ const HorizontalFeatureCard = ({ title, content, icon, delay, microInsight, bull
             <ul className="space-y-2 mx-auto md:mx-0 inline-block text-left">
               {bulletPoints.map((point, index) => (
                 <li key={index} className="flex items-start gap-2 text-sm text-gray-600">
-                  <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue mt-1.5"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal mt-1.5"></div>
                   <span>{point}</span>
                 </li>
               ))}
             </ul>
-            <div className="text-sm text-gray-600 md:border-l md:border-arcova-blue/20 md:pl-4 text-center md:text-left">
+            <div className="text-sm text-gray-600 border-l border-gray-100 pl-4 text-center md:text-left">
               {content}
             </div>
           </div>
@@ -132,7 +147,7 @@ const HorizontalFeatureCard = ({ title, content, icon, delay, microInsight, bull
             <ul className="space-y-2 mx-auto inline-block text-left mb-3">
               {bulletPoints.map((point, index) => (
                 <li key={index} className="flex items-start gap-2 text-sm text-gray-600">
-                  <div className="w-1.5 h-1.5 rounded-full bg-arcova-blue mt-1.5"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-arcova-teal mt-1.5"></div>
                   <span>{point}</span>
                 </li>
               ))}
@@ -154,7 +169,7 @@ const HorizontalFeatureCard = ({ title, content, icon, delay, microInsight, bull
             </div>
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="w-7 h-7 rounded-full bg-arcova-blue/10 flex items-center justify-center text-arcova-blue transition-transform duration-300 hover:bg-arcova-blue/20 mx-auto mt-2"
+              className="w-7 h-7 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 transition-transform duration-300 hover:bg-gray-100 mx-auto mt-2"
             >
               {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
             </button>
@@ -175,12 +190,12 @@ const networkTestimonials = [
   {
     title: "Research Specialists",
     quote: "PhDs or postdocs with strong methodology and synthesis skills",
-    icon: <Brain className="h-5 w-5" />
+    icon: <BookOpen className="h-5 w-5" />
   },
   {
     title: "Data Scientists",
     quote: "Expertise in bioinformatics, ML workflows, or statistical analysis",
-    icon: <Binary className="h-5 w-5" />
+    icon: <Database className="h-5 w-5" />
   },
   {
     title: "Regulatory Experts",
@@ -190,7 +205,7 @@ const networkTestimonials = [
   {
     title: "Due Diligence Analysts",
     quote: "Experience surfacing red flags or technical risks",
-    icon: <Shield className="h-5 w-5" />
+    icon: <FileSearch className="h-5 w-5" />
   },
   {
     title: "Patent & IP Analysts",
@@ -213,14 +228,12 @@ const NetworkTestimonials = () => {
             className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5"
           >
             <div className="mb-4">
-              {testimonial.title && (
-                <div className="flex items-center gap-2 text-gray-600 font-bold">
-                  <div className="text-arcova-teal">
-                    {testimonial.icon}
-                  </div>
-                  {testimonial.title}
+              <div className="flex items-center gap-2 text-gray-600 font-bold">
+                <div className="text-arcova-teal">
+                  {testimonial.icon}
                 </div>
-              )}
+                {testimonial.title}
+              </div>
             </div>
             <blockquote className="text-gray-900">
               <p>{testimonial.quote}</p>
@@ -678,38 +691,158 @@ export default function NetworkPageClient() {
           </div>
         </AnimatedSection>
 
-        {/* Featured Network Member */}
-        <AnimatedSection className="w-full py-14 md:py-14 bg-arcova-mint/15">
+      
+
+
+{/* Who We Work With Section */}
+<AnimatedSection id="who-we-work-with" className="w-full py-24 md:py-32  bg-arcova-mint/10">
           <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center">
-              <div className="max-w-3xl text-center">
-                {/* Star Rating */}
-                <div className="flex justify-center mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-6 w-6 fill-current text-amber-400 mr-1"
-                    />
-                  ))}
-                </div>
+            <div className="text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
+                Get Paid To Think
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">Work that values you, and what you know              </h2>
+              <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
+              Bring your research skills, analytical mind, and scientific training to real-world projects, without stepping away from the work you already care about.
+              </p>
+            </div>
 
-                {/* Quote */}
-                <blockquote className="text-2xl md:text-2xl font-medium italic text-gray-900 mb-8 leading-relaxed">
-                  "They performed exceptionally well under pressure, and were fast, diligent, and thoughtful. Their work was high-quality, grounded in strong data analysis, and enriched by their valuable ideas and insights."
-                </blockquote>
-
-                {/* Author Info */}
-                <div className="flex flex-col items-center">
-                  <div className="text-center">
-                    <div className="font-semibold text-gray-900 mb-1">Scientist | Immunology Lab</div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-8">
+              {/* Owners & Founders */}
+              <motion.div
+                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Clock className="h-5 w-5 text-[#f55f96]" />
+                      <h3 className="font-bold text-lg text-arcova-darkblue">Work, On Your Terms</h3>
+                    </div>
+                    <p className="text-gray-600">Consult on high-impact projects. Flexibly fits around existing commitments. Work from home</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
+
+              {/* Marketing & Comms Leads */}
+              <motion.div
+                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Zap className="h-5 w-5 text-[#ffb996]" />
+                      <h3 className="font-bold text-lg text-arcova-darkblue">Your Expertise, Valued</h3>
+                    </div>
+                    <p className="text-gray-600">Project-based fees. Short-term or ongoing contracts. Transparent compensation.</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Investors & Advisors */}
+              <motion.div
+                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <LineChart className="h-5 w-5 text-[#8d7dc7]" />
+                      <h3 className="font-bold text-lg text-arcova-darkblue">Extend your Impact</h3>
+                    </div>
+                    <p className="text-gray-600">Apply your skills to new fields. Shape business decisions. Drive innovation</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Researchers & Academics */}
+              <motion.div
+                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Sparkles className="h-5 w-5 text-[#00a4b4]" />
+                      <h3 className="font-bold text-lg text-arcova-darkblue">Grow with Us</h3>
+                    </div>
+                    <p className="text-gray-600">Access new types of projects. Join a network of peers. Expand your commercial skill set.</p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </AnimatedSection>
 
-        {/* Core Skills Section */}
+
+
+       
+
+        {/* How it works Section */}
+        <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-gray-100">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="text-center mb-16">
+              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
+                How it works
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
+              Our method for turning research into results
+              </h2>
+              <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
+              A clear, repeatable approach for turning evidence into impact.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+              <ProcessStep
+                title="Discover"
+                subtitle="Go deep on the evidence"
+                description="Comprehensive literature search and data collection to build a strong foundation"
+                delay={0.1}
+                color="arcova-teal"
+              />
+              <ProcessStep
+                title="Analyze"
+                subtitle="Separate signal from noise"
+                description="Critical evaluation of evidence quality and relevance to your goals"
+                delay={0.2}
+                color="arcova-teal"
+              />
+              <ProcessStep
+                title="Synthesize"
+                subtitle="Connect the dots for clarity"
+                description="Transform complex science into clear, actionable insights you can use"
+                delay={0.3}
+                color="arcova-teal"
+              />
+              <ProcessStep
+                title="Deliver"
+                subtitle="From research to impact"
+                description="Receive polished content, reports, or advice - science delivered your way"
+                delay={0.4}
+                color="arcova-teal"
+              />
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Core Skills Section
         <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-4 text-center mb-16">
@@ -739,66 +872,9 @@ export default function NetworkPageClient() {
               ))}
             </div>
           </div>
-        </AnimatedSection>
+        </AnimatedSection> */}
 
-        {/* Get paid to think section */}
-        <AnimatedSection className="w-full py-24 md:py-32 bg-white">
-          <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="flex flex-col items-center space-y-8 text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-arcova-blue/20 text-arcova-blue rounded-full text-sm font-medium">
-                Get paid to think.
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                Work that values you, and what you know.
-              </h2>
-              <p className="text-lg text-gray-600 max-w-[700px]">
-                Bring your research skills, analytical mind, and scientific training to real-world projects, without
-                stepping away from the work you already care about.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <HorizontalFeatureCard
-                title="Work, on your terms"
-                content="Join a network of experts working on high-impact projects that make a real difference. Our flexible model lets you choose when and how much you want to contribute."
-                icon={<Brain className="h-7 w-7" />}
-                delay={0.1}
-                microInsight="Freedom to think, flexibility to work"
-                bulletPoints={[
-                  "Consult on high-impact projects",
-                  "Flexibly fits around existing commitments",
-                  "Work from home"
-                ]}
-              />
-
-              <HorizontalFeatureCard
-                title="Your expertise, valued"
-                content="We believe in fair compensation for intellectual work. Our project-based fee structure ensures you're rewarded appropriately for your expertise and time investment."
-                icon={<Heart className="h-7 w-7" />}
-                delay={0.2}
-                microInsight="Your expertise, properly valued"
-                bulletPoints={[
-                  "Project-based fees",
-                  "Short-term or ongoing contracts",
-                  "Transparent compensation"
-                ]}
-              />
-
-              <HorizontalFeatureCard
-                title="Extend your impact"
-                content="Apply your scientific expertise to solve real-world challenges. Your insights can help shape business decisions, health policy, and product development across industries."
-                icon={<PlusCircle className="h-7 w-7" />}
-                delay={0.3}
-                microInsight="From lab to real-world impact"
-                bulletPoints={[
-                  "Apply your skills to new fields",
-                  "Shape business decisions",
-                  "Drive innovation"
-                ]}
-              />
-            </div>
-          </div>
-        </AnimatedSection>
+       
 
         {/* Contact Form Section */}
         <AnimatedSection id="contact-form" className="w-full py-24 md:py-32 bg-gray-50">
