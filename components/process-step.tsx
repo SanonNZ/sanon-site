@@ -87,7 +87,6 @@ export function ProcessStep({
 
       {/* Content layer */}
       <div className="relative z-10">
-        <div className="absolute top-0 left-0 w-full h-1 bg-arcova-teal/40" />
         <div className="flex-1 text-center">
           <div className="flex items-center justify-center mb-3">
             <div className={`w-12 h-12 rounded-full bg-arcova-teal/10 flex items-center justify-center`}>

@@ -193,7 +193,7 @@ export default function Home() {
     },
     {
       id: 5,
-      name: "Academic & Research",
+      name: "Research & Academic",
       description: (
         <span className="flex items-start gap-2">
           <GraduationCap className="h-5 w-5 flex-shrink-0 text-[#00a4b4] mt-1" />
@@ -969,15 +969,14 @@ export default function Home() {
                 </div>
 
                 {/* Quote */}
-                <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 mb-8 leading-relaxed">
+                <blockquote className="text-2xl md:text-2xl font-medium italic text-gray-900 mb-8 leading-relaxed">
                   "She helped out both strategically and in a hands-on capacity. In addition to driving a great result, a variety of stakeholders LOVED Emma, and couldn't stop telling me how amazing she was. Get her on your team as soon as you have a chance!"
                 </blockquote>
 
                 {/* Author Info */}
                 <div className="flex flex-col items-center">
                   <div className="text-center">
-                    <div className="font-semibold text-gray-900 mb-1">Startup Founder</div>
-                    <div className="text-gray-600">Health & Wellness Sector</div>
+                    <div className="font-semibold text-gray-900 mb-1">Founder | Health & Wellness Startup</div>
                   </div>
                 </div>
               </div>
