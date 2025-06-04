@@ -6,7 +6,6 @@ import { ArrowRight, Menu, X, ChevronDown, FileText, Zap, Users, Star, Lightbulb
 import { Button } from "@/components/ui/button"
 import { AnimatedSection } from "@/components/animated-section"
 import { ProcessStep } from "@/components/process-step"
-import { TypewriterHeading } from "@/components/typewriter-heading"
 import { GlowingNetworkMolecule } from "@/components/network-molecule"
 import { LogoLink } from "@/components/logo"
 import { motion, AnimatePresence } from "framer-motion"
@@ -373,51 +372,15 @@ export default function Home() {
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
               <div className="space-y-8 max-w-[900px]">
-                <div className="flex flex-col items-center">
-                  <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl text-center">
-                    <span className="block sm:inline">From data to</span>{" "}
-                    <span className="hidden sm:inline">
-                      <TypewriterHeading
-                        prefix=""
-                        words={[
-                          "decision",
-                          "insight",
-                          "conviction",
-                          "content",
-                          "clarity",
-                          "growth",
-                          "action",
-                          "credibility",
-                        ]}
-                        className="inline"
-                        suffix=""
-                      />
-                    </span>
-                  </h1>
-                  <div className="block sm:hidden mt-2 mb-4 min-h-[60px]">
-                    <TypewriterHeading
-                      prefix=""
-                      words={[
-                        "decision",
-                        "insight",
-                        "conviction",
-                        "content",
-                        "clarity",
-                        "growth",
-                        "action",
-                        "credibility",
-                      ]}
-                      className="text-3xl font-bold tracking-tight text-arcova-teal"
-                      suffix=""
-                    />
-                  </div>
-                </div>
-                <h2 className="text-2xl md:text-[2rem] font-medium tracking-tight sm:text-3xl md:text-3xl text-arcova-darkblue mt-6">
-                  Move fast. Think rigorously.
+                <h1 className="text-3xl font-bold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-center">
+                  We make science make sense
+                </h1>
+                <h2 className="text-2xl md:text-2xl font-medium tracking-tight sm:text-2xl md:text-2xl text-arcova-darkblue mt-6">
+                For the founders, investors, marketers, and researchers building what’s next.
                 </h2>
               </div>
-              <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed mt-3">
-                We turn complex science into decision-ready insight.
+              <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed">
+                We help turn research into strategy, products, and progress
               </p>
 
               {/* Added scroll-down button */}
@@ -807,6 +770,7 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
+
         {/* Client Success Section */}
         <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
@@ -825,8 +789,40 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
+
+         {/* Featured Testimonial */}
+       <AnimatedSection className="w-full py-14 md:py-14 bg-arcova-mint/15">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="flex flex-col items-center">
+              <div className="max-w-3xl text-center">
+                {/* Star Rating */}
+                <div className="flex justify-center mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="h-6 w-6 fill-current text-amber-400 mr-1"
+                    />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <blockquote className="text-2xl md:text-2xl font-medium italic text-gray-900 mb-8 leading-relaxed">
+                  "Her ability to break down complex scientific concepts into accessible content is exceptional."
+                </blockquote>
+
+                {/* Author Info */}
+                <div className="flex flex-col items-center">
+                  <div className="text-center">
+                    <div className="font-semibold text-gray-900 mb-1">Owner and Director | Biotech Training Firm</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
         {/* Our Network Section */}
-        <AnimatedSection id="about" className="w-full py-24 md:py-32">
+        <AnimatedSection id="about" className="w-full py-24 md:py-32 bg-white">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
               <div className="relative h-[300px] md:h-[400px] shadow-xl rounded-2xl overflow-hidden order-1 lg:order-1">
