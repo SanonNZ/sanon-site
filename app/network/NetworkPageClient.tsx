@@ -493,65 +493,6 @@
             )}
         </AnimatePresence>
 
-        {/* Mobile Navigation Menu */}
-        <AnimatePresence>
-            {mobileMenuOpen && (
-            <motion.div
-                className="fixed inset-0 bg-black/50 z-50 md:hidden"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setMobileMenuOpen(false)}
-            >
-                <motion.div
-                className="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white shadow-xl p-6 z-50"
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                onClick={(e) => e.stopPropagation()}
-                >
-                <div className="flex justify-between items-center mb-8">
-                    <LogoLink variant="icon" />
-                    <button
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-                    >
-                    <X className="h-6 w-6 text-gray-600" />
-                    </button>
-                </div>
-                <nav className="flex flex-col space-y-6">
-                    <Link
-                    href="/"
-                    className="text-base font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
-                    onClick={handleMobileNavClick}
-                    >
-                    Home
-                    </Link>
-                    <Link
-                    href="#"
-                    onClick={(e) => {
-                        e.preventDefault()
-                        window.scrollTo({ top: 0, behavior: "smooth" })
-                        handleMobileNavClick()
-                    }}
-                    className="text-base font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
-                    >
-                    Join Our Network
-                    </Link>
-                    <Button
-                    asChild
-                    className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full transition-colors duration-200 mt-4"
-                    onClick={handleMobileNavClick}
-                    >
-                    <a href="#contact-form">Join Our Network</a>
-                    </Button>
-                </nav>
-                </motion.div>
-            </motion.div>
-            )}
-        </AnimatePresence>
-
         <style jsx global>{`
             .confetti {
             position: fixed;
@@ -596,40 +537,6 @@
             overflow: hidden;
             }
         `}</style>
-
-        <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-100">
-            <div className="container flex h-20 items-center justify-between px-4 md:px-6">
-            <LogoLink />
-            <nav className="hidden md:flex gap-8">
-                <Link
-                href="/"
-                className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
-                >
-                Home
-                </Link>
-                <Link
-                href="/network"
-                className="text-sm font-medium text-gray-600 hover:text-arcova-teal transition-colors duration-200"
-                >
-                Join Our Network
-                </Link>
-            </nav>
-            <Button
-                asChild
-                className="hidden md:inline-flex bg-arcova-teal hover:bg-arcova-blue text-white rounded-full transition-colors duration-200"
-            >
-                <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer">Book a Call</a>
-            </Button>
-            {/* Mobile menu button */}
-            <button
-                className="md:hidden p-2.5 rounded-md bg-arcova-teal/10 text-arcova-teal hover:bg-arcova-teal/20 transition-colors"
-                onClick={() => setMobileMenuOpen(true)}
-                aria-label="Open menu"
-            >
-                <Menu className="h-7 w-7" />
-            </button>
-            </div>
-        </header>
 
         <main className="flex-1">
             {/* Hero Section */}
@@ -867,7 +774,11 @@
                 />
                 <ProcessStep
                     title={`🎉 Get Projects`}
-                    subtitle="Work aligned with your skills."
+                    subtitle={
+                        <a href="#contact-form" className="text-sm font-medium text-arcova-teal hover:underline">
+                            Get Started→
+                        </a>
+                    }
                     description="You'll start receiving tailored project briefs that align with your expertise and interests."
                     delay={0.4}
                     color="arcova-teal"
@@ -911,13 +822,13 @@
         
 
             {/* Contact Form Section */}
-            <AnimatedSection id="contact-form" className="w-full py-24 md:py-32 bg-gray-50">
+            <AnimatedSection id="contact-form" className="w-full py-24 md:py-32 bg-arcova-blue/10">
             <div className="container px-4 md:px-6 max-w-5xl">
                 <div className="flex flex-col items-center space-y-8 text-center mb-16">
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
-                    Get in Touch
+                    Join Our Network
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Join our network</h2>
+                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Tell us about you</h2>
                 <p className="text-lg text-gray-600 max-w-[700px]">
                     If you think you'd be a good fit for our network, we'd love to hear from you. Share your details below
                     and we'll get in touch.
@@ -1057,7 +968,7 @@
                             onChange={handleChange}
                             rows={4}
                             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
-                            placeholder="Feel free to tell us more about your availability and what you're looking for. Don't worry if you're not sure right now, we'll follow up with you."
+                            placeholder="Feel free to tell us more about your availability and what you're looking for. Don't worry if you're not sure right now, we'll follow up with a few questions."
                             ></textarea>
                         </div>
 
@@ -1066,7 +977,7 @@
                             <Button
                             type="submit"
                             disabled={formState.loading}
-                            className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-8 py-3 transition-all duration-300 hover:shadow-lg disabled:opacity-70 disabled:hover:bg-arcova-teal disabled:cursor-not-allowed min-w-[200px]"
+                            className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-8 py-3 transition-all duration-300 hover:shadow-lg hover:scale-105 transform disabled:opacity-70 disabled:hover:bg-arcova-teal disabled:cursor-not-allowed min-w-[200px] group"
                             >
                             {formState.loading ? (
                                 <div className="flex items-center justify-center gap-2">
@@ -1074,7 +985,23 @@
                                 <span>Submitting...</span>
                                 </div>
                             ) : (
-                                "Join Our Network"
+                                <div className="flex items-center justify-center gap-2">
+                                    Let's Do This
+                                    <motion.div
+                                        whileHover={{ x: 5 }}
+                                        whileTap={{ x: 2 }}
+                                        animate={{ x: [0, 5, 0] }}
+                                        transition={{
+                                            duration: 1,
+                                            repeat: Number.POSITIVE_INFINITY,
+                                            repeatType: "loop",
+                                            ease: "easeInOut",
+                                            repeatDelay: 1,
+                                        }}
+                                    >
+                                        →
+                                    </motion.div>
+                                </div>
                             )}
                             </Button>
                         </div>
