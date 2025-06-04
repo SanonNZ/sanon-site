@@ -251,7 +251,9 @@
         email: "",
         expertise: "",
         institution: "",
+        education: "",
         message: "",
+        projectInterests: "",
         submitted: false,
         loading: false,
     })
@@ -330,25 +332,41 @@
         e.preventDefault()
         setFormState({ ...formState, loading: true })
 
-        // Simulate form submission
-        await new Promise((resolve) => setTimeout(resolve, 1500))
+        // Enforce required fields
+        if (!formState.name.trim() || !formState.email.trim() || !formState.expertise.trim() || !formState.education.trim()) {
+            alert("Please fill out all required fields: Name, Email, Area of Expertise, and Level of Education.")
+            setFormState({ ...formState, loading: false })
+            return
+        }
 
-        // In a real application, you would send the form data to your backend here
-        // const response = await fetch('/api/contact', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify(formState),
-        // })
+        // Submit to Airtable API route
+        const response = await fetch('/api/airtable', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                ...formState,
+                education: formState.education,
+                projectInterests: formState.projectInterests,
+            }),
+        })
+
+        if (!response.ok) {
+            setFormState({ ...formState, loading: false })
+            alert('There was an error submitting your application. Please try again or contact us.');
+            return
+        }
 
         setFormState({
-        ...formState,
-        submitted: true,
-        loading: false,
-        name: "",
-        email: "",
-        expertise: "",
-        institution: "",
-        message: "",
+            ...formState,
+            submitted: true,
+            loading: false,
+            name: "",
+            email: "",
+            expertise: "",
+            institution: "",
+            education: "",
+            message: "",
+            projectInterests: "",
         })
 
         // Trigger confetti and notification
@@ -357,7 +375,7 @@
 
         // Hide notification after 5 seconds
         setTimeout(() => {
-        setShowNotification(false)
+            setShowNotification(false)
         }, 5000)
     }
 
@@ -827,7 +845,7 @@
                     {/* Author Info */}
                     <div className="flex flex-col items-center">
                     <div className="text-center">
-                        <div className="font-semibold text-gray-900 mb-1">Scientist | Immunology Lab</div>
+                        <div className="font-semibold text-gray-900 mb-1">Academic | Research Group</div>
                     </div>
                     </div>
                 </div>
@@ -935,10 +953,9 @@
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-6">
                         <Check className="h-8 w-8 text-green-600" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4">Thank you for joining our network!</h3>
+                    <h3 className="text-2xl font-bold mb-4">Thank's for reaching out! 🤝</h3>
                     <p className="text-gray-600 mb-6">
-                        We've received your details and will be in touch about relevant opportunities that match your
-                        expertise.
+                        We'll be in touch soon 🎉.
                     </p>
                     <Button
                         onClick={() => setFormState({ ...formState, submitted: false })}
@@ -980,12 +997,12 @@
                                 onChange={handleChange}
                                 required
                                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
-                                placeholder="your.email@example.com"
+                                placeholder="youremail@example.com"
                             />
                             </div>
                         </div>
 
-                        {/* Expertise and Institution row */}
+                        {/* Expertise and Education row */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
                             <label htmlFor="expertise" className="block text-sm font-medium text-gray-700">
@@ -999,12 +1016,31 @@
                                 onChange={handleChange}
                                 required
                                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
-                                placeholder="e.g., Neuroscience, Bioinformatics"
+                                placeholder="Neuroscience, Bioinformatics"
                             />
                             </div>
                             <div className="space-y-2">
+                            <label htmlFor="education" className="block text-sm font-medium text-gray-700">
+                                Level of Education
+                            </label>
+                            <input
+                                type="text"
+                                id="education"
+                                name="education"
+                                value={formState.education}
+                                onChange={handleChange}
+                                required
+                                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
+                                placeholder="Masters, PhD, Postdoc"
+                            />
+                            </div>
+                        </div>
+
+                        {/* Institution and Project Interests row */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-2">
                             <label htmlFor="institution" className="block text-sm font-medium text-gray-700">
-                                Institution/Company
+                                Your Workplace (optional)
                             </label>
                             <input
                                 type="text"
@@ -1014,6 +1050,20 @@
                                 onChange={handleChange}
                                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
                                 placeholder="University or Company"
+                            />
+                            </div>
+                            <div className="space-y-2">
+                            <label htmlFor="projectInterests" className="block text-sm font-medium text-gray-700">
+                                Project Interests (Optional)
+                            </label>
+                            <input
+                                type="text"
+                                id="projectInterests"
+                                name="projectInterests"
+                                value={formState.projectInterests}
+                                onChange={handleChange}
+                                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
+                                placeholder="Data analysis, Literature review"
                             />
                             </div>
                         </div>
@@ -1030,7 +1080,7 @@
                             onChange={handleChange}
                             rows={4}
                             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
-                            placeholder="Tell us about your background, interests, or availability"
+                            placeholder="Feel free to tell us more about your availability and what you're looking for. Don't worry if you're not sure right now, we'll follow up with you."
                             ></textarea>
                         </div>
 
