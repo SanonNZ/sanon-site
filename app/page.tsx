@@ -64,12 +64,7 @@ export default function Home() {
     {
       id: 1,
       name: "Business Strategy & Advisory",
-      description: (
-        <span className="flex items-start gap-2">
-          <Users className="h-5 w-5 flex-shrink-0 text-[#f55f96] mt-1" />
-          <span>For science, health, and wellness businesses planning, launching, or growing.</span>
-        </span>
-      ),
+      description: "For science, health, and wellness businesses planning, launching, or growing.",
       subheader: "Shape your vision into a market-ready plan.",
       personas: ["Founders", "Science ventures", "Health & Wellness businesses"],
       features: [
@@ -96,12 +91,7 @@ export default function Home() {
     {
       id: 2,
       name: "Whitepapers & Reports",
-      description: (
-        <span className="flex items-start gap-2">
-          <FileText className="h-5 w-5 flex-shrink-0 text-[#216680] mt-1" />
-          <span>For strategy leaders, product owners, and founders presenting complex ideas to stakeholders.</span>
-        </span>
-      ),
+      description: "For strategy leaders, product owners, and founders presenting complex ideas to stakeholders.",
       subheader: "Authoritative insight that drives confident decisions and elevates thought-leadership.",
       personas: ["Strategy Leaders", "Product Owners", "Founders"],
       features: [
@@ -128,12 +118,7 @@ export default function Home() {
     {
       id: 3,
       name: "Articles & Content",
-      description: (
-        <span className="flex items-start gap-2">
-          <Zap className="h-5 w-5 flex-shrink-0 text-[#ffb996] mt-1" />
-          <span>For marketing teams, content leads, and founders building authority and credibility.</span>
-        </span>
-      ),
+      description: "For marketing teams, content leads, and founders building authority and credibility.",
       subheader: "Turn deep research into magnetic stories that build authority and trust.",
       personas: ["Marketing Leads", "Content Managers", "Founders"],
       features: [
@@ -160,12 +145,7 @@ export default function Home() {
     {
       id: 4,
       name: "Scientific Validation & Diligence",
-      description: (
-        <span className="flex items-start gap-2">
-          <LineChart className="h-5 w-5 flex-shrink-0 text-[#8d7dc7] mt-1" />
-          <span>For biotech founders and investors seeking validation to support key investment decisions.</span>
-        </span>
-      ),
+      description: "For biotech founders and investors seeking validation to support key investment decisions.",
       subheader: "Prove the science before you build, pitch, or invest.",
       personas: ["Founders", "Biotech companies", "Health Investors"],
       features: [
@@ -193,12 +173,7 @@ export default function Home() {
     {
       id: 5,
       name: "Research & Academic",
-      description: (
-        <span className="flex items-start gap-2">
-          <GraduationCap className="h-5 w-5 flex-shrink-0 text-[#00a4b4] mt-1" />
-          <span>For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.</span>
-        </span>
-      ),
+      description: "For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.",
       subheader: "Transform your research into impactful publications.",
       personas: ["PIs", "Postdocs", "Research Teams"],
       features: [
@@ -621,7 +596,7 @@ export default function Home() {
                       </h3>
 
                       {/* For statement in teal */}
-                      <p className="text-lg font-semibold text-arcova-teal mb-8">
+                      <p className="text-lg font-medium text-arcova-teal mb-8">
                         {services[selectedService].description}
                       </p>
 
