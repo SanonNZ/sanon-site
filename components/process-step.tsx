@@ -6,7 +6,7 @@ import { motion, useInView } from "framer-motion"
 interface ProcessStepProps {
   number?: string
   title: string
-  subtitle: string
+  subtitle: string | React.ReactNode
   description: string
   delay: number
   color: string

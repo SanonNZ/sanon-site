@@ -44,10 +44,25 @@ export const Navigation = () => {
         <div className="hidden md:flex items-center">
           <Button
             asChild
-            className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-6 py-2 font-semibold text-base shadow-none transition-all duration-200 flex items-center gap-2"
+            className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-6 py-2 font-semibold text-base shadow-none transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center gap-2"
           >
-            <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer">
-              Book a Call <span aria-hidden="true">&rarr;</span>
+            <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              Book a Call
+              <motion.span
+                whileHover={{ x: 5 }}
+                whileTap={{ x: 2 }}
+                animate={{ x: [0, 5, 0] }}
+                transition={{
+                  duration: 1,
+                  repeat: Number.POSITIVE_INFINITY,
+                  repeatType: "loop",
+                  ease: "easeInOut",
+                  repeatDelay: 1,
+                }}
+                aria-hidden="true"
+              >
+                &rarr;
+              </motion.span>
             </a>
           </Button>
         </div>
@@ -101,10 +116,25 @@ export const Navigation = () => {
                 </ul>
                 <Button
                   asChild
-                  className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-6 py-2 font-semibold text-base shadow-none transition-all duration-200 mt-8 flex items-center gap-2"
+                  className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-6 py-2 font-semibold text-base shadow-none transition-all duration-300 transform hover:scale-105 hover:shadow-lg mt-8 flex items-center gap-2"
                 >
-                  <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer">
-                    Book a Call <span aria-hidden="true">&rarr;</span>
+                  <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    Book a Call
+                    <motion.span
+                      whileHover={{ x: 5 }}
+                      whileTap={{ x: 2 }}
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{
+                        duration: 1,
+                        repeat: Number.POSITIVE_INFINITY,
+                        repeatType: "loop",
+                        ease: "easeInOut",
+                        repeatDelay: 1,
+                      }}
+                      aria-hidden="true"
+                    >
+                      &rarr;
+                    </motion.span>
                   </a>
                 </Button>
               </motion.div>
