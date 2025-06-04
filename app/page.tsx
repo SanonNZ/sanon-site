@@ -351,7 +351,7 @@ export default function Home() {
                   We make science make <span className="text-arcova-teal">sense</span>
                 </h1>
                 <h2 className="text-2xl md:text-2xl font-medium tracking-tight sm:text-2xl md:text-2xl text-arcova-darkblue mt-6">
-                For the founders, investors, marketers, and researchers building what's next.
+                For the founders, investors, marketers, and researchers building what's next
                 </h2>
               </div>
               <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed">

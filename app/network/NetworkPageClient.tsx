@@ -563,11 +563,11 @@ export default function NetworkPageClient() {
                   Join our network of <span className="text-arcova-teal">experts</span>
                 </h1>
                 <h2 className="text-2xl md:text-2xl font-medium tracking-tight sm:text-2xl md:text-2xl text-arcova-darkblue mt-6">
-                  Collaborate with us to shape the future of science and health
+                For the scientists, analysts, researchers, and strategists who ask big questions
                 </h2>
               </div>
               <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed">
-                Join our global network of PhD researchers and scientists from world-leading institutions
+              We match you with projects from biotechs, health brands, and research-led teams
               </p>
 
               {/* Added scroll-down button */}
