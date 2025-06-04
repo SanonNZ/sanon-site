@@ -59,6 +59,14 @@ export const testimonials: Testimonial[] = [
     serviceType: "content"
   },
   {
+    quote: "Emma was amazing.",
+    author: {
+      title: "Marketing Lead",
+      company: "Rehabilitation Clinic"
+    },
+    serviceType: "content"
+  },
+  {
     quote: "Profound knowledge and in-depth understanding of the neuroscience research field makes it easy to work and communicate with.",
     author: {
       title: "Marketing Lead",
@@ -75,7 +83,7 @@ export const testimonials: Testimonial[] = [
     serviceType: "strategy"
   },
   {
-    quote: "Has the prowess to unpack the complexities of the biopharma and medical device industries.",
+    quote: "They have the prowess to unpack the complexities of the biopharma and medical device industries.",
     author: {
       title: "Owner",
       company: "Biotech Training Firm"
@@ -107,7 +115,7 @@ export const testimonials: Testimonial[] = [
     serviceType: "diligence"
   },
   {
-    quote: "Excellent summaries provided by Emma at short notice on a complicated scientific topic.",
+    quote: "Excellent summaries provided at short notice on a complicated scientific topic.",
     author: {
       title: "Researcher",
       company: "Academia"
@@ -115,7 +123,7 @@ export const testimonials: Testimonial[] = [
     serviceType: "academic"
   },
   {
-    quote: "They were everything I was looking for. They quickly developed a keen sense of what's important in our unique format, tackled the tasks expertly and gracefully and responded well to feedback.",
+    quote: "Everything I was looking for. They quickly developed a keen sense of what's important in our unique format, tackled the tasks expertly and gracefully and responded well to feedback.",
     author: {
       title: "Founder",
       company: "Scientific Software Company"
