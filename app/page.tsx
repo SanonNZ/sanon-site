@@ -775,7 +775,6 @@ export default function Home() {
                 delay={0.1}
                 color="arcova-teal"
                 gradient="bg-gradient-to-br from-white to-[#d4f2de]/30"
-                insightIcon="search"
               />
               <ProcessStep
                 number="02"
@@ -785,7 +784,6 @@ export default function Home() {
                 delay={0.2}
                 color="arcova-teal"
                 gradient="bg-gradient-to-br from-white to-[#ccecfe]/30"
-                insightIcon="filter"
               />
               <ProcessStep
                 number="03"
@@ -795,7 +793,6 @@ export default function Home() {
                 delay={0.3}
                 color="arcova-teal"
                 gradient="bg-gradient-to-br from-white to-[#d4f2de]/30"
-                insightIcon="connect"
               />
               <ProcessStep
                 number="04"
@@ -805,7 +802,6 @@ export default function Home() {
                 delay={0.4}
                 color="arcova-teal"
                 gradient="bg-gradient-to-br from-white to-[#ccecfe]/30"
-                insightIcon="rocket"
               />
             </div>
           </div>
@@ -816,13 +812,13 @@ export default function Home() {
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="mx-auto max-w-xl text-center mb-16">
               <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
-                Client Success
+                Testimonials
               </div>
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-3">
-                What our clients say
+              Client stories we love
               </h2>
               <p className="text-lg text-gray-600">
-                From startups to industry leaders, we help businesses communicate complex science with clarity and impact
+                What it's like to work with us, in their words
               </p>
             </div>
             <TestimonialCarousel />
@@ -976,7 +972,7 @@ export default function Home() {
                 {/* Author Info */}
                 <div className="flex flex-col items-center">
                   <div className="text-center">
-                    <div className="font-semibold text-gray-900 mb-1">Founder | Health & Wellness Startup</div>
+                    <div className="font-semibold text-gray-900 mb-1">Founder | Digital Health Startup</div>
                   </div>
                 </div>
               </div>
