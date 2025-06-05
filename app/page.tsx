@@ -9,7 +9,7 @@ import { ProcessStep } from "@/components/process-step"
 import { GlowingNetworkMolecule } from "@/components/network-molecule"
 import { motion } from "framer-motion"
 import { ScrollToTop } from "@/components/scroll-to-top"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { TestimonialCarousel } from "@/components/testimonials"
 
@@ -51,10 +51,28 @@ const arcovaColors = {
   blueLight: "#ccecfe",
 }
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  return isMobile
+}
+
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [selectedService, setSelectedService] = useState(0)
   const [hoveredService, setHoveredService] = useState<number | null>(null)
+  const isMobile = useIsMobile()
 
   const services: Service[] = [
     {
@@ -264,88 +282,152 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-8">
               {/* Owners & Founders */}
-              <motion.div
-                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
-                onClick={() => scrollToServiceAndSelect(0)}
-              >
-                <div className="flex items-start gap-4">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Users className="h-5 w-5 text-[#f55f96]" />
-                      <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
+              {isMobile ? (
+                <div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                  onClick={() => scrollToServiceAndSelect(0)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Users className="h-5 w-5 text-[#f55f96]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
+                      </div>
+                      <p className="text-gray-600">Shape your vision into a market-ready plan with clarity, content, and direction.</p>
                     </div>
-                    <p className="text-gray-600">Shape your vision into a market-ready plan with clarity, content, and direction.</p>
                   </div>
                 </div>
-              </motion.div>
+              ) : (
+                <motion.div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer md:hover:translate-y-[-5px] md:hover:shadow-xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  onClick={() => scrollToServiceAndSelect(0)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Users className="h-5 w-5 text-[#f55f96]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
+                      </div>
+                      <p className="text-gray-600">Shape your vision into a market-ready plan with clarity, content, and direction.</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
 
               {/* Marketing & Comms Leads */}
-              <motion.div
-                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
-                onClick={() => scrollToServiceAndSelect(2)}
-              >
-                <div className="flex items-start gap-4">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Zap className="h-5 w-5 text-[#ffb996]" />
-                      <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
+              {isMobile ? (
+                <div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                  onClick={() => scrollToServiceAndSelect(2)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Zap className="h-5 w-5 text-[#ffb996]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
+                      </div>
+                      <p className="text-gray-600">Turn deep research into stories that build authority and trust.</p>
                     </div>
-                    <p className="text-gray-600">Turn deep research into stories that build authority and trust.</p>
                   </div>
                 </div>
-              </motion.div>
+              ) : (
+                <motion.div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer md:hover:translate-y-[-5px] md:hover:shadow-xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  onClick={() => scrollToServiceAndSelect(2)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Zap className="h-5 w-5 text-[#ffb996]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
+                      </div>
+                      <p className="text-gray-600">Turn deep research into stories that build authority and trust.</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
 
               {/* Investors & Advisors */}
-              <motion.div
-                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
-                onClick={() => scrollToServiceAndSelect(3)}
-              >
-                <div className="flex items-start gap-4">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <LineChart className="h-5 w-5 text-[#8d7dc7]" />
-                      <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
+              {isMobile ? (
+                <div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                  onClick={() => scrollToServiceAndSelect(3)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <LineChart className="h-5 w-5 text-[#8d7dc7]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
+                      </div>
+                      <p className="text-gray-600">Scientific diligence before you build, pitch, or invest.</p>
                     </div>
-                    <p className="text-gray-600">Scientific diligence before you build, pitch, or invest.</p>
                   </div>
                 </div>
-              </motion.div>
+              ) : (
+                <motion.div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer md:hover:translate-y-[-5px] md:hover:shadow-xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  onClick={() => scrollToServiceAndSelect(3)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <LineChart className="h-5 w-5 text-[#8d7dc7]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
+                      </div>
+                      <p className="text-gray-600">Scientific diligence before you build, pitch, or invest.</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
 
               {/* Researchers & Academics */}
-              <motion.div
-                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
-                onClick={() => scrollToServiceAndSelect(4)}
-              >
-                <div className="flex items-start gap-4">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
-                      <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
+              {isMobile ? (
+                <div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                  onClick={() => scrollToServiceAndSelect(4)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
+                      </div>
+                      <p className="text-gray-600">Transform your data into publications and funding.</p>
                     </div>
-                    <p className="text-gray-600">Transform your data into publications and funding.</p>
                   </div>
                 </div>
-              </motion.div>
+              ) : (
+                <motion.div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer md:hover:translate-y-[-5px] md:hover:shadow-xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  onClick={() => scrollToServiceAndSelect(4)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
+                      </div>
+                      <p className="text-gray-600">Transform your data into publications and funding.</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </div>
           </div>
         </AnimatedSection>
