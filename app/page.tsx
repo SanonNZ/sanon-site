@@ -9,7 +9,7 @@ import { ProcessStep } from "@/components/process-step"
 import { GlowingNetworkMolecule } from "@/components/network-molecule"
 import { motion } from "framer-motion"
 import { ScrollToTop } from "@/components/scroll-to-top"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { TestimonialCarousel } from "@/components/testimonials"
 
@@ -51,10 +51,28 @@ const arcovaColors = {
   blueLight: "#ccecfe",
 }
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  return isMobile
+}
+
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [selectedService, setSelectedService] = useState(0)
   const [hoveredService, setHoveredService] = useState<number | null>(null)
+  const isMobile = useIsMobile()
 
   const services: Service[] = [
     {
@@ -264,88 +282,152 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-8">
               {/* Owners & Founders */}
-              <motion.div
-                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
-                onClick={() => scrollToServiceAndSelect(0)}
-              >
-                <div className="flex items-start gap-4">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Users className="h-5 w-5 text-[#f55f96]" />
-                      <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
+              {isMobile ? (
+                <div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                  onClick={() => scrollToServiceAndSelect(0)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Users className="h-5 w-5 text-[#f55f96]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
+                      </div>
+                      <p className="text-gray-600">Shape your vision into a market-ready plan with clarity, content, and direction.</p>
                     </div>
-                    <p className="text-gray-600">Shape your vision into a market-ready plan with clarity, content, and direction.</p>
                   </div>
                 </div>
-              </motion.div>
+              ) : (
+                <motion.div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer md:hover:translate-y-[-5px] md:hover:shadow-xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  onClick={() => scrollToServiceAndSelect(0)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Users className="h-5 w-5 text-[#f55f96]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
+                      </div>
+                      <p className="text-gray-600">Shape your vision into a market-ready plan with clarity, content, and direction.</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
 
               {/* Marketing & Comms Leads */}
-              <motion.div
-                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
-                onClick={() => scrollToServiceAndSelect(2)}
-              >
-                <div className="flex items-start gap-4">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Zap className="h-5 w-5 text-[#ffb996]" />
-                      <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
+              {isMobile ? (
+                <div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                  onClick={() => scrollToServiceAndSelect(2)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Zap className="h-5 w-5 text-[#ffb996]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
+                      </div>
+                      <p className="text-gray-600">Turn deep research into stories that build authority and trust.</p>
                     </div>
-                    <p className="text-gray-600">Turn deep research into stories that build authority and trust.</p>
                   </div>
                 </div>
-              </motion.div>
+              ) : (
+                <motion.div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer md:hover:translate-y-[-5px] md:hover:shadow-xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  onClick={() => scrollToServiceAndSelect(2)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Zap className="h-5 w-5 text-[#ffb996]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
+                      </div>
+                      <p className="text-gray-600">Turn deep research into stories that build authority and trust.</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
 
               {/* Investors & Advisors */}
-              <motion.div
-                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
-                onClick={() => scrollToServiceAndSelect(3)}
-              >
-                <div className="flex items-start gap-4">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <LineChart className="h-5 w-5 text-[#8d7dc7]" />
-                      <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
+              {isMobile ? (
+                <div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                  onClick={() => scrollToServiceAndSelect(3)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <LineChart className="h-5 w-5 text-[#8d7dc7]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
+                      </div>
+                      <p className="text-gray-600">Scientific diligence before you build, pitch, or invest.</p>
                     </div>
-                    <p className="text-gray-600">Scientific diligence before you build, pitch, or invest.</p>
                   </div>
                 </div>
-              </motion.div>
+              ) : (
+                <motion.div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer md:hover:translate-y-[-5px] md:hover:shadow-xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  onClick={() => scrollToServiceAndSelect(3)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <LineChart className="h-5 w-5 text-[#8d7dc7]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
+                      </div>
+                      <p className="text-gray-600">Scientific diligence before you build, pitch, or invest.</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
 
               {/* Researchers & Academics */}
-              <motion.div
-                className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
-                onClick={() => scrollToServiceAndSelect(4)}
-              >
-                <div className="flex items-start gap-4">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
-                      <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
+              {isMobile ? (
+                <div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                  onClick={() => scrollToServiceAndSelect(4)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
+                      </div>
+                      <p className="text-gray-600">Transform your data into publications and funding.</p>
                     </div>
-                    <p className="text-gray-600">Transform your data into publications and funding.</p>
                   </div>
                 </div>
-              </motion.div>
+              ) : (
+                <motion.div
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer md:hover:translate-y-[-5px] md:hover:shadow-xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  onClick={() => scrollToServiceAndSelect(4)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
+                        <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
+                      </div>
+                      <p className="text-gray-600">Transform your data into publications and funding.</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </div>
           </div>
         </AnimatedSection>
@@ -368,7 +450,7 @@ export default function Home() {
             <div className="grid md:grid-cols-12 gap-8">
               {/* Left column: Modern pill tabs - square buttons on mobile */}
               <div className="md:col-span-4 flex flex-col md:justify-start md:py-12 md:sticky md:top-24 md:h-fit" id="services-tabs">
-                <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-start">
+                <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-start overflow-x-auto md:overflow-visible">
                   {services.map((service, index) => (
                     <motion.button
                       key={service.id}
@@ -379,6 +461,7 @@ export default function Home() {
                         "relative flex items-center transition-all duration-300",
                         "overflow-hidden group",
                         "flex-1 aspect-square md:aspect-auto md:w-full p-3 md:p-5 rounded-xl md:rounded-2xl",
+                        "min-w-[80px] md:min-w-0", // Add minimum width for mobile
                         selectedService === index
                           ? "bg-arcova-blue/20 border border-arcova-blue/30"
                           : "bg-white hover:bg-arcova-blue/5 border border-transparent",
@@ -424,12 +507,12 @@ export default function Home() {
                         </div>
 
                         {/* Show name below icon on mobile */}
-                        <div className="text-xs font-medium mt-1 md:hidden">
-                          {index === 0 ? "Essentials" : 
-                           index === 1 ? "Deep Dives" : 
-                           index === 2 ? "Validation" :
-                           index === 3 ? "Research" :
-                           "Training"}
+                        <div className="text-xs font-medium mt-1 md:hidden text-center">
+                          {index === 0 ? "Business" : 
+                           index === 1 ? "Reports" : 
+                           index === 2 ? "Content" :
+                           index === 3 ? "Diligence" :
+                           "Research"}
                         </div>
 
                         {/* Subtle arrow that appears on hover or when selected - desktop only */}
@@ -579,34 +662,69 @@ export default function Home() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-              <ProcessStep
-                title="Discover"
-                subtitle="Go deep on the evidence"
-                description="Comprehensive literature search and data collection to build a strong foundation"
-                delay={0.1}
-                color="arcova-teal"
-              />
-              <ProcessStep
-                title="Analyze"
-                subtitle="Separate signal from noise"
-                description="Critical evaluation of evidence quality and relevance to your goals"
-                delay={0.2}
-                color="arcova-teal"
-              />
-              <ProcessStep
-                title="Synthesize"
-                subtitle="Connect the dots for clarity"
-                description="Transform complex science into clear, actionable insights you can use"
-                delay={0.3}
-                color="arcova-teal"
-              />
-              <ProcessStep
-                title="Deliver"
-                subtitle="From research to impact"
-                description="Receive polished content, reports, or advice - science delivered your way"
-                delay={0.4}
-                color="arcova-teal"
-              />
+              {isMobile ? (
+                <>
+                      <div className="bg-white rounded-2xl shadow p-4 mb-4">
+                      <div className="font-bold text-lg mb-1">Discover</div>
+                    <div className="text-sm font-semibold text-arcova-teal mb-1">Go deep on the evidence</div>
+                    <div className="text-gray-600 text-sm">Comprehensive literature search and data collection to build a strong foundation</div>
+                  </div>
+                  <div className="bg-white rounded-2xl shadow p-4 mb-4">
+                  <div className="font-bold text-lg mb-1">Analyze</div>
+                    <div className="text-sm font-semibold text-arcova-teal mb-1">Separate signal from noise</div>
+                    <div className="text-gray-600 text-sm">Critical evaluation of evidence quality and relevance to your goals</div>
+                  </div>
+                  <div className="bg-white rounded-2xl shadow p-4 mb-4">
+                  <div className="font-bold text-lg mb-1">Synthesize</div>
+                    <div className="text-sm font-semibold text-arcova-teal mb-1">Connect the dots for clarity</div>
+                    <div className="text-gray-600 text-sm">Transform complex science into clear, actionable insights you can use</div>
+                  </div>
+                  <div className="bg-white rounded-2xl shadow p-4 mb-4">
+                  <div className="font-bold text-lg mb-1">Deliver</div>
+                    <div className="text-sm font-semibold text-arcova-teal mb-1">From research to impact</div>
+                    <div className="text-gray-600 text-sm">Receive polished content, reports, or advice - science delivered your way</div>
+                  </div>
+                </>
+              ) : (
+                <div className="w-full flex flex-col items-center gap-6">
+                  <div className="max-w-[200px] mx-auto">
+                    <ProcessStep
+                      title="Discover"
+                      subtitle="Go deep on the evidence"
+                      description="Comprehensive literature search and data collection to build a strong foundation"
+                      delay={0.1}
+                      color="arcova-teal"
+                    />
+                  </div>
+                  <div className="max-w-[200px] mx-auto">
+                    <ProcessStep
+                      title="Analyze"
+                      subtitle="Separate signal from noise"
+                      description="Critical evaluation of evidence quality and relevance to your goals"
+                      delay={0.2}
+                      color="arcova-teal"
+                    />
+                  </div>
+                  <div className="max-w-[200px] mx-auto">
+                    <ProcessStep
+                      title="Synthesize"
+                      subtitle="Connect the dots for clarity"
+                      description="Transform complex science into clear, actionable insights you can use"
+                      delay={0.3}
+                      color="arcova-teal"
+                    />
+                  </div>
+                  <div className="max-w-[200px] mx-auto">
+                    <ProcessStep
+                      title="Deliver"
+                      subtitle="From research to impact"
+                      description="Receive polished content, reports, or advice - science delivered your way"
+                      delay={0.4}
+                      color="arcova-teal"
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </AnimatedSection>

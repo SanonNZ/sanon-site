@@ -219,6 +219,18 @@
     )
     }
 
+    // Add a mobile detection hook
+    function useIsMobile() {
+        const [isMobile, setIsMobile] = useState(false)
+        useEffect(() => {
+            const checkMobile = () => setIsMobile(window.innerWidth < 768)
+            checkMobile()
+            window.addEventListener('resize', checkMobile)
+            return () => window.removeEventListener('resize', checkMobile)
+        }, [])
+        return isMobile
+    }
+
     export default function NetworkPageClient() {
     const [formState, setFormState] = useState({
         name: "",
@@ -437,6 +449,8 @@
         )
     }
 
+    const isMobile = useIsMobile()
+
     return (
         <div className="flex flex-col min-h-screen bg-white">
         {/* Confetti effect when form is submitted */}
@@ -580,101 +594,180 @@
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-8">
                 {/* Owners & Founders */}
-                <motion.div
-  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.5, delay: 0.1 }}
-  whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
->
-  <div className="flex items-start gap-4">
-    <div>
-      <div className="flex items-center gap-2 mb-2">
-        <Clock className="h-5 w-5 text-[#f55f96]" />
-        <h3 className="font-bold text-lg text-arcova-darkblue">Work, On Your Terms</h3>
-      </div>
-      <ul className="list-disc pl-5 text-gray-600 space-y-1">
-        <li>Consult on high-impact projects</li>
-        <li>Fits flexibly around existing commitments</li>
-        <li>Work from home</li>
-      </ul>
-    </div>
-  </div>
-</motion.div>
-
+                {isMobile ? (
+                    <div
+                        className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                    >
+                        <div className="flex items-start gap-4">
+                            <div>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <Clock className="h-5 w-5 text-[#f55f96]" />
+                                    <h3 className="font-bold text-lg text-arcova-darkblue">Work, On Your Terms</h3>
+                                </div>
+                                <ul className="list-disc pl-5 text-gray-600 space-y-1">
+                                    <li>Consult on high-impact projects</li>
+                                    <li>Fits flexibly around existing commitments</li>
+                                    <li>Work from home</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                ) : (
+                    <motion.div
+                        className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
+                    >
+                        <div className="flex items-start gap-4">
+                            <div>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <Clock className="h-5 w-5 text-[#f55f96]" />
+                                    <h3 className="font-bold text-lg text-arcova-darkblue">Work, On Your Terms</h3>
+                                </div>
+                                <ul className="list-disc pl-5 text-gray-600 space-y-1">
+                                    <li>Consult on high-impact projects</li>
+                                    <li>Fits flexibly around existing commitments</li>
+                                    <li>Work from home</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
 
                 {/* Marketing & Comms Leads */}
-                <motion.div
-                    className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
-                >
-                    <div className="flex items-start gap-4">
-                    <div>
-                        <div className="flex items-center gap-2 mb-2">
-                        <Zap className="h-5 w-5 text-[#ffb996]" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Your Expertise, Valued</h3>
+                {isMobile ? (
+                    <div
+                        className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                    >
+                        <div className="flex items-start gap-4">
+                            <div>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <Zap className="h-5 w-5 text-[#ffb996]" />
+                                    <h3 className="font-bold text-lg text-arcova-darkblue">Your Expertise, Valued</h3>
+                                </div>
+                                <ul className="list-disc pl-5 text-gray-600 space-y-1">
+                                    <li>Project-based fees</li>
+                                    <li>Short-term or ongoing contracts</li>
+                                    <li>Transparent compensation</li>
+                                </ul>
+                            </div>
                         </div>
-                        <ul className="list-disc pl-5 text-gray-600 space-y-1">
-                            <li>Project-based fees</li>
-                            <li>Short-term or ongoing contracts</li>
-                            <li>Transparent compensation</li>
-                        </ul>
                     </div>
-                    </div>
-                </motion.div>
+                ) : (
+                    <motion.div
+                        className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
+                    >
+                        <div className="flex items-start gap-4">
+                            <div>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <Zap className="h-5 w-5 text-[#ffb996]" />
+                                    <h3 className="font-bold text-lg text-arcova-darkblue">Your Expertise, Valued</h3>
+                                </div>
+                                <ul className="list-disc pl-5 text-gray-600 space-y-1">
+                                    <li>Project-based fees</li>
+                                    <li>Short-term or ongoing contracts</li>
+                                    <li>Transparent compensation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
 
                 {/* Investors & Advisors */}
-                <motion.div
-                    className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
-                >
-                    <div className="flex items-start gap-4">
-                    <div>
-                        <div className="flex items-center gap-2 mb-2">
-                        <LineChart className="h-5 w-5 text-[#8d7dc7]" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Extend your Impact</h3>
+                {isMobile ? (
+                    <div
+                        className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                    >
+                        <div className="flex items-start gap-4">
+                            <div>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <LineChart className="h-5 w-5 text-[#8d7dc7]" />
+                                    <h3 className="font-bold text-lg text-arcova-darkblue">Extend your Impact</h3>
+                                </div>
+                                <ul className="list-disc pl-5 text-gray-600 space-y-1">
+                                    <li>Apply your skills to new fields</li>
+                                    <li>Shape business decisions</li>
+                                    <li>Drive innovation</li>
+                                </ul>
+                            </div>
                         </div>
-                        <ul className="list-disc pl-5 text-gray-600 space-y-1">
-                            <li>Apply your skills to new fields</li>
-                            <li>Shape business decisions</li>
-                            <li>Drive innovation</li>
-                        </ul>
                     </div>
-                    </div>
-                </motion.div>
+                ) : (
+                    <motion.div
+                        className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 164, 180, 0.1)" }}
+                    >
+                        <div className="flex items-start gap-4">
+                            <div>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <LineChart className="h-5 w-5 text-[#8d7dc7]" />
+                                    <h3 className="font-bold text-lg text-arcova-darkblue">Extend your Impact</h3>
+                                </div>
+                                <ul className="list-disc pl-5 text-gray-600 space-y-1">
+                                    <li>Apply your skills to new fields</li>
+                                    <li>Shape business decisions</li>
+                                    <li>Drive innovation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
 
                 {/* Researchers & Academics */}
-                <motion.div
-                    className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
-                >
-                    <div className="flex items-start gap-4">
-                    <div>
-                        <div className="flex items-center gap-2 mb-2">
-                        <Sparkles className="h-5 w-5 text-[#00a4b4]" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Grow with Us</h3>
+                {isMobile ? (
+                    <div
+                        className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                    >
+                        <div className="flex items-start gap-4">
+                            <div>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <Sparkles className="h-5 w-5 text-[#00a4b4]" />
+                                    <h3 className="font-bold text-lg text-arcova-darkblue">Grow with Us</h3>
+                                </div>
+                                <ul className="list-disc pl-5 text-gray-600 space-y-1">
+                                    <li>Access new types of projects</li>
+                                    <li>Join a network of peers</li>
+                                    <li>Expand your commercial skill set</li>
+                                </ul>
+                            </div>
                         </div>
-                        <ul className="list-disc pl-5 text-gray-600 space-y-1">
-                            <li>Access new types of projects</li>
-                            <li>Join a network of peers</li>
-                            <li>Expand your commercial skill set</li>
-                        </ul>
                     </div>
-                    </div>
-                </motion.div>
+                ) : (
+                    <motion.div
+                        className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 102, 128, 0.1)" }}
+                    >
+                        <div className="flex items-start gap-4">
+                            <div>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <Sparkles className="h-5 w-5 text-[#00a4b4]" />
+                                    <h3 className="font-bold text-lg text-arcova-darkblue">Grow with Us</h3>
+                                </div>
+                                <ul className="list-disc pl-5 text-gray-600 space-y-1">
+                                    <li>Access new types of projects</li>
+                                    <li>Join a network of peers</li>
+                                    <li>Expand your commercial skill set</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
                 </div>
             </div>
             </AnimatedSection>
@@ -728,38 +821,67 @@
                 </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-                <ProcessStep
-                    title={`👋 Say Hi`}
-                    subtitle="Start the conversation"
-                    description="Fill out a short form or book a quick call to tell us about your background, expertise, and what you're looking for."
-                    delay={0.1}
-                    color="arcova-teal"
-                />
-                <ProcessStep
-                    title={`❤️ Your Strengths`}
-                    subtitle="Tell us what you're great at."
-                    description="We'll send you a follow-up form to better understand your skills, interests, availability, and the kind of work you enjoy."
-                    delay={0.2}
-                    color="arcova-teal"
-                />
-                <ProcessStep
-                    title={`📝 Try A Brief`}
-                    subtitle="Get a sense of the work."
-                    description="We'll invite you to complete a small, paid project,  to get a feel for your strengths—and so you can get a feel for us."
-                    delay={0.3}
-                    color="arcova-teal"
-                />
-                <ProcessStep
-                    title={`🎉 Get Projects`}
-                    subtitle={
-                        <a href="#contact-form" className="text-sm font-medium text-arcova-teal hover:underline">
+                  {isMobile ? (
+                    <>
+                      <div className="bg-white rounded-2xl shadow p-4 mb-4">
+                        <div className="font-bold text-lg mb-1">👋 Say Hi</div>
+                        <div className="text-sm font-semibold text-arcova-teal mb-1">Start the conversation</div>
+                        <div className="text-gray-600 text-sm">Fill out a short form or book a quick call to tell us about your background, expertise, and what you're looking for.</div>
+                      </div>
+                      <div className="bg-white rounded-2xl shadow p-4 mb-4">
+                        <div className="font-bold text-lg mb-1">❤️ Your Strengths</div>
+                        <div className="text-sm font-semibold text-arcova-teal mb-1">Tell us what you're great at.</div>
+                        <div className="text-gray-600 text-sm">We'll send you a follow-up form to better understand your skills, interests, availability, and the kind of work you enjoy.</div>
+                      </div>
+                      <div className="bg-white rounded-2xl shadow p-4 mb-4">
+                        <div className="font-bold text-lg mb-1">📝 Try A Brief</div>
+                        <div className="text-sm font-semibold text-arcova-teal mb-1">Get a sense of the work.</div>
+                        <div className="text-gray-600 text-sm">We'll invite you to complete a small, paid project,  to get a feel for your strengths—and so you can get a feel for us.</div>
+                      </div>
+                      <div className="bg-white rounded-2xl shadow p-4 mb-4">
+                        <div className="font-bold text-lg mb-1">🎉 Get Projects</div>
+                        <div className="text-sm font-semibold text-arcova-teal mb-1">
+                          <a href="#contact-form" className="text-arcova-teal hover:underline">Get Started→</a>
+                        </div>
+                        <div className="text-gray-600 text-sm">You'll start receiving tailored project briefs that align with your expertise and interests.</div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <ProcessStep
+                        title={`👋 Say Hi`}
+                        subtitle="Start the conversation"
+                        description="Fill out a short form or book a quick call to tell us about your background, expertise, and what you're looking for."
+                        delay={0.1}
+                        color="arcova-teal"
+                      />
+                      <ProcessStep
+                        title={`❤️ Your Strengths`}
+                        subtitle="Tell us what you're great at."
+                        description="We'll send you a follow-up form to better understand your skills, interests, availability, and the kind of work you enjoy."
+                        delay={0.2}
+                        color="arcova-teal"
+                      />
+                      <ProcessStep
+                        title={`📝 Try A Brief`}
+                        subtitle="Get a sense of the work."
+                        description="We'll invite you to complete a small, paid project,  to get a feel for your strengths—and so you can get a feel for us."
+                        delay={0.3}
+                        color="arcova-teal"
+                      />
+                      <ProcessStep
+                        title={`🎉 Get Projects`}
+                        subtitle={
+                          <a href="#contact-form" className="text-sm font-medium text-arcova-teal hover:underline">
                             Get Started→
-                        </a>
-                    }
-                    description="You'll start receiving tailored project briefs that align with your expertise and interests."
-                    delay={0.4}
-                    color="arcova-teal"
-                />
+                          </a>
+                        }
+                        description="You'll start receiving tailored project briefs that align with your expertise and interests."
+                        delay={0.4}
+                        color="arcova-teal"
+                      />
+                    </>
+                  )}
                 </div>
             </div>
             </AnimatedSection>
@@ -945,7 +1067,7 @@
                             onChange={handleChange}
                             rows={4}
                             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
-                            placeholder="Feel free to tell us more about your availability and what you're looking for. Don't worry if you're not sure right now, we'll follow up with a few questions."
+                            placeholder="Tell us more about your availability and what you're looking for."
                             ></textarea>
                         </div>
 

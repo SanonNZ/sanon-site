@@ -22,11 +22,15 @@ export function ProcessStep({
 }: ProcessStepProps) {
   return (
     <motion.div
-      className="relative overflow-hidden rounded-2xl bg-white px-4 py-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.2)] transition-all duration-300 group flex flex-col min-h-[250px]"
+      className="relative overflow-hidden rounded-2xl bg-white px-4 py-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] md:hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.2)] transition-all duration-300 group flex flex-col min-h-[250px]"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, delay }}
+      animate={{
+        opacity: typeof window !== 'undefined' && window.innerWidth < 768 ? 1 : undefined,
+        y: typeof window !== 'undefined' && window.innerWidth < 768 ? 0 : undefined
+      }}
     >
       <div className="flex flex-col h-full text-center">
         {/* Main content */}
