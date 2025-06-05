@@ -1,56 +1,30 @@
     "use client"
 
     import type React from "react"
-
-    import Link from "next/link"
     import { useState, useEffect } from "react"
     import {
-    Users,
+
     Check,
     Zap,
     LineChart,        
     BookOpen,
-    BarChart3,
-    ClipboardCheck,
-    Search,
-    FileText,
-    GraduationCap,
     X,
     ChevronDown,
     ChevronUp,
     Brain,
     Lightbulb,
     Microscope,
-    Menu,
-    Heart,
-    PlusCircle,
-    Star,
-    Atom,
-    Binary,
     ScrollText,
-    Shield,
     Scale,
     Clock,
-    DollarSign,
-    Target,
     Database,
     FileSearch,
     Sparkles
     } from "lucide-react"
     import { Button } from "@/components/ui/button"
     import { AnimatedSection } from "@/components/animated-section"
-    import { LogoLink } from "@/components/logo"
     import { motion, AnimatePresence } from "framer-motion"
-    import { TypewriterHeading } from "@/components/typewriter-heading"
     import { ScrollToTop } from "@/components/scroll-to-top"
-    import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-    } from "@/components/ui/card"
     import { ProcessStep } from "@/components/process-step"
 
     // Confetti component

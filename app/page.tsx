@@ -2,21 +2,16 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Menu, X, ChevronDown, FileText, Zap, Users, Star, Lightbulb, LineChart, GraduationCap, Megaphone } from "lucide-react"
+import { ArrowRight, ChevronDown, FileText, Zap, Users, Star, Lightbulb, LineChart, GraduationCap, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimatedSection } from "@/components/animated-section"
 import { ProcessStep } from "@/components/process-step"
 import { GlowingNetworkMolecule } from "@/components/network-molecule"
-import { LogoLink } from "@/components/logo"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { useState } from "react"
-import AutoRotatingCards from "@/components/auto-rotating-cards"
-import { ExpandableContent } from "@/components/expandable-content"
 import { cn } from "@/lib/utils"
-import { Check } from "lucide-react"
 import { TestimonialCarousel } from "@/components/testimonials"
-import { Navigation } from "@/components/navigation"
 
 interface Service {
   id: number
@@ -219,7 +214,6 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      {/* <Navigation /> Removed because it's already in the layout */}
 
       <main className="flex-1">
         {/* Hero Section */}
