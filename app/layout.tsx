@@ -11,39 +11,43 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: "Arcova | Scientific Evidence for Business Decisions",
-  description: "Oxford-trained PhD team turning raw biomedical literature into decision-ready insight.",
+  title: "Arcova | We make science make sense",
+  description: "We help turn research into strategy, products, and progress.",
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", type: "image/x-icon" }
+      { url: "/arcova-favicon.png", sizes: "200x200", type: "image/png" }
+    ],
+    shortcut: [
+      { url: "/arcova-favicon.png", sizes: "200x200", type: "image/png" }
     ],
     apple: [
-      { url: "/favicon.svg", type: "image/svg+xml" }
+      { url: "/arcova-favicon.png", sizes: "200x200", type: "image/png" }
     ],
-    shortcut: "/favicon.svg",
+    other: [
+      { url: "/arcova-favicon.png", sizes: "200x200", type: "image/png" }
+    ]
   },
   openGraph: {
     type: "website",
-    title: "Arcova | Scientific Evidence for Business Decisions",
-    description: "Oxford-trained PhD team turning raw biomedical literature into decision-ready insight.",
+    title: "Arcova | We make science make sense",
+    description: "We help turn research into strategy, products, and progress.",
     siteName: "Arcova",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "/images/arcova-logo-transparent.png",
         width: 1200,
         height: 630,
-        alt: "From Data to Clarity - Actionable insight from complex research",
+        alt: "We make science make sense",
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Arcova | Scientific Evidence for Business Decisions",
-    description: "Oxford-trained PhD team turning raw biomedical literature into decision-ready insight.",
-    images: ["/images/og-image.png"],
-    creator: "@arcova",
-  },
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: "Arcova | Scientific Evidence for Business Decisions",
+  //   description: "Oxford-trained PhD team turning raw biomedical literature into decision-ready insight.",
+  //   images: ["/images/og-image.png"],
+  //   creator: "@arcova",
+  // },
 }
 
 export default function RootLayout({
