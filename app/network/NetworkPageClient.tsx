@@ -706,37 +706,41 @@
             </AnimatedSection>
 
     {/* Featured Network Member */}
-    <AnimatedSection className="w-full py-14 md:py-14 bg-white">
+    {/* <AnimatedSection className="w-full py-14 md:py-14 bg-white">
             <div className="container px-4 md:px-6 max-w-5xl">
                 <div className="flex flex-col items-center">
                 <div className="max-w-3xl text-center">
                     {/* Star Rating */}
-                    <div className="flex justify-center mb-6">
+                    {/* <div className="flex justify-center mb-6">
                     {[...Array(5)].map((_, i) => (
                         <Star
                         key={i}
                         className="h-6 w-6 fill-current text-amber-400 mr-1"
                         />
                     ))}
-                    </div>
+                    </div> */}
 
                     {/* Quote */}
-                    <blockquote className="text-2xl md:text-2xl font-medium italic text-gray-900 mb-8 leading-relaxed">
+                    {/* <blockquote className="text-2xl md:text-2xl font-medium italic text-gray-900 mb-8 leading-relaxed">
                     "They performed exceptionally well under pressure, and were fast, diligent, and thoughtful. Their work was high-quality, grounded in strong data analysis, and enriched by their valuable ideas and insights."
-                    </blockquote>
+                    </blockquote> */}
 
                     {/* Author Info */}
-                    <div className="flex flex-col items-center">
+                    {/* <div className="flex flex-col items-center">
                     <div className="text-center">
                         <div className="font-semibold text-gray-900 mb-1">Academic | Research Group</div>
                     </div>
                     </div>
                 </div>
                 </div>
-            </div>
-            </AnimatedSection>
+            </div> */}
+            {/* </AnimatedSection> */}
+
+
+
+
             {/* How it works Section */}
-            <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-gray-100">
+            <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-gray-10">
             <div className="container px-4 md:px-6 max-w-5xl">
                 <div className="text-center mb-16">
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
