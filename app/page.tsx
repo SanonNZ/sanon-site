@@ -450,7 +450,7 @@ export default function Home() {
             <div className="grid md:grid-cols-12 gap-8">
               {/* Left column: Modern pill tabs - square buttons on mobile */}
               <div className="md:col-span-4 flex flex-col md:justify-start md:py-12 md:sticky md:top-24 md:h-fit" id="services-tabs">
-                <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-start">
+                <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-start overflow-x-auto md:overflow-visible">
                   {services.map((service, index) => (
                     <motion.button
                       key={service.id}
@@ -461,6 +461,7 @@ export default function Home() {
                         "relative flex items-center transition-all duration-300",
                         "overflow-hidden group",
                         "flex-1 aspect-square md:aspect-auto md:w-full p-3 md:p-5 rounded-xl md:rounded-2xl",
+                        "min-w-[80px] md:min-w-0", // Add minimum width for mobile
                         selectedService === index
                           ? "bg-arcova-blue/20 border border-arcova-blue/30"
                           : "bg-white hover:bg-arcova-blue/5 border border-transparent",
@@ -506,12 +507,12 @@ export default function Home() {
                         </div>
 
                         {/* Show name below icon on mobile */}
-                        <div className="text-xs font-medium mt-1 md:hidden">
-                          {index === 0 ? "Essentials" : 
-                           index === 1 ? "Deep Dives" : 
-                           index === 2 ? "Validation" :
-                           index === 3 ? "Research" :
-                           "Training"}
+                        <div className="text-xs font-medium mt-1 md:hidden text-center">
+                          {index === 0 ? "Business" : 
+                           index === 1 ? "Reports" : 
+                           index === 2 ? "Content" :
+                           index === 3 ? "Diligence" :
+                           "Research"}
                         </div>
 
                         {/* Subtle arrow that appears on hover or when selected - desktop only */}
@@ -661,34 +662,44 @@ export default function Home() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-              <ProcessStep
-                title="Discover"
-                subtitle="Go deep on the evidence"
-                description="Comprehensive literature search and data collection to build a strong foundation"
-                delay={0.1}
-                color="arcova-teal"
-              />
-              <ProcessStep
-                title="Analyze"
-                subtitle="Separate signal from noise"
-                description="Critical evaluation of evidence quality and relevance to your goals"
-                delay={0.2}
-                color="arcova-teal"
-              />
-              <ProcessStep
-                title="Synthesize"
-                subtitle="Connect the dots for clarity"
-                description="Transform complex science into clear, actionable insights you can use"
-                delay={0.3}
-                color="arcova-teal"
-              />
-              <ProcessStep
-                title="Deliver"
-                subtitle="From research to impact"
-                description="Receive polished content, reports, or advice - science delivered your way"
-                delay={0.4}
-                color="arcova-teal"
-              />
+              <div className="w-full flex flex-col items-center gap-6">
+                <div className="max-w-[200px] mx-auto">
+                  <ProcessStep
+                    title="Discover"
+                    subtitle="Go deep on the evidence"
+                    description="Comprehensive literature search and data collection to build a strong foundation"
+                    delay={0.1}
+                    color="arcova-teal"
+                  />
+                </div>
+                <div className="max-w-[200px] mx-auto">
+                  <ProcessStep
+                    title="Analyze"
+                    subtitle="Separate signal from noise"
+                    description="Critical evaluation of evidence quality and relevance to your goals"
+                    delay={0.2}
+                    color="arcova-teal"
+                  />
+                </div>
+                <div className="max-w-[200px] mx-auto">
+                  <ProcessStep
+                    title="Synthesize"
+                    subtitle="Connect the dots for clarity"
+                    description="Transform complex science into clear, actionable insights you can use"
+                    delay={0.3}
+                    color="arcova-teal"
+                  />
+                </div>
+                <div className="max-w-[200px] mx-auto">
+                  <ProcessStep
+                    title="Deliver"
+                    subtitle="From research to impact"
+                    description="Receive polished content, reports, or advice - science delivered your way"
+                    delay={0.4}
+                    color="arcova-teal"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </AnimatedSection>
