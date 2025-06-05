@@ -33,7 +33,7 @@ export const Navigation = () => {
             <li key={item.name}>
               <Link
                 href={item.href}
-                className={`text-base font-medium transition-colors duration-200 pb-2 ${pathname === item.href ? "border-b-2 border-arcova-teal text-blue-900" : "text-blue-900 hover:text-arcova-teal"}`}
+                className={`text-base font-medium transition-colors duration-200 pb-2 text-black border-b-2 ${pathname === item.href ? "border-arcova-teal" : "border-transparent"}`}
               >
                 {item.name}
               </Link>
@@ -46,7 +46,7 @@ export const Navigation = () => {
             asChild
             className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-6 py-2 font-semibold text-base shadow-none transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center gap-2"
           >
-            <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+            <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white">
               Book a Call
               <motion.span
                 whileHover={{ x: 5 }}
@@ -128,10 +128,10 @@ export const Navigation = () => {
               <Link
                 href="/"
                 onClick={() => setMobileOpen(false)}
-                className={`block text-base font-semibold px-4 py-2 rounded-lg transition-all ${
+                className={`block text-base font-semibold px-4 py-2 rounded-lg transition-all text-black ${
                   pathname === "/"
-                    ? "bg-arcova-teal/10 text-arcova-teal"
-                    : "text-gray-800 hover:bg-arcova-blue/10 hover:text-arcova-blue"
+                    ? "bg-arcova-teal/10"
+                    : "hover:bg-arcova-blue/10"
                 }`}
               >
                 Home
@@ -141,10 +141,10 @@ export const Navigation = () => {
               <Link
                 href="/network"
                 onClick={() => setMobileOpen(false)}
-                className={`block text-base font-semibold px-4 py-2 rounded-lg transition-all ${
+                className={`block text-base font-semibold px-4 py-2 rounded-lg transition-all text-black ${
                   pathname === "/network"
-                    ? "bg-arcova-teal/10 text-arcova-teal"
-                    : "text-gray-800 hover:bg-arcova-blue/10 hover:text-arcova-blue"
+                    ? "bg-arcova-teal/10"
+                    : "hover:bg-arcova-blue/10"
                 }`}
               >
                 Join Our Network
@@ -154,7 +154,7 @@ export const Navigation = () => {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="block text-base font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-arcova-blue/10 hover:text-arcova-blue transition-all"
+                className="block text-base font-semibold px-4 py-2 rounded-lg text-black hover:bg-arcova-blue/10 transition-all"
               >
                 Contact
               </Link>
@@ -164,7 +164,7 @@ export const Navigation = () => {
                 href="https://calendly.com/emma-arcova/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-base font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-arcova-blue/10 hover:text-arcova-blue transition-all"
+                className="block text-base font-semibold px-4 py-2 rounded-lg text-black hover:bg-arcova-blue/10 transition-all"
               >
                 Book a Call
               </a>
