@@ -856,11 +856,15 @@ export default function Home() {
                   </motion.div>
                 </a>
               </Button>
-              <div className="flex items-center space-x-2">
-            <p className="text-sm text-white font-medium">
-              💬 Not ready for a call? We&apos;d still love to hear from you.{" "}
-              <div className="flex items-center space-x-2"></div>
-              <Link href="/contact" className="text-arcova-teal hover:text-arcova-teal/90 inline-flex items-center">
+              <div className="flex items-center justify-center">
+                <span className="text-sm text-white font-medium">
+                  💬 Not ready for a call? We&apos;d still love to hear from you.{" "}
+                </span>
+              </div>
+              <Link 
+                href="/contact" 
+                className="text-arcova-teal hover:text-arcova-teal/90 inline-flex items-center text-sm font-medium"
+              >
                 Send us a message
                 <svg
                   className="ml-1 w-4 h-4"
@@ -877,9 +881,6 @@ export default function Home() {
                   />
                 </svg>
               </Link>
-            </p>
-          </div>
-           
             </div>
           </div>
         </AnimatedSection>

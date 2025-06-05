@@ -74,74 +74,111 @@ export const Navigation = () => {
         >
           <Menu className="h-6 w-6" />
         </button>
-        {/* Mobile Drawer */}
-        <AnimatePresence>
-          {mobileOpen && (
-            <motion.div
-              className="fixed inset-0 z-50 bg-black/60 flex"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setMobileOpen(false)}
-            >
-              <motion.div
-                className="ml-auto w-3/4 max-w-xs h-full bg-white shadow-xl p-6 flex flex-col gap-8"
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                onClick={e => e.stopPropagation()}
+        </nav>
+
+
+        
+     {/* Mobile Drawer */}
+ 
+     <AnimatePresence>
+  {mobileOpen && (
+    <motion.div
+      className="fixed inset-0 z-50 flex justify-end items-start"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {/* Light translucent backdrop */}
+      <div
+        className="absolute inset-0 bg-white/60 backdrop-blur-md"
+        onClick={() => setMobileOpen(false)}
+      />
+
+      {/* Right-aligned drawer */}
+      <motion.div
+        className="relative z-10 w-full max-w-xs sm:max-w-sm bg-white rounded-2xl shadow-xl p-6 m-4"
+        initial={{ x: "100%" }}
+        animate={{ x: 0 }}
+        exit={{ x: "100%" }}
+        transition={{ type: "spring", damping: 25, stiffness: 300 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Top row: Logo and Close button */}
+        <div className="flex items-center justify-between mb-6">
+          <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
+            <img
+              src="/images/arcova-logo.png"
+              alt="Arcova logo"
+              className="h-8 w-auto"
+            />
+          </Link>
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="p-2 rounded-full bg-arcova-teal/10 hover:bg-arcova-teal/20 text-arcova-teal transition"
+            aria-label="Close menu"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* Navigation menu */}
+        <nav>
+          <ul className="space-y-4">
+            <li>
+              <Link
+                href="/"
+                onClick={() => setMobileOpen(false)}
+                className={`block text-base font-semibold px-4 py-2 rounded-lg transition-all ${
+                  pathname === "/"
+                    ? "bg-arcova-teal/10 text-arcova-teal"
+                    : "text-gray-800 hover:bg-arcova-blue/10 hover:text-arcova-blue"
+                }`}
               >
-                <div className="flex justify-between items-center mb-4">
-                  <LogoLink variant="icon" />
-                  <button
-                    onClick={() => setMobileOpen(false)}
-                    className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300 hover:scale-105"
-                  >
-                    <X className="h-6 w-6 text-gray-600" />
-                  </button>
-                </div>
-                <ul className="flex flex-col gap-6">
-                  {navigation.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className={`block text-lg font-semibold transition-colors duration-200 pb-2 ${pathname === item.href ? "text-arcova-teal border-b-2 border-arcova-teal" : "text-gray-800 hover:text-arcova-teal"}`}
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  asChild
-                  className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-6 py-2 font-semibold text-base shadow-none transition-all duration-300 transform hover:scale-105 hover:shadow-lg mt-8 flex items-center gap-2"
-                >
-                  <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 w-full justify-center">
-                    Book a Call
-                    <motion.span
-                      whileHover={{ x: 5 }}
-                      whileTap={{ x: 2 }}
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{
-                        duration: 1,
-                        repeat: Number.POSITIVE_INFINITY,
-                        repeatType: "loop",
-                        ease: "easeInOut",
-                        repeatDelay: 1,
-                      }}
-                      aria-hidden="true"
-                    >
-                      &rarr;
-                    </motion.span>
-                  </a>
-                </Button>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/network"
+                onClick={() => setMobileOpen(false)}
+                className={`block text-base font-semibold px-4 py-2 rounded-lg transition-all ${
+                  pathname === "/network"
+                    ? "bg-arcova-teal/10 text-arcova-teal"
+                    : "text-gray-800 hover:bg-arcova-blue/10 hover:text-arcova-blue"
+                }`}
+              >
+                Join Our Network
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/contact"
+                onClick={() => setMobileOpen(false)}
+                className="block text-base font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-arcova-blue/10 hover:text-arcova-blue transition-all"
+              >
+                Contact
+              </Link>
+            </li>
+            <li>
+              <a
+                href="https://calendly.com/emma-arcova/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-base font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-arcova-blue/10 hover:text-arcova-blue transition-all"
+              >
+                Book a Call
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
+
+
+
     </header>
   )
 }
