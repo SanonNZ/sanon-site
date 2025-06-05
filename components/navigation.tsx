@@ -78,7 +78,7 @@ export const Navigation = () => {
         <AnimatePresence>
           {mobileOpen && (
             <motion.div
-              className="fixed inset-0 z-50 bg-black/40 flex"
+              className="fixed inset-0 z-50 bg-black/60 flex"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -96,7 +96,7 @@ export const Navigation = () => {
                   <LogoLink variant="icon" />
                   <button
                     onClick={() => setMobileOpen(false)}
-                    className="p-2 rounded-full hover:bg-gray-100 transition-all duration-300 hover:scale-105"
+                    className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300 hover:scale-105"
                   >
                     <X className="h-6 w-6 text-gray-600" />
                   </button>
@@ -106,7 +106,7 @@ export const Navigation = () => {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className={`block text-lg font-semibold transition-colors duration-200 pb-2 ${pathname === item.href ? "text-arcova-teal border-b-2 border-arcova-teal" : "text-gray-600 hover:text-arcova-teal"}`}
+                        className={`block text-lg font-semibold transition-colors duration-200 pb-2 ${pathname === item.href ? "text-arcova-teal border-b-2 border-arcova-teal" : "text-gray-800 hover:text-arcova-teal"}`}
                         onClick={() => setMobileOpen(false)}
                       >
                         {item.name}
@@ -118,7 +118,7 @@ export const Navigation = () => {
                   asChild
                   className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-6 py-2 font-semibold text-base shadow-none transition-all duration-300 transform hover:scale-105 hover:shadow-lg mt-8 flex items-center gap-2"
                 >
-                  <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 w-full justify-center">
                     Book a Call
                     <motion.span
                       whileHover={{ x: 5 }}
