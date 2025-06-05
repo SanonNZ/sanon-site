@@ -827,17 +827,17 @@ export default function Home() {
         <AnimatedSection id="footer-cta" className="w-full py-24 md:py-32 bg-arcova-darkblue text-white">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-3xl max-w-[700px]">Tell us what you need and we'll make it happen.</h2>
+              <h2 className="text-3xl font-semibold tracking-tight md:text-3xl max-w-[700px]">Tell us what you need and we'll make it happen.</h2>
               <Button
                 asChild
-                size="lg"
-                className="mt-4 bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-8 py-6 h-auto transition-all duration-500 hover:scale-105 hover:shadow-xl group"
+                size="default"
+                className="mt-4 bg-arcova-teal hover:bg-arcova-blue text-white font-bold rounded-full px-8 py-4 h-auto transition-all duration-500 hover:scale-105 hover:shadow-xl group"
               >
                 <a
                   href="https://calendly.com/emma-arcova/30min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2"
+                  className="flex items-center font-semibold text-lg gap-2"
                 >
                   Let's Go
                   <motion.div
@@ -856,6 +856,30 @@ export default function Home() {
                   </motion.div>
                 </a>
               </Button>
+              <div className="flex items-center space-x-2">
+            <p className="text-sm text-white font-medium">
+              💬 Not ready for a call? We&apos;d still love to hear from you.{" "}
+              <div className="flex items-center space-x-2"></div>
+              <Link href="/contact" className="text-arcova-teal hover:text-arcova-teal/90 inline-flex items-center">
+                Send us a message
+                <svg
+                  className="ml-1 w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </Link>
+            </p>
+          </div>
+           
             </div>
           </div>
         </AnimatedSection>

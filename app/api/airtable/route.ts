@@ -13,13 +13,13 @@ export async function POST(req: NextRequest) {
     // Prepare Airtable API call
     const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY;
     const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
-    const AIRTABLE_TABLE_ID = process.env.AIRTABLE_TABLE_ID;
+    const AIRTABLE_NETWORK_TABLE_ID = process.env.AIRTABLE_NETWORK_TABLE_ID;
 
-    if (!AIRTABLE_API_KEY || !AIRTABLE_BASE_ID || !AIRTABLE_TABLE_ID) {
+    if (!AIRTABLE_API_KEY || !AIRTABLE_BASE_ID || !AIRTABLE_NETWORK_TABLE_ID) {
       return NextResponse.json({ error: 'Airtable environment variables not set.' }, { status: 500 });
     }
 
-    const airtableUrl = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_ID}`;
+    const airtableUrl = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_NETWORK_TABLE_ID}`;
 
     // Map form fields to Airtable fields
     const fields: Record<string, any> = {
