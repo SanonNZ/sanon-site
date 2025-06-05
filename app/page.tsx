@@ -662,44 +662,69 @@ export default function Home() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-              <div className="w-full flex flex-col items-center gap-6">
-                <div className="max-w-[200px] mx-auto">
-                  <ProcessStep
-                    title="Discover"
-                    subtitle="Go deep on the evidence"
-                    description="Comprehensive literature search and data collection to build a strong foundation"
-                    delay={0.1}
-                    color="arcova-teal"
-                  />
+              {isMobile ? (
+                <>
+                      <div className="bg-white rounded-2xl shadow p-4 mb-4">
+                      <div className="font-bold text-lg mb-1">Discover</div>
+                    <div className="text-sm font-semibold text-arcova-teal mb-1">Go deep on the evidence</div>
+                    <div className="text-gray-600 text-sm">Comprehensive literature search and data collection to build a strong foundation</div>
+                  </div>
+                  <div className="bg-white rounded-2xl shadow p-4 mb-4">
+                  <div className="font-bold text-lg mb-1">Analyze</div>
+                    <div className="text-sm font-semibold text-arcova-teal mb-1">Separate signal from noise</div>
+                    <div className="text-gray-600 text-sm">Critical evaluation of evidence quality and relevance to your goals</div>
+                  </div>
+                  <div className="bg-white rounded-2xl shadow p-4 mb-4">
+                  <div className="font-bold text-lg mb-1">Synthesize</div>
+                    <div className="text-sm font-semibold text-arcova-teal mb-1">Connect the dots for clarity</div>
+                    <div className="text-gray-600 text-sm">Transform complex science into clear, actionable insights you can use</div>
+                  </div>
+                  <div className="bg-white rounded-2xl shadow p-4 mb-4">
+                  <div className="font-bold text-lg mb-1">Deliver</div>
+                    <div className="text-sm font-semibold text-arcova-teal mb-1">From research to impact</div>
+                    <div className="text-gray-600 text-sm">Receive polished content, reports, or advice - science delivered your way</div>
+                  </div>
+                </>
+              ) : (
+                <div className="w-full flex flex-col items-center gap-6">
+                  <div className="max-w-[200px] mx-auto">
+                    <ProcessStep
+                      title="Discover"
+                      subtitle="Go deep on the evidence"
+                      description="Comprehensive literature search and data collection to build a strong foundation"
+                      delay={0.1}
+                      color="arcova-teal"
+                    />
+                  </div>
+                  <div className="max-w-[200px] mx-auto">
+                    <ProcessStep
+                      title="Analyze"
+                      subtitle="Separate signal from noise"
+                      description="Critical evaluation of evidence quality and relevance to your goals"
+                      delay={0.2}
+                      color="arcova-teal"
+                    />
+                  </div>
+                  <div className="max-w-[200px] mx-auto">
+                    <ProcessStep
+                      title="Synthesize"
+                      subtitle="Connect the dots for clarity"
+                      description="Transform complex science into clear, actionable insights you can use"
+                      delay={0.3}
+                      color="arcova-teal"
+                    />
+                  </div>
+                  <div className="max-w-[200px] mx-auto">
+                    <ProcessStep
+                      title="Deliver"
+                      subtitle="From research to impact"
+                      description="Receive polished content, reports, or advice - science delivered your way"
+                      delay={0.4}
+                      color="arcova-teal"
+                    />
+                  </div>
                 </div>
-                <div className="max-w-[200px] mx-auto">
-                  <ProcessStep
-                    title="Analyze"
-                    subtitle="Separate signal from noise"
-                    description="Critical evaluation of evidence quality and relevance to your goals"
-                    delay={0.2}
-                    color="arcova-teal"
-                  />
-                </div>
-                <div className="max-w-[200px] mx-auto">
-                  <ProcessStep
-                    title="Synthesize"
-                    subtitle="Connect the dots for clarity"
-                    description="Transform complex science into clear, actionable insights you can use"
-                    delay={0.3}
-                    color="arcova-teal"
-                  />
-                </div>
-                <div className="max-w-[200px] mx-auto">
-                  <ProcessStep
-                    title="Deliver"
-                    subtitle="From research to impact"
-                    description="Receive polished content, reports, or advice - science delivered your way"
-                    delay={0.4}
-                    color="arcova-teal"
-                  />
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </AnimatedSection>
