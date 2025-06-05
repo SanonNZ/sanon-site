@@ -548,8 +548,7 @@
                     Join our network of <span className="text-arcova-teal">experts</span>
                     </h1>
                     <h2 className="text-2xl md:text-2xl font-medium tracking-tight sm:text-2xl md:text-2xl text-arcova-darkblue mt-6">
-                    For the scientists, analysts, researchers, and strategists who ask big questions
-                    </h2>
+                    For scientists, analysts, researchers, and strategists with ambition</h2>
                 </div>
                 <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed">
                 We match you with real-world projects from biotechs, health brands, and research-led teams
