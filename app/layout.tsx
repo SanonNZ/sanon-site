@@ -2,7 +2,7 @@ import type React from "react"
 import { Poppins } from "next/font/google"
 import ClientLayout from "./ClientLayout"
 import './globals.css'
-import { Analytics } from "@vercel/analytics/next"
+// import { Analytics } from "@vercel/analytics/next"
 
 // Load Poppins font with specific weights
 const poppins = Poppins({
@@ -70,7 +70,7 @@ export default function RootLayout({
       </head>
       <body>
         <ClientLayout>{children}</ClientLayout>
-        <Analytics />
+        {/* <Analytics /> */}
       </body>
     </html>
   )
