@@ -4,7 +4,7 @@ export function MetaTags() {
   return (
     <Head>
       {/* Basic Meta Tags */}
-      <meta property="og:title" content="Arcova | We make science make sense" />
+      <meta property="og:title" content="We make science make sense | Arcova" />
       <meta
         property="og:description"
         content="We help turn research into strategy, products, and progress."

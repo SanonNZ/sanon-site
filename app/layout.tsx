@@ -11,7 +11,7 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: "Arcova | We make science make sense",
+  title: "We make science make sense | Arcova",
   description: "We help turn research into strategy, products, and progress.",
   icons: {
     icon: [
@@ -29,7 +29,7 @@ export const metadata = {
   },
   openGraph: {
     type: "website",
-    title: "Arcova | We make science make sense",
+    title: "We make science make sense | Arcova",
     description: "We help turn research into strategy, products, and progress.",
     siteName: "Arcova",
     images: [
