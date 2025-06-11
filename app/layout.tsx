@@ -2,6 +2,7 @@ import type React from "react"
 import { Poppins } from "next/font/google"
 import ClientLayout from "./ClientLayout"
 import './globals.css'
+import { Analytics } from "@vercel/analytics/next"
 
 // Load Poppins font with specific weights
 const poppins = Poppins({
@@ -57,8 +58,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={poppins.variable}>
+      <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0WTVF1D48X"></script>
+        <script dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-0WTVF1D48X');
+        ` }} />
+      </head>
       <body>
         <ClientLayout>{children}</ClientLayout>
+        <Analytics />
       </body>
     </html>
   )
