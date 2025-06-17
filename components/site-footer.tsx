@@ -1,13 +1,14 @@
 import Link from "next/link"
-import { LogoLink } from "@/components/logo"
+import Image from "next/image"
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-gray-100 bg-white">
       <div className="container grid grid-cols-1 sm:grid-cols-3 items-center py-6 px-4 md:px-6">
-        {/* Left column: Logo */}
-        <div className="flex justify-center sm:justify-start">
-          <LogoLink />
+        {/* Left column: Icon + Copyright */}
+        <div className="flex items-center justify-center sm:justify-start gap-2">
+          <Image src="/arcova-logo.png" alt="Arcova" width={24} height={24} />
+          <span className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova</span>
         </div>
         
         {/* Middle column: Links */}
@@ -32,9 +33,8 @@ export function SiteFooter() {
           </Link>
         </div>
 
-        {/* Right column: Copyright & Social */}
+        {/* Right column: Social Icons */}
         <div className="flex items-center justify-center sm:justify-end gap-4">
-          <p className="text-sm text-gray-500">© {new Date().getFullYear()} Arcova. All rights reserved.</p>
           <Link
             href="https://github.com/emb91/arcova-bio"
             target="_blank"
