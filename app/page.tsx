@@ -105,20 +105,20 @@ export default function Home() {
       subheader: "Turn deep research into magnetic stories that build authority and trust.",
       personas: ["Marketing Leads", "Content Managers", "Founders"],
       features: [
-        "Engaging, human-crafted articles",
-        "Narrative-driven storytelling",
-        "Up to 3 papers synthesized",
+        "Life science content marketing roadmap",
+        "Scientific blogs and articles crafted by experts",
+        "Stronger biotech branding & life science web design",
       ],
       features2: [
-        "Tailored for your audience",
-        "Written by scientific experts",
-        "Aligned to your brand voice",
+        "Biotech SEO & healthcare SEO services",
+        "Stories that build lasting authority & trust",
+        "Higher search visibility in science niches",
       ],
       column1Header: "What You Get",
       column2Header: "How We Do It",
       insight: "Turn deep research into stories that build authority and trust.",
       price: "Ready to get started?",
-      cta: "Let's Go",
+      cta: "Elevate your marketing",
       icon: <Zap className="h-5 w-5" />
     },
     {
