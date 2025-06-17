@@ -100,7 +100,7 @@ export default function Home() {
     },
     {
       id: 2,
-      name: "Content & Digital Strategy",
+      name: "Life Science Content Marketing Services",
       description: "For marketing teams, content leads, and founders building authority and credibility.",
       subheader: "Turn deep research into magnetic stories that build authority and trust.",
       personas: ["Marketing Leads", "Content Managers", "Founders"],
@@ -417,8 +417,8 @@ export default function Home() {
 
             <div className="grid md:grid-cols-12 gap-8">
               {/* Left column: Modern pill tabs - square buttons on mobile */}
-              <div className="md:col-span-4 flex flex-col md:justify-start md:py-12 md:sticky md:top-24 md:h-fit" id="services-tabs">
-                <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-start overflow-x-auto md:overflow-visible">
+              <div className="md:col-span-4 flex flex-col items-center md:items-center md:justify-center md:py-12" id="services-tabs">
+                <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-center items-center md:items-center overflow-x-auto md:overflow-visible">
                   {services.map((service, index) => (
                     <motion.button
                       key={service.id}
@@ -508,27 +508,27 @@ export default function Home() {
                   transition={{ duration: 0.2 }}
                   className="bg-white rounded-3xl shadow-xl overflow-hidden border-0"
                 >
-                  <div className="p-6 md:p-8 min-h-[500px] flex flex-col">
+                  <div className="p-6 md:p-8 min-h-[450px] flex flex-col">
                     {/* Top accent bar */}
-                    <div className="w-16 h-1.5 bg-arcova-blue rounded-full mb-4 md:mb-6"></div>
+                    <div className="w-16 h-1.5 bg-arcova-blue rounded-full mb-3 md:mb-4"></div>
 
                     <div className="flex-1">
                       {/* Main header */}
-                      <h3 className="text-xl md:text-2xl font-bold text-arcova-darkblue mb-3">
+                      <h3 className="text-xl md:text-2xl font-bold text-arcova-darkblue mb-2">
                         {services[selectedService]?.name || ''}
                       </h3>
 
                       {/* For statement in teal */}
-                      <p className="text-lg font-medium text-arcova-teal mb-6">
+                      <p className="text-lg font-medium text-arcova-teal mb-8 ">
                         {services[selectedService]?.description || ''}
                       </p>
 
-                      <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+                      <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                         <div>
-                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3">
+                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-4">
                             {services[selectedService]?.column1Header || ''}
                           </h4>
-                          <ul className="space-y-2.5">
+                          <ul className="space-y-2">
                             {services[selectedService]?.features.map((feature, index) => (
                               <motion.li
                                 key={index}
@@ -546,10 +546,10 @@ export default function Home() {
                           </ul>
                         </div>
                         <div>
-                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3">
+                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-4">
                             {services[selectedService]?.column2Header || ''}
                           </h4>
-                          <ul className="space-y-2.5">
+                          <ul className="space-y-2">
                             {services[selectedService]?.features2.map((feature, index) => (
                               <motion.li
                                 key={index}
@@ -569,7 +569,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col md:flex-row items-center justify-between mt-6">
+                    <div className="flex flex-col md:flex-row items-center justify-between mt-4">
                       {/* Microinsight with lightbulb */}
                       <div className="mb-4 md:mb-0 md:max-w-[60%]">
                         <p className="text-sm font-bold text-gray-600 italic flex items-start gap-2">
