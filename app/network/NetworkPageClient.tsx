@@ -529,17 +529,17 @@
         <main className="flex-1">
             {/* Hero Section */}
             <AnimatedSection className="w-full min-h-[60vh] flex items-center pt-28 pb-16">
-            <div className="container px-2 md:px-6 max-w-5xl">
+            <div className="container px-0 md:px-7 max-w-7xl">
                 <div className="flex flex-col items-center space-y-8 text-center">
-                <div className="space-y-8 max-w-[900px]">
+                <div className="space-y-8 max-w-[1100px]">
                     <h1 className="text-3xl font-bold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-center">
                     Join our network of <span className="text-arcova-teal">experts</span>
                     </h1>
-                    <h2 className="text-2xl md:text-2xl font-medium tracking-tight sm:text-2xl md:text-2xl text-arcova-darkblue mt-6">
-                    For scientists, analysts, researchers, and strategists with ambition</h2>
+                    <h2 className="text-xl md:text-xl font-medium tracking-tight sm:text-xl md:text-xl text-arcova-darkblue mt-6">
+                    Biotech consulting · Remote research jobs · Freelance medical writing · Remote data analyst jobs</h2>
                 </div>
                 <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed">
-                We match you with real-world projects from biotechs, health brands, and research-led teams
+                No resumes into the void. Just flexible paid work, built around your expertise.
                 </p>
 
                 {/* Added scroll-down button */}
@@ -570,7 +570,7 @@
                 Who we're looking for
                 </h2>
                 <p className="text-lg text-gray-600">
-                We work with scientists, analysts, and specialists from world-leading institutions. If you bring deep expertise in your field we'd love to hear from you.
+                We connect scientists, analysts, and writers with meaningful, flexible projects. If you bring deep expertise in your field we'd love to hear from you.
                 </p>
                 </div>
                 <NetworkTestimonials />
