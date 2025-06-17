@@ -77,23 +77,19 @@ export default function Home() {
   const services: Service[] = [
     {
       id: 1,
-      name: "Business Strategy & Advisory",
-      description: "For science, health, and biotech businesses planning, launching, or growing.",
+      name: "Life Science Strategy Consulting & Planning",
+      description: "For science, health, and biotech businesses planning, launching or growing.",
       subheader: "Shape your vision into a market-ready plan.",
       personas: ["Founders", "Science ventures", "Health & Wellness businesses"],
       features: [
-        "Business plan development",
-        "Market sizing (TAM / SAM / SOM)",
-        "Competitive landscape analysis",
-        "Revenue model design",
-        "Risk & mitigation plan"
+        "Market access consulting",
+        "Biotech commercialization strategy",
+        "Biotech business-development road-mapping",
       ],
       features2: [
-        "Clear, decision-ready outputs",
-        "Key opportunities & risks",
+        "Clear, decision-ready insights",
+        "Competitive landscape analysis",
         "Defined market edge",
-        "Scientific & commercial positioning",
-        "Actionable recommendations"
       ],
       column1Header: "Deliverables",
       column2Header: "What You Get",
@@ -104,105 +100,65 @@ export default function Home() {
     },
     {
       id: 2,
-      name: "Whitepapers & Reports",
-      description: "For strategy leaders, product owners, and founders presenting complex ideas to stakeholders.",
-      subheader: "Authoritative insight that drives confident decisions and elevates thought-leadership.",
-      personas: ["Strategy Leaders", "Product Owners", "Founders"],
-      features: [
-        "Business-ready whitepapers or executive summaries",
-        "Market or technology analysis",
-        "Competitive benchmarking",
-        "Data-driven feature insights",
-        "Literature reviews"
-      ],
-      features2: [
-        "Decision-focused actionable recommendations",
-        "Synthesized by scientific experts",
-        "Establishes thought leadership",
-        "Fast, reliable delivery",
-        "Full source documentation"
-      ],
-      column1Header: "Deliverables",
-      column2Header: "Key Benefits",
-      insight: "Lead the conversation with authoritative insight.",
-      price: "Let's explore your project needs.",
-      cta: "Let's Talk",
-      icon: <FileText className="h-5 w-5" />
-    },
-    {
-      id: 3,
-      name: "Articles & Content",
-      description: "For marketing teams, content leads, and founders building authority and credibility.",
-      subheader: "Turn deep research into magnetic stories that build authority and trust.",
+      name: "Life Science Content Marketing Services",
+      description: "For marketing teams, content leads, and founders building authority.",
+      subheader: "Turn deep research into magnetic stories that build trust.",
       personas: ["Marketing Leads", "Content Managers", "Founders"],
       features: [
-        "Engaging, human-crafted articles",
-        "Narrative-driven storytelling",
-        "Up to 3 papers synthesized",
-        "Optimised for discoverability",
-        "Evidence-based, fact-checked, and referenced",
+        "Life science content marketing roadmap",
+        "Scientific blogs and articles crafted by experts",
+        "Stronger biotech branding & life science web design",
       ],
       features2: [
-        "Tailored for your audience",
-        "Written by scientific experts",
-        "Aligned to your brand voice",
-        "Accessible and jargon-free",
-        "Fast, reliable turnaround",
+        "Biotech SEO & healthcare SEO services",
+        "Stories that build lasting authority & trust",
+        "Higher search visibility in science niches",
       ],
       column1Header: "What You Get",
       column2Header: "How We Do It",
       insight: "Turn deep research into stories that build authority and trust.",
       price: "Ready to get started?",
-      cta: "Let's Go",
+      cta: "Elevate your marketing",
       icon: <Zap className="h-5 w-5" />
     },
     {
-      id: 4,
-      name: "Scientific Validation & Diligence",
-      description: "For biotech founders and investors seeking validation to support key investment decisions.",
-      subheader: "Prove the science before you build, pitch, or invest.",
-      personas: ["Founders", "Biotech companies", "Health Investors"],
+      id: 3,
+      name: "Technical Due Diligence",
+      description: "For investors and founders seeking scientific validity.",
+      subheader: "Go deeper than the pitch - invest in rigor not hype.",
+      personas: ["Investors", "Venture Capital", "angel Investors"],
       features: [
-        "Independent, fully referenced report",
-        "Feasibility review of product / mechanism",
-        "Scientific diligence question list",
-        "Actionable recommendations",
-        "Confidence to build, partner, invest"
+        "Independent & referenced due diligence report",
+        "Feasibility review of product",
+        "Competitive landscape & market access analysis",
       ],
       features2: [
-        "Strengths-vs-risks evaluation",
+        "Strengths-vs-risks & evidence-gap mapping",
         "Expert literature & data synthesis",
-        "Evidence-gap & regulatory research",
-        "Team & advisor insights",
-        "Patent & IP landscape overview",
-        "Scientific competitor benchmarking"
+        "Regulatory risk assessment & IP due diligence",
       ],
       column1Header: "What You Get",
       column2Header: "How We Do It",
       insight: "Prove the science before you build, pitch, or invest.",
       price: "Discuss your validation needs.",
-      cta: "Validate Your Science",
+      cta: "Book a Validation Call",
       icon: <LineChart className="h-5 w-5" />
     },
     {
-      id: 5,
-      name: "Research & Academic",
-      description: "For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.",
+      id: 4,
+      name: "Scientific Writing & Research Services​ ",
+      description: "For PIs, postdocs, and research teams writing, editing or publishing.",
       subheader: "Transform your research into impactful publications.",
       personas: ["PIs", "Postdocs", "Research Teams"],
       features: [
-        "Publication-ready manuscripts",
-        "Literature reviews & research summaries",
-        "Grant and funding proposals",
-        "Peer-review response support",
-        "Data figures & publication-ready visuals"
+        "Publication-ready manuscripts and academic editing",
+        "Systematic literature review and scientific writing",
+        "Grant writing and proposal writing",
       ],
       features2: [
-        "Submission guidance",
-        "Statistical analysis & data visualisation",
-        "Experimental & pilot design",
-        "Citation checking & formatting",
-        "Collaborative revisions"
+        "Journal submission and peer-review guidance",
+        "Statistical analysis and data visualisation",
+        "Experimental and pilot design",
       ],
       column1Header: "Research Outputs",
       column2Header: "How We Do It",
@@ -214,19 +170,23 @@ export default function Home() {
   ]
 
   const handleTabSelect = (index: number) => {
-    setSelectedService(index)
+    if (index >= 0 && index < services.length) {
+      setSelectedService(index)
+    }
   }
 
   const scrollToServiceAndSelect = (serviceIndex: number) => {
-    setSelectedService(serviceIndex)
-    // Get header height dynamically
-    const header = document.querySelector('header')
-    const headerHeight = header ? header.offsetHeight : 80 // fallback to 80px if header not found
-    
-    const servicesSection = document.getElementById('services-tabs')
-    if (servicesSection) {
-      const y = servicesSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20 // 20px extra padding
-      window.scrollTo({ top: y, behavior: 'smooth' })
+    if (serviceIndex >= 0 && serviceIndex < services.length) {
+      setSelectedService(serviceIndex)
+      // Get header height dynamically
+      const header = document.querySelector('header')
+      const headerHeight = header ? header.offsetHeight : 80 // fallback to 80px if header not found
+      
+      const servicesSection = document.getElementById('services-tabs')
+      if (servicesSection) {
+        const y = servicesSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20 // 20px extra padding
+        window.scrollTo({ top: y, behavior: 'smooth' })
+      }
     }
   }
 
@@ -239,15 +199,15 @@ export default function Home() {
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
               <div className="space-y-8 max-w-[900px]">
-                <h1 className="text-3xl font-bold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-center">
-                  We make science make <span className="text-arcova-teal">sense</span>
+                <h1 className="text-4xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl text-center">
+                We make science make <span className="text-arcova-teal">sense</span>
                 </h1>
-                <h2 className="text-2xl md:text-2xl font-medium tracking-tight sm:text-2xl md:text-2xl text-arcova-darkblue mt-6">
-                For the founders, investors, marketers, and researchers building what's next
+                <h2 className="text-xl md:text-xl font-medium tracking-tight sm:text-xl md:text-xl text-arcova-darkblue mt-6">
+                Biotech marketing · Life science consulting · Tech due diligence · Scientific writing
                 </h2>
               </div>
               <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed">
-                We help turn research into strategy, products, and progress
+              We help turn your complex research into growth.
               </p>
 
               {/* Added scroll-down button */}
@@ -276,7 +236,7 @@ export default function Home() {
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">Builders. Explainers. Investors. </h2>
               <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
-                Complex science is hard to explain. We make it easier to fund, grow, and communicate.
+                Complex science is hard to explain. We make it easier to fund, communicate, and grow.
               </p>
             </div>
 
@@ -293,7 +253,8 @@ export default function Home() {
                         <Users className="h-5 w-5 text-[#f55f96]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
                       </div>
-                      <p className="text-gray-600">Shape your vision into a market-ready plan with clarity, content, and direction.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Life Science Consulting · Biotech consulting</h4>
+                      <p className="text-gray-600">Shape your vision into a market-ready plan with biotech consulting and biotech business development.</p>
                     </div>
                   </div>
                 </div>
@@ -312,7 +273,8 @@ export default function Home() {
                         <Users className="h-5 w-5 text-[#f55f96]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
                       </div>
-                      <p className="text-gray-600">Shape your vision into a market-ready plan with clarity, content, and direction.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Life Science Consulting · Biotech consulting</h4>
+                      <p className="text-gray-600">Shape your vision into a market-ready plan with biotech consulting and biotech business development.</p>
                     </div>
                   </div>
                 </motion.div>
@@ -322,7 +284,7 @@ export default function Home() {
               {isMobile ? (
                 <div
                   className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                  onClick={() => scrollToServiceAndSelect(2)}
+                  onClick={() => scrollToServiceAndSelect(1)}
                 >
                   <div className="flex items-start gap-4">
                     <div>
@@ -330,7 +292,8 @@ export default function Home() {
                         <Zap className="h-5 w-5 text-[#ffb996]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
                       </div>
-                      <p className="text-gray-600">Turn deep research into stories that build authority and trust.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Biotech marketing · Healthcare SEO</h4>
+                      <p className="text-gray-600">Turn research into engaging science blogs and elevate your biotech branding to build authority and trust.</p>
                     </div>
                   </div>
                 </div>
@@ -341,7 +304,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  onClick={() => scrollToServiceAndSelect(2)}
+                  onClick={() => scrollToServiceAndSelect(1)}
                 >
                   <div className="flex items-start gap-4">
                     <div>
@@ -349,7 +312,8 @@ export default function Home() {
                         <Zap className="h-5 w-5 text-[#ffb996]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
                       </div>
-                      <p className="text-gray-600">Turn deep research into stories that build authority and trust.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Biotech marketing · Healthcare SEO</h4>
+                      <p className="text-gray-600">Turn research into engaging science blogs and elevate your biotech branding to build authority and trust.</p>
                     </div>
                   </div>
                 </motion.div>
@@ -359,7 +323,7 @@ export default function Home() {
               {isMobile ? (
                 <div
                   className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                  onClick={() => scrollToServiceAndSelect(3)}
+                  onClick={() => scrollToServiceAndSelect(2)}
                 >
                   <div className="flex items-start gap-4">
                     <div>
@@ -367,7 +331,8 @@ export default function Home() {
                         <LineChart className="h-5 w-5 text-[#8d7dc7]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
                       </div>
-                      <p className="text-gray-600">Scientific diligence before you build, pitch, or invest.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Tech due diligence · Commercial due diligence</h4>
+                      <p className="text-gray-600">De-risk investments with technical due diligence before you build, pitch, or invest.</p>
                     </div>
                   </div>
                 </div>
@@ -378,7 +343,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  onClick={() => scrollToServiceAndSelect(3)}
+                  onClick={() => scrollToServiceAndSelect(2)}
                 >
                   <div className="flex items-start gap-4">
                     <div>
@@ -386,7 +351,8 @@ export default function Home() {
                         <LineChart className="h-5 w-5 text-[#8d7dc7]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
                       </div>
-                      <p className="text-gray-600">Scientific diligence before you build, pitch, or invest.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Tech due diligence · Commercial due diligence</h4>
+                      <p className="text-gray-600">De-risk investments with technical due diligence before you build, pitch, or invest.</p>
                     </div>
                   </div>
                 </motion.div>
@@ -396,7 +362,7 @@ export default function Home() {
               {isMobile ? (
                 <div
                   className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                  onClick={() => scrollToServiceAndSelect(4)}
+                  onClick={() => scrollToServiceAndSelect(3)}
                 >
                   <div className="flex items-start gap-4">
                     <div>
@@ -404,7 +370,8 @@ export default function Home() {
                         <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
                       </div>
-                      <p className="text-gray-600">Transform your data into publications and funding.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Scientific writing · Academic editing</h4>
+                      <p className="text-gray-600">Transform your data into publications and funding with our scientific writing and editing services.</p>
                     </div>
                   </div>
                 </div>
@@ -415,7 +382,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  onClick={() => scrollToServiceAndSelect(4)}
+                  onClick={() => scrollToServiceAndSelect(3)}
                 >
                   <div className="flex items-start gap-4">
                     <div>
@@ -423,7 +390,8 @@ export default function Home() {
                         <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
                       </div>
-                      <p className="text-gray-600">Transform your data into publications and funding.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Scientific writing · Academic editing</h4>
+                      <p className="text-gray-600">Transform your data into publications and funding with our scientific writing and editing services.</p>
                     </div>
                   </div>
                 </motion.div>
@@ -449,8 +417,8 @@ export default function Home() {
 
             <div className="grid md:grid-cols-12 gap-8">
               {/* Left column: Modern pill tabs - square buttons on mobile */}
-              <div className="md:col-span-4 flex flex-col md:justify-start md:py-12 md:sticky md:top-24 md:h-fit" id="services-tabs">
-                <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-start overflow-x-auto md:overflow-visible">
+              <div className="md:col-span-4 flex flex-col items-center md:items-start md:justify-start" id="services-tabs">
+                <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-start items-center md:items-start overflow-x-auto md:overflow-visible">
                   {services.map((service, index) => (
                     <motion.button
                       key={service.id}
@@ -485,10 +453,9 @@ export default function Home() {
                           <div className={cn(
                             "transition-colors duration-300",
                             selectedService === index && index === 0 ? "text-[#f55f96]" : // Business Strategy
-                            selectedService === index && index === 1 ? "text-[#216680]" : // Whitepapers - changed to blue
-                            selectedService === index && index === 2 ? "text-[#ffb996]" : // Articles
-                            selectedService === index && index === 3 ? "text-[#8d7dc7]" : // Scientific Validation
-                            selectedService === index && index === 4 ? "text-[#00a4b4]" : // Academic
+                            selectedService === index && index === 1 ? "text-[#216680]" : // Articles
+                            selectedService === index && index === 2 ? "text-[#ffb996]" : // Scientific Validation
+                            selectedService === index && index === 3 ? "text-[#8d7dc7]" : // Academic
                             "text-gray-500"
                           )}>
                             {service.icon}
@@ -509,9 +476,8 @@ export default function Home() {
                         {/* Show name below icon on mobile */}
                         <div className="text-xs font-medium mt-1 md:hidden text-center">
                           {index === 0 ? "Business" : 
-                           index === 1 ? "Reports" : 
-                           index === 2 ? "Content" :
-                           index === 3 ? "Diligence" :
+                           index === 1 ? "Content" :
+                           index === 2 ? "Diligence" :
                            "Research"}
                         </div>
 
@@ -542,28 +508,28 @@ export default function Home() {
                   transition={{ duration: 0.2 }}
                   className="bg-white rounded-3xl shadow-xl overflow-hidden border-0"
                 >
-                  <div className="p-6 md:p-10 min-h-[600px] flex flex-col">
+                  <div className="p-6 md:p-8 min-h-[450px] flex flex-col">
                     {/* Top accent bar */}
-                    <div className="w-16 h-1.5 bg-arcova-blue rounded-full mb-6 md:mb-8"></div>
+                    <div className="w-16 h-1.5 bg-arcova-blue rounded-full mb-3 md:mb-4"></div>
 
                     <div className="flex-1">
                       {/* Main header */}
-                      <h3 className="text-xl md:text-2xl font-bold text-arcova-darkblue mb-3">
-                        {services[selectedService].name}
+                      <h3 className="text-xl md:text-2xl font-bold text-arcova-darkblue mb-2">
+                        {services[selectedService]?.name || ''}
                       </h3>
 
                       {/* For statement in teal */}
-                      <p className="text-lg font-medium text-arcova-teal mb-8">
-                        {services[selectedService].description}
+                      <p className="text-lg font-medium text-arcova-teal mb-8 ">
+                        {services[selectedService]?.description || ''}
                       </p>
 
-                      <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+                      <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                         <div>
-                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
-                            {services[selectedService].column1Header}
+                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-4">
+                            {services[selectedService]?.column1Header || ''}
                           </h4>
-                          <ul className="space-y-3 md:space-y-4">
-                            {services[selectedService].features.map((feature, index) => (
+                          <ul className="space-y-2">
+                            {services[selectedService]?.features.map((feature, index) => (
                               <motion.li
                                 key={index}
                                 className="flex items-start"
@@ -580,11 +546,11 @@ export default function Home() {
                           </ul>
                         </div>
                         <div>
-                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
-                            {services[selectedService].column2Header}
+                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-4">
+                            {services[selectedService]?.column2Header || ''}
                           </h4>
-                          <ul className="space-y-3 md:space-y-4">
-                            {services[selectedService].features2.map((feature, index) => (
+                          <ul className="space-y-2">
+                            {services[selectedService]?.features2.map((feature, index) => (
                               <motion.li
                                 key={index}
                                 className="flex items-start"
@@ -603,12 +569,12 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col md:flex-row items-center justify-between mt-auto pt-8">
+                    <div className="flex flex-col md:flex-row items-center justify-between mt-4">
                       {/* Microinsight with lightbulb */}
                       <div className="mb-4 md:mb-0 md:max-w-[60%]">
                         <p className="text-sm font-bold text-gray-600 italic flex items-start gap-2">
                           <Lightbulb className="h-5 w-5 text-[#f55f96] flex-shrink-0 mt-0.5" />
-                          <span className="flex-1">{services[selectedService].insight}</span>
+                          <span className="flex-1">{services[selectedService]?.insight || ''}</span>
                         </p>
                       </div>
 
@@ -622,7 +588,7 @@ export default function Home() {
                           rel="noopener noreferrer"
                           className="flex items-center gap-2 justify-center"
                         >
-                          {services[selectedService].cta}
+                          {services[selectedService]?.cta || ''}
                           <motion.div
                             whileHover={{ x: 5 }}
                             whileTap={{ x: 2 }}
