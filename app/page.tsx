@@ -77,7 +77,7 @@ export default function Home() {
   const services: Service[] = [
     {
       id: 1,
-      name: "Business Strategy & Advisory",
+      name: "Life Science Strategy Consulting & Planning",
       description: "For science, health, and biotech businesses planning, launching, or growing.",
       subheader: "Shape your vision into a market-ready plan.",
       personas: ["Founders", "Science ventures", "Health & Wellness businesses"],
@@ -85,15 +85,11 @@ export default function Home() {
         "Business plan development",
         "Market sizing (TAM / SAM / SOM)",
         "Competitive landscape analysis",
-        "Revenue model design",
-        "Risk & mitigation plan"
       ],
       features2: [
         "Clear, decision-ready outputs",
         "Key opportunities & risks",
         "Defined market edge",
-        "Scientific & commercial positioning",
-        "Actionable recommendations"
       ],
       column1Header: "Deliverables",
       column2Header: "What You Get",
@@ -104,7 +100,7 @@ export default function Home() {
     },
     {
       id: 2,
-      name: "Articles & Content",
+      name: "Content & Digital Strategy",
       description: "For marketing teams, content leads, and founders building authority and credibility.",
       subheader: "Turn deep research into magnetic stories that build authority and trust.",
       personas: ["Marketing Leads", "Content Managers", "Founders"],
@@ -112,15 +108,11 @@ export default function Home() {
         "Engaging, human-crafted articles",
         "Narrative-driven storytelling",
         "Up to 3 papers synthesized",
-        "Optimised for discoverability",
-        "Evidence-based, fact-checked, and referenced",
       ],
       features2: [
         "Tailored for your audience",
         "Written by scientific experts",
         "Aligned to your brand voice",
-        "Accessible and jargon-free",
-        "Fast, reliable turnaround",
       ],
       column1Header: "What You Get",
       column2Header: "How We Do It",
@@ -131,7 +123,7 @@ export default function Home() {
     },
     {
       id: 3,
-      name: "Scientific Validation & Diligence",
+      name: "Technical Due Diligence",
       description: "For biotech founders and investors seeking validation to support key investment decisions.",
       subheader: "Prove the science before you build, pitch, or invest.",
       personas: ["Founders", "Biotech companies", "Health Investors"],
@@ -139,16 +131,11 @@ export default function Home() {
         "Independent, fully referenced report",
         "Feasibility review of product / mechanism",
         "Scientific diligence question list",
-        "Actionable recommendations",
-        "Confidence to build, partner, invest"
       ],
       features2: [
         "Strengths-vs-risks evaluation",
         "Expert literature & data synthesis",
         "Evidence-gap & regulatory research",
-        "Team & advisor insights",
-        "Patent & IP landscape overview",
-        "Scientific competitor benchmarking"
       ],
       column1Header: "What You Get",
       column2Header: "How We Do It",
@@ -159,7 +146,7 @@ export default function Home() {
     },
     {
       id: 4,
-      name: "Research & Academic",
+      name: "Scientific Writing & Research Services​ ",
       description: "For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.",
       subheader: "Transform your research into impactful publications.",
       personas: ["PIs", "Postdocs", "Research Teams"],
@@ -167,15 +154,11 @@ export default function Home() {
         "Publication-ready manuscripts",
         "Literature reviews & research summaries",
         "Grant and funding proposals",
-        "Peer-review response support",
-        "Data figures & publication-ready visuals"
       ],
       features2: [
         "Submission guidance",
         "Statistical analysis & data visualisation",
         "Experimental & pilot design",
-        "Citation checking & formatting",
-        "Collaborative revisions"
       ],
       column1Header: "Research Outputs",
       column2Header: "How We Do It",
@@ -291,7 +274,7 @@ export default function Home() {
                         <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
                       </div>
                       <h4 className="text-base font-medium text-arcova-teal mb-2">Life Science Consulting · Biotech consulting</h4>
-                      <p className="text-gray-600">Shape your vision into a market-ready plan with biotech consulting and biotech business development</p>
+                      <p className="text-gray-600">Shape your vision into a market-ready plan with biotech consulting and biotech business development.</p>
                     </div>
                   </div>
                 </motion.div>
@@ -407,7 +390,7 @@ export default function Home() {
                         <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
                       </div>
-                      <h4 className="text-base font-medium text-arcova-teal mb-2">Scientific writing · Academic editing.</h4>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Scientific writing · Academic editing</h4>
                       <p className="text-gray-600">Transform your data into publications and funding with our scientific writing and editing services.</p>
                     </div>
                   </div>
@@ -525,9 +508,9 @@ export default function Home() {
                   transition={{ duration: 0.2 }}
                   className="bg-white rounded-3xl shadow-xl overflow-hidden border-0"
                 >
-                  <div className="p-6 md:p-10 min-h-[600px] flex flex-col">
+                  <div className="p-6 md:p-8 min-h-[500px] flex flex-col">
                     {/* Top accent bar */}
-                    <div className="w-16 h-1.5 bg-arcova-blue rounded-full mb-6 md:mb-8"></div>
+                    <div className="w-16 h-1.5 bg-arcova-blue rounded-full mb-4 md:mb-6"></div>
 
                     <div className="flex-1">
                       {/* Main header */}
@@ -536,16 +519,16 @@ export default function Home() {
                       </h3>
 
                       {/* For statement in teal */}
-                      <p className="text-lg font-medium text-arcova-teal mb-8">
+                      <p className="text-lg font-medium text-arcova-teal mb-6">
                         {services[selectedService]?.description || ''}
                       </p>
 
                       <div className="grid md:grid-cols-2 gap-6 md:gap-8">
                         <div>
-                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
+                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3">
                             {services[selectedService]?.column1Header || ''}
                           </h4>
-                          <ul className="space-y-3 md:space-y-4">
+                          <ul className="space-y-2.5">
                             {services[selectedService]?.features.map((feature, index) => (
                               <motion.li
                                 key={index}
@@ -563,10 +546,10 @@ export default function Home() {
                           </ul>
                         </div>
                         <div>
-                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
+                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3">
                             {services[selectedService]?.column2Header || ''}
                           </h4>
-                          <ul className="space-y-3 md:space-y-4">
+                          <ul className="space-y-2.5">
                             {services[selectedService]?.features2.map((feature, index) => (
                               <motion.li
                                 key={index}
@@ -586,7 +569,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col md:flex-row items-center justify-between mt-auto pt-8">
+                    <div className="flex flex-col md:flex-row items-center justify-between mt-6">
                       {/* Microinsight with lightbulb */}
                       <div className="mb-4 md:mb-0 md:max-w-[60%]">
                         <p className="text-sm font-bold text-gray-600 italic flex items-start gap-2">
