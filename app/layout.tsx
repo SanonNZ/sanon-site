@@ -12,8 +12,9 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: "We make science make sense | Arcova",
-  description: "We help turn research into strategy, products, and progress.",
+  metadataBase: new URL('https://arcova.bio'),
+  title: "Life Science Consulting, Biotech Marketing & Tech Due Diligence | Arcova",
+  description: "Arcova unlocks science-led growth with life science consulting, biotech marketing, technical due diligence, medical SEO, and scientific writing.",
   icons: {
     icon: [
       { url: "/arcova-favicon.png", sizes: "200x200", type: "image/png" }
@@ -29,22 +30,23 @@ export const metadata = {
     ]
   },
   openGraph: {
-    type: "website",
-    title: "We make science make sense | Arcova",
-    description: "We help turn research into strategy, products, and progress.",
-    siteName: "Arcova",
+    type: 'website',
+    url: 'https://arcova.com',
+    title: 'Unlock Science-Led Growth with Life Science Consulting | Arcova',
+    description: 'Biotech marketing, life Science Consulting, technical due diligence, and scientific editing—Arcova turns complex research into revenue-ready strategy.',
+    siteName: 'Arcova',
     images: [
       {
         url: "/images/arcova-logo-transparent.png",
         width: 1200,
         height: 630,
-        alt: "We make science make sense",
-      },
-    ],
+        alt: 'Arcova | Unlock Science-Led Growth'
+      }
+    ]
   },
   // twitter: {
   //   card: "summary_large_image",
-  //   title: "Arcova | Scientific Evidence for Business Decisions",
+  //   title: "Arcova | Scientific Evidence for Business Decisions",Right, so this is all right, I think. 
   //   description: "Oxford-trained PhD team turning raw biomedical literature into decision-ready insight.",
   //   images: ["/images/og-image.png"],
   //   creator: "@arcova",
