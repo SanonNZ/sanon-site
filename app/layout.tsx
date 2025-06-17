@@ -44,6 +44,9 @@ export const metadata = {
       }
     ]
   },
+  alternates: {
+    canonical: '/',
+  },
   // twitter: {
   //   card: "summary_large_image",
   //   title: "Arcova | Scientific Evidence for Business Decisions",Right, so this is all right, I think. 
