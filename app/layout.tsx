@@ -69,6 +69,21 @@ export default function RootLayout({
           gtag('js', new Date());
           gtag('config', 'G-0WTVF1D48X');
         ` }} />
+
+        {/* Organization Schema Markup */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Arcova",
+              url: "https://arcova.bio",
+              logo: "https://arcova.bio/arcova-logo.png",
+              description: "Arcova unlocks science-led growth with life science consulting, biotech marketing, technical due diligence, medical SEO, and scientific writing."
+            }),
+          }}
+        />
       </head>
       <body>
         <ClientLayout>{children}</ClientLayout>
