@@ -104,33 +104,6 @@ export default function Home() {
     },
     {
       id: 2,
-      name: "Whitepapers & Reports",
-      description: "For strategy leaders, product owners, and founders presenting complex ideas to stakeholders.",
-      subheader: "Authoritative insight that drives confident decisions and elevates thought-leadership.",
-      personas: ["Strategy Leaders", "Product Owners", "Founders"],
-      features: [
-        "Business-ready whitepapers or executive summaries",
-        "Market or technology analysis",
-        "Competitive benchmarking",
-        "Data-driven feature insights",
-        "Literature reviews"
-      ],
-      features2: [
-        "Decision-focused actionable recommendations",
-        "Synthesized by scientific experts",
-        "Establishes thought leadership",
-        "Fast, reliable delivery",
-        "Full source documentation"
-      ],
-      column1Header: "Deliverables",
-      column2Header: "Key Benefits",
-      insight: "Lead the conversation with authoritative insight.",
-      price: "Let's explore your project needs.",
-      cta: "Let's Talk",
-      icon: <FileText className="h-5 w-5" />
-    },
-    {
-      id: 3,
       name: "Articles & Content",
       description: "For marketing teams, content leads, and founders building authority and credibility.",
       subheader: "Turn deep research into magnetic stories that build authority and trust.",
@@ -157,7 +130,7 @@ export default function Home() {
       icon: <Zap className="h-5 w-5" />
     },
     {
-      id: 4,
+      id: 3,
       name: "Scientific Validation & Diligence",
       description: "For biotech founders and investors seeking validation to support key investment decisions.",
       subheader: "Prove the science before you build, pitch, or invest.",
@@ -185,7 +158,7 @@ export default function Home() {
       icon: <LineChart className="h-5 w-5" />
     },
     {
-      id: 5,
+      id: 4,
       name: "Research & Academic",
       description: "For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.",
       subheader: "Transform your research into impactful publications.",
@@ -239,15 +212,15 @@ export default function Home() {
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
               <div className="space-y-8 max-w-[900px]">
-                <h1 className="text-3xl font-bold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-center">
-                  We make science make <span className="text-arcova-teal">sense</span>
+                <h1 className="text-4xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl text-center">
+                We make science make <span className="text-arcova-teal">sense</span>
                 </h1>
-                <h2 className="text-2xl md:text-2xl font-medium tracking-tight sm:text-2xl md:text-2xl text-arcova-darkblue mt-6">
-                For the founders, investors, marketers, and researchers building what's next
+                <h2 className="text-xl md:text-xl font-medium tracking-tight sm:text-xl md:text-xl text-arcova-darkblue mt-6">
+                Biotech marketing · Life science consulting · Tech due diligence · Scientific writing
                 </h2>
               </div>
               <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed">
-                We help turn research into strategy, products, and progress
+              We help turn your complex research into growth.
               </p>
 
               {/* Added scroll-down button */}
@@ -276,7 +249,7 @@ export default function Home() {
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">Builders. Explainers. Investors. </h2>
               <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
-                Complex science is hard to explain. We make it easier to fund, grow, and communicate.
+                Complex science is hard to explain. We make it easier to fund, communicate, and grow.
               </p>
             </div>
 
@@ -293,7 +266,8 @@ export default function Home() {
                         <Users className="h-5 w-5 text-[#f55f96]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
                       </div>
-                      <p className="text-gray-600">Shape your vision into a market-ready plan with clarity, content, and direction.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Life Science Consulting · Biotech consulting</h4>
+                      <p className="text-gray-600">Shape your vision into a market-ready plan with biotech consulting and biotech business development.</p>
                     </div>
                   </div>
                 </div>
@@ -312,7 +286,8 @@ export default function Home() {
                         <Users className="h-5 w-5 text-[#f55f96]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
                       </div>
-                      <p className="text-gray-600">Shape your vision into a market-ready plan with clarity, content, and direction.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Life Science Consulting · Biotech consulting</h4>
+                      <p className="text-gray-600">Shape your vision into a market-ready plan with biotech consulting and biotech business development</p>
                     </div>
                   </div>
                 </motion.div>
@@ -330,7 +305,8 @@ export default function Home() {
                         <Zap className="h-5 w-5 text-[#ffb996]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
                       </div>
-                      <p className="text-gray-600">Turn deep research into stories that build authority and trust.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Biotech marketing · Healthcare SEO</h4>
+                      <p className="text-gray-600">Turn research into engaging science blogs and elevate your biotech branding to build authority and trust.</p>
                     </div>
                   </div>
                 </div>
@@ -349,7 +325,8 @@ export default function Home() {
                         <Zap className="h-5 w-5 text-[#ffb996]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
                       </div>
-                      <p className="text-gray-600">Turn deep research into stories that build authority and trust.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Biotech marketing · Healthcare SEO</h4>
+                      <p className="text-gray-600">Turn research into engaging science blogs and elevate your biotech branding to build authority and trust.</p>
                     </div>
                   </div>
                 </motion.div>
@@ -367,7 +344,8 @@ export default function Home() {
                         <LineChart className="h-5 w-5 text-[#8d7dc7]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
                       </div>
-                      <p className="text-gray-600">Scientific diligence before you build, pitch, or invest.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Tech due diligence · Commercial due diligence</h4>
+                      <p className="text-gray-600">De-risk investments with technical due diligence before you build, pitch, or invest.</p>
                     </div>
                   </div>
                 </div>
@@ -386,7 +364,8 @@ export default function Home() {
                         <LineChart className="h-5 w-5 text-[#8d7dc7]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
                       </div>
-                      <p className="text-gray-600">Scientific diligence before you build, pitch, or invest.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Tech due diligence · Commercial due diligence</h4>
+                      <p className="text-gray-600">De-risk investments with technical due diligence before you build, pitch, or invest.</p>
                     </div>
                   </div>
                 </motion.div>
@@ -404,7 +383,8 @@ export default function Home() {
                         <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
                       </div>
-                      <p className="text-gray-600">Transform your data into publications and funding.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.</h4>
+                      <p className="text-gray-600">Transform your data into publications and funding with our scientific writing and editing services.</p>
                     </div>
                   </div>
                 </div>
@@ -423,7 +403,8 @@ export default function Home() {
                         <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
                       </div>
-                      <p className="text-gray-600">Transform your data into publications and funding.</p>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.</h4>
+                      <p className="text-gray-600">Transform your data into publications and funding with our scientific writing and editing services.</p>
                     </div>
                   </div>
                 </motion.div>
@@ -485,10 +466,9 @@ export default function Home() {
                           <div className={cn(
                             "transition-colors duration-300",
                             selectedService === index && index === 0 ? "text-[#f55f96]" : // Business Strategy
-                            selectedService === index && index === 1 ? "text-[#216680]" : // Whitepapers - changed to blue
-                            selectedService === index && index === 2 ? "text-[#ffb996]" : // Articles
-                            selectedService === index && index === 3 ? "text-[#8d7dc7]" : // Scientific Validation
-                            selectedService === index && index === 4 ? "text-[#00a4b4]" : // Academic
+                            selectedService === index && index === 1 ? "text-[#216680]" : // Articles
+                            selectedService === index && index === 2 ? "text-[#ffb996]" : // Scientific Validation
+                            selectedService === index && index === 3 ? "text-[#8d7dc7]" : // Academic
                             "text-gray-500"
                           )}>
                             {service.icon}
@@ -509,9 +489,8 @@ export default function Home() {
                         {/* Show name below icon on mobile */}
                         <div className="text-xs font-medium mt-1 md:hidden text-center">
                           {index === 0 ? "Business" : 
-                           index === 1 ? "Reports" : 
-                           index === 2 ? "Content" :
-                           index === 3 ? "Diligence" :
+                           index === 1 ? "Content" :
+                           index === 2 ? "Diligence" :
                            "Research"}
                         </div>
 
