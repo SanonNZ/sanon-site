@@ -1,19 +1,19 @@
 import NetworkPageClient from "./NetworkPageClient"
 
 export const metadata = {
-  title: "Join Our Network of Scientific Experts | Arcova",
+  title: "Remote Research Jobs & Biotech Consulting Roles | Arcova",
   description:
-    "Contribute your expertise to our network of PhD researchers and scientists from world-leading institutions.",
+    "Join Arcova’s expert network for remote research jobs, biotech consulting, remote data analyst jobs, and science writing jobs, on your terms.",
   openGraph: {
-    title: "Join Our Network of Scientific Experts | Arcova",
+    title: "Remote Research Jobs & Biotech Consulting Roles | Arcova",
     description:
-      "Join our network of PhD researchers and scientists from world-leading institutions.",
+      "Join Arcova’s expert network for remote research jobs, biotech consulting, remote data analyst jobs, and science writing jobs, on your terms.",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "/images/network-og.png",
         width: 1200,
         height: 630,
-        alt: "From Data to Clarity - Actionable insight from complex research",
+        alt: "Join Arcova's expert network",
       },
     ],
   },
