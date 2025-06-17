@@ -101,8 +101,8 @@ export default function Home() {
     {
       id: 2,
       name: "Life Science Content Marketing Services",
-      description: "For marketing teams, content leads, and founders building authority and credibility.",
-      subheader: "Turn deep research into magnetic stories that build authority and trust.",
+      description: "For marketing teams, content leads, and founders building authority.",
+      subheader: "Turn deep research into magnetic stories that build trust.",
       personas: ["Marketing Leads", "Content Managers", "Founders"],
       features: [
         "Life science content marketing roadmap",
@@ -124,41 +124,41 @@ export default function Home() {
     {
       id: 3,
       name: "Technical Due Diligence",
-      description: "For biotech founders and investors seeking validation to support key investment decisions.",
-      subheader: "Prove the science before you build, pitch, or invest.",
-      personas: ["Founders", "Biotech companies", "Health Investors"],
+      description: "For investors and founders seeking scientific validity.",
+      subheader: "Go deeper than the pitch - invest in rigor not hype.",
+      personas: ["Investors", "Venture Capital", "angel Investors"],
       features: [
-        "Independent, fully referenced report",
-        "Feasibility review of product / mechanism",
-        "Scientific diligence question list",
+        "Independent & referenced due diligence report",
+        "Feasibility review of product",
+        "Competitive landscape & market access analysis",
       ],
       features2: [
-        "Strengths-vs-risks evaluation",
+        "Strengths-vs-risks & evidence-gap mapping",
         "Expert literature & data synthesis",
-        "Evidence-gap & regulatory research",
+        "Regulatory risk assessment & IP due diligence",
       ],
       column1Header: "What You Get",
       column2Header: "How We Do It",
       insight: "Prove the science before you build, pitch, or invest.",
       price: "Discuss your validation needs.",
-      cta: "Validate Your Science",
+      cta: "Book a Validation Call",
       icon: <LineChart className="h-5 w-5" />
     },
     {
       id: 4,
       name: "Scientific Writing & Research Services​ ",
-      description: "For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.",
+      description: "For PIs, postdocs, and research teams writing, editing or publishing.",
       subheader: "Transform your research into impactful publications.",
       personas: ["PIs", "Postdocs", "Research Teams"],
       features: [
-        "Publication-ready manuscripts",
-        "Literature reviews & research summaries",
-        "Grant and funding proposals",
+        "Publication-ready manuscripts and academic editing",
+        "Systematic literature review and scientific writing",
+        "Grant writing and proposal writing",
       ],
       features2: [
-        "Submission guidance",
-        "Statistical analysis & data visualisation",
-        "Experimental & pilot design",
+        "Journal submission and peer-review guidance",
+        "Statistical analysis and data visualisation",
+        "Experimental and pilot design",
       ],
       column1Header: "Research Outputs",
       column2Header: "How We Do It",
@@ -417,8 +417,8 @@ export default function Home() {
 
             <div className="grid md:grid-cols-12 gap-8">
               {/* Left column: Modern pill tabs - square buttons on mobile */}
-              <div className="md:col-span-4 flex flex-col items-center md:items-center md:justify-center md:py-12" id="services-tabs">
-                <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-center items-center md:items-center overflow-x-auto md:overflow-visible">
+              <div className="md:col-span-4 flex flex-col items-center md:items-start md:justify-start" id="services-tabs">
+                <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-start items-center md:items-start overflow-x-auto md:overflow-visible">
                   {services.map((service, index) => (
                     <motion.button
                       key={service.id}
