@@ -11,7 +11,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Primary domain and additional subdomains to include in sitemap
-const baseUrls = ['https://arcova.bio', 'https://app.arcova.bio'];
+const baseUrls = ['https://arcova.bio'];
 const appDir = path.join(__dirname, 'app');
 const publicDir = path.join(__dirname, 'public');
 
