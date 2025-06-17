@@ -10,7 +10,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const baseUrl = 'https://arcova.bio';
+// Primary domain and additional subdomains to include in sitemap
+const baseUrls = ['https://arcova.bio', 'https://app.arcova.bio'];
 const appDir = path.join(__dirname, 'app');
 const publicDir = path.join(__dirname, 'public');
 
@@ -51,7 +52,11 @@ function getAllStaticRoutes(dirPath = '', routes = []) {
 
       const filePath = path.join(appDir, dirPath, entry.name);
       const lastmod = fs.statSync(filePath).mtime.toISOString();
-      routes.push({ loc: `${baseUrl}${routePath}`, lastmod });
+
+      // Add an entry for each configured base URL
+      for (const domain of baseUrls) {
+        routes.push({ loc: `${domain}${routePath}`, lastmod });
+      }
     }
   }
 
@@ -71,4 +76,4 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n` +
 
 const outputPath = path.join(publicDir, 'sitemap.xml');
 fs.writeFileSync(outputPath, sitemap);
-console.log(`✅ Dynamic sitemap generated with ${routes.length} routes → ${outputPath}`); 
+console.log(`✅ Dynamic sitemap generated with ${routes.length} routes (including subdomains) → ${outputPath}`);
