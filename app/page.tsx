@@ -78,17 +78,17 @@ export default function Home() {
     {
       id: 1,
       name: "Life Science Strategy Consulting & Planning",
-      description: "For science, health, and biotech businesses planning, launching, or growing.",
+      description: "For science, health, and biotech businesses planning, launching or growing.",
       subheader: "Shape your vision into a market-ready plan.",
       personas: ["Founders", "Science ventures", "Health & Wellness businesses"],
       features: [
-        "Business plan development",
-        "Market sizing (TAM / SAM / SOM)",
-        "Competitive landscape analysis",
+        "Market access consulting",
+        "Biotech commercialization strategy",
+        "Biotech business-development road-mapping",
       ],
       features2: [
-        "Clear, decision-ready outputs",
-        "Key opportunities & risks",
+        "Clear, decision-ready insights",
+        "Competitive landscape analysis",
         "Defined market edge",
       ],
       column1Header: "Deliverables",
