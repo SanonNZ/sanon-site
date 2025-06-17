@@ -187,19 +187,23 @@ export default function Home() {
   ]
 
   const handleTabSelect = (index: number) => {
-    setSelectedService(index)
+    if (index >= 0 && index < services.length) {
+      setSelectedService(index)
+    }
   }
 
   const scrollToServiceAndSelect = (serviceIndex: number) => {
-    setSelectedService(serviceIndex)
-    // Get header height dynamically
-    const header = document.querySelector('header')
-    const headerHeight = header ? header.offsetHeight : 80 // fallback to 80px if header not found
-    
-    const servicesSection = document.getElementById('services-tabs')
-    if (servicesSection) {
-      const y = servicesSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20 // 20px extra padding
-      window.scrollTo({ top: y, behavior: 'smooth' })
+    if (serviceIndex >= 0 && serviceIndex < services.length) {
+      setSelectedService(serviceIndex)
+      // Get header height dynamically
+      const header = document.querySelector('header')
+      const headerHeight = header ? header.offsetHeight : 80 // fallback to 80px if header not found
+      
+      const servicesSection = document.getElementById('services-tabs')
+      if (servicesSection) {
+        const y = servicesSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20 // 20px extra padding
+        window.scrollTo({ top: y, behavior: 'smooth' })
+      }
     }
   }
 
@@ -297,7 +301,7 @@ export default function Home() {
               {isMobile ? (
                 <div
                   className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                  onClick={() => scrollToServiceAndSelect(2)}
+                  onClick={() => scrollToServiceAndSelect(1)}
                 >
                   <div className="flex items-start gap-4">
                     <div>
@@ -317,7 +321,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  onClick={() => scrollToServiceAndSelect(2)}
+                  onClick={() => scrollToServiceAndSelect(1)}
                 >
                   <div className="flex items-start gap-4">
                     <div>
@@ -336,7 +340,7 @@ export default function Home() {
               {isMobile ? (
                 <div
                   className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                  onClick={() => scrollToServiceAndSelect(3)}
+                  onClick={() => scrollToServiceAndSelect(2)}
                 >
                   <div className="flex items-start gap-4">
                     <div>
@@ -356,7 +360,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  onClick={() => scrollToServiceAndSelect(3)}
+                  onClick={() => scrollToServiceAndSelect(2)}
                 >
                   <div className="flex items-start gap-4">
                     <div>
@@ -375,7 +379,7 @@ export default function Home() {
               {isMobile ? (
                 <div
                   className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                  onClick={() => scrollToServiceAndSelect(4)}
+                  onClick={() => scrollToServiceAndSelect(3)}
                 >
                   <div className="flex items-start gap-4">
                     <div>
@@ -383,7 +387,7 @@ export default function Home() {
                         <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
                       </div>
-                      <h4 className="text-base font-medium text-arcova-teal mb-2">For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.</h4>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Scientific writing · Academic editing</h4>
                       <p className="text-gray-600">Transform your data into publications and funding with our scientific writing and editing services.</p>
                     </div>
                   </div>
@@ -395,7 +399,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  onClick={() => scrollToServiceAndSelect(4)}
+                  onClick={() => scrollToServiceAndSelect(3)}
                 >
                   <div className="flex items-start gap-4">
                     <div>
@@ -403,7 +407,7 @@ export default function Home() {
                         <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
                         <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
                       </div>
-                      <h4 className="text-base font-medium text-arcova-teal mb-2">For PIs, postdocs, and research teams submitting grants, manuscripts, or systematic reviews.</h4>
+                      <h4 className="text-base font-medium text-arcova-teal mb-2">Scientific writing · Academic editing.</h4>
                       <p className="text-gray-600">Transform your data into publications and funding with our scientific writing and editing services.</p>
                     </div>
                   </div>
@@ -528,21 +532,21 @@ export default function Home() {
                     <div className="flex-1">
                       {/* Main header */}
                       <h3 className="text-xl md:text-2xl font-bold text-arcova-darkblue mb-3">
-                        {services[selectedService].name}
+                        {services[selectedService]?.name || ''}
                       </h3>
 
                       {/* For statement in teal */}
                       <p className="text-lg font-medium text-arcova-teal mb-8">
-                        {services[selectedService].description}
+                        {services[selectedService]?.description || ''}
                       </p>
 
                       <div className="grid md:grid-cols-2 gap-6 md:gap-8">
                         <div>
                           <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
-                            {services[selectedService].column1Header}
+                            {services[selectedService]?.column1Header || ''}
                           </h4>
                           <ul className="space-y-3 md:space-y-4">
-                            {services[selectedService].features.map((feature, index) => (
+                            {services[selectedService]?.features.map((feature, index) => (
                               <motion.li
                                 key={index}
                                 className="flex items-start"
@@ -560,10 +564,10 @@ export default function Home() {
                         </div>
                         <div>
                           <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-3 md:mb-4">
-                            {services[selectedService].column2Header}
+                            {services[selectedService]?.column2Header || ''}
                           </h4>
                           <ul className="space-y-3 md:space-y-4">
-                            {services[selectedService].features2.map((feature, index) => (
+                            {services[selectedService]?.features2.map((feature, index) => (
                               <motion.li
                                 key={index}
                                 className="flex items-start"
@@ -587,7 +591,7 @@ export default function Home() {
                       <div className="mb-4 md:mb-0 md:max-w-[60%]">
                         <p className="text-sm font-bold text-gray-600 italic flex items-start gap-2">
                           <Lightbulb className="h-5 w-5 text-[#f55f96] flex-shrink-0 mt-0.5" />
-                          <span className="flex-1">{services[selectedService].insight}</span>
+                          <span className="flex-1">{services[selectedService]?.insight || ''}</span>
                         </p>
                       </div>
 
@@ -601,7 +605,7 @@ export default function Home() {
                           rel="noopener noreferrer"
                           className="flex items-center gap-2 justify-center"
                         >
-                          {services[selectedService].cta}
+                          {services[selectedService]?.cta || ''}
                           <motion.div
                             whileHover={{ x: 5 }}
                             whileTap={{ x: 2 }}
