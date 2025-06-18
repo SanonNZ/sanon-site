@@ -549,7 +549,7 @@
                     Biotech consulting · Remote research jobs · Freelance medical writing · Remote data analyst jobs</h2>
                 </div>
                 <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed">
-                No resumes into the void. Just flexible paid work, built around your expertise.
+                No resumes into the void. Just flexible work, built around your expertise.
                 </p>
 
                 {/* Added scroll-down button */}
