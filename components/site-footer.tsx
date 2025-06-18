@@ -15,19 +15,19 @@ export function SiteFooter() {
         <div className="flex justify-center gap-6 my-4 sm:my-0">
           <Link
             href="/privacy"
-            className="text-sm text-gray-600 hover:text-sanon-purpleDark transition-colors duration-200"
+            className="text-sm text-gray-600 hover:text-sanon-purpleExtraDark transition-colors duration-200"
           >
             Privacy Policy
           </Link>
           <Link
             href="/terms"
-            className="text-sm text-gray-600 hover:text-sanon-purpleDark transition-colors duration-200"
+            className="text-sm text-gray-600 hover:text-sanon-purpleExtraDark transition-colors duration-200"
           >
             Terms of Service
           </Link>
           <Link
             href="/contact"
-            className="text-sm text-gray-600 hover:text-sanon-purpleDark transition-colors duration-200"
+            className="text-sm text-gray-600 hover:text-sanon-purpleExtraDark transition-colors duration-200"
           >
             Contact
           </Link>

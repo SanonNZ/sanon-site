@@ -36,9 +36,9 @@ const sanonColors = {
   purpleDark: "#e94f1",
   purpleMid: "#bcacff",
   purpleLight: "#d6d6fa",
-  pinkDark: "#fce1fe",
+  pinkLight: "#fce1fe",
   pinkMid: "#facffd",
-  pinkLight: "#d8bbe7"
+  pinkDark: "#d8bbe7"
 }
 
 function useIsMobile() {
@@ -190,14 +190,14 @@ export default function Home() {
             <div className="flex flex-col items-center space-y-8 text-center">
               <div className="space-y-8 max-w-[900px]">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl text-center">
-                We make sanon make <span className="text-sanon-purple">sense</span>
+                  You are <span className="text-[#8e94f1]">not</span> <span className="text-sanon-deepNavy">alone</span>
                 </h1>
                 <h2 className="text-xl md:text-xl font-medium tracking-tight sm:text-xl md:text-xl text-sanon-deepNavy mt-6">
-                Biotech marketing · Life science consulting · Tech due diligence · Scientific writing
+                S-Anon is a fellowship of people who have been affected by someone else's sexual behavior
                 </h2>
               </div>
               <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed">
-              We help turn your complex research into growth.
+              Scroll down to find a meeting in New Zealand.
               </p>
 
               {/* Added scroll-down button */}
@@ -208,7 +208,7 @@ export default function Home() {
                 transition={{ delay: 0.5, duration: 0.5 }}
               >
                 <a href="#who-we-work-with" className="flex flex-col items-center gap-2 cursor-pointer">
-                  <div className="bg-sanon-purpleLight border border-sanon-purple/20 rounded-full p-3 text-sanon-purple group-hover:bg-sanon-purple/10 transition-colors duration-300 group-hover:translate-y-1 transform transition-transform">
+                  <div className="bg-sanon-purpleLight border border-sanon-purpleDark/20 rounded-full p-3 text-sanon-purpleDark group-hover:bg-sanon-purpleDark/10 transition-colors duration-300 group-hover:translate-y-1 transform transition-transform">
                     <ChevronDown className="h-5 w-5" />
                   </div>
                 </a>
@@ -217,171 +217,67 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        {/* Who We Work With Section */}
-        <AnimatedSection id="who-we-work-with" className="w-full py-24 md:py-32 bg-sanon-purpleLight/10">
+        {/* Who is it for */}
+        <AnimatedSection id="who-we-work-with" className="w-full py-24 md:py-32 bg-sanon-purpleDark/10">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-sanon-purpleLight/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
-                Who We Work With
+              <div className="inline-block px-3 py-1 bg-sanon-purpleDark/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
+                Who is it for?
               </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">Builders. Explainers. Investors. </h2>
+              <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">Does life feel unmanageable?</h2>
               <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
-                Complex science is hard to explain. We make it easier to fund, communicate, and grow.
+              Have you been hurt by
+              another person's compulsive sexual behavior?
+              </p>
+              <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
+              Feeling betrayed? Embarrased?
+              Doubting yourself or your sanity?
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-8">
-              {/* Owners & Founders */}
+            <div className="grid place-items-center w-full mt-8">
               {isMobile ? (
                 <div
-                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                  onClick={() => scrollToServiceAndSelect(0)}
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 max-w-2xl w-full text-center"
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex flex-col items-center gap-4">
                     <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Users className="h-5 w-5 text-[#fce1fe]" />
-                        <h3 className="font-bold text-lg text-sanon-deepNavy">Owners & Founders</h3>
+                      <div className="flex items-center justify-center gap-2 mb-4">
+                        <Users className="h-6 w-6 text-sanon-purpleExtraDark" />
+                        <h2 className="font-bold text-3xl text-sanon-deepNavy">We understand.</h2>
                       </div>
-                      <h4 className="text-base font-medium text-sanon-purple mb-2">Life Science Consulting · Biotech consulting</h4>
-                      <p className="text-gray-600">Shape your vision into a market-ready plan with biotech consulting and biotech business development.</p>
-                    </div>
+                      <h4 className="text-lg font-medium text-sanon-purpleExtraDark mb-3">The S-Anon program helps you connect with others who have felt the painful effects of someone else's sex addiction and have found a way forward.
+
+</h4>                    </div>
+                    <Button
+                      asChild
+                      className="bg-sanon-purpleExtraDark hover:bg-sanon-purpleExtraDark/90 text-white border-none px-6 py-2.5 rounded-full inline-flex items-center justify-center gap-2 hover:scale-105 transform transition-all duration-300 text-sm font-bold "
+                    >
+                      <Link href="#meetings">Find a Meeting</Link>
+                    </Button>
                   </div>
                 </div>
               ) : (
                 <motion.div
-                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer md:hover:translate-y-[-5px] md:hover:shadow-xl"
+                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 max-w-2xl w-full text-center"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  onClick={() => scrollToServiceAndSelect(0)}
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex flex-col items-center gap-4">
                     <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Users className="h-5 w-5 text-[#fce1fe]" />
-                        <h3 className="font-bold text-lg text-sanon-deepNavy">Owners & Founders</h3>
+                      <div className="flex items-center justify-center gap-2 mb-4">
+                        <Users className="h-6 w-6 text-sanon-purpleExtraDark" />
+                        <h2 className="font-bold text-3xl text-sanon-deepNavy">We understand.</h2>
                       </div>
-                      <h4 className="text-base font-medium text-sanon-purple mb-2">Life Science Consulting · Biotech consulting</h4>
-                      <p className="text-gray-600">Shape your vision into a market-ready plan with biotech consulting and biotech business development.</p>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Marketing & Comms Leads */}
-              {isMobile ? (
-                <div
-                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                  onClick={() => scrollToServiceAndSelect(1)}
-                >
-                  <div className="flex items-start gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Zap className="h-5 w-5 text-[#fce1fe]" />
-                        <h3 className="font-bold text-lg text-sanon-deepNavy">Marketing & Comms Leads</h3>
-                      </div>
-                      <h4 className="text-base font-medium text-sanon-purple mb-2">Biotech marketing · Healthcare SEO</h4>
-                      <p className="text-gray-600">Turn research into engaging science blogs and elevate your biotech branding to build authority and trust.</p>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <motion.div
-                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer md:hover:translate-y-[-5px] md:hover:shadow-xl"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  onClick={() => scrollToServiceAndSelect(1)}
-                >
-                  <div className="flex items-start gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Zap className="h-5 w-5 text-[#fce1fe]" />
-                        <h3 className="font-bold text-lg text-sanon-deepNavy">Marketing & Comms Leads</h3>
-                      </div>
-                      <h4 className="text-base font-medium text-sanon-purple mb-2">Biotech marketing · Healthcare SEO</h4>
-                      <p className="text-gray-600">Turn research into engaging science blogs and elevate your biotech branding to build authority and trust.</p>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Investors & Advisors */}
-              {isMobile ? (
-                <div
-                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                  onClick={() => scrollToServiceAndSelect(2)}
-                >
-                  <div className="flex items-start gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <LineChart className="h-5 w-5 text-[#bcacff]" />
-                        <h3 className="font-bold text-lg text-sanon-deepNavy">Investors & Advisors</h3>
-                      </div>
-                      <h4 className="text-base font-medium text-sanon-purple mb-2">Tech due diligence · Commercial due diligence</h4>
-                      <p className="text-gray-600">De-risk investments with technical due diligence before you build, pitch, or invest.</p>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <motion.div
-                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer md:hover:translate-y-[-5px] md:hover:shadow-xl"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  onClick={() => scrollToServiceAndSelect(2)}
-                >
-                  <div className="flex items-start gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <LineChart className="h-5 w-5 text-[#bcacff]" />
-                        <h3 className="font-bold text-lg text-sanon-deepNavy">Investors & Advisors</h3>
-                      </div>
-                      <h4 className="text-base font-medium text-sanon-purple mb-2">Tech due diligence · Commercial due diligence</h4>
-                      <p className="text-gray-600">De-risk investments with technical due diligence before you build, pitch, or invest.</p>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Researchers & Academics */}
-              {isMobile ? (
-                <div
-                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-                  onClick={() => scrollToServiceAndSelect(3)}
-                >
-                  <div className="flex items-start gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <GraduationCap className="h-5 w-5 text-[#fce1fe]" />
-                        <h3 className="font-bold text-lg text-sanon-deepNavy">Researchers & Academics</h3>
-                      </div>
-                      <h4 className="text-base font-medium text-sanon-purple mb-2">Scientific writing · Academic editing</h4>
-                      <p className="text-gray-600">Transform your data into publications and funding with our scientific writing and editing services.</p>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <motion.div
-                  className="bg-white backdrop-blur-sm border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer md:hover:translate-y-[-5px] md:hover:shadow-xl"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  onClick={() => scrollToServiceAndSelect(3)}
-                >
-                  <div className="flex items-start gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <GraduationCap className="h-5 w-5 text-[#fce1fe]" />
-                        <h3 className="font-bold text-lg text-sanon-deepNavy">Researchers & Academics</h3>
-                      </div>
-                      <h4 className="text-base font-medium text-sanon-purple mb-2">Scientific writing · Academic editing</h4>
-                      <p className="text-gray-600">Transform your data into publications and funding with our scientific writing and editing services.</p>
+                      <p className="text-lg font-medium text-sanon-purpleExtraDark mb-6">The S-Anon program helps you connect with others who have felt the painful effects of someone else's sex addiction and have found a way forward.</p>
+                      <Button
+                        asChild
+                        className="bg-sanon-purpleExtraDark hover:bg-sanon-purpleExtraDark/90 text-white border-none px-6 py-2.5 rounded-full inline-flex items-center justify-center gap-2 hover:scale-105 transform transition-all duration-300 text-sm font-bold"
+                      >
+                        <Link href="#meetings">Join Our Meeting</Link>
+                      </Button>
                     </div>
                   </div>
                 </motion.div>
@@ -394,7 +290,7 @@ export default function Home() {
         <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50" id="services-section">
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-sanon-purpleLight/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
+              <div className="inline-block px-3 py-1 bg-sanon-purpleDark/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
                 What we offer
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
@@ -421,8 +317,8 @@ export default function Home() {
                         "flex-1 aspect-square md:aspect-auto md:w-full p-3 md:p-5 rounded-xl md:rounded-2xl",
                         "min-w-[80px] md:min-w-0", // Add minimum width for mobile
                         selectedService === index
-                          ? "bg-sanon-purple/20 border border-sanon-purple/30"
-                          : "bg-white hover:bg-sanon-purple/5 border border-transparent",
+                          ? "bg-sanon-purpleDark/20 border border-sanon-purpleDark/30"
+                          : "bg-white hover:bg-sanon-purpleDark/5 border border-transparent",
                       )}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -456,7 +352,7 @@ export default function Home() {
                           <div
                             className={cn(
                               "font-medium text-lg transition-colors duration-300 text-left",
-                              selectedService === index ? "text-sanon-purple" : "text-gray-700",
+                              selectedService === index ? "text-sanon-purpleDark" : "text-gray-700",
                             )}
                           >
                             {service.name}
@@ -473,7 +369,7 @@ export default function Home() {
 
                         {/* Subtle arrow that appears on hover or when selected - desktop only */}
                         <motion.div
-                          className="text-sanon-purple hidden md:block flex-shrink-0"
+                          className="text-sanon-purpleDark hidden md:block flex-shrink-0"
                           initial={{ opacity: 0 }}
                           animate={{
                             opacity: hoveredService === index || selectedService === index ? 1 : 0,
@@ -500,7 +396,7 @@ export default function Home() {
                 >
                   <div className="p-6 md:p-8 min-h-[450px] flex flex-col">
                     {/* Top accent bar */}
-                    <div className="w-16 h-1.5 bg-sanon-purple rounded-full mb-3 md:mb-4"></div>
+                    <div className="w-16 h-1.5 bg-sanon-purpleDark rounded-full mb-3 md:mb-4"></div>
 
                     <div className="flex-1">
                       {/* Main header */}
@@ -509,7 +405,7 @@ export default function Home() {
                       </h3>
 
                       {/* For statement in teal */}
-                      <p className="text-lg font-medium text-sanon-purple mb-8 ">
+                      <p className="text-lg font-medium text-sanon-purpleDark mb-8 ">
                         {services[selectedService]?.description || ''}
                       </p>
 
@@ -570,14 +466,9 @@ export default function Home() {
 
                       <Button
                         asChild
-                        className="bg-sanon-purple hover:bg-sanon-purple/90 text-white border-none px-6 md:px-8 py-2 md:py-3 rounded-full flex items-center gap-2 hover:scale-105 transform transition-all duration-300 group text-sm md:text-base w-full md:w-auto"
+                        className="bg-sanon-purpleExtraDark hover:bg-sanon-purpleExtraDark/90 text-white border-none px-6 py-2.5 rounded-full inline-flex items-center justify-center gap-2 hover:scale-105 transform transition-all duration-300 text-sm font-medium"
                       >
-                        <a
-                          href="https://calendly.com/emma-arcova/30min"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 justify-center"
-                        >
+                        <Link href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer">
                           {services[selectedService]?.cta || ''}
                           <motion.div
                             whileHover={{ x: 5 }}
@@ -593,7 +484,7 @@ export default function Home() {
                           >
                             <ArrowRight className="h-4 w-4" />
                           </motion.div>
-                        </a>
+                        </Link>
                       </Button>
                     </div>
                   </div>
@@ -607,7 +498,7 @@ export default function Home() {
         <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-gray-100">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-sanon-purpleLight/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
+              <div className="inline-block px-3 py-1 bg-sanon-purpleDark/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
                 Our Process
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
@@ -622,22 +513,22 @@ export default function Home() {
                 <>
                   <div className="bg-white rounded-2xl shadow p-4 mb-4">
                     <div className="font-bold text-lg mb-1">Discover</div>
-                    <div className="text-sm font-semibold text-sanon-purple mb-1">Go deep on the evidence</div>
+                    <div className="text-sm font-semibold text-sanon-purpleDark mb-1">Go deep on the evidence</div>
                     <div className="text-gray-600 text-sm">Comprehensive literature search and data collection</div>
                   </div>
                   <div className="bg-white rounded-2xl shadow p-4 mb-4">
                     <div className="font-bold text-lg mb-1">Analyze</div>
-                    <div className="text-sm font-semibold text-sanon-purple mb-1">Separate signal from noise</div>
+                    <div className="text-sm font-semibold text-sanon-purpleDark mb-1">Separate signal from noise</div>
                     <div className="text-gray-600 text-sm">Critical evaluation of evidence, source quality, and relevance</div>
                   </div>
                   <div className="bg-white rounded-2xl shadow p-4 mb-4">
                     <div className="font-bold text-lg mb-1">Synthesize</div>
-                    <div className="text-sm font-semibold text-sanon-purple mb-1">Connect the dots for clarity</div>
+                    <div className="text-sm font-semibold text-sanon-purpleDark mb-1">Connect the dots for clarity</div>
                     <div className="text-gray-600 text-sm">Transform complex science into clear, actionable insights</div>
                   </div>
                   <div className="bg-white rounded-2xl shadow p-4 mb-4">
                     <div className="font-bold text-lg mb-1">Deliver</div>
-                    <div className="text-sm font-semibold text-sanon-purple mb-1">From research to impact</div>
+                    <div className="text-sm font-semibold text-sanon-purpleDark mb-1">From research to impact</div>
                     <div className="text-gray-600 text-sm">Content, reports, or advice. Science delivered your way</div>
                   </div>
                 </>
@@ -648,28 +539,28 @@ export default function Home() {
                     subtitle="Go deep on the evidence"
                     description="Comprehensive literature search and data collection to build a strong foundation."
                     delay={0.1}
-                    color="sanon-purple"
+                    color="sanon-purpleDark"
                   />
                   <ProcessStep
                     title="Analyze"
                     subtitle="Separate signal from noise"
                     description="Critical evaluation of evidence, source quality, and relevance to your goals."
                     delay={0.2}
-                    color="sanon-purple"
+                    color="sanon-purpleDark"
                   />
                   <ProcessStep
                     title="Synthesize"
                     subtitle="Connect the dots for clarity"
                     description="Transform complex science into clear, actionable insights and recommendations."
                     delay={0.3}
-                    color="sanon-purple"
+                    color="sanon-purpleDark"
                   />
                   <ProcessStep
                     title="Deliver"
                     subtitle="From research to impact"
                     description="Content, pitch decks, reports, or insights. Science delivered your way."
                     delay={0.4}
-                    color="sanon-purple"
+                    color="sanon-purpleDark"
                   />
                 </>
               )}
@@ -682,7 +573,7 @@ export default function Home() {
         <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="mx-auto max-w-xl text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-sanon-purpleLight/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
+              <div className="inline-block px-3 py-1 bg-sanon-purpleDark/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
                 Testimonials
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
@@ -698,7 +589,7 @@ export default function Home() {
 
 
          {/* Who we're looking */}
-       <AnimatedSection className="w-full py-14 md:py-14 bg-sanon-purpleLight/15">
+       <AnimatedSection className="w-full py-14 md:py-14 bg-sanon-purpleDark/15">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center">
               <div className="max-w-3xl text-center">
@@ -736,7 +627,7 @@ export default function Home() {
                 <GlowingNetworkMolecule />
               </div>
               <div className="space-y-3">
-                <div className="inline-block px-3 py-1 bg-sanon-purpleLight/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
+                <div className="inline-block px-3 py-1 bg-sanon-purpleDark/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
                   Our Network
                 </div>
                 <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
@@ -748,9 +639,9 @@ export default function Home() {
                 <Button
                   asChild
                   variant="outline"
-                  className="mt-4 self-start rounded-full border-sanon-purple/30 hover:bg-sanon-purple/10 hover:scale-105 transform transition-all duration-300"
+                  className="mt-4 self-start rounded-full border-sanon-purpleDark/30 hover:bg-sanon-purpleDark/10 hover:scale-105 transform transition-all duration-300"
                 >
-                  <Link href="/network" className="flex items-center gap-2 text-sanon-purple">
+                  <Link href="/network" className="flex items-center gap-2 text-sanon-purpleDark">
                     Join Our Network
                     <motion.div
                       whileHover={{ x: 5 }}
@@ -774,11 +665,11 @@ export default function Home() {
         </AnimatedSection>
 
         {/* Network recruitment banner */}
-        <AnimatedSection className="w-full py-12 bg-sanon-purple/10">
+        <AnimatedSection className="w-full py-12 bg-sanon-purpleDark/10">
           <div className="container px-4 md:px-6 max-w-5xl">
             <Link 
               href="/network"
-              className="flex flex-col items-center justify-center gap-2 text-sanon-purple hover:text-sanon-purple/80 transition-colors duration-200 text-lg md:text-xl"
+              className="flex flex-col items-center justify-center gap-2 text-sanon-purpleDark hover:text-sanon-purpleDark/80 transition-colors duration-200 text-lg md:text-xl"
             >
               <span>We're always looking for curious scientific minds.</span>
               <span className="font-bold flex items-center gap-2">
@@ -790,11 +681,11 @@ export default function Home() {
         </AnimatedSection>
 
         {/* Emma Bardsley Section */}
-        <AnimatedSection className="w-full py-24 md:py-32 bg-sanon-purpleLight/10">
+        <AnimatedSection className="w-full py-24 md:py-32 bg-sanon-purpleDark/10">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="grid gap-12 sm:grid-cols-2 lg:gap-16 items-center">
               <div className="space-y-6 order-2 sm:order-1">
-                <div className="inline-block px-3 py-1 bg-sanon-purpleLight/30 text-sanon-purpleDark rounded-full text-sm font-medium">
+                <div className="inline-block px-3 py-1 bg-sanon-purpleDark/30 text-sanon-purpleDark rounded-full text-sm font-medium">
                   Led by
                 </div>
                 <h2 className="text-3xl font-bold tracking-tight md:text-2xl">Emma Bardsley, PhD</h2>
@@ -891,7 +782,7 @@ export default function Home() {
               <Button
                 asChild
                 size="default"
-                className="mt-4 bg-sanon-purple hover:bg-sanon-purple/90 text-white font-bold rounded-full px-8 py-4 h-auto transition-all duration-500 hover:scale-105 hover:shadow-xl group"
+                className="mt-4 bg-sanon-purpleDark hover:bg-sanon-purpleDark/90 text-white font-bold rounded-full px-8 py-4 h-auto transition-all duration-500 hover:scale-105 hover:shadow-xl group"
               >
                 <a
                   href="https://calendly.com/emma-arcova/30min"
@@ -923,7 +814,7 @@ export default function Home() {
               </div>
               <Link 
                 href="/contact" 
-                className="text-sanon-purple hover:text-sanon-purple/90 inline-flex items-center text-sm font-medium"
+                className="text-sanon-purpleDark hover:text-sanon-purpleDark/90 inline-flex items-center text-sm font-medium"
               >
                 Send us a message
                 <svg
