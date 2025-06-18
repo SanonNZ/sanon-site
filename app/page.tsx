@@ -6,7 +6,6 @@ import { ArrowRight, ChevronDown, FileText, Zap, Users, Star, Lightbulb, LineCha
 import { Button } from "@/components/ui/button"
 import { AnimatedSection } from "@/components/animated-section"
 import { ProcessStep } from "@/components/process-step"
-import { GlowingNetworkMolecule } from "@/components/network-molecule"
 import { motion } from "framer-motion"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { useState, useEffect } from "react"
@@ -246,9 +245,8 @@ export default function Home() {
                         <Users className="h-6 w-6 text-sanon-purpleExtraDark" />
                         <h2 className="font-bold text-3xl text-sanon-deepNavy">We understand.</h2>
                       </div>
-                      <h4 className="text-lg font-medium text-sanon-purpleExtraDark mb-3">The S-Anon program helps you connect with others who have felt the painful effects of someone else's sex addiction and have found a way forward.
-
-</h4>                    </div>
+                      <h4 className="text-lg font-medium text-sanon-purpleExtraDark mb-3">The S-Anon program helps you connect with others who have felt the painful effects of someone else's sex addiction and have found a way forward.</h4>                 
+                         </div>
                     <Button
                       asChild
                       className="bg-sanon-purpleExtraDark hover:bg-sanon-purpleExtraDark/90 text-white border-none px-6 py-2.5 rounded-full inline-flex items-center justify-center gap-2 hover:scale-105 transform transition-all duration-300 text-sm font-bold "
@@ -286,209 +284,164 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        {/* Service Selector Section */}
-        <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50" id="services-section">
-          <div className="container px-4 md:px-6 max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-sanon-purpleDark/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
-                What we offer
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
-                Scientific solutions for every stage
-              </h2>
-              <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
-                From content to deep-dive validation, we deliver scientific expertise for your business.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-12 gap-8">
-              {/* Left column: Modern pill tabs - square buttons on mobile */}
-              <div className="md:col-span-4 flex flex-col items-center md:items-start md:justify-start" id="services-tabs">
-                <div className="flex md:flex-col gap-2 md:gap-3 justify-center md:justify-start items-center md:items-start overflow-x-auto md:overflow-visible">
-                  {services.map((service, index) => (
-                    <motion.button
-                      key={service.id}
-                      onClick={() => handleTabSelect(index)}
-                      onMouseEnter={() => setHoveredService(index)}
-                      onMouseLeave={() => setHoveredService(null)}
-                      className={cn(
-                        "relative flex items-center transition-all duration-300",
-                        "overflow-hidden group",
-                        "flex-1 aspect-square md:aspect-auto md:w-full p-3 md:p-5 rounded-xl md:rounded-2xl",
-                        "min-w-[80px] md:min-w-0", // Add minimum width for mobile
-                        selectedService === index
-                          ? "bg-sanon-purpleDark/20 border border-sanon-purpleDark/30"
-                          : "bg-white hover:bg-sanon-purpleDark/5 border border-transparent",
-                      )}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                    >
-                      {/* Icon container */}
-                      <div className="flex flex-col items-center md:items-start md:flex-row md:gap-4 w-full">
-                        <motion.div
-                          className={cn(
-                            "flex items-center justify-center w-10 h-10 rounded-full mb-1 md:mb-0 flex-shrink-0",
-                            selectedService === index ? "bg-white shadow-sm" : "bg-gray-100",
-                          )}
-                          animate={{
-                            scale: hoveredService === index || selectedService === index ? 1.05 : 1,
-                          }}
-                          transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                        >
-                          <div className={cn(
-                            "transition-colors duration-300",
-                            selectedService === index && index === 0 ? "text-[#fce1fe]" : // Business Strategy
-                            selectedService === index && index === 1 ? "text-[#fce1fe]" : // Articles
-                            selectedService === index && index === 2 ? "text-[#fce1fe]" : // Scientific Validation
-                            selectedService === index && index === 3 ? "text-[#fce1fe]" : // Academic
-                            "text-gray-500"
-                          )}>
-                            {service.icon}
-                          </div>
-                        </motion.div>
-
-                        <div className="flex-1 hidden md:block">
-                          <div
-                            className={cn(
-                              "font-medium text-lg transition-colors duration-300 text-left",
-                              selectedService === index ? "text-sanon-purpleDark" : "text-gray-700",
-                            )}
-                          >
-                            {service.name}
-                          </div>
-                        </div>
-
-                        {/* Show name below icon on mobile */}
-                        <div className="text-xs font-medium mt-1 md:hidden text-center">
-                          {index === 0 ? "Business" : 
-                           index === 1 ? "Content" :
-                           index === 2 ? "Diligence" :
-                           "Research"}
-                        </div>
-
-                        {/* Subtle arrow that appears on hover or when selected - desktop only */}
-                        <motion.div
-                          className="text-sanon-purpleDark hidden md:block flex-shrink-0"
-                          initial={{ opacity: 0 }}
-                          animate={{
-                            opacity: hoveredService === index || selectedService === index ? 1 : 0,
-                          }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <ArrowRight className="h-4 w-4" />
-                        </motion.div>
-                      </div>
-                    </motion.button>
-                  ))}
+        {/* Our Experience Section */}
+        <AnimatedSection id="about" className="w-full py-24 md:py-32 bg-white">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+              <div className="space-y-3">
+                <div className="inline-block px-3 py-1 bg-sanon-purpleDark/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
+                  Our Experience
                 </div>
-              </div>
-
-              {/* Right column: Beautiful content box */}
-              <div className="md:col-span-8 md:relative">
-                {/* Removed AnimatePresence and exit animations for instant tab switching */}
-                <motion.div
-                  key={selectedService}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                  className="bg-white rounded-3xl shadow-xl overflow-hidden border-0"
+                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
+                Our members know the painful effects of someone else's sex addiction.
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                We have all been impacted by the effects of another person's sexual behavior. We are here to tell you that peace and serenity are possible.
+                </p>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="mt-4 self-start rounded-full border-sanon-purpleDark/30 hover:bg-sanon-purpleDark/10 hover:scale-105 transform transition-all duration-300"
                 >
-                  <div className="p-6 md:p-8 min-h-[450px] flex flex-col">
-                    {/* Top accent bar */}
-                    <div className="w-16 h-1.5 bg-sanon-purpleDark rounded-full mb-3 md:mb-4"></div>
+                  <Link href="/network" className="flex items-center gap-2 text-sanon-purpleDark">
+                    Join Our Network
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      whileTap={{ x: 2 }}
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{
+                        duration: 1,
+                        repeat: Number.POSITIVE_INFINITY,
+                        repeatType: "loop",
+                        ease: "easeInOut",
+                        repeatDelay: 1,
+                      }}
+                    >
+                      <ArrowRight className="h-4 w-4" />
+                    </motion.div>
+                  </Link>
+                </Button>
+              </div>
+              {/* Image container */}
+              <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-br from-sanon-purpleDark/0 to-transparent"></div>
+                <Image
+                  src="/images/experience.png"
+                  alt="S-Anon experience and support"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
 
-                    <div className="flex-1">
-                      {/* Main header */}
-                      <h3 className="text-xl md:text-2xl font-bold text-sanon-deepNavy mb-2">
-                        {services[selectedService]?.name || ''}
-                      </h3>
+        {/* Our Strength Section - Flipped */}
+        <AnimatedSection id="about-flipped" className="w-full py-24 md:py-32 bg-sanon-pinkLight/20">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+              {/* Image container - Now on the left */}
+              <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-br from-sanon-purpleDark/0 to-transparent"></div>
+                <Image
+                  src="/images/strength.png"
+                  alt="S-Anon strength and support"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              {/* Text content - Now on the right */}
+              <div className="space-y-3">
+                <div className="inline-block px-3 py-1 bg-sanon-pinkLight/50 text-sanon-pinkExtraDark rounded-full text-sm font-medium mb-6">
+                  Our Strength
+                </div>
+                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
+                We walk this path together.
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                In our shared experience, we find understanding, compassion, and the strength to find serenity
+                </p>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="mt-4 self-start rounded-full border-sanon-purpleDark/30 hover:bg-sanon-purpleDark/10 hover:scale-105 transform transition-all duration-300"
+                >
+                  <Link href="/network" className="flex items-center gap-2 text-sanon-purpleDark">
+                    Join Our Network
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      whileTap={{ x: 2 }}
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{
+                        duration: 1,
+                        repeat: Number.POSITIVE_INFINITY,
+                        repeatType: "loop",
+                        ease: "easeInOut",
+                        repeatDelay: 1,
+                      }}
+                    >
+                      <ArrowRight className="h-4 w-4" />
+                    </motion.div>
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
 
-                      {/* For statement in teal */}
-                      <p className="text-lg font-medium text-sanon-purpleDark mb-8 ">
-                        {services[selectedService]?.description || ''}
-                      </p>
-
-                      <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                        <div>
-                          <h4 className="text-base md:text-lg font-medium text-sanon-deepNavy mb-4">
-                            {services[selectedService]?.column1Header || ''}
-                          </h4>
-                          <ul className="space-y-2">
-                            {services[selectedService]?.features.map((feature, index) => (
-                              <motion.li
-                                key={index}
-                                className="flex items-start"
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.3, delay: index * 0.1 }}
-                              >
-                                <div className="rounded-full bg-[#fce1fe] p-1 mr-3 mt-0.5 flex-shrink-0">
-                                  <Check className="h-3.5 w-3.5 text-sanon-deepNavy" />
-                                </div>
-                                <span className="text-gray-700 text-sm md:text-base">{feature}</span>
-                              </motion.li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <h4 className="text-base md:text-lg font-medium text-sanon-deepNavy mb-4">
-                            {services[selectedService]?.column2Header || ''}
-                          </h4>
-                          <ul className="space-y-2">
-                            {services[selectedService]?.features2.map((feature, index) => (
-                              <motion.li
-                                key={index}
-                                className="flex items-start"
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.3, delay: index * 0.1 }}
-                              >
-                                <div className="rounded-full bg-[#fce1fe] p-1 mr-3 mt-0.5 flex-shrink-0">
-                                  <Check className="h-3.5 w-3.5 text-sanon-deepNavy" />
-                                </div>
-                                <span className="text-gray-700 text-sm md:text-base">{feature}</span>
-                              </motion.li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col md:flex-row items-center justify-between mt-4">
-                      {/* Microinsight with lightbulb */}
-                      <div className="mb-4 md:mb-0 md:max-w-[60%]">
-                        <p className="text-sm font-bold text-gray-600 italic flex items-start gap-2">
-                          <Lightbulb className="h-5 w-5 text-[#fce1fe] flex-shrink-0 mt-0.5" />
-                          <span className="flex-1">{services[selectedService]?.insight || ''}</span>
-                        </p>
-                      </div>
-
-                      <Button
-                        asChild
-                        className="bg-sanon-purpleExtraDark hover:bg-sanon-purpleExtraDark/90 text-white border-none px-6 py-2.5 rounded-full inline-flex items-center justify-center gap-2 hover:scale-105 transform transition-all duration-300 text-sm font-medium"
-                      >
-                        <Link href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer">
-                          {services[selectedService]?.cta || ''}
-                          <motion.div
-                            whileHover={{ x: 5 }}
-                            whileTap={{ x: 2 }}
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{
-                              duration: 1,
-                              repeat: Number.POSITIVE_INFINITY,
-                              repeatType: "loop",
-                              ease: "easeInOut",
-                              repeatDelay: 1,
-                            }}
-                          >
-                            <ArrowRight className="h-4 w-4" />
-                          </motion.div>
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-                </motion.div>
+        {/* Our Hope Section */}
+        <AnimatedSection id="about" className="w-full py-24 md:py-32 bg-sanon-purpleDark/20">
+          <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+              <div className="space-y-3">
+                <div className="inline-block px-3 py-1 bg-sanon-purpleDark/30 text-sanon-purpleExtraDark rounded-full text-sm font-medium mb-6">
+                  Our Hope
+                </div>
+                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
+                A new way of living is possible.
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                We believe that with support, honesty, and a power greater than ourselves, we can find hope and experience a new way of living.
+                </p>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="mt-4 self-start rounded-full border-sanon-purpleDark/30 hover:bg-sanon-purpleDark/10 hover:scale-105 transform transition-all duration-300"
+                >
+                  <Link href="/network" className="flex items-center gap-2 text-sanon-purpleDark">
+                    Join Our Network
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      whileTap={{ x: 2 }}
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{
+                        duration: 1,
+                        repeat: Number.POSITIVE_INFINITY,
+                        repeatType: "loop",
+                        ease: "easeInOut",
+                        repeatDelay: 1,
+                      }}
+                    >
+                      <ArrowRight className="h-4 w-4" />
+                    </motion.div>
+                  </Link>
+                </Button>
+              </div>
+              {/* Image container */}
+              <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-br from-sanon-purpleDark/0 to-transparent"></div>
+                <Image
+                  src="/images/hope.png"
+                  alt="S-Anon hope and recovery"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
             </div>
           </div>
@@ -568,7 +521,6 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-
         {/* Client Success Section */}
         <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
@@ -586,7 +538,6 @@ export default function Home() {
             <TestimonialCarousel />
           </div>
         </AnimatedSection>
-
 
          {/* Who we're looking */}
        <AnimatedSection className="w-full py-14 md:py-14 bg-sanon-purpleDark/15">
@@ -619,50 +570,7 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        {/* Our Network Section */}
-        <AnimatedSection id="about" className="w-full py-24 md:py-32 bg-white">
-          <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-              <div className="relative h-[300px] md:h-[400px] shadow-xl rounded-2xl overflow-hidden order-1 lg:order-1">
-                <GlowingNetworkMolecule />
-              </div>
-              <div className="space-y-3">
-                <div className="inline-block px-3 py-1 bg-sanon-purpleDark/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
-                  Our Network
-                </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
-                  Experts and specialists curated for your brief.
-                </h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Arcova draws on a trusted network of scientists and subject matter experts from across academia and industry. We work with researchers and experts from world-leading institutions, assembling a curated team for each project, matching expertise to your brief.
-                </p>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="mt-4 self-start rounded-full border-sanon-purpleDark/30 hover:bg-sanon-purpleDark/10 hover:scale-105 transform transition-all duration-300"
-                >
-                  <Link href="/network" className="flex items-center gap-2 text-sanon-purpleDark">
-                    Join Our Network
-                    <motion.div
-                      whileHover={{ x: 5 }}
-                      whileTap={{ x: 2 }}
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{
-                        duration: 1,
-                        repeat: Number.POSITIVE_INFINITY,
-                        repeatType: "loop",
-                        ease: "easeInOut",
-                        repeatDelay: 1,
-                      }}
-                    >
-                      <ArrowRight className="h-4 w-4" />
-                    </motion.div>
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
+    
 
         {/* Network recruitment banner */}
         <AnimatedSection className="w-full py-12 bg-sanon-purpleDark/10">

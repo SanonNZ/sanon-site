@@ -61,6 +61,7 @@ const config = {
           purpleDark: "#8e94f1",
           purpleMid: "#bcacff",
           purpleLight: "#d6d6fa",
+          pinkExtraDark: "#844989",
           pinkDark: "#fce1fe",
           pinkMid: "#facffd",
           pinkLight: "#d8bbe7"
