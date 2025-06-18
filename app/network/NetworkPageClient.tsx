@@ -590,13 +590,13 @@
         
 
             {/* Who We Work With Section */}
-            <AnimatedSection id="who-we-work-with" className="w-full py-24 md:py-32  bg-arcova-mint/10">
+            <AnimatedSection id="who-we-work-with" className="w-full py-24 md:py-32 bg-sanon-purpleLight/10">
             <div className="container px-4 md:px-6 max-w-5xl">
                 <div className="text-center mb-16">
-                <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
+                <div className="inline-block px-3 py-1 bg-sanon-purpleLight/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
                     Get Paid To Think
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">Work that values you, and what you know              </h2>
+                <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">Work that values you, and what you know</h2>
                 <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
                 Bring your research skills, analytical mind, and scientific training to real-world projects, without stepping away from the work you already care about.
                 </p>

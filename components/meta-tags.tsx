@@ -9,7 +9,7 @@ export function MetaTags() {
         property="og:description"
         content="We help turn research into strategy, products, and progress."
       />
-      <meta property="og:image" content="/images/arcova-logo-transparent.png" />
+      <meta property="og:image" content="/images/SAnon-logo.png" />
       <meta property="og:type" content="website" />
 
       {/* Twitter Card Tags

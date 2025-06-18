@@ -53,14 +53,16 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        arcova: {
-          darkblue: "#003344",
-          teal: "#00A4B4",
-          blue: "#006680",
-          mint: "#8CD9C9",
-          beige: "#E8D6A0",
-          white: "#F8F8F8",
-          navy: "#0d3547" /* Added navy color */,
+        sanon: {
+          deepNavy: "#1c2f70",
+          steelGrey: "#8895b3",
+          aubergine: "#2d2850",
+          purpleDark: "#e94f1",
+          purpleMid: "#bcacff",
+          purpleLight: "#d6d6fa",
+          pinkDark: "#fce1fe",
+          pinkMid: "#facffd",
+          pinkLight: "#d8bbe7"
         },
         blue: {
           50: "#f0f9ff",

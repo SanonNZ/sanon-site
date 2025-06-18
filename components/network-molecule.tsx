@@ -223,7 +223,7 @@ export function GlowingNetworkMolecule() {
   return (
     <div className="relative w-full h-full min-h-[300px]">
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-arcova-teal/10 to-arcova-mint/10 rounded-2xl"
+        className="absolute inset-0 bg-gradient-to-r from-sanon-purpleLight/10 to-sanon-pinkLight/10 rounded-2xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
