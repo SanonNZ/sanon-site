@@ -37,7 +37,7 @@ export const metadata = {
     siteName: 'Arcova',
     images: [
       {
-        url: "/images/arcova-logo-transparent.png",
+        url: "/images/network-og.png",
         width: 1200,
         height: 630,
         alt: 'Arcova | Unlock Science-Led Growth'

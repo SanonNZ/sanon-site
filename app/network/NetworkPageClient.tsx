@@ -158,31 +158,37 @@
     const networkTestimonials = [
     {
         title: "Biomedical Scientists",
-        quote: "Deep knowledge in human biology, preclinical or clinical domains",
+        subtitle: "We match you with remote research jobs including life science consulting and biotech consulting projects, and freelance medical writing.",
+        quote: "Biology · Preclinical · Clinical",
         icon: <Microscope className="h-5 w-5" />
     },
     {
         title: "Research Specialists",
-        quote: "PhDs or postdocs with strong methodology and synthesis skills",
+        subtitle: "We match you with remote clinical research jobs including life science consulting, biotech consulting, science writing jobs, and freelance grant writing.",
+        quote: "Methodological · Research Synthesis · Analytical",
         icon: <BookOpen className="h-5 w-5" />
     },
     {
         title: "Data Scientists",
-        quote: "Expertise in bioinformatics, ML workflows, or statistical analysis",
+        subtitle: "We match you with remote data analyst jobs including data analyst projects, remote data science jobs, remote bioinformatics jobs, and freelance consulting opportunities.",
+        quote: "Bioinformatics · ML workflows · Biostatistics · Systems biology",
         icon: <Database className="h-5 w-5" />
     },
     {
-        title: "Regulatory Experts",
-        quote: "Familiar with FDA, EMA, or global approval frameworks",
+        title: "Marketing Specialists",
+        subtitle: "Experts in biotech marketing, life science content marketing, healthcare SEO, biotech SEO, biotech branding, and life science web design.",
+        quote: "Branding · SEO · Web Design",
         icon: <ScrollText className="h-5 w-5" />
     },
     {
-        title: "Due Diligence Analysts",
+        title: "Commercialization Experts",
+        subtitle: "Specialists in biotech commercialization strategy, biotech business development, life science lead generation, market access consulting, pharma market access consultants, and competitive landscape analysis.",
         quote: "Experience surfacing red flags or technical risks",
         icon: <FileSearch className="h-5 w-5" />
     },
     {
         title: "Patent & IP Analysts",
+        subtitle: "IP due diligence",
         quote: "Skilled in IP landscaping, prior art, or patent strategy",
         icon: <Scale className="h-5 w-5" />
     }
@@ -206,11 +212,12 @@
                     <div className="text-arcova-teal">
                     {testimonial.icon}
                     </div>
-                    {testimonial.title}
+                    <h3 className="font-bold text-base text-arcova-darkblue">{testimonial.title}</h3>
                 </div>
+                <h4 className="text-sm font-normal text-gray-600 mt-2">{testimonial.subtitle}</h4>
                 </div>
-                <blockquote className="text-gray-900">
-                <p>{testimonial.quote}</p>
+                <blockquote className="text-arcova-teal">
+                <p className="text-sm">{testimonial.quote}</p>
                 </blockquote>
             </motion.figure>
             ))}
