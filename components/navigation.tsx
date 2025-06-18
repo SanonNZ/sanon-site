@@ -53,8 +53,8 @@ export const Navigation = () => {
             asChild
             className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full px-6 py-2 font-semibold text-base shadow-none transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center gap-2"
           >
-            <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white">
-              Book a Call
+            <Link href="/contact" className="flex items-center gap-2 text-white">
+              Contact Us
               <motion.span
                 whileHover={{ x: 5 }}
                 whileTap={{ x: 2 }}
@@ -70,7 +70,7 @@ export const Navigation = () => {
               >
                 &rarr;
               </motion.span>
-            </a>
+            </Link>
           </Button>
         </div>
         {/* Hamburger (Mobile) */}
@@ -165,18 +165,8 @@ export const Navigation = () => {
                 onClick={() => setMobileOpen(false)}
                 className="block text-base font-semibold px-4 py-2 rounded-lg text-black hover:bg-arcova-blue/10 transition-all"
               >
-                Contact
+                Contact Us
               </Link>
-            </li>
-            <li>
-              <a
-                href="https://calendly.com/emma-arcova/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-base font-semibold px-4 py-2 rounded-lg text-black hover:bg-arcova-blue/10 transition-all"
-              >
-                Book a Call
-              </a>
             </li>
           </ul>
         </nav>

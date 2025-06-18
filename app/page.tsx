@@ -529,11 +529,11 @@ export default function Home() {
                 Testimonials
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
-              Client stories we love
+             Our stories in our words
               </h2>
-              <p className="text-lg text-gray-600">
-                What it's like to work with us, in our clients' words
-              </p>
+              {/* <p className="text-lg text-gray-600">
+                In our words
+              </p> */}
             </div>
             <TestimonialCarousel />
           </div>
@@ -544,27 +544,10 @@ export default function Home() {
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center">
               <div className="max-w-3xl text-center">
-                {/* Star Rating */}
-                <div className="flex justify-center mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-6 w-6 fill-current text-amber-400 mr-1"
-                    />
-                  ))}
-                </div>
-
                 {/* Quote */}
                 <blockquote className="text-2xl md:text-2xl font-medium italic text-gray-900 mb-8 leading-relaxed">
-                  "Her ability to break down complex scientific concepts into accessible content is exceptional."
+                  "Hearing others share so openly gave me strength I didn't know I had — and hope I thought I'd lost."
                 </blockquote>
-
-                {/* Author Info */}
-                <div className="flex flex-col items-center">
-                  <div className="text-center">
-                    <div className="font-semibold text-gray-900 mb-1">Owner and Director | Biotech Training Firm</div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -588,95 +571,17 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        {/* Emma Bardsley Section */}
-        <AnimatedSection className="w-full py-24 md:py-32 bg-sanon-purpleDark/10">
-          <div className="container px-4 md:px-6 max-w-5xl">
-            <div className="grid gap-12 sm:grid-cols-2 lg:gap-16 items-center">
-              <div className="space-y-6 order-2 sm:order-1">
-                <div className="inline-block px-3 py-1 bg-sanon-purpleDark/30 text-sanon-purpleDark rounded-full text-sm font-medium">
-                  Led by
-                </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-2xl">Emma Bardsley, PhD</h2>
-                <p className="text-sanon-purpleDark font-medium">Founder and Scientific Director</p>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Scientific direction is led by Emma Bardsley, PhD — a neuroscientist with experience in research,
-                  pharma, and consulting. Emma oversees project quality and insight synthesis, ensuring that all
-                  deliverables meet Arcova's standards of scientific clarity.
-                </p>
-                <div className="flex items-center gap-3">
-                  <a 
-                    href="https://www.linkedin.com/in/emmabardsley/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hover:opacity-80 transition-opacity duration-200"
-                    aria-label="LinkedIn Profile"
-                  >
-                    <svg 
-                      viewBox="0 0 24 24" 
-                      className="h-5 w-5"
-                      aria-hidden="true"
-                      fill="#475569"
-                    >
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                  <a 
-                    href="mailto:emma@arcova.bio"
-                    className="hover:opacity-80 transition-opacity duration-200"
-                    aria-label="Email"
-                  >
-                    <svg 
-                      viewBox="0 0 24 24" 
-                      className="h-[25px]"
-                      aria-hidden="true"
-                      fill="#475569"
-                    >
-                      <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 4.99L4 6h16zm0 12H4V8l8 5 8-5v10z"/>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div className="flex justify-center sm:justify-end items-center order-1 sm:order-2">
-                <div className="w-full sm:w-[280px] md:w-[320px] aspect-square relative overflow-hidden rounded-2xl shadow-xl">
-                  <Image
-                    src="/images/emma-bardsley-portrait.png"
-                    alt="Emma Bardsley"
-                    width={400}
-                    height={400}
-                    className="object-cover w-full h-full rounded-2xl"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
+     
 
         {/* Featured Testimonial */}
         <AnimatedSection className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center">
               <div className="max-w-3xl text-center">
-                {/* Star Rating */}
-                <div className="flex justify-center mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-6 w-6 fill-current text-amber-400 mr-1"
-                    />
-                  ))}
-                </div>
-
                 {/* Quote */}
-                <blockquote className="text-2xl md:text-2xl font-medium italic text-gray-900 mb-8 leading-relaxed">
-                  "She helped out both strategically and in a hands-on capacity. In addition to driving a great result, a variety of stakeholders LOVED Emma, and couldn't stop telling me how amazing she was. Get her on your team as soon as you have a chance!"
+                <blockquote className="text-xl md:text-xl font-medium italic text-gray-900 mb-8 leading-relaxed">
+                "When I first came, I felt completely alone and overwhelmed. But hearing others share their experiences gave me the strength to keep going. Today, I have hope again — for myself, for my family, and for a future I couldn't imagine before. This community changed everything."
                 </blockquote>
-
-                {/* Author Info */}
-                <div className="flex flex-col items-center">
-                  <div className="text-center">
-                    <div className="font-semibold text-gray-900 mb-1">Founder | Digital Health Startup</div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -692,13 +597,11 @@ export default function Home() {
                 size="default"
                 className="mt-4 bg-sanon-purpleDark hover:bg-sanon-purpleDark/90 text-white font-bold rounded-full px-8 py-4 h-auto transition-all duration-500 hover:scale-105 hover:shadow-xl group"
               >
-                <a
-                  href="https://calendly.com/emma-arcova/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/contact"
                   className="flex items-center font-semibold text-lg gap-2"
                 >
-                  Let's Go
+                  Contact Us
                   <motion.div
                     whileHover={{ x: 5 }}
                     whileTap={{ x: 2 }}
@@ -713,7 +616,7 @@ export default function Home() {
                   >
                     <ArrowRight className="h-4 w-4" />
                   </motion.div>
-                </a>
+                </Link>
               </Button>
               <div className="flex items-center justify-center">
                 <span className="text-sm text-white font-medium">

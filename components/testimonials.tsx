@@ -4,7 +4,6 @@ import * as React from "react"
 import { useEffect, useState, useRef } from "react"
 import { testimonials } from "../data/reviews"
 import { motion, AnimatePresence } from "framer-motion"
-import { Users, Zap, BarChart, GraduationCap, FileText } from "lucide-react"
 
 const DISPLAY_TIME = 7000
 const FADE_DURATION = 0.5
@@ -23,72 +22,11 @@ function getVisibleTestimonials(start: number, count: number) {
   return result
 }
 
-const serviceTypes = {
-  strategy: {
-    name: "Strategy",
-    icon: Users,
-    color: "#e94f1", // purpleDark
-    lightColor: "#d6d6fa" // purpleLight
-  },
-  content: {
-    name: "Content",
-    icon: Zap,
-    color: "#bcacff", // purpleMid
-    lightColor: "#d6d6fa" // purpleLight
-  },
-  diligence: {
-    name: "Diligence",
-    icon: BarChart,
-    color: "#2d2850", // aubergine
-    lightColor: "#8895b3" // steelGrey
-  },
-  academic: {
-    name: "Academic",
-    icon: GraduationCap,
-    color: "#1c2f70", // deepNavy
-    lightColor: "#8895b3" // steelGrey
-  },
-  report: {
-    name: "Report",
-    icon: FileText,
-    color: "#fce1fe", // pinkDark
-    lightColor: "#facffd" // pinkMid
-  }
-} as const
-
 export interface Testimonial {
-  quote: string | string[]
+  quote: string
   author: {
-    title?: string
-    company?: string
+    name: string
   }
-  serviceType: keyof typeof serviceTypes
-}
-
-function ServiceTypePill({ type }: { type: keyof typeof serviceTypes }) {
-  const serviceType = serviceTypes[type]
-  const Icon = serviceType.icon
-  
-  // Darker variants of each color
-  const darkColorMap = {
-    strategy: "#d13d74", // darker purpleDark
-    content: "#9b8ce6", // darker purpleMid
-    diligence: "#1f1c37", // darker aubergine
-    academic: "#131c4d", // darker deepNavy
-    report: "#d8bbe7" // darker pinkDark
-  }
-
-  return (
-    <span 
-      className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium" 
-      style={{ 
-        backgroundColor: `${serviceType.lightColor}cc`,
-      }}
-    >
-      <Icon className="w-3 h-3" style={{ color: darkColorMap[type] }} />
-      <span style={{ color: darkColorMap[type] }}>{serviceType.name}</span>
-    </span>
-  )
 }
 
 type Phase = "visible" | "transitioning" | "incoming"
@@ -218,19 +156,13 @@ export function TestimonialCarousel() {
                   <p>"{testimonial.quote}"</p>
                 )}
               </blockquote>
-              <figcaption className="mt-6 flex flex-col gap-y-4">
+              <figcaption className="mt-6">
                 <div className="flex items-center gap-x-4">
                   <div>
-                    {testimonial.author.title && (
-                      <div className="text-gray-600 font-bold">{testimonial.author.title}</div>
-                    )}
-                    {testimonial.author.company && (
-                      <div className="text-gray-500 text-sm">{testimonial.author.company}</div>
+                    {testimonial.author.name && (
+                      <div className="text-gray-600 font-bold">{testimonial.author.name}</div>
                     )}
                   </div>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <ServiceTypePill type={testimonial.serviceType} />
                 </div>
               </figcaption>
             </motion.figure>

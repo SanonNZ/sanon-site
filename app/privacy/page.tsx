@@ -7,105 +7,84 @@ const arcovaColors = {
   tealDark: "#00a4b4",
 }
 
-export default function PrivacyPage() {
+export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="container py-8 md:py-12">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
-          
-          <div className="prose prose-slate max-w-none">
-            <p className="text-sm text-gray-500 mb-8">Last updated: May 2025</p>
+    <div className="container max-w-4xl mx-auto px-4 py-16">
+      <h1 className="text-3xl font-bold mb-8">Privacy Policy</h1>
+      <p className="text-gray-600 mb-8">Last updated: June 18, 2025</p>
 
-            <section className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">1. Introduction</h2>
-              <p>
-                Arcova Consulting Limited ("Arcova," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website (arcova.bio) or use our services.
-              </p>
-            </section>
+      <div className="prose prose-lg max-w-none">
+        <p className="mb-6">
+          At SAnon, we recognize how deeply personal and sensitive it can be to seek support for the effects of another person's sex addiction. Your privacy matters to us. This Privacy Policy explains how we handle your information with care, respect, and transparency.
+        </p>
 
-            <section className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">2. Information We Collect</h2>
-              <p>
-                We collect information that you provide to us directly and information collected automatically when you use our website:
-              </p>
-              <ul className="list-disc pl-6 mt-4">
-                <li>Contact Information: When you book a call, fill out a form, or contact us, you may provide your name, email address, company name, and other relevant details.</li>
-                <li>Correspondence: If you contact us directly, we may receive additional information about you such as the contents of your message or attachments.</li>
-                <li>Usage Data: We collect non-personal information about how you use our website, such as your browser type, pages visited, time spent on pages, and referring website.</li>
-                <li>Cookies: We use basic cookies and similar tracking technologies to improve your website experience and understand site traffic. You can control cookie settings through your browser.</li>
-              </ul>
-            </section>
+        <p className="mb-6">
+          This policy applies to your use of our website (the "Website"), and to any information you may share with us through forms, emails, phone calls, or contributions. Our intention is to help you feel safe and supported in your engagement with SAnon.
+        </p>
 
-            <section className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">3. How We Use Your Information</h2>
-              <p>
-                We may use your information to:
-              </p>
-              <ul className="list-disc pl-6 mt-4">
-                <li>Respond to your enquiries or requests</li>
-                <li>Schedule and manage calls or demos</li>
-                <li>Improve and optimize our website and services</li>
-                <li>Communicate with you about Arcova updates or offerings (you can opt out any time)</li>
-                <li>Meet legal obligations</li>
-              </ul>
-            </section>
+        <p className="mb-8">
+          By using the Website, you acknowledge that you have read and understood our privacy practices. If you have any questions or concerns, we encourage you to reach out — we are always here to listen and help.
+        </p>
 
-            <section className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">4. How We Share Your Information</h2>
-              <p>
-                We do not sell your personal information. We may share information with trusted service providers who help us operate our site and business, and only as needed for those purposes. We may also share information if required by law or to protect our rights, property, or safety.
-              </p>
-            </section>
+        <h2 className="text-2xl font-bold mt-8 mb-4">1. Information We Collect</h2>
+        <p className="mb-4">
+          We collect minimal information and only what is necessary to support your interaction with SAnon. This may include:
+        </p>
+        <ul className="list-disc pl-6 mb-6">
+          <li>Contact information (such as your name, email address, or phone number) if you choose to provide it via forms or emails.</li>
+          <li>Contribution information if you make a donation or offer support.</li>
+          <li>Technical information such as IP address, browser type, or general website usage data (collected automatically through cookies or similar technologies) to help us maintain and improve the Website.</li>
+        </ul>
+        <p className="mb-8">
+          We do not knowingly collect personal information from individuals under the age of 18.
+        </p>
 
-            <section className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">5. Data Storage and Security</h2>
-              <p>
-                We take reasonable steps to protect your information from unauthorized access or disclosure. However, no method of transmission over the Internet is 100% secure.
-              </p>
-            </section>
+        <h2 className="text-2xl font-bold mt-8 mb-4">2. How We Use Your Information</h2>
+        <p className="mb-4">We use your information solely to:</p>
+        <ul className="list-disc pl-6 mb-6">
+          <li>Respond to your inquiries and requests.</li>
+          <li>Process any contributions or donations.</li>
+          <li>Maintain and improve the Website.</li>
+          <li>Communicate important updates, if you have opted in to receive them.</li>
+        </ul>
+        <p className="mb-8">
+          We do not sell, rent, or share your personal information with third parties for marketing purposes.
+        </p>
 
-            <section className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">6. Your Rights</h2>
-              <p>
-                You have the right to request access to or correction of your personal information, ask us to delete your data (subject to legal requirements), and withdraw consent for marketing at any time. To make a request, please contact us at{" "}
-                <a 
-                  href="mailto:emma@arcova.bio"
-                  className="text-teal-600 hover:text-teal-700 transition-colors"
-                >
-                  emma@arcova.bio
-                </a>.
-              </p>
-            </section>
+        <h2 className="text-2xl font-bold mt-8 mb-4">3. How We Protect Your Information</h2>
+        <p className="mb-8">
+          We take reasonable administrative, technical, and physical safeguards to protect your information from unauthorized access, use, or disclosure. While no system can guarantee absolute security, we are committed to protecting your privacy to the best of our ability.
+        </p>
 
-            <section className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">7. International Visitors</h2>
-              <p>
-                Arcova Consulting Limited is based in New Zealand. By using our website, you acknowledge that your information may be processed and stored in New Zealand or other countries.
-              </p>
-            </section>
+        <h2 className="text-2xl font-bold mt-8 mb-4">4. Anonymity and Confidentiality</h2>
+        <p className="mb-8">
+          We deeply respect the principle of anonymity that is central to our fellowship. Any information you choose to share with us is handled with the utmost care and confidentiality.
+        </p>
 
-            <section className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">8. Changes to This Policy</h2>
-              <p>
-                We may update this Privacy Policy from time to time. The most current version will always be posted on our website.
-              </p>
-            </section>
+        <h2 className="text-2xl font-bold mt-8 mb-4">5. Cookies and Website Analytics</h2>
+        <p className="mb-8">
+          We may use cookies or similar technologies to understand how visitors interact with the Website, so we can continue to improve. You can adjust your browser settings to manage or disable cookies if you prefer.
+        </p>
 
-            <section className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">9. Contact Us</h2>
-              <p>
-                If you have any questions about this Privacy Policy or our practices, please contact us at{" "}
-                <a 
-                  href="mailto:emma@arcova.bio"
-                  className="text-teal-600 hover:text-teal-700 transition-colors"
-                >
-                  emma@arcova.bio
-                </a>.
-              </p>
-            </section>
-          </div>
-        </div>
+        <h2 className="text-2xl font-bold mt-8 mb-4">6. Your Choices</h2>
+        <p className="mb-8">
+          You are not required to provide any personal information to use the Website. If you do share information with us and later wish to update, correct, or delete it, you may contact us directly.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4">7. Changes to This Privacy Policy</h2>
+        <p className="mb-8">
+          We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page reflects the most recent changes. Continued use of the Website indicates your acceptance of any changes.
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8 mb-4">8. Contact Us</h2>
+        <p className="mb-8">
+          If you have any questions, concerns, or requests regarding your privacy, please feel free to contact us at:
+        </p>
+        <p className="mb-8">
+          <a href="mailto:nzsanon@gmail.com" className="text-sanon-purpleDark hover:text-sanon-purpleDark/80">
+            nzsanon@gmail.com
+          </a>
+        </p>
       </div>
     </div>
   )
