@@ -35,6 +35,7 @@
 
   /* Ensure font-family variable is defined */
   --font-poppins: "Poppins", sans-serif;
+  --font-inter: "Inter", sans-serif;
 }
 
 .dark {
@@ -77,12 +78,16 @@ html {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
   }
-  h1,
+  h1 {
+    font-family: var(--font-poppins);
+    font-weight: 400;
+    color: #1c2f70; /* Deep Navy color for headings on light backgrounds */
+  }
   h2,
   h3 {
-    font-family: var(--font-poppins);
+    font-family: var(--font-inter);
     font-weight: 400;
     color: #1c2f70; /* Deep Navy color for headings on light backgrounds */
   }
@@ -100,5 +105,8 @@ html {
   /* Ensure .font-poppins class works correctly */
   .font-poppins {
     font-family: var(--font-poppins);
+  }
+  .font-inter {
+    font-family: var(--font-inter);
   }
 }

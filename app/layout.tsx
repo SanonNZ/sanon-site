@@ -1,5 +1,5 @@
 import type React from "react"
-import { Poppins } from "next/font/google"
+import { Poppins, Inter } from "next/font/google"
 import ClientLayout from "./ClientLayout"
 import './globals.css'
 // import { Analytics } from "@vercel/analytics/next"
@@ -9,6 +9,13 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-poppins",
+})
+
+// Load Inter font with specific weights
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-inter",
 })
 
 export const metadata = {
@@ -62,7 +69,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
       <head>
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-0WTVF1D48X"></script>

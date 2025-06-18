@@ -57,9 +57,11 @@ const config = {
           deepNavy: "#1c2f70",
           steelGrey: "#8895b3",
           aubergine: "#2d2850",
-          purpleDark: "#e94f1",
+          purpleExtraDark: "#6e73c6",
+          purpleDark: "#8e94f1",
           purpleMid: "#bcacff",
           purpleLight: "#d6d6fa",
+          pinkExtraDark: "#844989",
           pinkDark: "#fce1fe",
           pinkMid: "#facffd",
           pinkLight: "#d8bbe7"
