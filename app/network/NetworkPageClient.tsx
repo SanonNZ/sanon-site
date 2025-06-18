@@ -158,32 +158,38 @@
     const networkTestimonials = [
     {
         title: "Biomedical Scientists",
-        quote: "Deep knowledge in human biology, preclinical or clinical domains",
+        subtitle: "We match you with remote research jobs including life science consulting, biotech consulting, and freelance medical writing.",
+        quote: "Biology · Preclinical · Writing",
         icon: <Microscope className="h-5 w-5" />
     },
     {
         title: "Research Specialists",
-        quote: "PhDs or postdocs with strong methodology and synthesis skills",
+        subtitle: "We match you with remote clinical research jobs including biotech consulting, science writing jobs, and freelance grant writing.",
+        quote: "Analysis · Methods · Synthesis",
         icon: <BookOpen className="h-5 w-5" />
     },
     {
         title: "Data Scientists",
-        quote: "Expertise in bioinformatics, ML workflows, or statistical analysis",
+        subtitle: "We match you with remote data analyst jobs including data analyst projects, remote data science jobs, and freelance consulting opportunities.",
+        quote: "Data Sci · ML workflows · Statistics",
         icon: <Database className="h-5 w-5" />
     },
     {
-        title: "Regulatory Experts",
-        quote: "Familiar with FDA, EMA, or global approval frameworks",
+        title: "Marketing Specialists",
+        subtitle: "Experts in biotech marketing, life science content marketing, healthcare SEO, biotech branding, and life science web design.",
+        quote: "Branding · SEO · Web design",
         icon: <ScrollText className="h-5 w-5" />
     },
     {
-        title: "Due Diligence Analysts",
-        quote: "Experience surfacing red flags or technical risks",
+        title: "Market Strategy",
+        subtitle: "Experts in GTM strategy, biotech business development, market access consulting, and competitive landscape analysis.",
+        quote: "BD  · Digital strategy · Market entry",
         icon: <FileSearch className="h-5 w-5" />
     },
     {
-        title: "Patent & IP Analysts",
-        quote: "Skilled in IP landscaping, prior art, or patent strategy",
+        title: "Tech Due Diligence",
+        subtitle: "Experts in technical due diligence, commercial due diligence, IP due diligence, regulatory due diligence, and scientific validity assessments.",
+        quote: "Risk review · Regulatory · IP review",
         icon: <Scale className="h-5 w-5" />
     }
     ]
@@ -199,19 +205,23 @@
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: i * 0.2 }}
-                className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5"
+                className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 flex flex-col justify-between"
             >
                 <div className="mb-4">
                 <div className="flex items-center gap-2 text-gray-600 font-bold">
                     <div className="text-arcova-teal">
                     {testimonial.icon}
                     </div>
-                    {testimonial.title}
+                    <h3 className="font-bold text-base text-arcova-darkblue">{testimonial.title}</h3>
                 </div>
+                <h4 className="text-sm font-normal text-gray-600 mt-2">{testimonial.subtitle}</h4>
                 </div>
-                <blockquote className="text-gray-900">
-                <p>{testimonial.quote}</p>
-                </blockquote>
+                {/* Card Footer (invisible, aligns quote to top) */}
+                <div className="flex flex-col items-start py-0 mt-auto">
+                    <blockquote className="text-arcova-teal">
+                        <p className="text-sm">{testimonial.quote}</p>
+                    </blockquote>
+                </div>
             </motion.figure>
             ))}
         </div>
@@ -529,17 +539,17 @@
         <main className="flex-1">
             {/* Hero Section */}
             <AnimatedSection className="w-full min-h-[60vh] flex items-center pt-28 pb-16">
-            <div className="container px-2 md:px-6 max-w-5xl">
+            <div className="container px-0 md:px-7 max-w-7xl">
                 <div className="flex flex-col items-center space-y-8 text-center">
-                <div className="space-y-8 max-w-[900px]">
+                <div className="space-y-8 max-w-[1100px]">
                     <h1 className="text-3xl font-bold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl text-center">
                     Join our network of <span className="text-arcova-teal">experts</span>
                     </h1>
-                    <h2 className="text-2xl md:text-2xl font-medium tracking-tight sm:text-2xl md:text-2xl text-arcova-darkblue mt-6">
-                    For scientists, analysts, researchers, and strategists with ambition</h2>
+                    <h2 className="text-xl md:text-xl font-medium tracking-tight sm:text-xl md:text-xl text-arcova-darkblue mt-6">
+                    Biotech consulting · Remote research jobs · Freelance medical writing · Remote data analyst jobs</h2>
                 </div>
                 <p className="mx-auto max-w-[800px] text-lg font-medium text-grey leading-relaxed">
-                We match you with real-world projects from biotechs, health brands, and research-led teams
+                No resumes into the void. Just flexible paid work, built around your expertise.
                 </p>
 
                 {/* Added scroll-down button */}
@@ -570,7 +580,7 @@
                 Who we're looking for
                 </h2>
                 <p className="text-lg text-gray-600">
-                We work with scientists, analysts, and specialists from world-leading institutions. If you bring deep expertise in your field we'd love to hear from you.
+                We connect scientists, analysts, and writers with meaningful, flexible projects. If you bring deep expertise in your field we'd love to hear from you.
                 </p>
                 </div>
                 <NetworkTestimonials />
@@ -808,7 +818,7 @@
 
             {/* How it works Section */}
             <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-gray-10">
-            <div className="container px-4 md:px-6 max-w-5xl">
+            <div className="container px-4 md:px-6 max-w-5xl mx-auto">
                 <div className="text-center mb-16">
                 <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
                     How it works
@@ -820,30 +830,25 @@
                     A simple, collaborative onboarding designed to get you doing great work—fast.
                 </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center place-items-center">
                   {isMobile ? (
                     <>
-                      <div className="bg-white rounded-2xl shadow p-4 mb-4">
+                      <div className="bg-white rounded-2xl shadow py-6 px-4 min-w-[300px] w-full max-w-xs flex flex-col items-center">
                         <div className="font-bold text-lg mb-1">👋 Say Hi</div>
                         <div className="text-sm font-semibold text-arcova-teal mb-1">Start the conversation</div>
-                        <div className="text-gray-600 text-sm">Fill out a short form or book a quick call to tell us about your background, expertise, and what you're looking for.</div>
+                        <div className="text-gray-600 text-sm text-center">Reach out using our form below to tell us a bit about your background, expertise, and interests.</div>
                       </div>
-                      <div className="bg-white rounded-2xl shadow p-4 mb-4">
+                      <div className="bg-white rounded-2xl shadow py-6 px-4 min-w-[300px] w-full max-w-xs flex flex-col items-center">
                         <div className="font-bold text-lg mb-1">❤️ Your Strengths</div>
                         <div className="text-sm font-semibold text-arcova-teal mb-1">Tell us what you're great at.</div>
-                        <div className="text-gray-600 text-sm">We'll send you a follow-up form to better understand your skills, interests, availability, and the kind of work you enjoy.</div>
+                        <div className="text-gray-600 text-sm text-center">We'll ask you a few questions to understand your skills, interests and availability to find the right fit.</div>
                       </div>
-                      <div className="bg-white rounded-2xl shadow p-4 mb-4">
-                        <div className="font-bold text-lg mb-1">📝 Try A Brief</div>
-                        <div className="text-sm font-semibold text-arcova-teal mb-1">Get a sense of the work.</div>
-                        <div className="text-gray-600 text-sm">We'll invite you to complete a small, paid project,  to get a feel for your strengths—and so you can get a feel for us.</div>
-                      </div>
-                      <div className="bg-white rounded-2xl shadow p-4 mb-4">
-                        <div className="font-bold text-lg mb-1">🎉 Get Projects</div>
+                      <div className="bg-white rounded-2xl shadow py-6 px-4 min-w-[300px] w-full max-w-xs flex flex-col items-center">
+                        <div className="font-bold text-lg mb-1">🎉 Get Started</div>
                         <div className="text-sm font-semibold text-arcova-teal mb-1">
-                          <a href="#contact-form" className="text-arcova-teal hover:underline">Get Started→</a>
+                          <a href="#contact-form" className="text-arcova-teal hover:underline">Reach out here →</a>
                         </div>
-                        <div className="text-gray-600 text-sm">You'll start receiving tailored project briefs that align with your expertise and interests.</div>
+                        <div className="text-gray-600 text-sm text-center">Start working on projects that align with your expertise and interests. We'll stay involved to support you as you get going.</div>
                       </div>
                     </>
                   ) : (
@@ -851,32 +856,25 @@
                       <ProcessStep
                         title={`👋 Say Hi`}
                         subtitle="Start the conversation"
-                        description="Fill out a short form or book a quick call to tell us about your background, expertise, and what you're looking for."
+                        description="Reach out using our form below to tell us a bit about your background, expertise, and interests."
                         delay={0.1}
                         color="arcova-teal"
                       />
                       <ProcessStep
                         title={`❤️ Your Strengths`}
                         subtitle="Tell us what you're great at."
-                        description="We'll send you a follow-up form to better understand your skills, interests, availability, and the kind of work you enjoy."
+                        description="We'll ask you a few questions to understand your skills, interests and availability to find the right fit."
                         delay={0.2}
                         color="arcova-teal"
                       />
                       <ProcessStep
-                        title={`📝 Try A Brief`}
-                        subtitle="Get a sense of the work."
-                        description="We'll invite you to complete a small, paid project,  to get a feel for your strengths—and so you can get a feel for us."
-                        delay={0.3}
-                        color="arcova-teal"
-                      />
-                      <ProcessStep
-                        title={`🎉 Get Projects`}
+                        title={`🎉 Get Started`}
                         subtitle={
                           <a href="#contact-form" className="text-sm font-medium text-arcova-teal hover:underline">
                             Get Started→
                           </a>
                         }
-                        description="You'll start receiving tailored project briefs that align with your expertise and interests."
+                        description="Start working on projects that align with your expertise and interests. We'll support you as you get going."
                         delay={0.4}
                         color="arcova-teal"
                       />

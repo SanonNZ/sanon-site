@@ -82,14 +82,14 @@ export default function Home() {
       subheader: "Shape your vision into a market-ready plan.",
       personas: ["Founders", "Science ventures", "Health & Wellness businesses"],
       features: [
-        "Market access consulting",
         "Biotech commercialization strategy",
-        "Biotech business-development road-mapping",
+        "Market access consulting",
+        "Biotech business development mapping",
       ],
       features2: [
-        "Clear, decision-ready insights",
+        "Digital strategy consulting",
         "Competitive landscape analysis",
-        "Defined market edge",
+        "Clear, decision-ready insights",
       ],
       column1Header: "Deliverables",
       column2Header: "What You Get",
