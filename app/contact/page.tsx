@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
-import { Check, X } from "lucide-react"
+import { Check, X, Mail } from "lucide-react"
 
 // Confetti component
 const Confetti = ({ isActive }: { isActive: boolean }) => {
@@ -154,7 +154,7 @@ export default function ContactPage() {
 
       {/* Notification banner */}
       {showNotification && (
-        <div className="fixed top-24 right-4 z-50 bg-arcova-teal text-white p-4 rounded-lg shadow-lg max-w-md">
+        <div className="fixed top-24 right-4 z-50 bg-sanon-purpleDark text-white p-4 rounded-lg shadow-lg max-w-md">
           <div className="flex items-start">
             <div className="flex-1">
               <h4 className="font-bold mb-1">Message sent successfully!</h4>
@@ -169,54 +169,30 @@ export default function ContactPage() {
         </div>
       )}
 
-      {/* Header Section */}
-      <div className="container py-8 md:py-12">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-8">Contact Us</h1>
-          
-          <div className="space-y-8 mb-8">
-            <p className="text-xl text-gray-600">
-              Have questions or want to talk due diligence?<br />
-              We'd love to hear from you.
-            </p>
-
-            <div className="pt-2">
-              <Button 
-                size="lg"
-                asChild
-                style={{ backgroundColor: arcovaColors.tealDark }}
-                className="rounded-full transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
-              >
-                <a href="https://calendly.com/emma-arcova/30min" target="_blank" rel="noopener noreferrer">
-                  Book a Call
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Form Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-24 bg-gray-50">
         <div className="container">
           <div className="max-w-[800px] mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-gray-900">Or fill out the form below</h2>
-              <p className="text-gray-600 mt-2">Tell us how we can help.</p>
+            <div className="text-center mb-12">
+              <h1 className="text-4xl font-bold mb-6 text-sanon-deepNavy">Contact Us</h1>
+              <p className="text-xl text-gray-600">
+                Have questions?<br />
+                We'd love to hear from you.
+              </p>
             </div>
 
             {formState.submitted ? (
               <div className="bg-white rounded-2xl shadow-md p-8 md:p-12 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-6">
-                  <Check className="h-8 w-8 text-green-600" />
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-sanon-purpleLight mb-6">
+                  <Check className="h-8 w-8 text-sanon-purpleDark" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Thanks for reaching out! 🤝</h3>
+                <h3 className="text-2xl font-bold mb-4 text-sanon-deepNavy">Thanks for reaching out! 🤝</h3>
                 <p className="text-gray-600 mb-6">
                   We'll be in touch soon.
                 </p>
                 <Button
                   onClick={() => setFormState({ ...formState, submitted: false })}
-                  className="bg-arcova-teal hover:bg-arcova-blue text-white rounded-full transition-all duration-300"
+                  className="bg-sanon-purpleDark hover:bg-sanon-purpleDark/90 text-white rounded-full transition-all duration-300"
                 >
                   Send Another Message
                 </Button>
@@ -238,7 +214,7 @@ export default function ContactPage() {
                           value={formState.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sanon-purpleDark/50 focus:border-sanon-purpleDark transition-colors duration-200"
                           placeholder="Your name"
                         />
                       </div>
@@ -253,8 +229,8 @@ export default function ContactPage() {
                           value={formState.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
-                          placeholder="youremail@example.com"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sanon-purpleDark/50 focus:border-sanon-purpleDark transition-colors duration-200"
+                          placeholder="your.email@example.com"
                         />
                       </div>
                     </div>
@@ -270,15 +246,15 @@ export default function ContactPage() {
                         name="company"
                         value={formState.company}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sanon-purpleDark/50 focus:border-sanon-purpleDark transition-colors duration-200"
                         placeholder="Your company name"
                       />
                     </div>
 
-                    {/* Message field */}
+                    {/* Message */}
                     <div className="space-y-2">
                       <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                        What's on your mind?
+                        Message
                       </label>
                       <textarea
                         id="message"
@@ -286,38 +262,21 @@ export default function ContactPage() {
                         value={formState.message}
                         onChange={handleChange}
                         required
-                        rows={4}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-arcova-teal/50 focus:border-arcova-teal transition-colors duration-200"
-                        placeholder="Tell us how we can help..."
-                      ></textarea>
+                        rows={6}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sanon-purpleDark/50 focus:border-sanon-purpleDark transition-colors duration-200"
+                        placeholder="How can we help you?"
+                      />
                     </div>
 
-                    {/* Submit button */}
-                    <div className="flex flex-col items-center gap-6 pt-4">
+                    {/* Submit Button */}
+                    <div className="pt-4">
                       <Button
                         type="submit"
                         disabled={formState.loading}
-                        style={{ backgroundColor: arcovaColors.tealDark }}
-                        className="rounded-full px-8 py-3 transition-all duration-300 hover:opacity-90 hover:scale-[1.02] disabled:opacity-70 disabled:hover:opacity-70 disabled:cursor-not-allowed min-w-[200px]"
+                        className="w-full bg-sanon-purpleDark hover:bg-sanon-purpleDark/90 text-white rounded-full py-3 transition-all duration-300"
                       >
-                        {formState.loading ? (
-                          <div className="flex items-center justify-center gap-2">
-                            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                            <span>Sending...</span>
-                          </div>
-                        ) : (
-                          "Send Message"
-                        )}
+                        {formState.loading ? "Sending..." : "Send Message"}
                       </Button>
-                      <p className="text-lg text-gray-600">
-                        <strong>Or drop us an email at: </strong>{" "}
-                        <a 
-                          href="mailto:emma@arcova.bio"
-                          className="text-teal-600 hover:text-teal-700 transition-colors"
-                        >
-                          emma@arcova.bio
-                        </a>
-                      </p>
                     </div>
                   </div>
                 </form>
