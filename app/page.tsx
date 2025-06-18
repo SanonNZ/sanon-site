@@ -29,26 +29,16 @@ interface Service {
   column2Header: string
 }
 
-const arcovaColors = {
-  deepNavy: "#16253B",
-  softGrey: "#F5F7FB",
-  steelGrey: "#5F6C7B",
-
-  // New color palette
-  tealDark: "#00a4b4",
-  tealLight: "#daeff1",
-  greenDark: "#8cd9c9",
-  greenLight: "#d4f2de",
-  pinkDark: "#f55f96",
-  pinkLight: "#fbcede",
-  purpleDark: "#8d7dc7",
-  purpleLight: "#e7e0f5",
-  orangeDark: "#ffb996",
-  orangeLight: "#ffede4",
-  plumDark: "#7d4c79",
-  plumLight: "#f3e4f0",
-  blueDark: "#216680",
-  blueLight: "#ccecfe",
+const sanonColors = {
+  deepNavy: "#1c2f70",
+  steelGrey: "#8895b3",
+  aubergine: "#2d2850",
+  purpleDark: "#e94f1",
+  purpleMid: "#bcacff",
+  purpleLight: "#d6d6fa",
+  pinkDark: "#fce1fe",
+  pinkMid: "#facffd",
+  pinkLight: "#d8bbe7"
 }
 
 function useIsMobile() {
@@ -200,9 +190,9 @@ export default function Home() {
             <div className="flex flex-col items-center space-y-8 text-center">
               <div className="space-y-8 max-w-[900px]">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl text-center">
-                We make science make <span className="text-arcova-teal">sense</span>
+                We make sanon make <span className="text-sanon-purple">sense</span>
                 </h1>
-                <h2 className="text-xl md:text-xl font-medium tracking-tight sm:text-xl md:text-xl text-arcova-darkblue mt-6">
+                <h2 className="text-xl md:text-xl font-medium tracking-tight sm:text-xl md:text-xl text-sanon-deepNavy mt-6">
                 Biotech marketing · Life science consulting · Tech due diligence · Scientific writing
                 </h2>
               </div>
@@ -218,7 +208,7 @@ export default function Home() {
                 transition={{ delay: 0.5, duration: 0.5 }}
               >
                 <a href="#who-we-work-with" className="flex flex-col items-center gap-2 cursor-pointer">
-                  <div className="bg-teal-50 border border-teal-200 rounded-full p-3 text-arcova-teal group-hover:bg-teal-100 transition-colors duration-300 group-hover:translate-y-1 transform transition-transform">
+                  <div className="bg-sanon-purpleLight border border-sanon-purple/20 rounded-full p-3 text-sanon-purple group-hover:bg-sanon-purple/10 transition-colors duration-300 group-hover:translate-y-1 transform transition-transform">
                     <ChevronDown className="h-5 w-5" />
                   </div>
                 </a>
@@ -228,10 +218,10 @@ export default function Home() {
         </AnimatedSection>
 
         {/* Who We Work With Section */}
-        <AnimatedSection id="who-we-work-with" className="w-full py-24 md:py-32 bg-arcova-mint/10">
+        <AnimatedSection id="who-we-work-with" className="w-full py-24 md:py-32 bg-sanon-purpleLight/10">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
+              <div className="inline-block px-3 py-1 bg-sanon-purpleLight/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
                 Who We Work With
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">Builders. Explainers. Investors. </h2>
@@ -250,10 +240,10 @@ export default function Home() {
                   <div className="flex items-start gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        <Users className="h-5 w-5 text-[#f55f96]" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
+                        <Users className="h-5 w-5 text-[#fce1fe]" />
+                        <h3 className="font-bold text-lg text-sanon-deepNavy">Owners & Founders</h3>
                       </div>
-                      <h4 className="text-base font-medium text-arcova-teal mb-2">Life Science Consulting · Biotech consulting</h4>
+                      <h4 className="text-base font-medium text-sanon-purple mb-2">Life Science Consulting · Biotech consulting</h4>
                       <p className="text-gray-600">Shape your vision into a market-ready plan with biotech consulting and biotech business development.</p>
                     </div>
                   </div>
@@ -270,10 +260,10 @@ export default function Home() {
                   <div className="flex items-start gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        <Users className="h-5 w-5 text-[#f55f96]" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Owners & Founders</h3>
+                        <Users className="h-5 w-5 text-[#fce1fe]" />
+                        <h3 className="font-bold text-lg text-sanon-deepNavy">Owners & Founders</h3>
                       </div>
-                      <h4 className="text-base font-medium text-arcova-teal mb-2">Life Science Consulting · Biotech consulting</h4>
+                      <h4 className="text-base font-medium text-sanon-purple mb-2">Life Science Consulting · Biotech consulting</h4>
                       <p className="text-gray-600">Shape your vision into a market-ready plan with biotech consulting and biotech business development.</p>
                     </div>
                   </div>
@@ -289,10 +279,10 @@ export default function Home() {
                   <div className="flex items-start gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        <Zap className="h-5 w-5 text-[#ffb996]" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
+                        <Zap className="h-5 w-5 text-[#fce1fe]" />
+                        <h3 className="font-bold text-lg text-sanon-deepNavy">Marketing & Comms Leads</h3>
                       </div>
-                      <h4 className="text-base font-medium text-arcova-teal mb-2">Biotech marketing · Healthcare SEO</h4>
+                      <h4 className="text-base font-medium text-sanon-purple mb-2">Biotech marketing · Healthcare SEO</h4>
                       <p className="text-gray-600">Turn research into engaging science blogs and elevate your biotech branding to build authority and trust.</p>
                     </div>
                   </div>
@@ -309,10 +299,10 @@ export default function Home() {
                   <div className="flex items-start gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        <Zap className="h-5 w-5 text-[#ffb996]" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Marketing & Comms Leads</h3>
+                        <Zap className="h-5 w-5 text-[#fce1fe]" />
+                        <h3 className="font-bold text-lg text-sanon-deepNavy">Marketing & Comms Leads</h3>
                       </div>
-                      <h4 className="text-base font-medium text-arcova-teal mb-2">Biotech marketing · Healthcare SEO</h4>
+                      <h4 className="text-base font-medium text-sanon-purple mb-2">Biotech marketing · Healthcare SEO</h4>
                       <p className="text-gray-600">Turn research into engaging science blogs and elevate your biotech branding to build authority and trust.</p>
                     </div>
                   </div>
@@ -328,10 +318,10 @@ export default function Home() {
                   <div className="flex items-start gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        <LineChart className="h-5 w-5 text-[#8d7dc7]" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
+                        <LineChart className="h-5 w-5 text-[#bcacff]" />
+                        <h3 className="font-bold text-lg text-sanon-deepNavy">Investors & Advisors</h3>
                       </div>
-                      <h4 className="text-base font-medium text-arcova-teal mb-2">Tech due diligence · Commercial due diligence</h4>
+                      <h4 className="text-base font-medium text-sanon-purple mb-2">Tech due diligence · Commercial due diligence</h4>
                       <p className="text-gray-600">De-risk investments with technical due diligence before you build, pitch, or invest.</p>
                     </div>
                   </div>
@@ -348,10 +338,10 @@ export default function Home() {
                   <div className="flex items-start gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        <LineChart className="h-5 w-5 text-[#8d7dc7]" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Investors & Advisors</h3>
+                        <LineChart className="h-5 w-5 text-[#bcacff]" />
+                        <h3 className="font-bold text-lg text-sanon-deepNavy">Investors & Advisors</h3>
                       </div>
-                      <h4 className="text-base font-medium text-arcova-teal mb-2">Tech due diligence · Commercial due diligence</h4>
+                      <h4 className="text-base font-medium text-sanon-purple mb-2">Tech due diligence · Commercial due diligence</h4>
                       <p className="text-gray-600">De-risk investments with technical due diligence before you build, pitch, or invest.</p>
                     </div>
                   </div>
@@ -367,10 +357,10 @@ export default function Home() {
                   <div className="flex items-start gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
+                        <GraduationCap className="h-5 w-5 text-[#fce1fe]" />
+                        <h3 className="font-bold text-lg text-sanon-deepNavy">Researchers & Academics</h3>
                       </div>
-                      <h4 className="text-base font-medium text-arcova-teal mb-2">Scientific writing · Academic editing</h4>
+                      <h4 className="text-base font-medium text-sanon-purple mb-2">Scientific writing · Academic editing</h4>
                       <p className="text-gray-600">Transform your data into publications and funding with our scientific writing and editing services.</p>
                     </div>
                   </div>
@@ -387,10 +377,10 @@ export default function Home() {
                   <div className="flex items-start gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        <GraduationCap className="h-5 w-5 text-[#00a4b4]" />
-                        <h3 className="font-bold text-lg text-arcova-darkblue">Researchers & Academics</h3>
+                        <GraduationCap className="h-5 w-5 text-[#fce1fe]" />
+                        <h3 className="font-bold text-lg text-sanon-deepNavy">Researchers & Academics</h3>
                       </div>
-                      <h4 className="text-base font-medium text-arcova-teal mb-2">Scientific writing · Academic editing</h4>
+                      <h4 className="text-base font-medium text-sanon-purple mb-2">Scientific writing · Academic editing</h4>
                       <p className="text-gray-600">Transform your data into publications and funding with our scientific writing and editing services.</p>
                     </div>
                   </div>
@@ -404,7 +394,7 @@ export default function Home() {
         <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50" id="services-section">
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
+              <div className="inline-block px-3 py-1 bg-sanon-purpleLight/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
                 What we offer
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
@@ -431,8 +421,8 @@ export default function Home() {
                         "flex-1 aspect-square md:aspect-auto md:w-full p-3 md:p-5 rounded-xl md:rounded-2xl",
                         "min-w-[80px] md:min-w-0", // Add minimum width for mobile
                         selectedService === index
-                          ? "bg-arcova-blue/20 border border-arcova-blue/30"
-                          : "bg-white hover:bg-arcova-blue/5 border border-transparent",
+                          ? "bg-sanon-purple/20 border border-sanon-purple/30"
+                          : "bg-white hover:bg-sanon-purple/5 border border-transparent",
                       )}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -452,10 +442,10 @@ export default function Home() {
                         >
                           <div className={cn(
                             "transition-colors duration-300",
-                            selectedService === index && index === 0 ? "text-[#f55f96]" : // Business Strategy
-                            selectedService === index && index === 1 ? "text-[#216680]" : // Articles
-                            selectedService === index && index === 2 ? "text-[#ffb996]" : // Scientific Validation
-                            selectedService === index && index === 3 ? "text-[#8d7dc7]" : // Academic
+                            selectedService === index && index === 0 ? "text-[#fce1fe]" : // Business Strategy
+                            selectedService === index && index === 1 ? "text-[#fce1fe]" : // Articles
+                            selectedService === index && index === 2 ? "text-[#fce1fe]" : // Scientific Validation
+                            selectedService === index && index === 3 ? "text-[#fce1fe]" : // Academic
                             "text-gray-500"
                           )}>
                             {service.icon}
@@ -466,7 +456,7 @@ export default function Home() {
                           <div
                             className={cn(
                               "font-medium text-lg transition-colors duration-300 text-left",
-                              selectedService === index ? "text-arcova-blue" : "text-gray-700",
+                              selectedService === index ? "text-sanon-purple" : "text-gray-700",
                             )}
                           >
                             {service.name}
@@ -483,7 +473,7 @@ export default function Home() {
 
                         {/* Subtle arrow that appears on hover or when selected - desktop only */}
                         <motion.div
-                          className="text-arcova-blue hidden md:block flex-shrink-0"
+                          className="text-sanon-purple hidden md:block flex-shrink-0"
                           initial={{ opacity: 0 }}
                           animate={{
                             opacity: hoveredService === index || selectedService === index ? 1 : 0,
@@ -510,22 +500,22 @@ export default function Home() {
                 >
                   <div className="p-6 md:p-8 min-h-[450px] flex flex-col">
                     {/* Top accent bar */}
-                    <div className="w-16 h-1.5 bg-arcova-blue rounded-full mb-3 md:mb-4"></div>
+                    <div className="w-16 h-1.5 bg-sanon-purple rounded-full mb-3 md:mb-4"></div>
 
                     <div className="flex-1">
                       {/* Main header */}
-                      <h3 className="text-xl md:text-2xl font-bold text-arcova-darkblue mb-2">
+                      <h3 className="text-xl md:text-2xl font-bold text-sanon-deepNavy mb-2">
                         {services[selectedService]?.name || ''}
                       </h3>
 
                       {/* For statement in teal */}
-                      <p className="text-lg font-medium text-arcova-teal mb-8 ">
+                      <p className="text-lg font-medium text-sanon-purple mb-8 ">
                         {services[selectedService]?.description || ''}
                       </p>
 
                       <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                         <div>
-                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-4">
+                          <h4 className="text-base md:text-lg font-medium text-sanon-deepNavy mb-4">
                             {services[selectedService]?.column1Header || ''}
                           </h4>
                           <ul className="space-y-2">
@@ -537,8 +527,8 @@ export default function Home() {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.3, delay: index * 0.1 }}
                               >
-                                <div className="rounded-full bg-[#00a4b4] p-1 mr-3 mt-0.5 flex-shrink-0">
-                                  <Check className="h-3.5 w-3.5 text-white" />
+                                <div className="rounded-full bg-[#fce1fe] p-1 mr-3 mt-0.5 flex-shrink-0">
+                                  <Check className="h-3.5 w-3.5 text-sanon-deepNavy" />
                                 </div>
                                 <span className="text-gray-700 text-sm md:text-base">{feature}</span>
                               </motion.li>
@@ -546,7 +536,7 @@ export default function Home() {
                           </ul>
                         </div>
                         <div>
-                          <h4 className="text-base md:text-lg font-medium text-arcova-darkblue mb-4">
+                          <h4 className="text-base md:text-lg font-medium text-sanon-deepNavy mb-4">
                             {services[selectedService]?.column2Header || ''}
                           </h4>
                           <ul className="space-y-2">
@@ -558,8 +548,8 @@ export default function Home() {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.3, delay: index * 0.1 }}
                               >
-                                <div className="rounded-full bg-[#00a4b4] p-1 mr-3 mt-0.5 flex-shrink-0">
-                                  <Check className="h-3.5 w-3.5 text-white" />
+                                <div className="rounded-full bg-[#fce1fe] p-1 mr-3 mt-0.5 flex-shrink-0">
+                                  <Check className="h-3.5 w-3.5 text-sanon-deepNavy" />
                                 </div>
                                 <span className="text-gray-700 text-sm md:text-base">{feature}</span>
                               </motion.li>
@@ -573,14 +563,14 @@ export default function Home() {
                       {/* Microinsight with lightbulb */}
                       <div className="mb-4 md:mb-0 md:max-w-[60%]">
                         <p className="text-sm font-bold text-gray-600 italic flex items-start gap-2">
-                          <Lightbulb className="h-5 w-5 text-[#f55f96] flex-shrink-0 mt-0.5" />
+                          <Lightbulb className="h-5 w-5 text-[#fce1fe] flex-shrink-0 mt-0.5" />
                           <span className="flex-1">{services[selectedService]?.insight || ''}</span>
                         </p>
                       </div>
 
                       <Button
                         asChild
-                        className="bg-arcova-teal hover:bg-arcova-teal/90 text-white border-none px-6 md:px-8 py-2 md:py-3 rounded-full flex items-center gap-2 hover:scale-105 transform transition-all duration-300 group text-sm md:text-base w-full md:w-auto"
+                        className="bg-sanon-purple hover:bg-sanon-purple/90 text-white border-none px-6 md:px-8 py-2 md:py-3 rounded-full flex items-center gap-2 hover:scale-105 transform transition-all duration-300 group text-sm md:text-base w-full md:w-auto"
                       >
                         <a
                           href="https://calendly.com/emma-arcova/30min"
@@ -617,7 +607,7 @@ export default function Home() {
         <AnimatedSection id="process" className="w-full py-24 md:py-32 bg-gray-100">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
+              <div className="inline-block px-3 py-1 bg-sanon-purpleLight/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
                 Our Process
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
@@ -632,22 +622,22 @@ export default function Home() {
                 <>
                   <div className="bg-white rounded-2xl shadow p-4 mb-4">
                     <div className="font-bold text-lg mb-1">Discover</div>
-                    <div className="text-sm font-semibold text-arcova-teal mb-1">Go deep on the evidence</div>
+                    <div className="text-sm font-semibold text-sanon-purple mb-1">Go deep on the evidence</div>
                     <div className="text-gray-600 text-sm">Comprehensive literature search and data collection</div>
                   </div>
                   <div className="bg-white rounded-2xl shadow p-4 mb-4">
                     <div className="font-bold text-lg mb-1">Analyze</div>
-                    <div className="text-sm font-semibold text-arcova-teal mb-1">Separate signal from noise</div>
+                    <div className="text-sm font-semibold text-sanon-purple mb-1">Separate signal from noise</div>
                     <div className="text-gray-600 text-sm">Critical evaluation of evidence, source quality, and relevance</div>
                   </div>
                   <div className="bg-white rounded-2xl shadow p-4 mb-4">
                     <div className="font-bold text-lg mb-1">Synthesize</div>
-                    <div className="text-sm font-semibold text-arcova-teal mb-1">Connect the dots for clarity</div>
+                    <div className="text-sm font-semibold text-sanon-purple mb-1">Connect the dots for clarity</div>
                     <div className="text-gray-600 text-sm">Transform complex science into clear, actionable insights</div>
                   </div>
                   <div className="bg-white rounded-2xl shadow p-4 mb-4">
                     <div className="font-bold text-lg mb-1">Deliver</div>
-                    <div className="text-sm font-semibold text-arcova-teal mb-1">From research to impact</div>
+                    <div className="text-sm font-semibold text-sanon-purple mb-1">From research to impact</div>
                     <div className="text-gray-600 text-sm">Content, reports, or advice. Science delivered your way</div>
                   </div>
                 </>
@@ -658,28 +648,28 @@ export default function Home() {
                     subtitle="Go deep on the evidence"
                     description="Comprehensive literature search and data collection to build a strong foundation."
                     delay={0.1}
-                    color="arcova-teal"
+                    color="sanon-purple"
                   />
                   <ProcessStep
                     title="Analyze"
                     subtitle="Separate signal from noise"
                     description="Critical evaluation of evidence, source quality, and relevance to your goals."
                     delay={0.2}
-                    color="arcova-teal"
+                    color="sanon-purple"
                   />
                   <ProcessStep
                     title="Synthesize"
                     subtitle="Connect the dots for clarity"
                     description="Transform complex science into clear, actionable insights and recommendations."
                     delay={0.3}
-                    color="arcova-teal"
+                    color="sanon-purple"
                   />
                   <ProcessStep
                     title="Deliver"
                     subtitle="From research to impact"
                     description="Content, pitch decks, reports, or insights. Science delivered your way."
                     delay={0.4}
-                    color="arcova-teal"
+                    color="sanon-purple"
                   />
                 </>
               )}
@@ -692,7 +682,7 @@ export default function Home() {
         <AnimatedSection className="w-full py-24 md:py-32 bg-gray-50">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="mx-auto max-w-xl text-center mb-16">
-              <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
+              <div className="inline-block px-3 py-1 bg-sanon-purpleLight/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
                 Testimonials
               </div>
               <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
@@ -708,7 +698,7 @@ export default function Home() {
 
 
          {/* Who we're looking */}
-       <AnimatedSection className="w-full py-14 md:py-14 bg-arcova-mint/15">
+       <AnimatedSection className="w-full py-14 md:py-14 bg-sanon-purpleLight/15">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center">
               <div className="max-w-3xl text-center">
@@ -746,7 +736,7 @@ export default function Home() {
                 <GlowingNetworkMolecule />
               </div>
               <div className="space-y-3">
-                <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium mb-6">
+                <div className="inline-block px-3 py-1 bg-sanon-purpleLight/30 text-sanon-purpleDark rounded-full text-sm font-medium mb-6">
                   Our Network
                 </div>
                 <h2 className="text-3xl font-bold tracking-tight md:text-3xl mb-3">
@@ -758,9 +748,9 @@ export default function Home() {
                 <Button
                   asChild
                   variant="outline"
-                  className="mt-4 self-start rounded-full border-arcova-teal/30 hover:bg-arcova-teal/10 hover:scale-105 transform transition-all duration-300"
+                  className="mt-4 self-start rounded-full border-sanon-purple/30 hover:bg-sanon-purple/10 hover:scale-105 transform transition-all duration-300"
                 >
-                  <Link href="/network" className="flex items-center gap-2 text-arcova-teal">
+                  <Link href="/network" className="flex items-center gap-2 text-sanon-purple">
                     Join Our Network
                     <motion.div
                       whileHover={{ x: 5 }}
@@ -784,11 +774,11 @@ export default function Home() {
         </AnimatedSection>
 
         {/* Network recruitment banner */}
-        <AnimatedSection className="w-full py-12 bg-arcova-blue/10">
+        <AnimatedSection className="w-full py-12 bg-sanon-purple/10">
           <div className="container px-4 md:px-6 max-w-5xl">
             <Link 
               href="/network"
-              className="flex flex-col items-center justify-center gap-2 text-arcova-blue hover:text-arcova-blue/80 transition-colors duration-200 text-lg md:text-xl"
+              className="flex flex-col items-center justify-center gap-2 text-sanon-purple hover:text-sanon-purple/80 transition-colors duration-200 text-lg md:text-xl"
             >
               <span>We're always looking for curious scientific minds.</span>
               <span className="font-bold flex items-center gap-2">
@@ -800,15 +790,15 @@ export default function Home() {
         </AnimatedSection>
 
         {/* Emma Bardsley Section */}
-        <AnimatedSection className="w-full py-24 md:py-32 bg-arcova-mint/10">
+        <AnimatedSection className="w-full py-24 md:py-32 bg-sanon-purpleLight/10">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="grid gap-12 sm:grid-cols-2 lg:gap-16 items-center">
               <div className="space-y-6 order-2 sm:order-1">
-                <div className="inline-block px-3 py-1 bg-arcova-mint/30 text-arcova-teal rounded-full text-sm font-medium">
+                <div className="inline-block px-3 py-1 bg-sanon-purpleLight/30 text-sanon-purpleDark rounded-full text-sm font-medium">
                   Led by
                 </div>
                 <h2 className="text-3xl font-bold tracking-tight md:text-2xl">Emma Bardsley, PhD</h2>
-                <p className="text-arcova-teal font-medium">Founder and Scientific Director</p>
+                <p className="text-sanon-purpleDark font-medium">Founder and Scientific Director</p>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   Scientific direction is led by Emma Bardsley, PhD — a neuroscientist with experience in research,
                   pharma, and consulting. Emma oversees project quality and insight synthesis, ensuring that all
@@ -894,14 +884,14 @@ export default function Home() {
         </AnimatedSection>
 
         {/* Footer CTA */}
-        <AnimatedSection id="footer-cta" className="w-full py-24 md:py-32 bg-arcova-darkblue text-white">
+        <AnimatedSection id="footer-cta" className="w-full py-24 md:py-32 bg-sanon-deepNavy text-white">
           <div className="container px-4 md:px-6 max-w-5xl">
             <div className="flex flex-col items-center space-y-8 text-center">
               <h2 className="text-3xl font-semibold tracking-tight md:text-3xl max-w-[700px]">Tell us what you need and we'll make it happen.</h2>
               <Button
                 asChild
                 size="default"
-                className="mt-4 bg-arcova-teal hover:bg-arcova-blue text-white font-bold rounded-full px-8 py-4 h-auto transition-all duration-500 hover:scale-105 hover:shadow-xl group"
+                className="mt-4 bg-sanon-purple hover:bg-sanon-purple/90 text-white font-bold rounded-full px-8 py-4 h-auto transition-all duration-500 hover:scale-105 hover:shadow-xl group"
               >
                 <a
                   href="https://calendly.com/emma-arcova/30min"
@@ -933,7 +923,7 @@ export default function Home() {
               </div>
               <Link 
                 href="/contact" 
-                className="text-arcova-teal hover:text-arcova-teal/90 inline-flex items-center text-sm font-medium"
+                className="text-sanon-purple hover:text-sanon-purple/90 inline-flex items-center text-sm font-medium"
               >
                 Send us a message
                 <svg

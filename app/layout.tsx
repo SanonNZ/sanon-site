@@ -82,7 +82,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Arcova",
               url: "https://arcova.bio",
-              logo: "https://arcova.bio/arcova-logo.png",
+              logo: "https://sanon.bio/SAnon-logo.png",
               description: "Arcova unlocks science-led growth with life science consulting, biotech marketing, technical due diligence, medical SEO, and scientific writing."
             }),
           }}

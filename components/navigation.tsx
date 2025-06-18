@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { usePathname } from "next/navigation"
+import Image from "next/image"
 
 interface NavItem {
   name: string
@@ -25,7 +26,13 @@ export const Navigation = () => {
       <nav className="w-full flex items-center justify-between bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200 px-6 py-4 relative">
         {/* Logo (always visible) */}
         <div className="flex items-center gap-4 flex-shrink-0">
-          <LogoLink />
+          <Image
+            src="/images/SAnon-full-logo.png"
+            alt="Essanon logo"
+            width={120}
+            height={32}
+            className="w-auto h-8"
+          />
         </div>
         {/* Desktop Nav (hidden on mobile) */}
         <ul className="hidden md:flex flex-1 items-center justify-center gap-4">
@@ -106,10 +113,12 @@ export const Navigation = () => {
         {/* Top row: Logo and Close button */}
         <div className="flex items-center justify-between mb-6">
           <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
-            <img
-              src="/images/arcova-logo.png"
-              alt="Arcova logo"
-              className="h-8 w-auto"
+            <Image
+              src="/images/SAnon-full-logo.png"
+              alt="Essanon logo"
+              width={120}
+              height={32}
+              className="w-auto h-8"
             />
           </Link>
           <button

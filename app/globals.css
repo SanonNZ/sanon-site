@@ -4,32 +4,32 @@
 
 :root {
   --background: 0 0% 100%;
-  --foreground: 196 75% 16%; /* Navy #0d3547 */
+  --foreground: 240 100% 25%; /* Deep Navy #1c2f70 */
 
   --card: 0 0% 100%;
-  --card-foreground: 196 75% 16%; /* Navy #0d3547 */
+  --card-foreground: 240 100% 25%; /* Deep Navy #1c2f70 */
 
   --popover: 0 0% 100%;
-  --popover-foreground: 196 75% 16%; /* Navy #0d3547 */
+  --popover-foreground: 240 100% 25%; /* Deep Navy #1c2f70 */
 
-  --primary: 180 100% 35%; /* Arcova teal */
+  --primary: 260 100% 50%; /* Purple Dark */
   --primary-foreground: 210 40% 98%;
 
   --secondary: 210 40% 96.1%;
-  --secondary-foreground: 196 75% 16%; /* Navy #0d3547 */
+  --secondary-foreground: 240 100% 25%; /* Deep Navy #1c2f70 */
 
   --muted: 210 40% 96.1%;
-  --muted-foreground: 196 75% 30%; /* Lighter navy for muted text */
+  --muted-foreground: 240 100% 30%; /* Lighter navy for muted text */
 
   --accent: 210 40% 96.1%;
-  --accent-foreground: 196 75% 16%; /* Navy #0d3547 */
+  --accent-foreground: 240 100% 25%; /* Deep Navy #1c2f70 */
 
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
 
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
-  --ring: 180 100% 35%; /* Arcova teal */
+  --ring: 260 100% 50%; /* Purple Dark */
 
   --radius: 0.5rem;
 
@@ -47,7 +47,7 @@
   --popover: 222.2 84% 4.9%;
   --popover-foreground: 210 40% 98%;
 
-  --primary: 180 100% 35%; /* Arcova teal */
+  --primary: 260 100% 50%; /* Purple Dark */
   --primary-foreground: 222.2 47.4% 11.2%;
 
   --secondary: 217.2 32.6% 17.5%;
@@ -64,7 +64,7 @@
 
   --border: 217.2 32.6% 17.5%;
   --input: 217.2 32.6% 17.5%;
-  --ring: 180 100% 35%; /* Arcova teal */
+  --ring: 260 100% 50%; /* Purple Dark */
 }
 
 html {
@@ -84,28 +84,16 @@ html {
   h3 {
     font-family: var(--font-poppins);
     font-weight: 400;
-    color: #0d3547; /* Navy color for headings on light backgrounds */
+    color: #1c2f70; /* Deep Navy color for headings on light backgrounds */
   }
 
   /* Override for headings in dark background sections */
-  .bg-arcova-darkblue h1,
-  .bg-arcova-darkblue h2,
-  .bg-arcova-darkblue h3,
-  .bg-arcova-blue h1,
-  .bg-arcova-blue h2,
-  .bg-arcova-blue h3,
-  .bg-arcova-navy h1,
-  .bg-arcova-navy h2,
-  .bg-arcova-navy h3,
-  .bg-blue-700 h1,
-  .bg-blue-700 h2,
-  .bg-blue-700 h3,
-  .bg-blue-800 h1,
-  .bg-blue-800 h2,
-  .bg-blue-800 h3,
-  .bg-blue-900 h1,
-  .bg-blue-900 h2,
-  .bg-blue-900 h3 {
+  .bg-sanon-deepNavy h1,
+  .bg-sanon-deepNavy h2,
+  .bg-sanon-deepNavy h3,
+  .bg-sanon-aubergine h1,
+  .bg-sanon-aubergine h2,
+  .bg-sanon-aubergine h3 {
     color: white;
   }
 

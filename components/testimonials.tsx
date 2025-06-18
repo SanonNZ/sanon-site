@@ -2,8 +2,9 @@
 
 import * as React from "react"
 import { useEffect, useState, useRef } from "react"
-import { testimonials, type Testimonial, serviceTypes } from "../data/reviews"
+import { testimonials } from "../data/reviews"
 import { motion, AnimatePresence } from "framer-motion"
+import { Users, Zap, BarChart, GraduationCap, FileText } from "lucide-react"
 
 const DISPLAY_TIME = 7000
 const FADE_DURATION = 0.5
@@ -22,17 +23,59 @@ function getVisibleTestimonials(start: number, count: number) {
   return result
 }
 
+const serviceTypes = {
+  strategy: {
+    name: "Strategy",
+    icon: Users,
+    color: "#e94f1", // purpleDark
+    lightColor: "#d6d6fa" // purpleLight
+  },
+  content: {
+    name: "Content",
+    icon: Zap,
+    color: "#bcacff", // purpleMid
+    lightColor: "#d6d6fa" // purpleLight
+  },
+  diligence: {
+    name: "Diligence",
+    icon: BarChart,
+    color: "#2d2850", // aubergine
+    lightColor: "#8895b3" // steelGrey
+  },
+  academic: {
+    name: "Academic",
+    icon: GraduationCap,
+    color: "#1c2f70", // deepNavy
+    lightColor: "#8895b3" // steelGrey
+  },
+  report: {
+    name: "Report",
+    icon: FileText,
+    color: "#fce1fe", // pinkDark
+    lightColor: "#facffd" // pinkMid
+  }
+} as const
+
+export interface Testimonial {
+  quote: string | string[]
+  author: {
+    title?: string
+    company?: string
+  }
+  serviceType: keyof typeof serviceTypes
+}
+
 function ServiceTypePill({ type }: { type: keyof typeof serviceTypes }) {
   const serviceType = serviceTypes[type]
   const Icon = serviceType.icon
   
   // Darker variants of each color
   const darkColorMap = {
-    strategy: "#d13d74", // darker pink
-    content: "#cc7845", // even darker orange
-    diligence: "#6c5e9e", // darker purple
-    academic: "#007a87", // darker teal
-    report: "#184c60" // darker blue
+    strategy: "#d13d74", // darker purpleDark
+    content: "#9b8ce6", // darker purpleMid
+    diligence: "#1f1c37", // darker aubergine
+    academic: "#131c4d", // darker deepNavy
+    report: "#d8bbe7" // darker pinkDark
   }
 
   return (
